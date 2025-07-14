@@ -1,0 +1,4 @@
+# Ignore Visual Studio files
+*.suo
+*.user
+*.vs/
