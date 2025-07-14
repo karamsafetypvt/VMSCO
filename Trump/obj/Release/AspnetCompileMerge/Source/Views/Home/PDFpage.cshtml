@@ -1,0 +1,125 @@
+﻿@model IEnumerable<TrumpCL.DataField>
+@{
+    ViewBag.Title = "PDFpage";
+    Layout = null;
+}
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<style>
+    table {
+        border: 2px solid;
+        border-color: gray;
+    }
+
+        table tr td {
+            text-align: center;
+            font-size: 13px;
+        }
+
+        table tr th {
+            color: white;
+            text-align: center;
+            font-size: 14px;
+            background-color: #ab4242;
+        }
+
+    html {
+        box-shadow: inset 2000px 0 0 0 rgba(255, 255, 255, 0.9);
+        border-color: rgba(255, 255, 255, 1);
+    }
+
+    body {
+        font-family: Tahoma;
+        border: 1px solid black;
+        outline: 2px solid red;
+        outline-offset: 2px;
+        background-image: url('../../Layout/Images/karam logo black punchline.png');
+        background-repeat: no-repeat;
+        background-position-x: center;
+        background-position-y: center;
+        background-position: center;
+        background-size: 40%;
+        transform: rotate(20deg);
+        /*transform:rotate(30deg);*/
+    }
+
+
+    .watermark {
+        height: 95%;
+        width: 90%;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        background-repeat: repeat-y;
+        z-index: 9999;
+        opacity: 0.2;
+    }
+
+    .center {
+    }
+</style>
+<html>
+<body>
+    <div class="col-md-12">
+        <div class="col-md-2">
+            <img src="~/Layout/Images/karam logo black punchline.png" height="75" width="150" />
+            @*<img src="~/Layout/Images/karam-LOGO-1.png" />*@
+            <span style="margin-left:25%;margin-top:20px;font-size:30px;font-weight:bold;"> Visitors Report</span>
+        </div>
+    </div>
+    <div class="container">
+        <table class="table table-responsive" style="width:100%;height:auto;">
+            <tr>
+                <th>
+                    GPID
+                </th>
+                <th>
+                    Visitor Name
+                </th>
+                <th>
+                    Company
+                </th>
+                <th> Host</th>
+                <th>Departemnt</th>
+                <th>Purpose</th>
+                <th>Time IN</th>
+                <th>Time Out</th>
+                <th>Remarks</th>
+            </tr>
+            @foreach (var item in Model)
+            {
+                <tr style="padding:0px 10px;">
+                    <td>
+                        @Html.DisplayFor(modelItem => item.GP)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.visName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.comName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Req)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Dept)
+                    </td>
+                    <td>
+                        @item.Type
+                    </td>
+                    <td>
+                        @item.TimeIN
+                    </td>
+                    <td>
+                        @item.TimeOUT
+                    </td>
+                    <td>
+                        @item.Remark
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+</body>
+</html>

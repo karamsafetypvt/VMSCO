@@ -1,0 +1,611 @@
+﻿<html>
+<head>
+    <style type="text/css">
+        .txtbox {
+            height: 32px;
+            padding: 6px 2px;
+            font-size: 14px;
+            color: #555;
+            vertical-align: middle;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
+            box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
+            -webkit-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+            transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        /*.txtbox::-webkit-input-placeholder {
+            font-family: Verdana;
+            font-size:medium;
+            vertical-align:top;
+        }*/
+        .IconsSize {
+            display: inline-block;
+            font: normal normal normal 14px/1 FontAwesome;
+            text-rendering: auto;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            display: inline-block;
+            font-size: 30px;
+            vertical-align: middle;
+        }
+
+        .modal.right .modal-dialog {
+            position: fixed;
+            margin: auto;
+            width: 320px;
+            height: 100%;
+            -webkit-transform: translate3d(0%, 0, 0);
+            -ms-transform: translate3d(0%, 0, 0);
+            -o-transform: translate3d(0%, 0, 0);
+            transform: translate3d(0%, 0, 0);
+        }
+
+
+        .modal.right .modal-content {
+            height: 100%;
+            overflow-y: auto;
+        }
+
+
+        .modal.right .modal-body {
+            padding: 15px 15px 80px;
+        }
+
+
+
+        /*Right*/
+        .modal.right.fade .modal-dialog {
+            right: -320px;
+            -webkit-transition: opacity 0.3s linear, right 0.3s ease-out;
+            -moz-transition: opacity 0.3s linear, right 0.3s ease-out;
+            -o-transition: opacity 0.3s linear, right 0.3s ease-out;
+            transition: opacity 0.3s linear, right 0.3s ease-out;
+        }
+
+        .modal.right.fade.in .modal-dialog {
+            right: 0;
+        }
+
+        /* ----- MODAL STYLE ----- */
+        .modal-content {
+            border-radius: 0;
+            border: none;
+        }
+
+        .modal-header {
+            border-bottom-color: #EEEEEE;
+            background-color: #FAFAFA;
+            border-top-right-radius: 0;
+            border-top-left-radius: 0;
+        }
+
+        .mdlpopup .modal-backdrop.in {
+            opacity: 0.8 !important;
+            width: 50%;
+        }
+
+        .modal.right.fade .modal-dialog {
+            right: -350px !important;
+        }
+
+        .modalPOP {
+            position: fixed;
+            z-index: 999;
+            height: 100%;
+            width: 100%;
+            top: 0;
+            left: 0;
+            background-color: black;
+            filter: alpha(opacity=60);
+            opacity: 0.6;
+            -moz-opacity: 0.8;
+        }
+
+        .graph {
+            width: 300px;
+            height: 190px;
+        }
+
+        div > textarea {
+            resize: vertical;
+        }
+
+        .clsAccordion > a {
+        }
+
+        div > .icon-asterisk {
+            cursor: default;
+        }
+
+        .dropdown-item {
+            display: block;
+            width: 100%;
+            padding: .25rem 1.5rem;
+            clear: both;
+            font-weight: 400;
+            color: #212529;
+            text-align: inherit;
+            white-space: nowrap;
+            background-color: transparent;
+            border: 0;
+            font-size: 14px;
+        }
+
+        .dropdown-divider {
+            height: 0;
+            margin: .5rem 0;
+            overflow: hidden;
+            border-top: 1px solid #e9ecef;
+        }
+
+        .dropdown-item:focus, .dropdown-item:hover {
+            /*color: #16181b;*/
+            color: White;
+            text-decoration: none; /*color: #CCCCCC;*/ /*background-color: LightGray;*/
+            background-color: #428bca;
+            border-top-right-radius: 4px;
+            border-top-left-radius: 4px;
+            border-bottom-right-radius: 4px;
+            border-bottom-left-radius: 4px;
+        }
+
+        /*  a:hover {
+            color: #0056b3;
+            text-decoration: underline;
+            color: White;
+        }*/
+
+        a:hover {
+            color: #0056b3;
+            text-decoration: none;
+            /* color: White;*/
+        }
+
+        .dropdown-menu > a {
+            padding: 5px 9px; /*margin: 0 6px;*/
+            font-size: 14px;
+            border-top-right-radius: 4px;
+            border-top-left-radius: 4px;
+            border-bottom-right-radius: 4px;
+            border-bottom-left-radius: 4px;
+        }
+
+        #mnu .dropdown-toggle::after {
+            display: inline-block;
+            width: 0;
+            height: 0;
+            margin-left: .255em;
+            vertical-align: .255em;
+            content: "";
+            border-top: 0;
+            border-right: .3em solid transparent;
+            border-bottom: .3em solid;
+            border-left: .3em solid transparent;
+        }
+
+        .dropdown-menu.show {
+            display: block;
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            z-index: 1000;
+            display: none;
+            float: left;
+            min-width: 10rem;
+            padding: .5rem 0;
+            margin: .125rem 0 0;
+            font-size: 1rem;
+            color: #212529;
+            text-align: left;
+            list-style: none;
+            background-color: #fff;
+            background-clip: padding-box;
+            border: 1px solid rgba(0,0,0,.15);
+            border-radius: .25rem;
+        }
+
+        a {
+            color: #007bff;
+            text-decoration: none;
+            background-color: transparent;
+            -webkit-text-decoration-skip: objects;
+        }
+
+        .scroll {
+            overflow-y: auto;
+        }
+    </style>
+
+
+    <style>
+
+        div.scroll {
+            margin: 4px, 4px;
+            padding: 4px;
+            /*  background-color: green;*/
+            width: 100%;
+            height: 600px;
+            overflow-x: auto;
+            overflow-y: auto;
+            text-align: justify;
+        }
+    </style>
+
+</head>
+
+
+<body>
+    <div class="content" style="font-size:12px;min-height:100%">
+        <div class="content_resize">
+            <div class="mainbar">
+                <div class="article">
+                    <div role="tablist" class="ui-accordion ui-widget ui-helper-reset" id="accordion">
+                        <h3 class="clsAccordion ui-accordion-header ui-helper-reset ui-state-default ui-accordion-header-active ui-state-active ui-corner-top ui-accordion-icons">
+                            <a href="#" style="font-size: 15px; font-weight: 400; color: #555;">Visitor Report</a>
+                            <span class="listheader">
+                                <i class="plus fa-file-excel"></i>
+                            </span>
+                        </h3>
+
+                        <div class="form-horizontal col-md-12">
+                            <div class="main">
+                                <div class="container">
+                                    <form action="/Home/ExportVis">
+                                        <div class="row">
+                                            <div class="col-md-10">
+                                                <div class="widget-content">
+                                                    <div class="row">
+                                                        <div class="col-md-4">
+                                                            <div class="form-group">
+                                                                <label for="name" class="col-md-5" style="padding: 0px; padding-top: 10px; margin: 0px;
+                                                        text-align: right; font-weight: normal;">
+                                                                    Host
+                                                                </label>
+                                                                <div class="col-md-7" style="padding: 5px; margin: 0px; text-align: center;">
+                                                                    <select class="form-control" id="HostName" name="HostName">
+                                                                        @*<option>Select</option>*@
+                                                                        <option value="Select">--Select--</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group" id="divStatus">
+                                                                <label for="name" class="col-md-5" style="padding: 0px; padding-top: 10px; margin: 0px;
+                                                        text-align: right; font-weight: normal;">
+                                                                    Visit Type
+                                                                </label>
+                                                                <div class="col-md-7" style="padding: 5px; margin: 0px; text-align: center; vertical-align: middle;">
+                                                                    <select class="form-control" id="VisitTypeR" name="nameStatus">
+                                                                        @*<option selected>All</option>*@
+                                                                        <option value="All">--Select--</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+                                                        <div class="col-md-4">
+
+                                                            <div class="form-group">
+                                                                <label for="name" class="col-md-5" style="padding: 0px; padding-top: 10px; margin: 0px;
+                                                        text-align: right; font-weight: normal;">
+                                                                    Company
+                                                                </label>
+                                                                <div class="col-md-7" style="padding: 5px; margin: 0px; text-align: center;">
+                                                                    <select class="form-control" id="divCam" name="nameCompanyID">
+                                                                        @*<option selected>--Select--</option>*@
+                                                                        <option value="All">--Select--</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label>
+                                                                </label>
+                                                                <label for="name" class="col-md-5" style="padding: 0px; padding-top: 10px; margin: 0px;
+                                                        text-align: right; font-weight: normal;">
+                                                                    Visitor
+                                                                </label>
+                                                                <div class="col-md-7" style="padding: 5px; margin: 0px; text-align: center; vertical-align: middle;">
+                                                                    <select class="form-control" id="divVis" name="VisitorId">
+
+                                                                        @*<option>All</option>*@
+                                                                        <option value="All">--Select--</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-2">
+                                                            <div class="form-group">
+                                                                <label for="name" class="col-md-5" style="padding: 0px; padding-top: 10px; margin: 0px;
+                                                        text-align: right; font-weight: normal;">
+                                                                    From   <i class="fa fa-asterisk required"></i>
+                                                                </label>
+                                                                <div class="col-md-7" style="padding: 5px; margin: 0px; text-align: left;">
+
+
+                                                                    <input class="form-control date start validate" autocomplete="off" onkeydown="return isNOTAnyKey(event)" onkeyup="return isNOTAnyKey(event)" onkeypress="return isNOTAnyKey(event)" id="FromDateRpt" value="@ViewBag.Fromdate" name="FromDateRpt" type="text">
+
+                                                                </div>
+                                                              
+
+
+                                                            </div>
+                                                            <div class="form-group">
+                                                               
+                                                                <label>
+                                                                </label>
+                                                                <label for="name" class="col-md-5" style="padding: 0px; padding-top: 10px; margin: 0px;
+                                                        text-align: right; font-weight: normal;">
+                                                                    To <i class="fa fa-asterisk required"></i>
+                                                                </label>
+                                                                <div class="col-md-7" style="padding: 5px; margin: 0px; text-align: center; vertical-align: middle;">
+                                                                    <input id="yrR" class="form-control validate" autocomplete="off"  onkeydown="return isNOTAnyKey(event)" onkeyup="return isNOTAnyKey(event)" onkeypress="return isNOTAnyKey(event)" value="@ViewBag.Todate" type="text" name="tDate">
+                                                                   
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-2">
+                                                            <div class="form-group">
+                                                                <label for="name" class="col-md-4" style="padding: 0px; padding-top: 10px; margin: 0px;
+                                                        text-align: right; font-weight: normal;">
+                                                                    Status <i class="fa fa-asterisk required"></i>
+                                                                </label>
+                                                                <div class="col-md-8" style="padding: 5px; margin: 0px; text-align: center;">
+                                                                    <select id="V_Status" class="form-control validate" name="V_Status">
+                                                                     
+                                                                        @*<option value="Select">All</option>*@
+                                                                        <option value="Select">--All--</option>
+                                                                        <option value="Pre">@*Pre*@@*Prebooked*@ Appointment</option>
+                                                                        <option value="Arrived">@*IN*@Check-in</option>
+                                                                        <option value="OUT">@*Out*@Check-out</option>
+                                                                        @*<option value="Close">Closed</option>*@
+
+                                                                        <option value="Reject">Reject</option>
+                                                                        <option value="Cancel">Cancel</option>
+
+
+
+                                                                    </select>
+
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-2" style="text-align: right;">
+                                                <div class="widget-content">
+                                                    <div class="row">
+                                                        <div class="form-group" style="padding: 5px;">
+                                                            <div class="col-md-12">
+                                                                <input type="button" name="name" value="GO" id="LoadRecordsVisitor" class="btn btn-primary" />
+                                                            </div>
+
+
+
+
+                                                            <div class="col-md-6 pull-right" style="padding-top: 5px">
+                                                                <div class="col-md-2">
+                                                                    <button id="btnSubmit" type="submit" style="background:none;border:none;"><i class="IconsSize fa-file-excel-o" style="color:#1D6F42;"></i></button>
+                                                                </div>
+
+                                                                <div class="col-md-2 pull-right" style="display:none;">
+                                                                    <a id="ExportPDF">
+                                                                        <i class="IconsSize fa-file-pdf-o" style="color:red;"></i>
+                                                                    </a>
+                                                                </div>
+                                                                @*<input type="submit" id="btnSubmit" value="Export" class="fa-file-excel" />*@
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="scroll" id="weeklayout" ></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <script src="~/Scripts/jquery-ui.js"></script>
+
+    <script>
+    $(document).ready(function () {
+        $.ajax({
+            url: '@Url.Action("GetSiteData", "Home")',
+            type: 'Get',
+            contenType: 'application/json charset utf-8',
+            dataType: 'json',
+            success: function (SaleOrder) {
+                for (var i = 0; i < SaleOrder.length; i++) {
+                    var s = "<option value='" + SaleOrder[i].C_ID + "'>" + SaleOrder[i].CName + "</option>";
+                    $("#divCam").append(s);
+                }
+            }
+        });
+
+        $("#LoadRecordsVisitor").click(function () {
+
+            debugger
+
+            //--------feb2----
+            var host1 = $('#HostName option:selected').text();
+            var company1 = $('#divCam option:selected').text();
+            var visitor1 = $('#divVis option:selected').text();
+            var visitype1 = $('#VisitTypeR option:selected').text();
+            var Status1 = $('#V_Status option:selected').text();
+
+
+            var frdate1 = $('#FromDateRpt').val();
+            var todate1 = $('#yrR').val();
+            if (frdate1 == "") {
+                alert('Please Enter From Date');
+                return false;
+            }
+            if (todate1 == "") {
+                alert('Please Enter To Date');
+                return false;
+            }
+            //alert(host1);
+            //if (host1 == '--Select--') {
+            //    alert('Please Select Host');
+            //    return false;
+            //}
+            //if (company1 == '--Select--') {
+            //    alert('Please Select company');
+            //    return false;
+            //}
+            //if (visitype1 == '--Select--') {
+            //    alert('Please Select visit type');
+            //    return false;
+            //}
+            //if (visitor1 == '--Select--') {
+            //    alert('Please Select visitor');
+            //    return false;
+            //}
+
+            //if (Status1 == '--Select--') {//Aug3
+            //    alert('Please Select Status');
+            //    return false;
+            //}
+            //--------------
+            var visitype = $("#VisitTypeR").val();
+            var company = $("#divCam").val();
+            var visitor = $("#divVis").val();
+            var FDate = $("#FromDateRpt").val();
+            var TDate = $("#yrR").val();
+            var req = $("#HostName").val();
+            //alert(visitype);
+            //alert(company);
+            //alert(visitor);
+
+
+
+
+            var V_Status = $("#V_Status").val();
+            $.ajax({
+                url: '@Url.Action("P_Visitor", "Home")',
+                type: 'GET',
+                contenType: 'application/json charset utf-8',
+                data: { visitype: visitype, company: company, visitor: visitor, FDate: FDate, TDate: TDate, Req: req, status: V_Status },
+                dataType: 'html',
+                success: function (response) {
+                    $('#weeklayout').html(response);
+                }
+            })
+        })
+
+         $("#ExportPDF").click(function () {
+            debugger
+            $(this).attr("href", "");
+            var visitype = $("#VisitTypeR").val();
+            var company = $("#divCam").val();
+            var visitor = $("#divVis").val();
+            var FDate = $("#FromDateRpt").val();
+            var TDate= $("#yrR").val();
+            var req = $("#HostName").val();
+            var V_Status = $("#V_Status").val();
+             var url = "../Home/Print?visitype=" + $("#VisitTypeR").val() + "-" + $("#divCam").val() + "-" + $("#divVis").val() + "-" + FDate + "-" + TDate + "-" + req + "-" + V_Status;
+                $("#ExportPDF").attr("href", url);
+        })
+
+
+        //$(".validate").datepicker({
+        //    'autoclose': true,
+        //    'endDate': '-0m',
+        //    'format':'dd/mm/yyyy'
+        //});
+        $(".validate").datepicker({
+            'autoclose': true,
+            'endDate': '-0m',
+            /*'format':'dd/mm/yyyy'*/
+            'format': 'dd/M/yyyy'
+        });
+
+
+
+        var d = new Date();
+        var month = d.getMonth();
+        var day = d.getDate();
+        var output = (day < 10 ? '0' : '') + day + '/' + (month < 10 ? '0' : '') + month + '/' + d.getFullYear();
+    /*$("#FromDateRpt").val(output);*/
+
+        var td = new Date();
+        var tmonth = td.getMonth() + 1;
+        var tday = td.getDate();
+        var toutput = (tday < 10 ? '0' : '') + tday + '/' + (tmonth < 10 ? '0' : '') + tmonth + '/' + td.getFullYear();
+       /* $("#yrR").val(toutput);*/
+    });
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            $("#divCam").change(function () {
+                var d = $(this).val();
+                $.ajax({
+                    url: '@Url.Action("GetVisitorData", "Home")',
+                    dataType: 'json',
+                    type: 'GET',
+                    data: { ID: d },
+                    success: function (data) {
+                        /*var s1 = "<option value='All'>All</option>";*/
+                        var s1 = "<option value='All'>--Select--</option>";
+                        $("#divVis").append(s1);
+                        for (var i = 0; i < data.length; i++) {
+                            var s = "<option value='" + data[i].V_ID + "'>" + data[i].V_Name + "</option>";
+                            $("#divVis").append(s);
+                        }
+                    }
+                })
+            })
+        });
+    </script>
+
+
+    <script>
+    $(document).ready(function () {
+        $.ajax({
+            url: '@Url.Action("PopulateHost", "Home")',
+            type: 'Get',
+            contenType: 'application/json charset utf-8',
+            dataType: 'json',
+            success: function (data) {
+                for (var i = 0; i < data.length; i++) {
+                    var s = "<option value=" + data[i].EMPLOYEE_ID + ">" + data[i].requestor_key + "</option>";
+                    $("#HostName").append(s);
+                }
+            }
+        });
+
+    });
+    </script>
+
+</body>
+</html>
+
+
+
+<script>
+    function isNOTAnyKey(evt) {
+       
+
+        var charCode = (evt.which) ? evt.which : event.keyCode;
+
+        return false;
+
+
+    }
+
+
+
+</script>

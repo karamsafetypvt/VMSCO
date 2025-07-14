@@ -1,0 +1,233 @@
+﻿@{
+    //ViewBag.Title = "Courier Entry";
+    //Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = null;
+}
+<style type="text/css">
+    #accordion div {
+        display: none;
+    }
+
+    .tooltip {
+        position: absolute;
+        z-index: 1030;
+        display: block;
+        opacity: 1;
+        filter: alpha(opacity=75);
+        font-size: 11px;
+        line-height: 1.4;
+        zoom: 1;
+        visibility: visible;
+        width: auto;
+    }
+
+    .tooltip-inner {
+        max-width: 800px;
+        padding: 3px 8px;
+        color: #ffffff;
+        width: 400;
+        display: block;
+        text-align: left;
+        font-size: 11px;
+        text-decoration: none;
+        background-color: #000000;
+        border-radius: 4px;
+    }
+
+
+    .modalPOP {
+        position: fixed;
+        z-index: 999;
+        height: 100%;
+        width: 100%;
+        top: 0;
+        left: 0;
+        background-color: White;
+        filter: alpha(opacity=60);
+        opacity: 0.6;
+        -moz-opacity: 0.8;
+    }
+
+    .modal-dialog1 {
+        position: absolute;
+        left: 25%;
+        top: 25%;
+        -moz-transform: translate(-50%, -50%);
+        -webkit-transform: translate(-50%, -50%);
+        -o-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+    }
+</style>
+
+<style>
+    .modal-dialog1 {
+        position: absolute;
+        left: 25%;
+        top: 25%;
+        -moz-transform: translate(-50%, -50%);
+        -webkit-transform: translate(-50%, -50%);
+        -o-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+    }
+
+    .ui-widget-content {
+        border: 1px solid;
+    }
+
+    .ui-autocomplete li.ui-menu-item a {
+        background-image: none;
+    }
+
+    .focus {
+        border: 2px solid #AA88FF;
+        background-color: #FFEEAA;
+    }
+
+    .ui-datepicker select.ui-datepicker-month, .ui-datepicker select.ui-datepicker-year {
+        color: Black;
+        font-weight: normal;
+    }
+
+    .ui-autocomplete {
+        max-height: 100px;
+        overflow-y: auto; /* prevent horizontal scrollbar */
+        overflow-x: hidden; /* add padding to account for vertical scrollbar */
+        padding-right: 20px;
+    }
+
+    *html .ui-autocomplete {
+        height: 100px;
+    }
+
+    .select2-container--default .select2-selection--single {
+        border-radius: 4px;
+    }
+
+    .select2-container {
+        width: 100% !important;
+    }
+</style>
+<div class="content" style="font-size:12px;min-height:100%">
+    <div class="content_resize">
+        <div class="mainbar">
+            <div class="article">
+                <div id="divNewInward" style="">
+                    <form action="/Home/SaveCouriarDetail" enctype="multipart/form-data" method="post">
+                        <input id="AuthoriserString" name="AuthoriserString" value="-1" type="hidden">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="widget stacked">
+                                        <div class="widget-header">
+                                            <i class="fa fa-check-circle"></i>
+                                            <h3>
+                                                Mail Send Acknowledge
+                                            </h3>
+                                        </div>
+                                        <div class="widget-content">
+
+
+
+                                         
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+
+<script>
+
+    $(document).ready(function () {
+        $("#AppointmentDateString").datepicker({
+            'autoclose': true,
+            'startDate': '-0m'
+        });
+    });
+
+    $("#btnSave").click(function () {
+
+        //txtremark txtvendor txtdocket txtRecievetime txtdoc txtcity txtcompany txtdept  AppointmentDateString V_DateFrom
+        if ($("#AppointmentDateString").val() == "") {
+            alert("Please Enter Date");
+            return false;
+        }
+
+        else if ($("#txtdept").val() == "") {
+            alert("Please Enter Department");
+            return false;
+        }
+        else if ($("#txtcompany").val() == "") {
+            alert("Please Enter Company");
+            return false;
+        }
+        else if ($("#txtcity").val() == "") {
+            alert("Please Enter City");
+            return false;
+        }
+        else if ($("#txtdoc").val() == "") {
+            alert("Please Enter Document");
+            return false;
+        }
+        else if ($("#txtRecievetime").val() == "") {
+            alert("Please Enter Courier Receiving Time");
+            return false;
+        }
+        else if ($("#txtdocket").val() == "") {
+            alert("Please Enter Docket No.");
+            return false;
+        }
+        else if ($("#txtvendor").val() == "") {
+            alert("Please Enter Delivery Provider Name");
+            return false;
+        }
+
+    });
+
+
+</script>
+
+<script>
+    $(document).ready(function () {
+        //$("#AppointmentTimeString").timepicker({
+        //    'interval': 05,
+        //    'showDuration': true,
+        //    'timeFormat': 'g:ia',
+        //    'minTime': '09',
+        //    'maxTime': '6:00pm',
+        //});
+
+
+        $("#txtRecievetime").timepicker({
+            'step': 05,
+            timeFormat: 'g:ia',
+            interval: '05',
+            minTime: '10',
+            maxTime: '6:00pm',
+            defaultTime: '11',
+            startTime: '10:00',
+            dynamic: true,
+            dropdown: true,
+            scrollbar: true
+        });
+
+
+
+
+    })
+</script>
+
+
+
+
+

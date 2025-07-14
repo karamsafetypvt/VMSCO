@@ -1,0 +1,715 @@
+﻿@{
+    ViewBag.Title = "Inward";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style type="text/css">
+    #accordion div {
+        display: none;
+    }
+
+    .tooltip {
+        position: absolute;
+        z-index: 1030;
+        display: block;
+        opacity: 1;
+        filter: alpha(opacity=75);
+        font-size: 11px;
+        line-height: 1.4;
+        zoom: 1;
+        visibility: visible;
+        width: auto;
+    }
+
+    .tooltip-inner {
+        max-width: 800px;
+        padding: 3px 8px;
+        color: #ffffff;
+        width: 400;
+        display: block;
+        text-align: left;
+        font-size: 11px;
+        text-decoration: none;
+        background-color: #000000;
+        border-radius: 4px;
+    }
+
+
+    .modalPOP {
+        position: fixed;
+        z-index: 999;
+        height: 100%;
+        width: 100%;
+        top: 0;
+        left: 0;
+        background-color: White;
+        filter: alpha(opacity=60);
+        opacity: 0.6;
+        -moz-opacity: 0.8;
+    }
+
+    .modal-dialog1 {
+        position: absolute;
+        left: 25%;
+        top: 25%;
+        -moz-transform: translate(-50%, -50%);
+        -webkit-transform: translate(-50%, -50%);
+        -o-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+    }
+</style>
+
+<style>
+    .modal-dialog1 {
+        position: absolute;
+        left: 25%;
+        top: 25%;
+        -moz-transform: translate(-50%, -50%);
+        -webkit-transform: translate(-50%, -50%);
+        -o-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+    }
+
+    .ui-widget-content {
+        border: 1px solid;
+    }
+
+    .ui-autocomplete li.ui-menu-item a {
+        background-image: none;
+    }
+
+    .focus {
+        border: 2px solid #AA88FF;
+        background-color: #FFEEAA;
+    }
+
+    .ui-datepicker select.ui-datepicker-month, .ui-datepicker select.ui-datepicker-year {
+        color: Black;
+        font-weight: normal;
+    }
+
+    .ui-autocomplete {
+        max-height: 100px;
+        overflow-y: auto; /* prevent horizontal scrollbar */
+        overflow-x: hidden; /* add padding to account for vertical scrollbar */
+        padding-right: 20px;
+    }
+
+    *html .ui-autocomplete {
+        height: 100px;
+    }
+
+    .select2-container--default .select2-selection--single {
+        border-radius: 4px;
+    }
+
+    .select2-container {
+        width: 100% !important;
+    }
+</style>
+<div class="content" style="font-size:12px;min-height:100%">
+    <div class="content_resize">
+        <div class="mainbar">
+            <div class="article">
+                <div id="divNewInward" style="">
+                    <form action="/Home/InsertPODetails" enctype="multipart/form-data" method="post">
+                        <input id="AuthoriserString" name="AuthoriserString" value="-1" type="hidden">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="widget stacked">
+                                        <div class="widget-header">
+                                            <i class="fa fa-check-circle"></i>
+                                            <h3>
+                                                Inward
+                                            </h3>
+                                        </div>
+                                        <div class="widget-content">
+                                            <div class="row">
+                                                <div class="col-md-4">
+                                                    <fieldset>
+                                                        <legend>Pass Detail</legend>
+                                                        <div class="form-group">
+                                                            <label for="name" class="col-md-8">Material Type  <i class="fa fa-asterisk required"></i></label>
+                                                            <div class="col-md-10">
+                                                                <select class="form-control" id="CreateInwardTypeID" name="InwardTypeID">
+                                                                    <option selected disabled>--Please Select--</option>
+                                                                    <option value="1">Material Inward </option>
+                                                                </select>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group" id="divDate">
+                                                            <label for="name" class="col-md-8">Date</label>
+                                                            <div class="col-md-10">
+                                                                <input class="form-control" id="InwardDateString" name="InwardDateString" type="text">
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group" id="PONumber" style="display:none;">
+                                                            <label for="name" class="col-md-8">PO Number</label>
+                                                            <div class="col-md-10">
+                                                                <select class="form-control select2_group" id="ddlPONumber" name="ddlPONumber">
+                                                                    <option disabled selected>--Please Select--</option>
+                                                                </select>
+                                                                @*<input class="form-control" id="ddlPONumber" name="ddlPONumber" type="text">*@
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                            </div>
+                                                        </div>
+                                                        <div id="HidePODetail" style="display:none;">
+                                                            <div class="form-group">
+                                                                <label for="name" class="col-md-8">Challan No</label>
+                                                                <div class="col-md-10">
+                                                                    <input class="form-control" id="CreatedByName" name="CreatedByName" value="Bharat Patel" type="text">
+                                                                </div>
+                                                                <div class="col-md-2">
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label for="name" class="col-md-8">Request by</label>
+                                                                <div class="col-md-10">
+                                                                    <input class="form-control" id="CreatedByName" name="CreatedByName" type="text">
+                                                                </div>
+                                                                <div class="col-md-2">
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label for="name" class="col-md-8">Department</label>
+                                                                <div class="col-md-10">
+                                                                    <input class="form-control" id="CreatedByName" name="CreatedByName" type="text">
+
+                                                                </div>
+                                                                <div class="col-md-2">
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label for="name" class="col-md-8">Mobile/Extension</label>
+                                                                <div class="col-md-10">
+                                                                    <input class="form-control" id="CreatedByName" name="CreatedByName" type="text">
+
+                                                                </div>
+                                                                <div class="col-md-2">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </fieldset>
+                                                </div>
+                                                <div class="col-md-4" id="SupplierDetail">
+                                                    <fieldset>
+                                                        <legend>Supplier Detail</legend>
+
+                                                        <div class="form-group" id="SupplierType">
+                                                            <label for="name" class="col-md-8">Supplier Type   <i class="fa fa-asterisk required"></i></label>
+                                                            <div class="col-md-10">
+
+                                                                <input class="form-control clsVisitorIDAutotext" id="VisitorType" name="VisitorType" value="" type="text">
+
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                               
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group" id="divVisitors">
+                                                            <label for="name" class="col-md-8">Name   <i class="fa fa-asterisk required"></i></label>
+                                                            <div class="col-md-10">
+                                                                <input class="form-control clsVisitorIDAutotext" id="VisitorName" name="SupplierNamePO" value="" type="text">
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                               
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group" id="divVisitors">
+                                                            <label for="name" class="col-md-8">Address   <i class="fa fa-asterisk required"></i> </label>
+                                                            <div class="col-md-10">
+
+                                                                <input class="form-control clsVisitorIDAutotext" id="VisitorAddress" name="SupplierAddressPO" value="" type="text">
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                               
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group" id="divUsers">
+                                                            <label for="name" class="col-md-8">GST No.  <i class="fa fa-asterisk required"></i></label>
+                                                            <div class="col-md-10">
+                                                                <input autocomplete="off" class="form-control clsUserIDAutotext ui-autocomplete-input" id="GSTnum" name="GSTnumPO" value="" type="text">
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                @*<i class="fa fa-asterisk required" style="margin-left: -25px;"></i>*@
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group" id="divContractor">
+                                                            <label for="name" class="col-md-8">Contact Person  <i class="fa fa-asterisk required"></i></label>
+                                                            <div class="col-md-10">
+
+                                                                <input class="form-control clsContractorIDAutotext" id="ContactPerson" name="ContactPerson" value="" type="text">
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group" id="divWorker">
+                                                            <label for="name" class="col-md-8">Contact No.</label>
+                                                            <div class="col-md-10">
+
+                                                                <input class="form-control clsWorkerIDAutotext" id="Contactnum" name="ContactnumPO" type="text">
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                               
+                                                            </div>
+                                                        </div>
+
+                                                    </fieldset>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <fieldset>
+                                                        <legend>Transport Detail</legend>
+                                                        <div class="form-group">
+                                                            <label for="name" class="col-md-8">Mode Of Transport  <i class="fa fa-asterisk required"></i></label>
+                                                            <div class="col-md-10">
+                                                                <select class="form-control" id="ddlModeOfTransport" name="ddlModeOfTransport">
+                                                                    <option selected disabled>--Please Select--</option> 
+                                                                    <option value="WORKER">Worker</option>
+                                                                    <option value="TRANSPORT">Transport</option>
+                                                                </select>
+                                                            </div>
+                                                            <div class="col-md-2">                                                               
+                                                            </div>
+                                                        </div>
+
+                                                        <div id="OptionWorker" style="display:none;">
+                                                            <div class="form-group" id="divVisitors">
+                                                                <label for="name" class="col-md-8">Name/Emp Code  <i class="fa fa-asterisk required"></i></label>
+                                                                <div class="col-md-10">
+
+                                                                    <input class="form-control clsVisitorIDAutotext" id="TransEmpCode" name="TransEmpCode" value="" type="text">
+
+                                                                </div>
+                                                                <div class="col-md-2">
+                                                                    
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div id="OptionTransport" style="display:none;">
+
+                                                            <div class="form-group" id="divVehicleType">
+                                                                <label for="name" class="col-md-8">Vehicle Type</label>
+                                                                <div class="col-md-10">
+                                                                    <select class="form-control" data-val="true" data-val-number="The field VehicleType must be a number." id="TransVehicleType" name="TransVehicleType">
+                                                                        <option selected disabled>--Please Select--</option>
+                                                                        <option>External</option>
+                                                                        <option>Internal</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="form-group" id="divVisitors">
+                                                                <label for="name" class="col-md-8">Vehicle No  <i class="fa fa-asterisk required"></i></label>
+                                                                <div class="col-md-10">
+
+                                                                    <input class="form-control clsVisitorIDAutotext" style="text-transform:uppercase" id="TransVehicleNum" name="TransVehicleNum" value="" type="text">
+
+                                                                </div>
+                                                                <div class="col-md-2">                                                                   
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group" id="divVisitors">
+                                                                <label for="name" class="col-md-8">Driver Name  <i class="fa fa-asterisk required"></i></label>
+                                                                <div class="col-md-10">
+                                                                    <input class="form-control clsVisitorIDAutotext" id="TransDriverName" name="TransDriverName" value="" onkeypress="return isAlphabt(event)" type="text">
+                                                                </div>
+                                                                <div class="col-md-2">
+
+                                                                </div>
+                                                                <label for="name" class="col-md-8">Valid ID<i class="fa fa-asterisk required"></i></label>
+                                                                <div class="col-md-10">
+                                                                    <input class="form-control" id="validID" name="validID" value="" type="text">
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+
+                                                    </fieldset>
+                                                </div>
+                                            </div>
+                                            <hr>
+                                            <div>
+                                                <div style="padding: 5px">
+                                                    <div>
+                                                    </div>
+                                                    <div id="divTable">
+                                                        <table id="tbl_posts" class="bordered" style="width: 100%;">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th style="width: 3%;">
+                                                                        Seq
+                                                                    </th>
+                                                                    <th style="width: 5%;">
+                                                                        Item Code
+                                                                    </th>
+                                                                    <th style="width: 15%;">
+                                                                        Description
+                                                                    </th>
+                                                                    <th style="width: 5%;">
+                                                                        UOM
+                                                                    </th>
+
+                                                                    <th style="width: 5%;">
+                                                                        Qty
+                                                                    </th>
+                                                                    <th style="width: 5%;">
+                                                                        Received Qty
+                                                                    </th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody id="tbl_posts_body">
+                                                                <tr id="rec-1">
+                                                                    <td><span class="sn">1</span>.</td>
+                                                                    <td>
+                                                                        <input id="txtItemCode" class="form-control" name="txtItemCodePO" style="width:100%" type="text">
+
+                                                                    </td>
+                                                                    <td>
+                                                                        <input  id="txtDescription" class="form-control" name="txtDescriptionPO" style="width:100%" type="text">
+
+                                                                    </td>
+                                                                    <td>
+                                                                        <input id="txtUOM" name="txtUOMPO" class="form-control" style="width:90%"  type="text">
+                                                                    </td>
+                                                                    <td>
+                                                                        <input id="txtQty" name="txtQtyPO" class="form-control" style="width:90%" type="text" onkeypress="return CheckPhone(event)">
+                                                                    </td>
+                                                                    <td>
+                                                                        <input id="txtRecQty" class="form-control" name="txtRecQtyPO" style="width:90%" type="text">
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <hr>
+                                            <div class="row">
+                                                <div style="padding-left: 20px" class="col-md-offset-10">
+                                                    <div id="divSavePanel" style="float: left;padding-left: 4px;">
+                                                        <input type="submit"
+                                                               name="btnSave" value="Submit" class="btn btn-primary" />
+                                                    </div>
+                                                    <div style="float: left;padding-left: 4px; ">
+                                                        <input id="btnCancel" name="btnCancel" class="btn btn-primary" value="Clear" type="button">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div style="display:none;">
+    <table id="sample_table" class="bordered" style="width: 100%;">
+        <tr id="">
+            <td><span class="sn"></span>.</td>
+            <td>
+                <input autocomplete="off" data-type="ItemCode" id="txtItemCode" class="clsItemCode ui-autocomplete-input" name="txtItemCodePO" style="width:100%" maxlength="30" type="text">
+
+            </td>
+            <td>
+                <input autocomplete="off" data-type="Description" id="txtDescription" class="clsItemCode ui-autocomplete-input" name="txtDescriptionPO[]" style="width:100%" maxlength="30" type="text">
+
+            </td>
+            <td>
+                <input id="txtUOM" name="txtUOM[]" class="txtSerial two-digits" style="width:90%" maxlength="8" type="text" data-type="UOM">
+            </td>
+            <td>
+                <input id="txtQty" name="txtQty[]" data-type="Quantity" class="txtSerial two-digits" style="width:90%" maxlength="8" type="text">
+            </td>
+            <td onmouseover="ApplyCss()" id="tooltip" title="Browse">
+                <input id="fileLoader2" name="fileLoader" title="Load File" style="display:none" class="clsItemImage" onchange="showimagepreview(this)" type="file">
+                <input src="~/Layout/Images/FileUpd.png" id="btnOpenFileDialog" class="btnOpenFileDialog" style=" width:25px; height:25px" onclick="openfileDialog(this);return false;" type="image">
+            </td>
+            <td onmouseover="ApplyCss()" id="tooltip" title="Preview">
+                <img id="ItemPreview" class="clsItemPreview" alt="Item image" data-tooltip="sticky3" style=" width:30px; height:30px">
+            </td>
+
+            <td><a class="btn btn-xs delete-record" data-id="0"><i class="glyphicon glyphicon-trash"></i></a></td>
+        </tr>
+    </table>
+</div>
+
+
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+
+<script type="text/javascript">
+    function OpenPopupWindowPhotoForItem(thisctrl) {
+        ItemImageRow = $(thisctrl).parent().parent();
+        $("#imgItemZoom").each(function (i) {
+            if ($(this).height() > $(this).width()) {
+                var h = max_height;
+                var w = Math.ceil($(this).width() / $(this).height() * max_height);
+            }
+            else {
+                var w = max_width;
+                var h = Math.ceil($(this).height() / $(this).width() * max_width);
+            }
+
+            $(this).css({ height: h, width: w });
+
+        });
+        stickytooltip.init("*sticky3", "mystickytooltip")
+        OpenPopupWindowPhoto('Outward/WebCamItem', '', 350, 300)
+    }
+    function openfileDialog(thisctrl) {
+        ItemImageRow = $(thisctrl).parent().parent();
+        ItemImageRow.children("td:nth-child(6)").find($('.clsItemImage')).click();
+
+    }
+    function showimagepreview(input) {
+        if (input.files && input.files[0]) {
+            //QuickItemRow = $(thisctrl).parent().parent();
+
+            var filerdr = new FileReader();
+            filerdr.onload = function (e) {
+                ItemImageRow.children("td:nth-child(7)").find($('.clsItemPreview')).attr('src', e.target.result);
+            }
+            filerdr.readAsDataURL(input.files[0]);
+        }
+    }
+    function ApplyCss() {
+        $(".tooltip").tooltip().on("click", function () {
+            var $this = $(this),
+                tooltip = $this.next(".tooltip");
+        });
+    }
+
+</script>
+
+<script>
+    $(document).ready(function () {
+        $("#ddlModeOfTransport").change(function () {
+            var d = $(this).val();
+            if (d == "SELF") {
+                $("#OptionWorker").hide();
+                $("#OptionVisitor").hide();
+                $("#OptionTransport").hide();
+            }
+            else if (d == "WORKER") {
+                $("#OptionWorker").show();
+                $("#OptionVisitor").hide();
+                $("#OptionTransport").hide();
+            }
+            else if (d == "TRANSPORT") {
+                $("#OptionWorker").hide();
+                $("#OptionVisitor").hide();
+                $("#OptionTransport").show();
+            }
+            else if (d == "VISITOR") {
+                $("#OptionWorker").hide();
+                $("#OptionVisitor").show();
+                $("#OptionTransport").hide();
+            }
+        })
+    })
+</script>
+
+<script>
+    $(document).ready('a.add-record', 'click', function (e) {
+        e.preventDefault();
+        var content = jQuery('#sample_table tr'),
+            size = jQuery('#tbl_posts >tbody >tr').length + 1,
+            element = null,
+            element = content.clone();
+        element.attr('id', 'rec-' + size);
+        element.find('.delete-record').attr('data-id', size);
+        element.appendTo('#tbl_posts_body');
+        element.find('.sn').html(size);
+    });
+    jQuery(document).delegate('a.add-record', 'click', function (e) {
+        e.preventDefault();
+        var content = jQuery('#sample_table tr'),
+            size = jQuery('#tbl_posts >tbody >tr').length + 1,
+            element = null,
+            element = content.clone();
+        element.attr('id', 'rec-' + size);
+        element.find('.delete-record').attr('data-id', size);
+        element.appendTo('#tbl_posts_body');
+        element.find('.sn').html(size);
+    });
+</script>
+
+<script>
+    jQuery(document).delegate('a.delete-record', 'click', function (e) {
+        e.preventDefault();
+        var didConfirm = confirm("Are you sure You want to delete");
+        if (didConfirm == true) {
+            var id = jQuery(this).attr('data-id');
+            var targetDiv = jQuery(this).attr('targetDiv');
+            jQuery('#rec-' + id).remove();
+
+            //regnerate index number on table
+            $('#tbl_posts_body tr').each(function (index) {
+                //alert(index);
+                $(this).find('span.sn').html(index + 1);
+            });
+            return true;
+        } else {
+            return false;
+        }
+    });
+</script>
+
+
+<script>
+    $(document).ready(function () {
+        $("#ddlSupplierType").change(function () {
+            var d = $(this).val();
+            if (d == 1) {
+                $("#ddlUnitLocation").show();
+            }
+            else {
+                $("#ddlUnitLocation").hide();
+            }
+        })
+    })
+</script>
+
+
+<script>
+    $(document).ready(function () {
+        var fullDate = new Date(); console.log(fullDate);
+        var twoDigitMonth = fullDate.getMonth() + 1;
+        var twoDigitDate = fullDate.getDate() + ""; if (twoDigitDate.length == 1) twoDigitDate = "0" + twoDigitDate;
+        var currentDate = fullDate.getFullYear() + "/" + twoDigitMonth + "/" + twoDigitDate;
+        $("#divDate input").prop('readonly', true).val(currentDate);
+        $("#SupplierDetail input").prop('readonly', true);
+
+    })
+</script>
+<script>
+    $(document).ready(function () {
+        $("#CreateInwardTypeID").change(function () {
+            var d = $(this).val();
+            if (d == 1) {
+                $("#HidePODetail").hide();
+                $("#SupplierType").hide();
+                $("#PONumber").show();
+            }
+            else {
+                $("#HidePODetail").show();
+                $("#SupplierType").show();
+                $("#PONumber").hide();
+            }
+        })
+
+        $.ajax({
+            url: '@Url.Action("populatePONumber", "Home")',
+            contentType: 'application/html; charset=utf-8',
+            type: 'GET',
+            datatype: 'json',
+            success: function (data) {
+                for (var i = 0; i < data.length; i++) {
+                    var s = "<option>" + data[i] + "</option>";
+                    $("#ddlPONumber").append(s);
+                }
+            }
+        })
+    })
+</script>
+
+<script>
+    $(document).ready(function () {
+        $("#ddlPONumber").change(function () {
+            $("#tbl_posts tbody").empty();
+                var d = $(this).val();
+                $.ajax({
+                    url: '@Url.Action("populateDetailPONumber", "Home")',
+                    contentType: 'application/html; charset=utf-8',
+                    type: 'GET',
+                    datatype: 'json',
+                    data: { poNum: d },
+                    success: function (data) {
+                        debugger
+                        var trHTML = '';
+                        var d = data[0].VENDOR_NAME;
+                        $("#VisitorName").val(data[0].VENDOR_NAME);
+                        $("#VisitorAddress").val(data[0].ADDRESS);
+                        var gs = data[0].GST;
+                        if (gs == null) {
+                            $("#GSTnum").val("NA");
+                        }
+                        else {
+                            $("#GSTnum").val(data[0].GST);
+                        }
+                        var cp = data[0].CONTACT_PERSON;
+                        if (cp == null) {
+                            $("#ContactPerson").val("NA");
+                        }
+                        else {
+                            $("#ContactPerson").val(data[0].CONTACT_PERSON);
+                        }
+                        $("#Contactnum").val(data[0].CONTACT_NUM);
+                        var table = $("#tbl_posts tbody");
+                        var tr;
+                        for (var a = 0; a < data.length; a++) {
+                            tr = $('<tr/>');
+                            var item = data[a].ITEM;
+                            tr.append("<td>" + (a+1) + "</td>");
+                            tr.append("<td><input id='txtItemCode' name='txtItemCodePO' class='form-control' style='width:90%' maxlength='8' type='text' value='" + data[a].ITEM +"'></td>");
+                            tr.append("<td><input id='txtDescription' name='txtDescriptionPO' class='form-control' style='width:90%' type='text' value='" + data[a].DESCRIPTION + "'></td>");
+                            tr.append("<td><input id='txtUOM' name='txtUOMPO' class='form-control' style='width:90%' type='text' value='" + data[a].UOM + "'></td>");
+                            tr.append("<td><input id='txtQty' name='txtQtyPO' class='form-control' style='width:90%' type='text' value='" + data[a].QUANTITY +"'></td>");
+                            tr.append("<td>" + "<input id='txtRecQty' name='txtRecQtyPO' class='form-control' style='width:90%'  type='text'>" + "</td>");
+                            $('#tbl_posts tbody').append(tr);
+                        }
+                        var nr = document.getElementById('txtItemCodePO').value;
+                        var app = document.getElementById('txtDescriptionPO').value;
+                        var sus = document.getElementById('txtUOMPO').value;
+                        var rmk = document.getElementById('txtQtyPO').value;
+                        var rmk = document.getElementById('txtRecQtyPO').value;
+                        var gridView = $("[id*=tbl_posts]");
+
+                    }
+                })
+            })
+    })
+</script>
+
+<script>
+    $(document).ready(function () {
+        $("#btnSaveDetail").click(function () {
+            debugger
+            var customers = new Array();
+            $("#tbl_posts tbody tr").each(function () {
+                var row = $(this);
+                var customer = {};
+                customer.Item = row.find("TD").eq(1).html();
+                customer.Descriptn = row.find("TD").eq(2).html();
+                customer.UOM = row.find("TD").eq(3).html();
+                customer.Qty = row.find("TD").eq(4).html();
+                customer.RecQty = row.find("TD").eq(5).html();
+                customers.push(customer);
+            })
+            $.ajax({
+                type: "POST",
+                url: "@Url.Action("InsertPODetails", "Home")",
+                data: JSON.stringify(customers),
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (r) {
+                    alert(r + " record(s) inserted.");
+                }
+            });
+        })
+    })
+</script>
+

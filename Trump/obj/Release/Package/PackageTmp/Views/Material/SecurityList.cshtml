@@ -1,0 +1,112 @@
+﻿@model IEnumerable<Trump.Models.tblIN_Out>
+@{
+    ViewBag.Title = "RGP/NRGPList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@helper CustomRenderingOfColumn(Trump.Models.tblIN_Out item)
+{
+    if ((item.M_Type == "NRGP" || item.M_Type == "RGP") && (item.M_Status == "Open" || item.M_Status == "Partial"))
+    {
+        
+        @Html.ActionLink("Close", "ViewOutwardClosed", new { ID = item.M_ID })
+    }
+    else if (item.M_Type == "NRGP" && item.M_Status == "Closed")
+    {
+        @Html.ActionLink("View", "OutWardView", new { challan = item.ChallanNmbr })
+    }
+    else if ((item.M_Type == "NRGP" || item.M_Type == "RGP") && item.M_Status == "OUT")
+    {
+        @Html.ActionLink("View", "OutWardView", new { challan = item.ChallanNmbr })
+    }
+    else if (item.M_Type == "RGP" && item.M_Status == "IN")
+    {
+        @Html.ActionLink("View", "OutWardView", new { challan = item.ChallanNmbr })
+    }
+    else if (item.M_Type == "RGP" && item.M_Status == "Partialy Closed" && (item.S_Type == "THIRD" || item.S_Type == "INTER"))
+    {
+        @Html.ActionLink("Close", "ViewOutwardClosed", new { ID = item.M_ID })
+    }
+    else if (item.M_Type == "RGP" && (item.M_Status == "Security Closed" || item.M_Status == "Short Closed") && item.S_Type == "THIRD")
+    {
+        @Html.ActionLink("View", "OutWardView", new { challan = item.ChallanNmbr })
+    }
+}
+@helper CustomPostionOfItam(Trump.Models.tblIN_Out item)
+{
+    if (item.M_Type == "NRGP" && item.M_Status == "Closed")
+    {
+        <span>Closed</span>
+    }
+    else if ((item.M_Type == "NRGP" || item.M_Type == "RGP") && item.M_Status == "OUT")
+    {
+        <span>On the way</span>
+    }
+    else if ((item.M_Type == "NRGP" || item.M_Type == "RGP") && item.M_Status == "Partial")
+    {
+        <span>Pending at Purchase</span>
+    }
+    else if ((item.M_Type == "NRGP" || item.M_Type == "RGP") && item.M_Status == "Open")
+    {
+        <span>Pending at Security</span>
+    }
+    else if (item.M_Type == "RGP" && item.M_Status == "IN")
+    {
+        <span>Pending for Closer</span>
+    }
+    else if (item.M_Type == "RGP" && item.M_Status == "OUT" && item.S_Type == "THIRD")
+    {
+        <span>Material at Vendor</span>
+    }
+    else if (item.M_Type == "RGP" && item.M_Status == "Security Closed" && item.S_Type == "THIRD")
+    {
+        <span>Closed</span>
+    }
+    else if (item.M_Type == "RGP" && item.M_Status == "Partialy Closed" && item.S_Type == "THIRD")
+    {
+        <span>Partialy Closed</span>
+    }
+    else if (item.M_Type == "RGP" && item.M_Status == "Short Closed" && (item.S_Type == "THIRD" || item.S_Type == "INTER"))
+    {
+        <span>Short Closed</span>
+    }
+}
+<div class="content" style="font-size:12px;min-height:100%">
+    <div class="content_resize">
+        <div class="mainbar">
+            <div class="article">
+                <div id="accordion">
+                    @*<h3 class="clsAccordion">
+                        <a id="NewAppointment" href="../Material/OutWard" style="font-size: 15px; font-weight: 400; color: #555;">
+                            <img src="~/Layout/Images/NewRecord.png" />
+                            &nbsp;New
+                        </a>
+                    </h3>*@
+                </div>
+                
+                <div id="AppointementTableContainer">
+                    @using GridMvc.Html
+                    @{
+                        <div style="width:auto;">
+                            @Html.Grid(Model).Columns(columns =>
+                       {
+                           columns.Add(c => c.ChallanNmbr).Titled("Challan Number").Css("ContentTitle").Filterable(true).Sortable(true);
+                           columns.Add(c => c.RaiseDate).Titled("Raise Date").Format("{0:dd/MMM/yyyy}").Css("ContentTitle").Sortable(true).Filterable(true);
+                           columns.Add(c => c.M_Type).Titled("Type").Css("ContentTitle").Filterable(true).Sortable(true);
+                           columns.Add(c => c.S_Type).Titled("Supplier Type").Css("ContentTitle").Sortable(true).Filterable(true);
+                           columns.Add(c => c.SecApproveTime).Titled("Security Approve").Css("ContentTitle").Sortable(true).Filterable(true);
+                           columns.Add(c => c.M_Status).Titled("Status").Css("ContentTitle").Sortable(true).Encoded(false).Sanitized(false).RenderValueAs(o => CustomPostionOfItam(o)).Filterable(true);
+                           //columns.Add().Titled("Action").Css("fr")
+                           //         .Encoded(false)
+                           //         .Sanitized(false)
+                           //    .RenderValueAs(o => CustomRenderingOfColumn(o));
+                       }).WithPaging(50).Sortable(true)
+                        </div>
+                    }
+                </div>                
+            </div>
+        </div>
+        <div class="clr">
+        </div>
+    </div>
+</div>
+

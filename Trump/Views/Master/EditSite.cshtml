@@ -1,0 +1,189 @@
+﻿@model Trump.Models.tblSiteDistance
+@{
+    ViewBag.Title = "EditCompany";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="content" style="font-size:12px;min-height:100%">
+    <div class="content_resize">
+        <div class="mainbar">
+            <div class="article">
+                <div class="main">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="widget stacked">
+                                    <div class="widget-header">
+                                        <i class="icon-ok"></i>
+                                        <h3>
+                                            Edit Site Distance
+                                        </h3>
+                                    </div>
+                                    <form action="../Master/Edit_Site" method="post" enctype="multipart/form-data">
+                                        <input type="hidden" value="@Model.SD_ID" name="Sid" />
+                                        <div class="widget-content">
+                                            <div class="row">
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label for="name" class="col-md-8">
+                                                            Site From
+                                                        </label>
+                                                        <div class="col-md-10">                                                            
+                                                            <select id="FromSite" name="FromSite"  class="form-control">
+                                                                <option>@Model.FromSite</option>
+                                                                <option>UNIT 1</option>
+                                                                <option>UNIT 2</option>
+                                                                <option>UNIT 3</option>
+                                                                <option>C12</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="col-md-2">
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label for="name" class="col-md-8">
+                                                            Site To
+                                                        </label>
+                                                        <div class="col-md-10">
+                                                            
+                                                            <select id="ToSite" name="ToSite" class="form-control">
+                                                                <option>@Model.ToSite</option>
+                                                                <option>UNIT 1</option>
+                                                                <option>UNIT 2</option>
+                                                                <option>UNIT 3</option>
+                                                                <option>C12</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="col-md-2">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="name" class="col-md-8">Distance</label>
+                                                        <div class="col-md-10">
+                                                            <input type="text" name="Distance" id="Distance" value="@Model.Distance" onkeypress="return CheckPhone(event)" class="form-control" />
+                                                        </div>
+                                                        <div class="col-md-2">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <hr>
+
+                                            <div class="row">
+                                                <div class="container">
+                                                    <input class="btn btn-primary btnSave" id="btnSave2" value="Update" type="submit">                                                          <input class="btn btn-primary" value="Back" type="button" onclick="goBack()">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="clr">
+        </div>
+    </div>
+</div>
+<script>
+    function goBack() {
+        window.history.back();
+    }
+</script>
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script>
+    $(document).ready(function () {
+         $("#ToSite").change(function () {
+            var d = $(this).val();
+            var from = $("#FromSite").val();
+            if (d == from) {
+                alert('Out from and location can not be same')
+                var d = $(this).val('');
+            }
+        })
+        $("#FromSite").change(function () {
+            var d = $(this).val();
+            var from = $("#ToSite").val();
+            if (d == from) {
+                alert('Out from and location can not be same')
+                var d = $(this).val('');
+            }
+        })
+
+
+
+     
+
+
+
+
+
+
+    })
+</script>
+
+
+<script>
+
+    $("#btnSave2").click(function () {
+
+       // alert('hi');
+        var FromSite = $('#FromSite option:selected').text();
+    
+        var ToSite = $('#ToSite option:selected').text();
+       
+        if (FromSite == "") {
+            alert('Please Enter Site From');
+            return false;
+        }
+        if (ToSite == "") {
+            alert('Please Enter Site To');
+            return false;
+        }
+
+        if ($("#Distance").val() == "") {
+            alert('please enter distance');
+            return false;
+        }
+
+        if (FromSite == ToSite) {
+            alert('Out from and location can not be same');
+            return false;
+        }
+
+
+
+
+
+
+
+     //   if ($("#FromSite").val() == "") {
+     //       alert('Please Enter Site From');
+     //       return false;
+     //   }
+     //if ($("#ToSite").val() == "") {
+     //       alert('Please Enter Site To');
+     //       return false;
+     //   }
+
+     //if ($("#Distance").val() == "") {
+     //       alert('please enter distance');
+     //       return false;
+     //   }
+
+     //   if ($("#FromSite").val() == $("#ToSite").val()) {
+     //       alert('Out from and location can not be same');
+     //       return false;
+     //   }
+
+
+
+
+
+    });
+
+
+
+</script>

@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="TrumpModelStoreContainer" CdmEntityContainer="TrumpEntities">
+    <EntitySetMapping Name="ExceptionLoggers">
+      <EntityTypeMapping TypeName="TrumpModel.ExceptionLogger">
+        <MappingFragment StoreEntitySet="ExceptionLogger">
+          <ScalarProperty Name="EXID" ColumnName="EXID" />
+          <ScalarProperty Name="ExceptionMessage" ColumnName="ExceptionMessage" />
+          <ScalarProperty Name="ExceptionStackTrace" ColumnName="ExceptionStackTrace" />
+          <ScalarProperty Name="ControllerName" ColumnName="ControllerName" />
+          <ScalarProperty Name="LogTime" ColumnName="LogTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblCompanies">
+      <EntityTypeMapping TypeName="TrumpModel.tblCompany">
+        <MappingFragment StoreEntitySet="tblCompany">
+          <ScalarProperty Name="C_ID" ColumnName="C_ID" />
+          <ScalarProperty Name="CName" ColumnName="CName" />
+          <ScalarProperty Name="Addres" ColumnName="Addres" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="GST" ColumnName="GST" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="CState" ColumnName="CState" />
+          <ScalarProperty Name="C_Status" ColumnName="C_Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblMaterials">
+      <EntityTypeMapping TypeName="TrumpModel.tblMaterial">
+        <MappingFragment StoreEntitySet="tblMaterial">
+          <ScalarProperty Name="M_ID" ColumnName="M_ID" />
+          <ScalarProperty Name="M_Name" ColumnName="M_Name" />
+          <ScalarProperty Name="Serial_No" ColumnName="Serial_No" />
+          <ScalarProperty Name="App_ID" ColumnName="App_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblVisitors">
+      <EntityTypeMapping TypeName="TrumpModel.tblVisitor">
+        <MappingFragment StoreEntitySet="tblVisitor">
+          <ScalarProperty Name="V_ID" ColumnName="V_ID" />
+          <ScalarProperty Name="V_Name" ColumnName="V_Name" />
+          <ScalarProperty Name="V_Phone" ColumnName="V_Phone" />
+          <ScalarProperty Name="V_Email" ColumnName="V_Email" />
+          <ScalarProperty Name="V_Type" ColumnName="V_Type" />
+          <ScalarProperty Name="V_Pic" ColumnName="V_Pic" />
+          <ScalarProperty Name="V_Status" ColumnName="V_Status" />
+          <ScalarProperty Name="C_ID" ColumnName="C_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="sp_Company" FunctionName="TrumpModel.Store.sp_Company" />
+  </EntityContainerMapping>
+</Mapping>

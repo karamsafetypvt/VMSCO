@@ -1,0 +1,11 @@
+.stickytooltip{
+box-shadow: 5px 5px 8px #818181; /*shadow for CSS3 capable browsers.*/
+-webkit-box-shadow: 5px 5px 8px #818181;
+-moz-box-shadow: 5px 5px 8px #818181;
+display:block;
+position:absolute;
+/*border:2px solid black; Border around tooltip*/
+z-index:3000;
+}
+
+

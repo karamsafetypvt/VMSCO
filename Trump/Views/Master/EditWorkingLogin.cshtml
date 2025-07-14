@@ -1,0 +1,465 @@
+﻿@model IEnumerable<Trump.Models.WorkingLogin>
+@{
+    ViewBag.Title = "EditCompany";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="content" style="font-size:12px;min-height:100%">
+    <div class="content_resize">
+        <div class="mainbar">
+            <div class="article">
+                <div class="main">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="widget stacked">
+                                    <div class="widget-header">
+                                        <i class="icon-ok"></i>
+                                        <h3>
+                                            Update  Login
+                                        </h3>
+                                    </div>
+                                    <form action="../Master/UpdateWorkingLogin" method="post" enctype="multipart/form-data">
+                                        <input type="hidden" value="@Model.Select(z => z.W_ID).FirstOrDefault()" id="hidid" name="hidd" />
+                                        <div class="widget-content">
+                                            <div class="col-md-3">
+                                                <div class="form-group" id="divUserID">
+                                                    <label for="name" class="col-md-8">User ID</label><div class="col-md-12">
+                                                        <input class="form-control" id="txtW_ID" name="txtW_ID" value="@Model.Select(z => z.W_ID).FirstOrDefault()" type="text" style="display:none;">
+                                                        @*<input class="form-control" id="txtUserID" required name="txtUserID" value="@Model.Select(z => z.W_ID).FirstOrDefault()" type="text" data-toggle="tooltip" data-placement="bottom" ToolTip="Please Enter UserID">*@
+
+                                                        <input class="form-control" id="txtUserID" required name="txtUserID" maxlength="50" value="@Model.Select(z => z.UserID).FirstOrDefault()" type="text" data-toggle="tooltip" data-placement="bottom" ToolTip="Please Enter UserID">
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form-group" id="divUPassword">
+                                                    <label for="name" class="col-md-8">Password</label><div class="col-md-12">
+
+                                                        <input class="form-control" id="txtUPassword" required name="txtUPassword" maxlength="50" value="@Model.Select(z => z.UPassword).FirstOrDefault()" type="text" data-toggle="tooltip" data-placement="bottom" ToolTip="Please Enter UPassword">
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <div class="col-md-3" style="display:none;">
+                                                <div class="form-group" id="divS_Location">
+                                                    <label for="name" class="col-md-8">Location</label><div class="col-md-12">
+
+                                                        <input class="form-control" id="txtS_Location" required name="txtS_Location" value="@Model.Select(z => z.S_Location).FirstOrDefault()" type="text" data-toggle="tooltip" data-placement="bottom" ToolTip="Please Enter S_Location">
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <div class="col-md-3" style="display:none;">
+                                                <div class="form-group" id="divWStatus">
+                                                    <label for="name" class="col-md-8">WStatus</label><div class="col-md-12">
+
+                                                        <input class="form-control" id="txtWStatus" required name="txtWStatus" value="@Model.Select(z => z.WStatus).FirstOrDefault() " type="text" data-toggle="tooltip" data-placement="bottom" ToolTip="Please Enter WStatus">
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form-group" id="divRoleType">
+                                                    <label for="name" class="col-md-8">Role Type</label><div class="col-md-12">
+
+                                                        <input class="form-control" id="txtRoleType" name="txtRoleType" value="@Model.Select(z => z.RoleType).FirstOrDefault()" type="text" data-toggle="tooltip" data-placement="bottom" ToolTip="Please Enter RoleType" style="display:none;">
+                                                        <select tabindex="-1" class="form-control select2_group ddlIDType" data-val="true" id="ddlRoletype" name="ddlRoletype">
+                                                            <option selected>--Select--</option>
+                                                            @*<option value="A">Admin</option>*@
+                                                            <option value="S">Security</option>
+                                                            <option value="D">Desk</option>
+                                                            <option value="B">Both</option>
+                                                        </select>
+
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form-group" id="divEmail">
+                                                    <label for="name" class="col-md-8">Email</label><div class="col-md-12">
+
+                                                        <input class="form-control" id="txtEmail" required name="txtEmail" maxlength="100" value="@Model.Select(z => z.Email).FirstOrDefault()" type="text" data-toggle="tooltip" data-placement="bottom" ToolTip="Please Enter Email">
+
+                                                        <input class="form-control" id="txtRegionId" name="txtRegionId" value="@Model.Select(z => z.RegionId).FirstOrDefault() " type="text" style="display:none;">
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+
+                                            <div class="col-md-3">
+                                                <div class="form-group" id="divRegionId">
+                                                    <label for="name" class="col-md-8">Region Id</label><div class="col-md-12">
+
+    <select tabindex="-1" class="form-control select2_group clregion" required name="ddlRegion" id="ddlRegion">
+
+        @*<option selected disabled>--Please Select--</option>*@
+    </select>
+
+
+
+</div>
+                                                </div>
+                                            </div>
+
+
+
+
+                                            <hr>
+
+                                            <div class="row">
+                                                <div class="container">
+                                                    <br />  <br />
+                                                    <input class="btn btn-primary btnSave" id="btnSave" value="Update" type="submit">                                                          <input class="btn btn-primary" value="Back" type="button" onclick="goBack()">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="clr">
+        </div>
+    </div>
+</div>
+<script>
+    function goBack() {
+        window.history.back();
+    }
+</script>
+
+
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script>
+    $(document).ready(function () {
+
+        debugger;
+        $("#ddlRegion").change(function () {
+          
+            var ddlRegion = $('#ddlRegion option:selected').val();
+            $("#txtRegionId").val(ddlRegion)
+        });
+
+
+
+            var funddlRegionFill = (function () {
+                    //debugger;
+
+                    var ddlRegion = "aaa";
+
+                    $.ajax({
+
+
+                        url: '@Url.Action("GetRegionList", "Master")',
+                        type: 'Get',
+                        contenType: 'application/json charset utf-8',
+
+
+                        dataType: 'json',
+                        data: { Region: ddlRegion },
+                        success: function (data) {
+
+                            var s;
+                            s = "<option value='--Please Select--'>--Please Select--</option>";
+                            $("#ddlRegion").append(s);
+                            for (var i = 0; i < data.length; i++) {
+
+                                s = "<option value='" + data[i].RegionId + "'>" + data[i].Region + "</option>";
+
+                                $("#ddlRegion").append(s);
+
+
+                            }
+
+                            funregionselect();
+                        }
+                    });
+
+
+
+                });
+        
+     
+        var funregionselect = (function () {
+
+            let textyy;
+            textyy = parseInt($("#txtRegionId").val());
+            //alert(textyy);
+        
+
+            $(".clregion option").filter(function () {
+                //alert('tt');
+                //may want to use $.trim in here
+                /*  alert($(this).text());*/
+                return $(this).val() == textyy;
+            }).attr('selected', true);
+
+                    
+                  
+
+
+
+        });
+        funddlRegionFill();
+    
+
+
+
+
+
+        $("#txtEmail").change(function () {
+
+            var atSymbol = $("#txtEmail").val().indexOf("@@");
+
+            //Check minimum valid length of an Email.
+            if ($("#txtEmail").val().length <= 2) {
+                alert('please enter correct email');
+                $("#txtEmail").val('');
+                return false;
+            }
+            //If whether email has  character.
+            if ($("#txtEmail").val().indexOf("@@") == -1) {
+                alert('please enter correct email');
+                $("#txtEmail").val('');
+                return false;
+            }
+
+
+            var parts = $("#txtEmail").val().split("@@");
+            var dot = parts[1].indexOf(".");
+            var len = parts[1].length;
+            var dotSplits = parts[1].split(".");
+            var dotCount = dotSplits.length - 1;
+
+
+            //Check whether Dot is present, and that too minimum 1 character after
+            if (dot == -1 || dot < 2 || dotCount > 2) {
+                $("#txtEmail").val('');
+                alert('please enter correct email');
+                return false;
+            }
+
+            //Check whether Dot is not the last character and dots are not repeated.
+            for (var i = 0; i < dotSplits.length; i++) {
+                if (dotSplits[i].length == 0) {
+                    $("#txtEmail").val('');
+                    alert('please enter correct email');
+
+                    return false;
+                }
+            }
+
+
+            return true;
+
+
+        });
+
+        let text;
+        var txtstatus = $("#txtRoleType").val().trim();
+
+        if (txtstatus == "A") {
+            text = "Admin";
+        }
+        else if (txtstatus == "S") {
+            text = "Security";
+        }
+        else if (txtstatus == "D") {
+            text = "Desk";
+        }
+        else if (txtstatus == "B") {
+            text = "Both";
+        }
+        $("select option").filter(function () {
+            //may want to use $.trim in here
+            return $(this).text() == text;
+        }).attr('selected', true);
+
+       
+
+
+
+
+        $("#ddlRoletype").change (function () {
+            var ddlRoletype = $('#ddlRoletype option:selected').val();
+            $("#txtRoleType").val(ddlRoletype)
+        });
+
+
+        $("#btnSave").click(function () {
+
+            var ddlRegion = $('#ddlRegion option:selected').text()
+
+            var ddlRegion = $('#W_ID option:selected').text()
+
+            var ddlRegion2 = $('#ddlRegion option:selected').text()
+           /* alert(ddlRegion2);*/
+
+          if ($("#UserID").val() == "") {
+                alert("Please Enter UserID");
+                return false;
+            }
+
+
+
+            else if ($("#UPassword").val() == "") {
+                alert("Please Enter UPassword");
+                return false;
+            }
+
+
+
+            else if ($("#S_Location").val() == "") {
+                alert("Please Enter S_Location");
+                return false;
+            }
+
+
+
+            else if ($("#WStatus").val() == "") {
+                alert("Please Enter WStatus");
+                return false;
+            }
+
+
+
+            else if ($("#RoleType").val() == "") {
+                alert("Please Enter RoleType");
+                return false;
+            }
+
+
+
+            else if ($("#Email").val() == "") {
+                alert("Please Enter Email");
+                return false;
+            }
+
+
+
+           
+
+          else if (ddlRegion2 == "--Please Select--") {
+                alert("Please Select RegionId");
+                return false;
+            }
+
+
+
+
+
+
+
+        });
+
+
+    })
+</script>
+
+<script>
+    $("#txtEmail").change(function () {
+        
+
+        var Email_ID = $(this).val();
+        var Widval = $("#hidid").val(); 
+     
+
+        $.ajax({
+
+            url: '../Master/CheckWorkingLoginEmailExists?Email=' + Email_ID + '&WId=' + Widval,
+            // url: '../Home/PartNoExists?PartNo=' + ChildItemCode + '&MID=' + MasterItemVal,
+            datatype: "JSON",
+            type: "Get",
+            success: function (data) {
+                if (data != null) {
+
+                    if (data == 1) {
+              
+                        $("#txtEmail").val('');
+                        swal({
+                            title: "warning",
+                            text: Email_ID + " Email Already Exists",
+                            icon: "warning",
+                            type: "warning"
+                        }, function () {
+
+                        });
+
+                    }
+                    else {
+                       
+
+                    }
+
+
+                }
+                else {
+                    Location.href = "../Home/Login";
+                }
+            }
+        });
+
+
+
+
+
+    });
+
+    $("#txtUserID").change(function () {
+
+
+        var User_ID = $(this).val();
+        var Widval = $("#hidid").val(); 
+
+
+        $.ajax({
+
+            url: '../Master/CheckWorkingLoginUserIdExists?UserId=' + User_ID + '&WId=' + Widval,
+            // url: '../Home/PartNoExists?PartNo=' + ChildItemCode + '&MID=' + MasterItemVal,
+            datatype: "JSON",
+            type: "Get",
+            success: function (data) {
+                if (data != null) {
+
+                    if (data == 1) {
+                        // $("#UserIdEr").text($("#txtUserID").val() + "  Exists.").css("color", "red");
+                        //$('input[type="submit"]').attr('disabled', 'disabled');
+                        $("#txtUserID").val('');
+                        swal({
+                            title: "warning",
+                            text: User_ID + " User Id Already Exists",
+                            icon: "warning",
+                            type: "warning"
+                        }, function () {
+
+                        });
+
+
+
+                    }
+                    else {
+                        $("#UserIdEr").text("").css("color", "red");
+                        //   $('input[type="submit"]').removeAttr('disabled');
+
+                    }
+
+
+                }
+                else {
+                    Location.href = "../Home/Login";
+                }
+            }
+        });
+
+
+
+
+
+    });
+</script>

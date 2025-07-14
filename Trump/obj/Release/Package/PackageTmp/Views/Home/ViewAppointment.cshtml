@@ -1,0 +1,271 @@
+﻿@model Trump.Models.sp_ViewApp_Result
+
+@{
+    ViewBag.Title = "ViewAppointment";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="main">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <form method="post" enctype="multipart/form-data" action="/Home/SecurityAction">
+                    <div class="widget stacked">
+                        <div class="widget-header">
+                            <i class="fa fa-check"></i>
+                            <h3>
+                                Visitor Entry
+                            </h3>
+                        </div>
+                        <div class="widget-content">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <fieldset>
+                                        <legend style="text-align:center;">Invitee Details</legend>
+                                        <div class="form-group">
+                                            <label for="name" class="col-md-8">
+                                                Location/Site
+                                            </label>
+                                            <div class="col-md-10">
+                                                <input type="text" readonly value="@Model.V_Location" class="form-control" />
+                                            </div>
+                                            <div class="col-md-2">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="name" class="col-md-8">
+                                                Emp Code  <i class="fa fa-asterisk required"></i>
+                                            </label>
+                                            <div class="col-md-10">
+                                                <input type="text" readonly value="@Model.EMPLOYEE_ID" class="form-control" />
+                                            </div>
+                                            <div class="col-md-2">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="name" class="col-md-8">  Department</label>
+                                            <div class="col-md-10">
+                                                <input type="text" readonly value="@Model.DEPARTMENT" class="form-control" />
+
+                                            </div>
+                                            <div class="col-md-2">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="name" class="col-md-8">
+                                                Host/Invitee <i class="fa fa-asterisk required"></i>
+                                            </label>
+                                            <div class="col-md-10">
+                                                <input class="form-control" readonly value="@Model.NAME" type="text">
+                                            </div>
+                                            <div class="col-md-2">
+                                            </div>
+                                        </div>
+
+
+                                        <div class="form-group">
+                                            <label for="name" class="col-md-8">
+                                                Designation <i class="fa fa-asterisk required"></i>
+                                            </label>
+                                            <div class="col-md-10">
+                                                <input class="form-control" value="@Model.DESIGNATION" readonly name="ExtensionNumber" type="text">
+                                            </div>
+                                            <div class="col-md-2">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="name" class="col-md-8">
+                                                Mobile/Extension
+                                            </label>
+                                            <div class="col-md-10">
+                                                <input class="form-control" value="@Model.MOBILE_NUMBER" type="text" readonly>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="name" class="col-md-8">
+                                                Email-ID
+                                            </label>
+                                            <div class="col-md-10">
+                                                <input class="form-control" value="@Model.Email_ID" readonly type="text">
+                                            </div>
+                                            <div class="col-md-2">
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                </div>
+                                <div class="col-md-3">
+                                    <fieldset>
+                                        <legend style="text-align:center;">Visitor Details</legend>
+
+                                        <div class="form-group">
+                                            <label for="name" class="col-md-8">
+                                                Visitor Name <i class="fa fa-asterisk required"></i>
+                                            </label>
+                                            <div class="col-md-10">
+                                                <input type="text" value="@Model.V_Name" readonly class="form-control" />
+                                            </div>
+                                            <div class="col-md-2">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="name" class="col-md-8">
+                                                Mobile Number<i class="fa fa-asterisk required"></i>
+                                            </label>
+                                            <div class="col-md-10">
+                                                <input class="form-control" name="IDNumber" value="@Model.V_Phone" readonly type="text">
+                                            </div>
+                                            <div class="col-md-2">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="name" class="col-md-8">Visitor Company <i class="fa fa-asterisk required"></i></label>
+                                            <div class="col-md-10">
+                                                <input class="form-control" name="IDNumber" value="@Model.CName" readonly type="text">
+                                            </div>
+                                            <div class="col-md-2">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="name" class="col-md-12">ID Type</label>
+                                            <div class="col-md-10">
+                                                <input type="text" class="form-control" value="@Model.Visitor_ID" readonly />
+                                            </div>
+                                            <div class="col-md-2">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="name" class="col-md-12">ID Number <i class="fa fa-asterisk required"></i></label>
+                                            <div class="col-md-10">
+                                                <input value="@Model.V_IDNumber" class="form-control" readonly type="text" name="V_IDNumber">
+                                            </div>
+                                            <div class="col-md-2">
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <fieldset>
+                                        <legend>Visit Specific Detail</legend>
+                                        <div class="form-group">
+                                            <label for="name" class="col-md-8">
+                                                Visit Type
+                                            </label>
+                                            <div class="col-md-10">
+                                                <input value="@Model.Visitor_Type" class="form-control" readonly type="text" name="V_IDNumber">
+                                                
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="name" class="col-md-12">
+                                                Expected Duration
+                                            </label>
+                                            <div class="col-md-10">
+                                                <input value="@Model.Duration" class="form-control" readonly type="text" name="V_IDNumber">
+                                                
+                                            </div>
+                                            <div class="col-md-2">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="name" class="col-md-8">
+                                                Card Type <i class="fa fa-asterisk required"></i>
+                                            </label>
+                                            <div class="col-md-10">
+                                                <input value="@Model.Location" class="form-control" readonly type="text" name="V_IDNumber">
+                                                
+                                            </div>
+                                            <div class="col-md-1">
+                                            </div>
+                                            <div class="col-md-1">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="name" class="col-md-6">
+                                                Date
+                                            </label>
+                                            <div class="col-md-10">
+                                                <input type="text" name="name" value="@Model.V_DateFrom.Value.ToString(" dd/MMM/yyyy")" readonly class="form-control" />
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="name" class="col-md-6">
+                                                Time
+                                            </label>
+                                            <div class="col-md-10">
+                                                <input type="text" name="name" value="@Model.A_Time" readonly class="form-control" />
+                                            </div>
+                                        </div>
+                                        <div id="panelRecurring" style="display:none;">
+                                            <div class="form-group">
+                                                <label for="name" class="col-md-8">
+                                                    Valid From <i class="fa fa-asterisk required"></i>
+                                                </label>
+                                                <div class="col-md-5">
+                                                    <input class="form-control  date start validate" id="ValidFromDateString" name="ValidFromDateString" type="text">
+                                                </div>
+                                                <div class="col-md-5">
+                                                    <input autocomplete="OFF" dataformatstring="{HH:mm}" class="form-control time start validate" id="ValidFromTimeString" name="ValidFromTimeString" type="text">
+                                                </div>
+                                                <div class="col-md-2">
+                                                    @*<i class="fa fa-asterisk required" style="margin-left: -25px;"></i>*@
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="name" class="col-md-8">
+                                                    Valid To <i class="fa fa-asterisk required"></i>
+                                                </label>
+                                                <div class="col-md-5">
+                                                    <input class="form-control hasDatepicker date end validate" id="ValidToDateString" name="ValidToDateString" type="text">
+                                                </div>
+                                                <div class="col-md-5">
+                                                    <input autocomplete="OFF" dataformatstring="{HH:mm}" class="form-control time end validate" id="validToTimeString" name="validToTimeString" type="text">
+                                                </div>
+                                                <div class="col-md-2">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <fieldset>
+                                                <legend>Take Photo</legend>
+                                                <div class="form-group">
+                                                    
+                                                    <div id="displayimg">
+                                                        <img id="imgVisitor" alt="Alternate Text" height="200" width="200" src="../Content/ProfilPic/@Model.V_Pic" />
+                                                    </div>
+
+                                                    <div class="col-md-2">
+                                                    </div>
+                                                </div>
+
+                                            </fieldset>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr />
+                            <div class="row">
+                                <div style="padding-left: 20px" class="col-md-offset-8">
+                                    <a href="/Home/Security" class="btn btn-info">Back</a>                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div>
+

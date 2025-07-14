@@ -1,0 +1,136 @@
+﻿@*@model Trump.Models.DataFieldCourierCompany*@
+@*@model TrumpCL.ReportFieldRegion*@
+@model IEnumerable<TrumpCL.ReportFieldRegion>
+@{
+    ViewBag.Title = "EditVisitor";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="content" style="font-size:12px;min-height:100%">
+    @*ng-controller="AppointmentController"*@
+
+
+    <div class="content_resize">
+        <div class="mainbar">
+            <div class="article">
+                <div class="main">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="widget stacked">
+                                    <div class="widget-header">
+                                        <i class="icon-ok"></i>
+                                        <h3>
+                                         Update Region
+                                        </h3>
+                                    </div>
+                                    <form action="../Master/UpdateRegion" method="post" enctype="multipart/form-data">
+                                        <input type="hidden" value="@Model.Select(z => z.RegionId).FirstOrDefault()" name="hidd" />
+                                        <input type="hidden" value="@Model.Select(z => z.RegionId).FirstOrDefault()" name="CourierCompanyId" />
+                                        <div class="widget-content">
+                                            <div class="row">
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label for="name" class="col-md-8">
+                                                     Region
+                                                        </label>
+                                                        <div class="col-md-10">
+
+                                                            
+                                                            <input type="text"  name="RegionId" id="RegionId" class="form-control" value="@Model.Select(z => z.RegionId).FirstOrDefault()" style="display:none;" />
+                                                            <input type="text"  name="txtRegion" id="txtRegion" class="form-control" value="@Model.Select(z => z.Region).FirstOrDefault()" />
+                                                        </div>
+                                                        <div class="col-md-2">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="name" class="col-md-12">Status</label>
+                                                        <div class="col-md-10">
+                                                            <select tabindex="-1" class="form-control select2_group ddlIDType" id="ddlstatus" data-val="true" name="E_VTStatus">
+                                                                @*<option>@Model.Status</option>*@
+                                                                <option value="Y">Active</option>
+                                                                <option value="N">Inactive</option>
+                                                            </select>
+                                                            <input type="text" id="txtstatus" style="display:none" name="txtstatus" class="form-control" value="@Model.Select(z => z.Status).FirstOrDefault()" />
+                                                        </div>
+                                                        <div class="col-md-2">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <hr>
+
+                                            <div class="row">
+                                                <div class="container">
+                                                    <input class="btn btn-primary btnSave" id="btnMSave" value="Update" type="submit">                                                          <input class="btn btn-primary" value="Back" type="button" onclick="goBack()">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="clr">
+        </div>
+    </div>
+
+</div>
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script>
+    function goBack() {
+        /*  window.history.back();*/
+        window.location.href = "../Master/Region";
+
+    }
+</script>
+
+
+
+
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script>
+    $(document).ready(function () {
+
+        let text;
+        var txtstatus = $("#txtstatus").val().trim();
+
+        if (txtstatus == "Y") {
+            text = "Active";
+        }
+        else {
+            text = "Inactive";
+        }
+        $("select option").filter(function () {
+            //may want to use $.trim in here
+            return $(this).text() == text;
+        }).attr('selected', true);
+
+        //-----------
+        $("#ddlstatus").change(function () {
+            var ddlstatusval = $('#ddlstatus option:selected').val();
+            var ddlstatustxt = $('#ddlstatus option:selected').text();
+            $("#txtstatus").val(ddlstatusval);
+        });
+
+        $("#btnMSave").click(function () {
+            var CourierCompany = $("#CourierCompany").val();
+            if (CourierCompany == "") {
+                alert("Please Enter Company");
+                return false;
+            }
+        });
+
+        //-------------
+
+
+
+    })
+
+
+
+
+</script>

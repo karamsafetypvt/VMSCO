@@ -1,0 +1,396 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TrumpModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="ExceptionLogger">
+    <Key>
+      <PropertyRef Name="EXID" />
+    </Key>
+    <Property Name="EXID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ExceptionMessage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ExceptionStackTrace" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ControllerName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="LogTime" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="ExecutiveLogin">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PNI_Code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Department" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Designation" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Mobile" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Item_Material">
+    <Key>
+      <PropertyRef Name="IT_M" />
+    </Key>
+    <Property Name="IT_M" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ID" Type="Int64" />
+    <Property Name="Item" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Descriptn" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="UOM" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Qty" Type="Int32" />
+    <Property Name="RecQty" Type="Int32" />
+    <Property Name="M_Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CloseDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="tblAppoinment">
+    <Key>
+      <PropertyRef Name="A_ID" />
+    </Key>
+    <Property Name="A_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="GPID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Requestor" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Deptment" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ComanyID" Type="Int32" />
+    <Property Name="VisitorID" Type="Int32" />
+    <Property Name="Visitor_Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="V_DateFrom" Type="DateTime" Precision="3" />
+    <Property Name="A_Time" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="V_DateTo" Type="DateTime" Precision="3" />
+    <Property Name="Duration" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="V_Location" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Remark" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="V_Material" Type="Boolean" />
+    <Property Name="V_Allowed" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="A_Type" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="P_Accompanyng" Type="Int32" />
+    <Property Name="RaiseDate" Type="DateTime" Precision="3" />
+    <Property Name="V_InDate" Type="DateTime" Precision="3" />
+    <Property Name="V_OutDate" Type="DateTime" Precision="3" />
+    <Property Name="Location" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="V_Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="EntryType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tblCompany">
+    <Key>
+      <PropertyRef Name="C_ID" />
+    </Key>
+    <Property Name="C_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Addres" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Phone" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="GST" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CState" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="C_Status" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="PinCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="tblIN_Out">
+    <Key>
+      <PropertyRef Name="M_ID" />
+    </Key>
+    <Property Name="M_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ChallanNmbr" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Requestor" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Dept" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="RaiseDate" Type="DateTime" Precision="0" />
+    <Property Name="M_Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="S_Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="M_Location" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="OutFrom" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ModeOfTrans" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PersoneName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SecApproveTime" Type="DateTime" Precision="3" />
+    <Property Name="SecINTime" Type="DateTime" Precision="3" />
+    <Property Name="HODTime" Type="DateTime" Precision="3" />
+    <Property Name="SupplierID" Type="Int32" />
+    <Property Name="V_Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Veh_No" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Remark" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Descriptn" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="M_Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="tblMaterial">
+    <Key>
+      <PropertyRef Name="M_ID" />
+    </Key>
+    <Property Name="M_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="M_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Serial_No" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="App_ID" Type="Int32" />
+  </EntityType>
+  <EntityType Name="tblMaterialInward">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PO" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="ITEM" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="DESCRIPTION" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="CREATION_DATE" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="QUANTITY" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="UNIT_PRICE" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="UOM" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="VENDOR_NAME" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="GST" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="CONTACT_NUM" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="EMAIL_ADDRESS" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="CONTACT_PERSON" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="ADDRESS" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tblPO">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PODate" Type="DateTime" Precision="3" />
+    <Property Name="PONum" Type="Int64" />
+    <Property Name="SupplierName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="SupplierAddress" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="GST_No" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Contact_Person" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Contact_Num" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Mode_Of_Transport" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Emp_Code" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Vehicle_Type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Vehicle_No" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Driver_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Visitor_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Visitor_Number" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="Visitor_Company" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tblQuestion">
+    <Key>
+      <PropertyRef Name="Q_ID" />
+    </Key>
+    <Property Name="Q_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="GP_ID" Type="Int32" />
+  </EntityType>
+  <EntityType Name="tblSiteDistance">
+    <Key>
+      <PropertyRef Name="SD_ID" />
+    </Key>
+    <Property Name="SD_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FromSite" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ToSite" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Distance" Type="Time" Precision="7" />
+  </EntityType>
+  <EntityType Name="tblVisitor">
+    <Key>
+      <PropertyRef Name="V_ID" />
+    </Key>
+    <Property Name="V_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="V_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="V_Phone" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="V_Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Visitor_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="V_IDNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="V_Pic" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="V_Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="C_ID" Type="Int32" />
+  </EntityType>
+  <EntityType Name="tblVisitorINOUT">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="GPID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="FDate" Type="DateTime" Precision="3" />
+    <Property Name="TDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="VendorData">
+    <Key>
+      <PropertyRef Name="VNID" />
+    </Key>
+    <Property Name="VNID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PartyName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="PartyAddress" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="GST" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="VisitorAcceptance">
+    <Key>
+      <PropertyRef Name="VA_ID" />
+    </Key>
+    <Property Name="VA_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="VisitorID" Type="Int32" />
+    <Property Name="GatePassID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="AccptGate" Type="DateTime" Precision="3" />
+    <Property Name="Feedback" Type="Int32" />
+  </EntityType>
+  <EntityType Name="WorkingLogin">
+    <Key>
+      <PropertyRef Name="W_ID" />
+    </Key>
+    <Property Name="W_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserID" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="UPassword" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="S_Location" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="WStatus" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="tblSite">
+    <Key>
+      <PropertyRef Name="S_ID" />
+    </Key>
+    <Property Name="S_ID" Type="Int32" Nullable="false" />
+    <Property Name="L_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityContainer Name="TrumpEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="ExceptionLoggers" EntityType="Self.ExceptionLogger" />
+    <EntitySet Name="ExecutiveLogins" EntityType="Self.ExecutiveLogin" />
+    <EntitySet Name="Item_Material" EntityType="Self.Item_Material" />
+    <EntitySet Name="tblAppoinments" EntityType="Self.tblAppoinment" />
+    <EntitySet Name="tblCompanies" EntityType="Self.tblCompany" />
+    <EntitySet Name="tblIN_Out" EntityType="Self.tblIN_Out" />
+    <EntitySet Name="tblMaterials" EntityType="Self.tblMaterial" />
+    <EntitySet Name="tblMaterialInwards" EntityType="Self.tblMaterialInward" />
+    <EntitySet Name="tblPOes" EntityType="Self.tblPO" />
+    <EntitySet Name="tblQuestions" EntityType="Self.tblQuestion" />
+    <EntitySet Name="tblSiteDistances" EntityType="Self.tblSiteDistance" />
+    <EntitySet Name="tblVisitors" EntityType="Self.tblVisitor" />
+    <EntitySet Name="tblVisitorINOUTs" EntityType="Self.tblVisitorINOUT" />
+    <EntitySet Name="VendorDatas" EntityType="Self.VendorData" />
+    <EntitySet Name="VisitorAcceptances" EntityType="Self.VisitorAcceptance" />
+    <EntitySet Name="WorkingLogins" EntityType="Self.WorkingLogin" />
+    <EntitySet Name="tblSites" EntityType="Self.tblSite" />
+    <FunctionImport Name="GetAppointmentDetails" ReturnType="Collection(TrumpModel.GetAppointmentDetails_Result)">
+      <Parameter Name="personalDetailsId" Mode="In" Type="Int32" />
+      <Parameter Name="Req" Mode="In" Type="String" />
+      <Parameter Name="Company" Mode="In" Type="Int32" />
+      <Parameter Name="visitType" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_AppToday" ReturnType="Collection(TrumpModel.sp_AppToday_Result)" />
+    <FunctionImport Name="sp_AppUpcoming" ReturnType="Collection(TrumpModel.sp_AppUpcoming_Result)" />
+    <FunctionImport Name="sp_Company">
+      <Parameter Name="Name" Mode="In" Type="String" />
+      <Parameter Name="Addres" Mode="In" Type="String" />
+      <Parameter Name="phone" Mode="In" Type="String" />
+      <Parameter Name="gst" Mode="In" Type="String" />
+      <Parameter Name="city" Mode="In" Type="String" />
+      <Parameter Name="pin" Mode="In" Type="String" />
+      <Parameter Name="state" Mode="In" Type="String" />
+      <Parameter Name="ID" Mode="InOut" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_DateReport" ReturnType="Collection(TrumpModel.sp_DateReport_Result)">
+      <Parameter Name="Fdate" Mode="In" Type="DateTime" />
+      <Parameter Name="Tdate" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="sp_DownloadePass" ReturnType="Collection(TrumpModel.sp_DownloadePass_Result)">
+      <Parameter Name="GPID" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_InsertAppointment">
+      <Parameter Name="GPID" Mode="In" Type="String" />
+      <Parameter Name="Requestor" Mode="In" Type="String" />
+      <Parameter Name="Deptment" Mode="In" Type="String" />
+      <Parameter Name="ComanyID" Mode="In" Type="Int32" />
+      <Parameter Name="VisitorID" Mode="In" Type="Int32" />
+      <Parameter Name="Visitor_Type" Mode="In" Type="String" />
+      <Parameter Name="V_DateFrom" Mode="In" Type="DateTime" />
+      <Parameter Name="A_Time" Mode="In" Type="String" />
+      <Parameter Name="V_DateTo" Mode="In" Type="DateTime" />
+      <Parameter Name="Duration" Mode="In" Type="String" />
+      <Parameter Name="V_Location" Mode="In" Type="String" />
+      <Parameter Name="Remark" Mode="In" Type="String" />
+      <Parameter Name="V_Material" Mode="In" Type="Boolean" />
+      <Parameter Name="V_Allowed" Mode="In" Type="String" />
+      <Parameter Name="A_Type" Mode="In" Type="String" />
+      <Parameter Name="P_Accompanyng" Mode="In" Type="Int32" />
+      <Parameter Name="V_InDate" Mode="In" Type="DateTime" />
+      <Parameter Name="V_OutDate" Mode="In" Type="DateTime" />
+      <Parameter Name="Location" Mode="In" Type="String" />
+      <Parameter Name="Status" Mode="In" Type="String" />
+      <Parameter Name="EntryType" Mode="In" Type="String" />
+      <Parameter Name="ID" Mode="InOut" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_MaterialInward" />
+    <FunctionImport Name="sp_PurchaseVendor">
+      <Parameter Name="PartyName" Mode="In" Type="String" />
+      <Parameter Name="PartyAddress" Mode="In" Type="String" />
+      <Parameter Name="GST" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_visitor">
+      <Parameter Name="V_Name" Mode="In" Type="String" />
+      <Parameter Name="V_Phone" Mode="In" Type="String" />
+      <Parameter Name="V_Email" Mode="In" Type="String" />
+      <Parameter Name="Visitor_ID" Mode="In" Type="String" />
+      <Parameter Name="V_IDNumber" Mode="In" Type="String" />
+      <Parameter Name="V_Pic" Mode="In" Type="Binary" />
+      <Parameter Name="C_ID" Mode="In" Type="Int32" />
+      <Parameter Name="ID" Mode="InOut" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_ViewApp" ReturnType="Collection(TrumpModel.sp_ViewApp_Result)">
+      <Parameter Name="GPID" Mode="In" Type="String" />
+    </FunctionImport>
+  </EntityContainer>
+  <ComplexType Name="GetAppointmentDetails_Result">
+    <Property Type="String" Name="GPID" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Deptment" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="CName" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="V_Name" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Visitor_Type" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="sp_AppToday_Result">
+    <Property Type="String" Name="GPID" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="V_Name" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="CName" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="V_Phone" Nullable="true" MaxLength="25" />
+    <Property Type="String" Name="NAME" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="EMPLOYEE_ID" Nullable="true" MaxLength="255" />
+    <Property Type="DateTime" Name="V_DateFrom" Nullable="true" Precision="23" />
+    <Property Type="String" Name="A_Time" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Duration" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="V_Status" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Visitor_Type" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Location" Nullable="true" MaxLength="25" />
+  </ComplexType>
+  <ComplexType Name="sp_AppUpcoming_Result">
+    <Property Type="String" Name="GPID" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="V_Name" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="CName" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="V_Phone" Nullable="true" MaxLength="25" />
+    <Property Type="String" Name="NAME" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="EMPLOYEE_ID" Nullable="true" MaxLength="255" />
+    <Property Type="DateTime" Name="V_DateFrom" Nullable="true" Precision="23" />
+    <Property Type="String" Name="A_Time" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Duration" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="V_Status" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Visitor_Type" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Location" Nullable="true" MaxLength="25" />
+  </ComplexType>
+  <ComplexType Name="sp_DateReport_Result">
+    <Property Type="String" Name="GPID" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="V_Name" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="CName" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="V_Phone" Nullable="true" MaxLength="25" />
+    <Property Type="String" Name="NAME" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="City" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Visitor_Type" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="V_DateFrom" Nullable="true" Precision="23" />
+    <Property Type="String" Name="A_Time" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Visitor_Type1" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Location" Nullable="true" MaxLength="25" />
+  </ComplexType>
+  <ComplexType Name="sp_DownloadePass_Result">
+    <Property Type="String" Name="GPID" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="V_Name" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="CName" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="V_Phone" Nullable="true" MaxLength="25" />
+    <Property Type="String" Name="NAME" Nullable="true" MaxLength="255" />
+    <Property Type="DateTime" Name="V_DateFrom" Nullable="true" Precision="23" />
+    <Property Type="String" Name="A_Time" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Visitor_Type" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Location" Nullable="true" MaxLength="25" />
+  </ComplexType>
+  <ComplexType Name="sp_ViewApp_Result">
+    <Property Type="String" Name="V_Location" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="EMPLOYEE_ID" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="DEPARTMENT" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="NAME" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="DESIGNATION" Nullable="true" MaxLength="255" />
+    <Property Type="Double" Name="MOBILE_NUMBER" Nullable="true" />
+    <Property Type="String" Name="Email_ID" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="V_Name" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="V_Phone" Nullable="true" MaxLength="25" />
+    <Property Type="String" Name="CName" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Visitor_ID" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="V_IDNumber" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Visitor_Type" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Duration" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Location" Nullable="true" MaxLength="25" />
+    <Property Type="DateTime" Name="V_DateFrom" Nullable="true" Precision="23" />
+    <Property Type="String" Name="A_Time" Nullable="true" MaxLength="50" />
+  </ComplexType>
+</Schema>

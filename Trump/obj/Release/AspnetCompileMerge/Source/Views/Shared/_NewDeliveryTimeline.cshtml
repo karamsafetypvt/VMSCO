@@ -1,0 +1,185 @@
+﻿@*<form method="post" >*@
+
+<form action="../Master/NewDeliveryTimeline" method="post" enctype="multipart/form-data">
+    <div class="form-horizontal col-md-12">
+        <div class="main">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="widget-content">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <fieldset>
+                                        @*<div class="form-group">
+                                                <label for="name" class="col-md-10">Company Name111</label>
+                                                <div class="col-md-10">
+                                                    <input class="form-control" data-val="true" data-val-required="The VisitorCompanyName field is required." onkeypress="return isAlphabt(event)" id="fVisitorCompanyName" maxlength="100" ng-model="Company.CName" value="" type="text">
+                                                    <span id="ValidationForVisitorCompanyNamed" style="color: Red; display: none" class="field-validation-error">
+                                                    </span>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <i class="fa fa-asterisk required" style="margin-left: -25px;"></i>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="name" class="col-md-10">Company Address</label>
+                                                <div class="col-md-10">
+                                                    <textarea class="form-control" cols="20" id="fAddress" maxlength="255" rows="2" ng-model="Company.Addres"></textarea>
+                                                    <span id="ValidationForAddress1" class="field-validation-error" style="display: none">
+                                                    </span>
+                                                </div>
+                                                <div class="col-md-2">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="name" class="col-md-10">Phone Number</label>
+                                                <div class="col-md-10">
+                                                    <input class="form-control" onkeypress="return CheckPhone(event)" id="fPhone" maxlength="10" ng-model="Company.Phone" value="" type="text"><br>
+
+                                                    <span id="ValidationForPhone1" class="field-validation-error" style="display: none">
+                                                    </span>
+                                                </div>
+                                                <div class="col-md-2">
+                                                </div>
+                                            </div>*@
+                                        <input type="hidden" name="hidd" />
+                                        <div class="widget-content">
+                                            <div class="row">
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label for="name" class="col-md-8">
+                                                            Source
+                                                        </label>
+                                                        <div class="col-md-10">
+                                                            <input type="text" id="E_Cname" name="E_Cname" class="form-control" onkeypress="return isAlphabt(event)" />
+                                                        </div>
+                                                        <div class="col-md-2">
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label for="name" class="col-md-8">
+                                                            Destination
+                                                        </label>
+                                                        <div class="col-md-10">
+                                                            <input class="form-control" data-val="true" name="E_Caddress" type="text">
+                                                        </div>
+                                                        <div class="col-md-2">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="name" class="col-md-8">PackageType</label>
+                                                        <div class="col-md-10">
+                                                            @*<input type="text" name="E_Cnum" onkeypress="return CheckPhone(event)" value="@Model.Select(z=>z.PackageType).FirstOrDefault()" class="form-control" />*@
+
+                                                            <select tabindex="-1" class="form-control select2_group ddlIDType" data-val="true" id="E_PackageType" name="E_PackageType">
+
+                                                                <option>Courier</option>
+                                                                <option>Logistics</option>
+                                                            </select>
+
+
+                                                        </div>
+                                                        <div class="col-md-2">
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label for="name" class="col-md-8">Days</label>
+                                                        <div class="col-md-10">
+                                                            <input type="text" name="E_Days" onkeypress="return CheckPhone(event)" class="form-control" />
+
+
+
+                                                        </div>
+                                                        <div class="col-md-2">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="name" class="col-md-12">Status</label>
+                                                        <div class="col-md-10">
+                                                            <select tabindex="-1" class="form-control select2_group ddlIDType" data-val="true" name="E_CStatus">
+                                                                @*<option selected>@Model.Select(z => z.Status).FirstOrDefault()</option>*@
+                                                                <option>Active</option>
+                                                                <option>Inactive</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="col-md-2">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <hr>
+
+                                            <div class="row">
+                                                <div class="container">
+                                                    <input class="btn btn-primary btnSave" id="btnSave123" value="Save" type="submit">
+                                                    <input class="btn btn-primary" value="Back" type="button" onclick="goBack()">
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+
+                                    </fieldset>
+                                </div>
+
+                            </div>
+                            <div class="row">
+                                <input id="hdnCountUDF" value="0" type="hidden">
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="ErrorDiv" id="MessageForm" style="display: none">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="ui-dialog-buttonpane ui-widget-content ui-helper-clearfix">
+        <div class="ui-dialog-buttonset">
+            @*<input type="button" value="Save" ng-click="savedata()" class="btn btn-primary" />*@
+
+            @*<input class="btn btn-primary btnSave" value="Save" type="submit">*@
+            <button class="btn btn-primary dialogClose" type="button">Close</button>
+        </div>
+    </div>
+</form>
+
+<script src="~/Login/js/cleave.js"></script>
+<script src="~/Login/js/cleave-phone.in.js"></script>
+
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>   
+<script>
+    $(document).ready(function () {
+
+       
+
+        $("#btnSave123").click(function () {
+            alert('sss');
+          
+            $("#txtPerson").val($("#E_Cname").val());
+          
+            var ddlfromcity = $('#E_PackageType option:selected').text();
+           
+            if ($("#E_Cname").val() == "") {
+                alert("Please Enter EmpId");
+                return false;
+            }
+            if (ddlfromcity == "Courier") {
+
+                alert("Please Enter Logistics");
+                return false;
+
+            }
+
+        });
+
+
+    })
+</script>

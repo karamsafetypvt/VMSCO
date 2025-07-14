@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="SAVIORModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <Function Name="sp_HCW" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <EntityContainer Name="SAVIORModelStoreContainer" />
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SAVIORModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="SAVIOREntities" annotation:LazyLoadingEnabled="true" >
+          <FunctionImport Name="sp_HCW" ReturnType="Collection(SAVIORModel.sp_HCW_Result)" />
+        </EntityContainer>
+        <ComplexType Name="sp_HCW_Result">
+          <Property Type="String" Name="paycode" Nullable="false" MaxLength="10" />
+          <Property Type="String" Name="empname" Nullable="true" MaxLength="25" />
+          <Property Type="String" Name="departmentcode" Nullable="true" MaxLength="5" />
+          <Property Type="String" Name="DEPARTMENT" Nullable="false" MaxLength="24" />
+          <Property Type="String" Name="UNIT" Nullable="false" MaxLength="6" />
+          <Property Type="String" Name="Type" Nullable="false" MaxLength="15" />
+          <Property Type="DateTime" Name="dateoffice" Nullable="false" Precision="23" />
+          <Property Type="DateTime" Name="in1" Nullable="true" Precision="23" />
+          <Property Type="DateTime" Name="out1" Nullable="true" Precision="23" />
+          <Property Type="DateTime" Name="in2" Nullable="true" Precision="23" />
+          <Property Type="DateTime" Name="out2" Nullable="true" Precision="23" />
+          <Property Type="String" Name="status" Nullable="true" MaxLength="6" />
+          <Property Type="String" Name="Current_Status" Nullable="false" MaxLength="3" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="SAVIORModelStoreContainer" CdmEntityContainer="SAVIOREntities" >
+          <FunctionImportMapping FunctionImportName="sp_HCW" FunctionName="SAVIORModel.Store.sp_HCW">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="SAVIORModel.sp_HCW_Result">
+                <ScalarProperty Name="paycode" ColumnName="paycode" />
+                <ScalarProperty Name="empname" ColumnName="empname" />
+                <ScalarProperty Name="departmentcode" ColumnName="departmentcode" />
+                <ScalarProperty Name="DEPARTMENT" ColumnName="DEPARTMENT" />
+                <ScalarProperty Name="UNIT" ColumnName="UNIT" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="dateoffice" ColumnName="dateoffice" />
+                <ScalarProperty Name="in1" ColumnName="in1" />
+                <ScalarProperty Name="out1" ColumnName="out1" />
+                <ScalarProperty Name="in2" ColumnName="in2" />
+                <ScalarProperty Name="out2" ColumnName="out2" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="Current_Status" ColumnName="Current_Status" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

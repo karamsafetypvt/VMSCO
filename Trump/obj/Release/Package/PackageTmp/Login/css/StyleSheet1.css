@@ -1,0 +1,96 @@
+﻿@media(min-width: 979px) {
+    body {
+        background-image: url('../../Layout/Images/Wallpaper.jpg');
+        width: calc(100% - 700px);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: initial;
+        position: relative;
+        z-index: 1;
+    }
+
+    .wrap-login100 {
+        width: 400px;
+        border-radius: 10px;
+        overflow: hidden;
+        padding: 55px 55px 37px 55px;
+        background: #9152f8;
+        background: -webkit-linear-gradient(top, #860220, #fbfafb);
+        background: -o-linear-gradient(top, #860220, #fbfafb);
+        background: -moz-linear-gradient(top, #860220, #fbfafb);
+        background: linear-gradient(top,#860220, #fbfafb);
+    }
+
+}
+@media(min-width: 768px) {
+    body {
+        background-image: url('../../Layout/Images/Wallpaper.jpg');
+        /*width: calc(100% - 700px);*/
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: initial;
+        position: relative;
+        z-index: 1;
+    }
+
+    .wrap-login100 {
+        width: 300px;
+        border-radius: 10px;
+        overflow: hidden;
+        padding: 55px 55px 37px 55px;
+        background: #9152f8;
+        background: -webkit-linear-gradient(top, #860220, #fbfafb);
+        background: -o-linear-gradient(top, #860220, #fbfafb);
+        background: -moz-linear-gradient(top, #860220, #fbfafb);
+        background: linear-gradient(top,#860220, #fbfafb);
+    }
+
+}
+@media(min-width: 400px) {
+    body {
+        background-image: url('../../Layout/Images/Wallpaper.jpg');
+        /*width: calc(100% - 700px);*/
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: initial;
+        position: relative;
+        z-index: 1;
+        overflow:hidden;
+    }
+    .wrap-login100 {
+        /*width: 200px;*/
+        border-radius: 10px;
+        overflow: hidden;
+        padding: 55px 55px 37px 55px;
+        background: #9152f8;
+        background: -webkit-linear-gradient(top, #860220, #fbfafb);
+        background: -o-linear-gradient(top, #860220, #fbfafb);
+        background: -moz-linear-gradient(top, #860220, #fbfafb);
+        background: linear-gradient(top,#860220, #fbfafb);
+    }
+}
+
+@media(min-width: 100px) {
+    body {
+        background-image: url('../../Layout/Images/Wallpaper.jpg');
+        /*width: calc(100% - 700px);*/
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: initial;
+        position: relative;
+        z-index: 1;
+        overflow: hidden;
+    }
+    .wrap-login100 {
+        /*width: 200px;*/
+        border-radius: 10px;
+        overflow: hidden;
+        padding: 0px 0px 0px 0px;
+        background: #9152f8;
+        background: -webkit-linear-gradient(top, #860220, #fbfafb);
+        background: -o-linear-gradient(top, #860220, #fbfafb);
+        background: -moz-linear-gradient(top, #860220, #fbfafb);
+        background: linear-gradient(top,#860220, #fbfafb);
+    }
+}
+

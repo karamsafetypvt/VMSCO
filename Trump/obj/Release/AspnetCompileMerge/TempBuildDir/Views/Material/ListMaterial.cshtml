@@ -1,0 +1,167 @@
+﻿@model IEnumerable<Trump.Models.tblIN_Out>
+@{
+    var Approver = ViewBag.Approver as IEnumerable<Trump.Models.Master_Requestor>;
+}
+
+<link href="~/Content/Gridmvc.css" rel="stylesheet" />
+
+@using GridMvc.Html;
+@using GridMvc.DataAnnotations;
+@using GridMvc.Sorting;
+@helper ADDCOLUMN(Trump.Models.tblIN_Out tb)
+{
+    @*if (tb.Status == "Pre")
+        {
+            <a href="../Home/EditPage?EditID=@tb.GP_ID">
+                <img src="~/Layout/Images/51-512.png" width="30" height="30" />
+            </a>
+        }
+        else
+        {
+            @Html.ActionLink("View", "EditPage", new { EditID = tb.GP_ID })
+        }*@
+}
+
+@helper CustomPostionOfItam(Trump.Models.tblIN_Out item)
+{
+    if (item.M_Type == "NRGP" && item.M_Status == "Closed" && item.Delay != "True")
+    {
+        <span>Closed</span>
+    }
+    else if (item.M_Type == "NRGP" && item.M_Status == "Closed" && item.Delay == "True")
+    {
+        <span>Delayed</span>
+    }
+    else if (item.M_Type == "RGP" && item.M_Status == "OUT" && item.S_Type == "INTER")
+    {
+        <span>On the way</span>
+    }
+    else if ((item.M_Type == "NRGP" || item.M_Type == "RGP") && item.M_Status == "Partial")
+    {
+        <span>Pending at Purchase</span>
+    }
+    else if ((item.M_Type == "NRGP" || item.M_Type == "RGP") && item.M_Status == "Open")
+    {
+        <span>Pending at Security</span>
+    }
+    else if (item.M_Type == "RGP" && item.M_Status == "IN")
+    {
+        <span>Pending for Return</span>
+    }
+    else if (item.M_Type == "RGP" && item.M_Status == "OUT" && item.S_Type == "THIRD")
+    {
+        <span>Material at Vendor</span>
+    }
+    else if (item.M_Type == "RGP" && item.M_Status == "Security Closed" && (item.S_Type == "THIRD" || item.S_Type == "INTER"))
+    {
+        <span>Pending for Closer</span>
+    }
+    else if (item.M_Type == "RGP" && item.M_Status == "Partialy Closed" && item.S_Type == "THIRD")
+    {
+        <span>Partialy Closed</span>
+    }
+    else if (item.M_Type == "RGP" && item.M_Status == "Short Closed" && (item.S_Type == "THIRD" || item.S_Type == "INTER"))
+    {
+        <span>Short Closed</span>
+    }
+    else if (item.M_Type == "RGP" && item.M_Status == "Closed")
+    {
+        <span>Closed</span>
+    }
+    else if (item.Delay == "Yes")
+    {
+        <span>Delay</span>
+    }
+}
+<link href="~/Layout/Css/jtable_jqueryui.css" rel="stylesheet" />
+<link href="~/Layout/Css/jquery.dataTables_themeroller.css" rel="stylesheet" />
+
+<div class="content" style="font-size:12px;min-height:100%">
+    <div class="content_resize">
+        <h3 style="text-align:center;font-weight:bold">Pending For HOD Approval</h3>
+        <div class="mainbar">
+            <div class="article">
+                <style type="text/css">
+                    #accordion div {
+                        display: none;
+                    }
+                </style>
+                <div role="tablist" class="ui-accordion ui-widget ui-helper-reset" id="accordion">
+                    <h3 tabindex="0" aria-selected="false" aria-controls="ui-accordion-accordion-panel-0" id="ui-accordion-accordion-header-0" role="tab" class="clsAccordion ui-accordion-header ui-helper-reset ui-state-default ui-corner-all ui-accordion-icons">
+                        <a id="NewVisitorCompany" style="font-size: 15px; font-weight: 400; color: #555;" href="../Material/OutWard" class="VisitorCompanyQuickAdd">
+                            <img src="~/Layout/Images/NewRecord.png">&nbsp;New
+                        </a> &nbsp; &nbsp; &nbsp;
+                        <a id="DeleteVisitorCompany" href="#" style="font-size: 15px; font-weight: 400; color: rgb(85, 85, 85);" data-toggle="modal" data-target="#myModal_Material">
+                            <img src="~/Layout/Images/Erase.png">&nbsp;Cancel
+                        </a>
+                    </h3>
+
+                </div>
+                <div class="jtable-busy-message"> @TempData["error"]</div>
+                <div id="VisitorCompanyTableContainer">
+                    <div class="jtable-main-container">
+                        <div class="jtable" id="jtable">
+                            <div class="table table-bordered table-responsive" id="table2">
+                                @Html.Grid(Model).Columns(columns =>
+                           {
+                               columns.Add().Encoded(false).Sanitized(false)
+                               .RenderValueAs(o => Html.CheckBox("checked", false, new { key = o.M_ID, id = "checked" }));
+                               columns.Add(c => c.M_ID).Titled("ID").Filterable(true).Sortable(true).Css("hidden");
+                               columns.Add(c => c.ChallanNmbr).Titled("Challan Number").Css("ContentTitle").Filterable(true).Sortable(true);
+                           columns.Add(c => c.RaiseDate).Titled("Raise Date").Format("{0:dd/MMM/yyyy}").Css("ContentTitle").Sortable(true).Filterable(true);
+                           columns.Add(c => c.M_Type).Titled("Type").Css("ContentTitle").Filterable(true).Sortable(true);
+                           columns.Add(c => c.S_Type).Titled("Supplier Type").Css("ContentTitle").Sortable(true).Filterable(true);
+                           columns.Add(c => c.SecApproveTime).Titled("Security Approve").Css("ContentTitle").Sortable(true).Filterable(true);
+                               columns.Add(c => Approver.Where(m => m.EMPLOYEE_ID == c.ApprovingHOD).FirstOrDefault().NAME).Titled("Approver").Filterable(true).Sortable(true);
+                               columns.Add(c => c.HODTime).Titled("HOD Approve").Css("ContentTitle").Sortable(true).Filterable(true);
+                           columns.Add(c => c.M_Status).Titled("Status").Css("ContentTitle").Sortable(true).Encoded(false).Sanitized(false).RenderValueAs(o => CustomPostionOfItam(o)).Filterable(true);
+                           }).Sortable(true).WithPaging(10)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade out" id="myModal_Material" aria-hidden="true" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" id="btnclose" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title" style="text-align:center">Alert</h4>
+            </div>
+
+            <form id="contact" action="~/Material/CancelEntry" method="post">
+                <input type="hidden" id="delHidden" name="delHidden" />
+                <div class="modal-body">
+                    <label>Are Yor sure you want to Cancel</label>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" id="btnsavedate" class="btn Button">SUBMIT</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script src="~/Layout/Scripts/jtable.2.3.0/jquery.jtable.js"></script>
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $('#DeleteVisitorCompany').click(function () {
+            $("#myModal_Material").show(function () {
+                var KEY1 = "";
+                $("#table2 input[type=checkbox]:checked").each(function () {
+                    debugger
+                    var KEY = ($(this).closest("tr").find("td").eq(1).text() + ";");
+                    KEY1 = KEY1 + KEY;
+                    $("#delHidden").val(KEY1)
+                });
+            });
+        })
+    })
+</script>
+

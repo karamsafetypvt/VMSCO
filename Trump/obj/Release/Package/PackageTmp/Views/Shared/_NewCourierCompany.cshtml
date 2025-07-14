@@ -1,0 +1,58 @@
+﻿<form method="post" action="~/Master/AddNewCourierCompany">
+    <div class="form-horizontal col-md-12">
+        <div class="main">
+            <div class="container">
+                <div class="widget-content">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <fieldset>
+                                <div class="form-group">
+                                    <br>
+                                    <div class="col-md-12">
+                                        Courier Comany
+                                        <input class="form-control" name="CourierCompany" id="CourierCompany" onkeypress="return isAlphabt(event)" maxlength="30" value="" type="text" required>
+
+                                    </div>
+                                    <br>
+                                </div>
+                            </fieldset>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="ui-dialog-buttonpane ui-widget-content ui-helper-clearfix">
+        <div class="ui-dialog-buttonset">
+            <button class="btn btn-primary" id="btnMSave" type="submit">Save</button>
+
+        </div>
+    </div>
+</form>
+
+
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script>
+    $(document).ready(function () {
+
+        
+
+        $("#btnMSave").click(function () {
+            var CourierCompany = $("#CourierCompany").val();
+            if (CourierCompany == "") {
+
+                alert("Please Enter Company");
+                return false;
+            }
+        });
+
+        //-------------
+
+
+
+    })
+
+
+
+
+</script>

@@ -1,0 +1,231 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link rel="icon" href="~/Layout/Images/favicon.png" type="image/x-icon">
+    <link href="~/Login/fonts/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/Login/fonts/iconic/css/material-design-iconic-font.min.css" rel="stylesheet" />
+    <link href="~/Layout/Css/custom.css" rel="stylesheet" />
+    <link href="~/Login/css/util.css" rel="stylesheet" />
+    <link href="~/Login/css/main.css" rel="stylesheet" />
+    <link href="~/Login/css/StyleSheet1.css" rel="stylesheet" />
+    <link href="~/bootstrap-sweetalert-master/dist/sweetalert.css" rel="stylesheet" />
+    <title>Login</title>
+    <style>
+        a:hover {
+            color: blue;
+        }
+    </style>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+        }
+
+        .bg {
+            /* The image used */
+            background-image: url("/Content/images/wall-min.jpg");
+            /* Full height */
+            height: 100%;
+            /* Center and scale the image nicely */
+            background-repeat: no-repeat;
+         
+        }
+    </style>
+
+
+
+</head>
+@*<img src="~/Content/images/VMS Wallpaper.png" />*@
+<body class="bg" style="width:100%">
+    <table style="width:35%;">
+        <tr>
+            <td style="width:60%"></td>
+            <td>
+
+
+                <div class="limiter">
+                    <div class="container-login100">
+                        <div class="wrap-login100">
+                            <form class="login100-form validate-form" action="~/Home/Login" method="post">
+                                <span class="login100-form-title p-b-34 p-t-27">
+                                    VMS Login
+                                </span>
+                                <div class="wrap-input100 validate-input" data-validate="Enter username" style="margin-left: 3px; width: 98%;">
+                                    <input type="text" placeholder="User Id" name="ID" id="pnicode" class="input100" />
+                                    <span class="focus-input100" data-placeholder="&#xf207;"></span>
+                                </div>
+                                <div class="wrap-input100 validate-input" data-validate="Enter password" style="margin-left: 3px; width: 98%;">
+                                    <input type="password" placeholder="Password" name="Password" class="input100" />
+                                    <span class="focus-input100" data-placeholder="&#xf191;"></span>
+                                </div>
+                                <div class="container-login100-form-btn">
+                                    <input type="submit" id="btnlogin" class="login100-form-btn" value="Login" style="color:white" />
+                                </div>
+                            </form>
+                            <div class="text-center p-t-50">
+                                @*<a class="txt1" id="btnforgot" href="../Home/ForgetPassword">*@
+                                <a class="txt1" id="btnforgot" href="../Home/ForgetPasswordnew">
+
+                                    <span>
+                                        Forgot Password?
+                                    </span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="dropDownSelect1"></div>
+
+
+            </td>
+        </tr>
+
+    </table>
+
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <script src="~/bootstrap-sweetalert-master/dist/sweetalert.js"></script>
+    <script src="~/Login/js/main.js"></script>
+
+
+    @if (TempData["loginerror"] != null)
+    {
+        <script>
+            $(document).ready(function () {
+                swal({
+                    title: "Alert",
+                    text: "Invalid Login",
+                    icon: "success",
+                    type: "success"
+                }, function () {
+                    window.location.href = "../Home/Login";
+                });
+            })
+        </script>
+    }
+    @if (TempData["already"] != null)
+    {
+        <script>
+            $(document).ready(function () {
+                swal({
+                    title: "Alert",
+                    text: "You Given Feedback",
+                    icon: "success",
+                    type: "success"
+                }, function () {
+                    window.location.href = "../Home/Login";
+
+                });
+            })
+        </script>
+    }
+    @if (TempData["norecord"] != null)
+    {
+        <script>
+            $(document).ready(function () {
+                swal({
+                    title: "Alert",
+                    text: "You do not have any pending feedback!!!",
+                    icon: "success",
+                    type: "success"
+                }, function () {
+                    window.location.href = "../Home/Login";
+                });
+            })
+        </script>
+    }
+    @if (TempData["invalid"] != null)
+    {
+        <script>
+            $(document).ready(function () {
+                swal({
+                    title: "Alert",
+                    text: "Invalid User",
+                    icon: "success",
+                    type: "success"
+                }, function () {
+                    window.location.href = "../Home/Login";
+                });
+            })
+        </script>
+    }
+    @if (TempData["reject"] != null)
+    {
+        <script>
+            $(document).ready(function () {
+                swal({
+                    title: "Success",
+                    text: "Rejected",
+                    icon: "success",
+                    type: "success"
+                }, function () {
+                    window.location.href = "../Home/Login";
+                });
+            })
+        </script>
+    }
+    @if (TempData["allreject"] != null)
+    {
+        <script>
+            $(document).ready(function () {
+                swal({
+                    title: "Success",
+                    text: "Already Rejected or Cancelled",
+                    icon: "success",
+                    type: "success"
+                }, function () {
+                    window.location.href = "../Home/Login";
+                });
+            })
+        </script>
+    }
+
+    @if (TempData["LoginFail"] != null)
+    {
+
+        <script>
+            $(document).ready(function () {
+                swal({
+                    title: "warning",
+                    text: "Login Failed",
+                    icon: "warning",
+                    type: "warning"
+                });
+            })
+        </script>
+    }
+
+
+
+
+    <script type="text/javascript">
+        function restrictAlphabets(e) {
+            var x = e.which || e.keycode;
+            if ((x >= 3 && x <= 57) || x == 8 ||
+                (x >= 35 && x <= 40) || x == 46)
+                return true;
+            else
+                return false;
+        }
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,354 @@
+﻿@{
+    ViewBag.Title = "Courier Entry";
+    // Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = null;
+}
+<style type="text/css">
+    #accordion div {
+        display: none;
+    }
+
+    .tooltip {
+        position: absolute;
+        z-index: 1030;
+        display: block;
+        opacity: 1;
+        filter: alpha(opacity=75);
+        font-size: 11px;
+        line-height: 1.4;
+        zoom: 1;
+        visibility: visible;
+        width: auto;
+    }
+
+    .tooltip-inner {
+        max-width: 800px;
+        padding: 3px 8px;
+        color: #ffffff;
+        width: 400;
+        display: block;
+        text-align: left;
+        font-size: 11px;
+        text-decoration: none;
+        background-color: #000000;
+        border-radius: 4px;
+    }
+
+
+    .modalPOP {
+        position: fixed;
+        z-index: 999;
+        height: 100%;
+        width: 100%;
+        top: 0;
+        left: 0;
+        background-color: White;
+        filter: alpha(opacity=60);
+        opacity: 0.6;
+        -moz-opacity: 0.8;
+    }
+
+    .modal-dialog1 {
+        position: absolute;
+        left: 25%;
+        top: 25%;
+        -moz-transform: translate(-50%, -50%);
+        -webkit-transform: translate(-50%, -50%);
+        -o-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+    }
+</style>
+
+<style>
+    .modal-dialog1 {
+        position: absolute;
+        left: 25%;
+        top: 25%;
+        -moz-transform: translate(-50%, -50%);
+        -webkit-transform: translate(-50%, -50%);
+        -o-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+    }
+
+    .ui-widget-content {
+        border: 1px solid;
+    }
+
+    .ui-autocomplete li.ui-menu-item a {
+        background-image: none;
+    }
+
+    .focus {
+        border: 2px solid #AA88FF;
+        background-color: #FFEEAA;
+    }
+
+    .ui-datepicker select.ui-datepicker-month, .ui-datepicker select.ui-datepicker-year {
+        color: Black;
+        font-weight: normal;
+    }
+
+    .ui-autocomplete {
+        max-height: 100px;
+        overflow-y: auto; /* prevent horizontal scrollbar */
+        overflow-x: hidden; /* add padding to account for vertical scrollbar */
+        padding-right: 20px;
+    }
+
+    *html .ui-autocomplete {
+        height: 100px;
+    }
+
+    .select2-container--default .select2-selection--single {
+        border-radius: 4px;
+    }
+
+    .select2-container {
+        width: 100% !important;
+    }
+</style>
+
+<link rel="icon" href="~/Layout/Images/favicon.png" type="image/x-icon">
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<link href="~/Layout/Css/bootstrap-responsive.min.css" rel="stylesheet" />
+<link href="~/Content/font-awesome.css" rel="stylesheet" />
+<link href="~/Content/jquery-ui.css" rel="stylesheet" />
+<link href="~/Content/sweetalert.css" rel="stylesheet" />
+<link href="~/datepair/bootstrap-datepicker.css" rel="stylesheet" />
+<link href="~/datepair/jquery.timepicker.css" rel="stylesheet" />
+<link href="~/Layout/Css/base-admin-3.css" rel="stylesheet" />
+<link href="~/Layout/Css/base-admin.css" rel="stylesheet" />
+<link href="~/Layout/Css/base-admin-3-responsive.css" rel="stylesheet" />
+<link href="~/Content/css/select2.min.css" rel="stylesheet" />
+<link href="~/Content/select2.css" rel="stylesheet" />
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<link href="~/Layout/Css/custom-dashboard.css" rel="stylesheet" />
+<link href="~/Layout/Content/fullcalendar.css" rel="stylesheet" />
+<link href="~/Layout/Css/pages/dashboard.css" rel="stylesheet" />
+<link href="~/Layout/Css/custom.css" rel="stylesheet" />
+<script src="~/Layout/WebFormScripts/Common.js"></script>
+<link href="~/Layout/JS/plugins/msgbox/jquery.msgbox.css" rel="stylesheet" />
+<link href="~/Layout/Content/menu.css" rel="stylesheet" />
+<script src="~/Scripts/angular.min.js"></script>
+<script src="~/Scripts/angular-route.js"></script>
+<script src="~/Scripts/AngularController.js"></script>
+<link href="~/Layout/Css/OutwardInwardTable.css" rel="stylesheet" />
+
+
+<link href="~/bootstrap-sweetalert-master/dist/sweetalert.css" rel="stylesheet" />
+
+
+
+<div class="content" style="font-size:12px;min-height:100%">
+    <div class="content_resize">
+        <div class="mainbar">
+            <div class="article">
+                <div id="divNewInward" style="">
+                    <form action="/Home/EmployeeAcknowledgeCourier" enctype="multipart/form-data" method="post">
+                        <input id="AuthoriserString" name="AuthoriserString" value="-1" type="hidden">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="widget stacked">
+                                        <div class="widget-header">
+                                            <i class="fa fa-check-circle"></i>
+                                            <h3>
+                                                Employee Acknowledge
+                                            </h3>
+                                        </div>
+                                        <div class="widget-content">
+
+
+
+                                            <div class="row">
+
+                                                <div class="col-md-3">
+                                                    <div class="form-group" id="divWorker">
+                                                        <label for="name" class="col-md-8">Docket No.</label>
+                                                        <div class="col-md-12">
+
+                                                            <input class="form-control clsWorkerIDAutotext" id="txtdocketno" readonly name="txtdocketno" value="@ViewBag.DocketNo" type="text">
+
+                                                            <input class="form-control clsWorkerIDAutotext" id="txtcourierId" style="display:none;" name="txtcourierId" value="@ViewBag.CourierId" type="text">
+                                                        </div>
+
+                                                    </div>
+
+                                                </div>
+
+
+
+
+                                                <div class="col-md-3">
+                                                    <div class="form-group" id="divWorker">
+                                                        <label for="name" class="col-md-8">Remark</label>
+                                                        <div class="col-md-12">
+
+
+
+                                                            <textarea type="text" row class="form-control" name="CouriarRemark" id="CouriarRemark" maxlength="500" value="" rows="3"></textarea>
+
+                                                        </div>
+
+                                                    </div>
+                                                    <br /> <br />
+
+                                                </div>
+
+
+
+                                                <div class="col-md-3">
+                                                    <div class="form-group" id="divWorker">
+                                                        <label for="name" class="col-md-8">Sender Name </label>
+                                                        <div class="col-md-12">
+
+                                                            <input class="form-control clsWorkerIDAutotext" id="txtSender" readonly name="txtSender" value="@ViewBag.Sender" type="text">
+
+
+                                                        </div>
+
+                                                    </div>
+
+                                                </div>
+
+
+                                                <div class="col-md-3">
+                                                    <div class="form-group" id="divWorker">
+                                                        <label for="name" class="col-md-8">Sender City </label>
+                                                        <div class="col-md-12">
+
+                                                            <input class="form-control clsWorkerIDAutotext" id="txtSenderCity" readonly name="txtSenderCity" value="@ViewBag.SenderCity" type="text">
+
+
+                                                        </div>
+
+                                                    </div>
+
+                                                </div>
+
+
+
+                                         
+
+                                                <div class="col-md-6">
+                                                    <br /> <br /> <br />
+
+                                                    @if (ViewBag.Status == "Intrasit")
+                                                    {
+                                                        <input type="submit"
+                                                               name="btnSave" id="btnSave" value="Acknowledge" class="btn btn-primary" />
+                                                    }
+
+
+                                                </div>
+
+
+
+
+                                            </div>
+
+
+
+
+
+
+
+
+                                        </div>
+                                        <br /> <br />
+                                        <div class="col-md-12">
+                                            <div style="text-align:center;">
+
+                                                Copyrights @@  Karam Safety Pvt. Ltd. All rights reserved.
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                 
+
+
+
+
+                                </div>
+
+
+                               
+
+
+
+                            </div>
+
+                            <div class="row">
+                               
+                                </div>
+
+                            </div>
+                    </form>
+                </div>
+
+              
+
+
+            </div>
+        </div>
+
+        
+     
+
+
+    </div>
+
+</div>
+
+
+
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+
+
+
+
+<script>
+
+
+
+    $("#btnSave").click(function () {
+
+
+
+
+        if ($("#CouriarRemark").val() == "") {
+            alert("Please Enter Document");
+            return false;
+        }
+
+
+    });
+
+
+</script>
+
+
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+
+
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script src="~/bootstrap-sweetalert-master/dist/sweetalert.js"></script>
+<script src="~/Login/js/main.js"></script>
+
+
+@if (TempData["EmployeeAcknowledgeDone"] != null)
+{
+    <script>
+        $(document).ready(function () {
+            swal({
+                title: "Alert",
+                text: "Acknowledge Done ",
+                icon: "success",
+                type: "success"
+            }, function () {
+                 window.location.href = "../Home/Login";
+            });
+        })
+    </script>
+}

@@ -1,0 +1,395 @@
+﻿@model Trump.Models.VisitorViewModel
+@{
+    ViewBag.Title = "EditVisitor";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="content" style="font-size:12px;min-height:100%" ng-controller="AppointmentController">
+    <div class="content_resize">
+        <div class="mainbar">
+            <div class="article">
+                <div class="main">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="widget stacked">
+                                    <div class="widget-header">
+                                        <i class="icon-ok"></i>
+                                        <h3>
+                                            Edit Visitor
+                                        </h3>
+                                    </div>
+                                    <form action="../Master/EditVisitor" method="post" enctype="multipart/form-data">
+                                        <input type="hidden" value="@Model.tbv.V_ID" name="hidd" />
+                                        <div class="widget-content">
+                                            <div class="row">
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label for="name" class="col-md-8">
+                                                            Visitor Name
+                                                        </label>
+                                                        <div class="col-md-10">
+                                                            <input type="text" name="E_Vname" id="E_Vname" class="form-control"  maxlength="49" value="@Model.tbv.V_Name" onkeypress="return isAlphabt(event)" />
+                                                        </div>
+                                                        <div class="col-md-2">
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label for="name" class="col-md-8">
+
+                                                            Phone Number
+                                                        </label>
+                                                        <div class="col-md-10">
+                                                            <input class="form-control" data-val="true" id="E_VPhone" name="E_VPhone" value="@Model.tbv.V_Phone" maxlength="10" onkeypress="return CheckPhone(event)" type="text">
+                                                        </div>
+                                                        <div class="col-md-2">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="name" class="col-md-8">Email</label>
+                                                        <div class="col-md-10">
+                                                            <input type="text" name="E_Vemail" id="E_Vemail" value="@Model.tbv.V_Email"  maxlength="49" class="form-control" />
+                                                        </div>
+                                                        <div class="col-md-2">
+                                                        </div>
+                                                    </div>
+
+
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label for="name" class="col-md-12">ID Type</label>
+                                                        <div class="col-md-10">
+                                                            @*<select tabindex="-1" class="form-control select2_group ddlIDType" id="divID" data-val="true" name="E_VID">*@
+                                                            <select tabindex="-1" class="form-control select2_group ddlIDType" data-val="true" id="E_VID22" name="E_VID">
+
+
+                                                                <option selected disabled>@Model.tbv.Visitor_ID</option>
+                                                                <option>Aadhar</option>
+                                                                <option>Passport</option>
+                                                                <option>Voter ID</option>
+                                                                <option>PAN Card</option>
+                                                                <option>DL</option>
+                                                                <option>Company Id</option>
+                                                            </select>
+
+                                                            <input type="text" name="txtidtype" id="txtidtype"  style="display:none;" value="@Model.tbv.Visitor_ID" maxlength="49" class="form-control" />
+
+
+                                                        </div>
+
+
+                                                        <div class="col-md-2">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="name" class="col-md-12">ID Number</label>
+                                                        <div class="col-md-10">
+                                                            <input class="form-control idnumber" data-val="true" id="IDNum" maxlength="20" name="E_VIDNum" value="@Model.tbv.V_IDNumber" type="text" style="text-transform:uppercase;">
+                                                        </div>
+                                                        <div class="col-md-2">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="name" class="col-md-8">
+                                                            Visitor Company
+                                                        </label>
+                                                        <div class="col-md-10">
+                                                            <select tabindex="-1" class="form-control select2_group" name="E_VComanyID" required id="divCam">
+
+                                                                <option selected value="@Model.tbc.C_ID">@Model.tbc.CName</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="col-md-2">
+                                                        </div>
+                                                    </div>
+
+
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label for="name" class="col-md-12">Status</label>
+                                                        <div class="col-md-10">
+                                                            <select tabindex="-1" class="form-control select2_group ddlIDType" data-val="true" id="E_VStatus" name="E_VStatus">
+                                                                <option selected disabled>@Model.tbv.V_Status</option>
+                                                                <option>Active</option>
+                                                                <option>Inactive</option>
+                                                            </select>
+
+                                                            <input type="text" name="txtstatus" id="txtstatus" style="display:none;" value="@Model.tbv.V_Status" maxlength="49" class="form-control" />
+                                                          
+                                                        </div>
+                                                        <div class="col-md-2">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <hr>
+
+                                            <div class="row">
+                                                <div class="container">
+                                                    <input class="btn btn-primary btnSave" id="btnSave2" value="Update" type="submit">                                                          <input class="btn btn-primary" value="Back" type="button" onclick="goBack()">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="clr">
+        </div>
+    </div>
+</div>
+@*<script src="~/Scripts/jquery-3.4.1.min.js"></script>*@
+
+<script src="~/Layout/Scripts/jtable.2.3.0/jquery.jtable.js"></script>
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script>
+    function goBack() {
+        // window.history.back();
+        window.location.href = "../Master/Visitors";
+
+    }
+
+
+</script>
+<script>
+    $(document).ready(function () {
+         $.ajax({
+            url: '@Url.Action("GetSiteData", "Home")',
+            type: 'Get',
+            contenType: 'application/json charset utf-8',
+            dataType: 'json',
+            success: function (SaleOrder) {
+                    for (var i = 0; i < SaleOrder.length; i++) {
+                        var s = "<option value='" + SaleOrder[i].C_ID+"'>" + SaleOrder[i].CName + "</option>";
+                        $("#divCam").append(s);
+                    }
+                }
+         })
+    })
+</script>
+
+<script>
+
+    $("#btnSave2").click(function () {
+      
+        var fvVisitorName = $("#E_Vname").val().trim();
+        var fvVisitorphone = $("#E_VPhone").val().trim();
+        var fvVisitorIdno = $("#IDNum").val().trim();
+        var fvVisitorIdtype = $('#E_VID22 option:selected').text();
+        var fvVisitorcompany = $('#divCam option:selected').text();
+        var fvVisitorstatus = $('#E_VStatus option:selected').text();
+        
+    
+        if (fvVisitorName == "") {
+
+            alert("please enter Name");
+            return false;
+
+        }
+        else if (fvVisitorphone == "") {
+
+            alert("please enter Phone");
+            return false;
+
+        }
+        else if (fvVisitorIdtype == "") {
+
+            alert("please enter Id Type");
+            return false;
+
+        }
+        else if (fvVisitorIdno == "") {
+
+            alert("please enter Id No.");
+            return false;
+
+        }
+        else if (fvVisitorcompany == "") {
+
+            alert("please enter company");
+            return false;
+
+        }
+        else if (fvVisitorstatus == "") {
+
+            alert("please enter Status");
+            return false;
+
+        }
+
+        
+
+
+    });
+
+
+
+</script>
+
+<script>
+
+    //$("#divID").change(function () {
+    //    alert('hhh');
+    //    var fvVisitorIdtype = $('#divID option:selected').text();
+    //    alert(fvVisitorIdtype);
+    //    $("#txtidtype").val(fvVisitorIdtype);
+
+    //});
+
+    $(document).ready(function () {
+    $("#E_VStatus").change(function () {
+
+        var fvVisitorIdtype = $('#E_VStatus option:selected').text();
+        $("#txtstatus").val(fvVisitorIdtype); 
+
+    });
+        $("#E_VID22").change(function () {
+     
+            var fvVisitorIdtype11 = $('#E_VID22 option:selected').text();
+        $("#txtidtype").val(fvVisitorIdtype11);
+
+    });
+      
+    });
+</script>
+
+
+
+
+@*//-----------------jan31--------------*@
+
+<script>
+    $("#E_Vemail").change(function () {
+        //alert(IsEmail(email));
+        //if (IsEmail(email) == false) {
+        //  alert('Please Enter corect email')
+        //    return false;
+        //}
+        var atSymbol = $("#E_Vemail").val().indexOf("@@");
+
+        //Check minimum valid length of an Email.
+        if ($("#E_Vemail").val().length <= 2) {
+            alert('please enter correct email');
+            $("#E_Vemail").val('');
+            return false;
+        }
+        //If whether email has  character.
+        if ($("#E_Vemail").val().indexOf("@@") == -1) {
+            alert('please enter correct email');
+            $("#E_Vemail").val('');
+            return false;
+        }
+
+
+        var parts = $("#E_Vemail").val().split("@@");
+        var dot = parts[1].indexOf(".");
+        var len = parts[1].length;
+        var dotSplits = parts[1].split(".");
+        var dotCount = dotSplits.length - 1;
+
+
+        //Check whether Dot is present, and that too minimum 1 character after
+        if (dot == -1 || dot < 2 || dotCount > 2) {
+            $("#E_Vemail").val('');
+            alert('please enter correct email');
+            return false;
+        }
+
+        //Check whether Dot is not the last character and dots are not repeated.
+        for (var i = 0; i < dotSplits.length; i++) {
+            if (dotSplits[i].length == 0) {
+                $("#E_Vemail").val('');
+                alert('please enter correct email');
+
+                return false;
+            }
+        }
+
+
+        return true;
+
+
+
+
+    });
+
+
+
+</script>
+
+
+
+<script>
+    $(document).ready(function () {
+
+        $("#IDNum").change(function () {
+          
+          
+            var VisIDType = $('#E_VID22 option:selected').text();
+            var inputvalues = $(this).val();
+
+
+            var regex;
+
+            if (VisIDType == "Aadhar") {
+                //Adhar
+                //regex = /^[2-9]{1}[0-9]{3}\s[0-9]{4}\s[0-9]{4}$/;
+                regex = /^[2-9]{1}[0-9]{3}[0-9]{4}[0-9]{4}$/;
+            }
+            else if (VisIDType == "Passport") {
+                // passport =
+                regex = /^[A-PR-WY][1-9]\d\s?\d{4}[1-9]$/;
+
+            }
+            else if (VisIDType == "Voter ID") {
+
+                //  voterid
+                regex = /^[A-Z]{3}[0-9]{7}$/;
+            }
+            else if (VisIDType == "PAN Card") {
+
+                //pan
+                regex = /[A-Z]{5}[0-9]{4}[A-Z]{1}$/;
+            }
+            else if (VisIDType == "DL") {
+
+
+            }
+
+            if (!regex.test(inputvalues)) {
+                // $(".pan").val("");
+                alert("Please enter Valid " + VisIDType);
+                $(this).val('');
+                //return regex.test(inputvalues);
+                return false;
+            }
+
+            //Adhar
+            //var regexp = /^[2-9]{1}[0-9]{3}\s[0-9]{4}\s[0-9]{4}$/;
+
+
+
+
+
+        });
+
+        $("#E_VID22").change(function () {
+
+
+            $("#IDNum").val('');
+
+        });
+
+
+
+
+    });
+
+</script>

@@ -1,0 +1,846 @@
+﻿@model IEnumerable<TrumpCL.Couriar>
+@{
+    ViewBag.Title = "CourierList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    // Layout = null;
+}
+<style type="text/css">
+    #accordion div {
+        display: none;
+    }
+
+    .tooltip {
+        position: absolute;
+        z-index: 1030;
+        display: block;
+        opacity: 1;
+        filter: alpha(opacity=75);
+        font-size: 11px;
+        line-height: 1.4;
+        zoom: 1;
+        visibility: visible;
+        width: auto;
+    }
+
+    .tooltip-inner {
+        max-width: 800px;
+        padding: 3px 8px;
+        color: #ffffff;
+        width: 400;
+        display: block;
+        text-align: left;
+        font-size: 11px;
+        text-decoration: none;
+        background-color: #000000;
+        border-radius: 4px;
+    }
+
+
+    .modalPOP {
+        position: fixed;
+        z-index: 999;
+        height: 100%;
+        width: 100%;
+        top: 0;
+        left: 0;
+        background-color: White;
+        filter: alpha(opacity=60);
+        opacity: 0.6;
+        -moz-opacity: 0.8;
+    }
+
+    .modal-dialog1 {
+        position: absolute;
+        left: 25%;
+        top: 25%;
+        -moz-transform: translate(-50%, -50%);
+        -webkit-transform: translate(-50%, -50%);
+        -o-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+    }
+</style>
+
+<style>
+    .modal-dialog1 {
+        position: absolute;
+        left: 25%;
+        top: 25%;
+        -moz-transform: translate(-50%, -50%);
+        -webkit-transform: translate(-50%, -50%);
+        -o-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+    }
+
+    .ui-widget-content {
+        border: 1px solid;
+    }
+
+    .ui-autocomplete li.ui-menu-item a {
+        background-image: none;
+    }
+
+    .focus {
+        border: 2px solid #AA88FF;
+        background-color: #FFEEAA;
+    }
+
+    .ui-datepicker select.ui-datepicker-month, .ui-datepicker select.ui-datepicker-year {
+        color: Black;
+        font-weight: normal;
+    }
+
+    .ui-autocomplete {
+        max-height: 100px;
+        overflow-y: auto; /* prevent horizontal scrollbar */
+        overflow-x: hidden; /* add padding to account for vertical scrollbar */
+        padding-right: 20px;
+    }
+
+    *html .ui-autocomplete {
+        height: 100px;
+    }
+
+    .select2-container--default .select2-selection--single {
+        border-radius: 4px;
+    }
+
+    .select2-container {
+        width: 100% !important;
+    }
+
+    .hidecol {
+        display: none;
+    }
+</style>
+<div class="content" style="font-size:12px;min-height:100%">
+    <div class="content_resize">
+        <div class="mainbar">
+            <div class="article">
+                <div id="divNewInward" style="">
+                    <form action="/Home/SaveCouriarDetail" enctype="multipart/form-data" method="post">
+                        <input id="AuthoriserString" name="AuthoriserString" value="-1" type="hidden">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="widget stacked">
+                                        <div class="widget-header">
+                                            <i class="fa fa-check-circle"></i>
+                                            <h3>
+                                                @*Desk*@Manage Inward Packet
+                                            </h3>
+                                        </div>
+                                        <div class="widget-content">
+                                            <link href="~/Content/Gridmvc.css" rel="stylesheet" />
+
+                                            @using GridMvc.Html;
+                                            @using GridMvc.DataAnnotations;
+                                            @using GridMvc.Sorting;
+                                            @helper ADDCOLUMN(TrumpCL.Couriar tb)
+                                            {
+
+
+                                                <br />
+
+                                                <a href="#" class="hiswithAllRev" id="modal-trigger1" data-CouriarId="@tb.CouriarId"> History </a>
+
+                                            }
+                                            @helper ADDRESOURCE(TrumpCL.Couriar tb)
+                                            {
+
+
+                                                <a id="ResourceADD_Model" class="CourierModel" href="@tb.CouriarId" style="font-size: 15px; font-weight: 400; color: rgb(85, 85, 85);" data-toggle="modal" data-target="#CourierModel" data-region="@tb.Region" data-dept="@tb.Department" data-partnmbrRej="@tb.CouriarVendor" data-empid="@tb.EmployeeId" data-DID="@tb.CouriarId">
+                                                    <b>  Courier Receiptent</b> @*Intransit*@
+                                                    @*<img src="~/Layout/Images/Erase.png">*@
+                                                </a>
+
+                                            }
+
+
+                                            @helper ADDRESOURCECANCEL(TrumpCL.Couriar tb)
+                                            {
+
+
+                                                <a id="ResourceADD_ModelCANCEL" class="CourierModelCANCEL" href="@tb.CouriarId" style="font-size: 15px; font-weight: 400; color: rgb(85, 85, 85);" data-toggle="modal" data-target="#CourierModelCANCEL" data-dept="@tb.Region" data-partnmbrRej="@tb.CouriarVendor" data-DID="@tb.CouriarId">
+                                                    @*Close*@Cancel
+                                                    @*<img src="~/Layout/Images/Erase.png">*@
+                                                </a>
+
+                                            }
+
+
+
+
+
+
+
+                                            <link href="~/Layout/Css/jtable_jqueryui.css" rel="stylesheet" />
+
+
+                                            <div class="content" style="font-size:12px;min-height:100%">
+                                                <div class="content_resize">
+                                                    <div class="mainbar">
+                                                        <div class="article row">
+                                                            <style type="text/css">
+                                                                #accordion div {
+                                                                    display: none;
+                                                                }
+
+                                                                .hidecol {
+                                                                    display: none;
+                                                                }
+                                                            </style>
+
+                                                            <div class="col-md-12">
+                                                                <div class="col-md-12">
+                                                                    <div role="tablist" class="ui-accordion ui-widget ui-helper-reset" id="accordion" style="width: 100%; margin-left: 0%; margin-right:0%;">
+                                                                        <h1 tabindex="0" aria-selected="false" aria-controls="ui-accordion-accordion-panel-0" id="ui-accordion-accordion-header-0" role="tab" class="clsAccordion ui-accordion-header ui-helper-reset ui-state-default ui-corner-all ui-accordion-icons">
+                                                                            <input type="hidden" id="urlHidden" name="urlHidden" value="notcall" />
+                                                                            <b> @*Open*@ Manage Inward Packet</b> &nbsp; &nbsp;
+
+                                                                        </h1>
+                                                                    </div>
+                                                                    <div id="VisitorCompanyTableContainer">
+                                                                        <div class="jtable-main-container">
+                                                                            <div class="jtable" id="jtable">
+                                                                                <div class="table table-bordered table-responsive" id="table2">
+                                                                                    @Html.Grid(Model).Columns(columns =>
+                                                                               {
+                                                                                   //columns.Add().Encoded(false).Sanitized(false)
+                                                                                   //.RenderValueAs(o => Html.CheckBox("checked", false, new { key = o.ID, id = "checked" }));
+
+                                                                                   columns.Add().Titled("Histry").Encoded(false).Sanitized(false).SetWidth(30).RenderValueAs(z => ADDCOLUMN(z)).Css("hidecol");
+                                                                                   if (Session["RoleType"] != null)
+                                                                                   {
+                                                                                       if (Session["RoleType"].ToString() == "D")
+                                                                                       {
+                                                                                           columns.Add().Titled("Action").Encoded(false).Sanitized(false).SetWidth(30).RenderValueAs(z => ADDRESOURCE(z));//Add
+
+                                                                                       }
+
+
+                                                                                   }
+                                                                                   columns.Add().Titled("Action").Encoded(false).Sanitized(false).SetWidth(30).RenderValueAs(z => ADDRESOURCECANCEL(z));
+
+                                                                                   //columns.Add().Encoded(false).Sanitized(false).SetWidth(70).RenderValueAs(z => ADDCOLUMN(z));
+                                                                                   columns.Add(c => c.CouriarId).Titled("Packet ID").Filterable(true).Sortable(true).Css("ContentTitle");
+                                                                                   columns.Add(c => c.C_Date).Titled("Date").Format("{0:dd/MMM/yyyy}").Filterable(true).Sortable(true).Css("Date");
+                                                                                   columns.Add(c => c.Region).Titled("Region").Filterable(true).Sortable(true).Css("Region");
+                                                                                   columns.Add(c => c.Department).Titled("Department").Filterable(true).Sortable(true).Css("Department");
+
+                                                                                   columns.Add(c => c.NameOfCompany).Titled("RecipientT NAME").Filterable(true).Sortable(true).Css("NameOfCompany");
+                                                                                   columns.Add(c => c.City).Titled("City").Filterable(true).Sortable(true).Css("City");
+                                                                                   columns.Add(c => c.Documents).Titled("Documents").Filterable(true).Sortable(true).Css("Documents");
+                                                                                   columns.Add(c => c.ReceiveTime).Titled("Receive Time").Filterable(true).Sortable(true).Css("ReceiveTime");
+                                                                                   columns.Add(c => c.DocketNo).Titled("Docket No.").Filterable(true).Sortable(true).Css("DocketNo");
+                                                                                   columns.Add(c => c.CouriarVendor).Titled("Delivery Provider").Filterable(true).Sortable(true).Css("CouriarVendor");
+                                                                                   columns.Add(c => c.SenderName).Titled("Sender Name").Filterable(true).Sortable(true).Css("SenderName");
+                                                                                   columns.Add(c => c.CurrentStatus).Titled("Status").Filterable(true).Sortable(true).Css("CurrentStatus");
+                                                                                   if (Session["RoleTypeBothYN"] != null)
+                                                                                   {
+                                                                                       if (Session["RoleTypeBothYN"].ToString() == "No")
+                                                                                       {
+                                                                                           columns.Add(c => c.EmployeeId).Titled("EmployeeId").Filterable(true).Sortable(true).Css("hidecol");
+
+
+                                                                                           columns.Add(c => c.Remark).Titled("Security Remarks").Filterable(true).Sortable(true).Css("Remark");
+                                                                                       }
+                                                                                       else {
+
+                                                                                           columns.Add(c => c.Remark).Titled("Desk Remarks").Filterable(true).Sortable(true).Css("Remark");
+                                                                                       }
+                                                                                   }
+                                                                                   //columns.Add(c => c.DeskRemarks).Titled("Desk Remarks").Filterable(true).Sortable(true).Css("DeskRemarks");
+                                                                                   //columns.Add(c => c.EmployeeRemark).Titled("Recipient Remarks").Filterable(true).Sortable(true).Css("EmployeeRemark");
+
+                                                                               }).Sortable(true).WithPaging(10)
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+
+
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade out" id="CourierModel" aria-hidden="true" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" id="btncloseR" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Alert</h4>
+            </div>
+
+            <form action="~/Home/ChangeCourierStatusDesk" method="post">
+                <div class="modal-body">
+
+
+                    <input type="hidden" id="apphidEmployeeId" name="apphidEmployeeId" />
+
+                    <input type="hidden" id="apphidEmployee" name="apphidEmployee" />
+                    <input type="hidden" id="hiddept" name="apphidEmployeeId" />
+                    <input type="hidden" id="hidregion" name="hidregion" />
+
+                    <input type="text" readonly class="form-control" id="Courier_ID" name="Courier_ID" style="display:none;" />
+
+                    <input type="text" readonly class="form-control" id="txtdeptnew" name="txtdeptnew" style="display:none;" />
+                    <input type="text" readonly class="form-control" id="txtempidnew" name="txtempidnew" style="display:none;" />
+                    <label> Region</label>
+                    <select tabindex="-1" class="form-control select2_group clregion" name="ddlRegion" id="ddlRegion">
+                        <option selected disabled>--Please Select--</option>
+
+
+                    </select>
+
+                    <label> Department</label>
+                    <select tabindex="-1" class="form-control select2_group cldept" name="ddldept" id="ddldept">
+                        @*<option selected disabled>--Please Select--</option>*@
+                        @*<option selected >--Please Select--</option>*@
+                    </select>
+                    <label> Employee</label>
+                    <select tabindex="-1" class="form-control select2_group clemp" name="ddlEmployee" id="ddlEmployee">
+                        <option selected disabled>--Please Select--</option>
+                    </select>
+
+                    <div style="display:none;">
+                        <label> Status</label>
+
+
+
+                        <select tabindex="-1" class="form-control select2_group" name="ddlCouriarstatus" id="ddlCouriarstatus">
+                            @*<option disabled selected>--Please Select--</option>*@
+                            <option value="Intrasit">Intrasit</option>
+
+
+                        </select>
+                    </div>
+                    <label>Remark</label>
+
+                    <textarea class="form-control" maxlength="500" required name="CouriarRemark">Out for Delivery</textarea>
+                </div>
+                <div class="modal-footer">
+
+                    <button type="submit" class="btn btn-danger" id="btnSave">Out for Delivery</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div id="HistoryModel" class="modal fade" role="dialog">
+    <div class="modal-dialog" style="width:100%;">
+        <!-- Modal content-->
+        <div class="modal-content" style="width:100%;">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title" style="text-align:center">Courier History View</h4>
+            </div>
+            <div class="modal-body">
+                <div class="col-md-12" id="two">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="modal fade out" id="CourierModelCANCEL" aria-hidden="true" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" id="btncloseR" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Alert</h4>
+            </div>
+
+            <form action="~/Home/ChangeInwardStatusCancel" method="post">
+                <div class="modal-body">
+
+
+
+                    <input type="text" readonly class="form-control" id="Courier_ID_cancel" name="Courier_ID_cancel" style="display:none;" />
+
+
+
+                    <label>Are Yor sure you want to  Cancel </label>
+
+                    @*<textarea class="form-control" required name="CouriarRemarkCancel" value="NA">Send to Security</textarea>*@
+                </div>
+                <div class="modal-footer">
+
+                    <button type="submit" id="btnSave" class="btn btn-danger"> Cancel</button>
+
+
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+
+<script>
+
+    $(document).ready(function () {
+        $("#AppointmentDateString").datepicker({
+            'autoclose': true,
+            'startDate': '-0m'
+        });
+
+
+
+    });
+
+
+</script>
+
+<script>
+
+
+    $(document).ready(function () {
+
+
+        $("#ddlRegion").change(function () {
+
+
+
+            var ddlRegiontxt = $('#ddlRegion option:selected').text();
+
+
+            funddldeptfill();
+
+
+        });
+
+
+
+        $('.CourierModel').click(function () {
+
+            var DID = $(this).attr('href');
+
+            var dept = $(this).attr('data-dept');
+            //var Itm1 = $(this).attr('data-partnmbrRej');
+            $("#hiddept").val(dept);
+
+
+            var region = $(this).attr('data-region');
+            $("#hidregion").val(region);
+            var deptnew = $(this).attr('data-dept');
+            $("#txtdeptnew").val(deptnew);
+            var empidnew = $(this).attr('data-empid');
+            $("#txtempidnew").val(empidnew);
+
+            $("#CourierModel").show(function () {
+                $("#Courier_ID").val(DID)
+
+                ///---------
+                $("#ddlRegion").empty().append('<option selected disabled>--Please Select--</option> ');
+                $("#ddlEmployee").empty().append('<option selected disabled>--Please Select--</option> ');
+                $("#ddldept").empty().append('<option selected disabled>--Please Select--</option> ');
+                //------------
+
+                funddlRegionfill();
+                funddldeptfillNew();
+
+            });
+        })
+
+
+
+
+
+    })
+</script>
+
+
+<script>
+    $(".hiswithAllRev").click(function () {
+        debugger;
+
+        var rid = $(this).attr("data-CouriarId")
+
+
+        $.ajax({
+            type: "post",
+
+            url: "../Home/DynamicallyRenderWithAllRevision",
+            dataType: "html",
+
+            data: { RequestId: rid, page: "HistoryAllRevisionView" },
+
+
+            success: function (result) {
+                $('#two').html(result);
+                $("#HistoryModel").modal('show')
+            },
+            error: function (e) { display(e); }
+        });
+    })
+</script>
+
+<script>
+    $(document).ready(function () {
+
+        $("#ddlEmployee").change(function () {
+
+            var Employeeval = $('#ddlEmployee option:selected').val();
+            var Employeetxt = $('#ddlEmployee option:selected').text();
+
+            $("#apphidEmployeeId").val(Employeeval);
+            $("#apphidEmployee").val(Employeetxt);
+
+        });
+
+        $("#ddldept").change(function () {
+
+            var ddldeptval = $('#ddldept option:selected').val();
+            var ddldepttxt = $('#ddldept option:selected').text();
+
+            funemployeeddlfill();
+
+
+
+
+        });
+
+
+
+
+    });
+
+    //-----------
+    var funemployeeddlfill = (function () {
+
+        var ddldepttxt = $('#ddldept option:selected').text();
+ $.ajax({
+
+    url: '@Url.Action("GetEmployeeList", "Home")',
+    type: 'Get',
+    contenType: 'application/json charset utf-8',
+                     dataType: 'json',
+                     data: { Dept: ddldepttxt },
+                     success: function (data) {
+
+                         $("#ddlEmployee").empty().append('<option selected disabled>--Please Select--</option> ');
+
+        for (var i = 0; i < data.length; i++) {
+            var s = "<option value='" + data[i].EMPLOYEE_ID + "'>" + data[i].DEPARTMENT + "</option>";
+
+            $("#ddlEmployee").append(s);
+
+        }
+    }
+});
+
+});
+
+    //*********region------------
+    var funddlRegionfill = (function () {
+
+        var ddldepttxt = $('#ddldept option:selected').text();
+        $.ajax({
+
+            url: '@Url.Action("GetRegionList", "Home")',
+            type: 'Get',
+            contenType: 'application/json charset utf-8',
+                     dataType: 'json',
+                     data: { Dept: ddldepttxt },
+                     success: function (data) {
+
+                     $("#ddlRegion").empty().append('<option selected disabled>--Please Select--</option> ');
+
+                         for (var i = 0; i < data.length; i++)
+                         {
+                            var s = "<option value='" + data[i].EMPLOYEE_ID + "'>" + data[i].DEPARTMENT + "</option>";
+
+                            $("#ddlRegion").append(s);
+
+                         }
+                        //-----------
+                         let text = $("#hidregion").val(); //"CO-Noida";
+
+                         $(".clregion option").filter(function () {
+                             //may want to use $.trim in here
+                           /*  alert($(this).text());*/
+                             return $(this).text() == text;
+                         }).attr('selected', true);
+
+                        //-----------
+
+    }
+});
+
+    });
+
+
+
+
+
+    //*******region end**********
+    var funddldeptfill = (function () {
+        debugger;
+        var dept = $("#hiddept").val();
+
+
+        var ddlRegion = $('#ddlRegion option:selected').text();
+      
+
+     $.ajax({
+
+    //url: '@Url.Action("GetDepartmentList", "Home")',
+           url: '@Url.Action("GetDepartmentList", "Home")',
+            type: 'Get',
+         contenType: 'application/json charset utf-8',
+
+
+         dataType: 'json',
+         data: { Region: ddlRegion },
+     success: function (data) {
+
+         $("#ddldept").empty()
+         var s;
+
+         s = "<option value='--Please Select--'>--Please Select--</option>";
+         $("#ddldept").append(s);
+        for (var i = 0; i < data.length; i++) {
+
+
+            s = "<option value='" + data[i].DEPARTMENT + "'>" + data[i].DEPARTMENT + "</option>";
+
+                $("#ddldept").append(s);
+
+         }
+         //---------
+
+
+         let text = dept;
+
+         $("select option").filter(function () {
+             //may want to use $.trim in here
+             return $(this).text() == text;
+         }).attr('selected', true);
+
+         funemployeeddlfill();
+
+
+    }
+});
+
+
+
+    });
+
+    @*var funddldeptfill22 = (function () {
+
+        var dept = $("#hiddept").val();
+
+     $.ajax({
+
+    url: '@Url.Action("GetDepartmentList", "Home")',
+    type: 'Get',
+    contenType: 'application/json charset utf-8',
+    dataType: 'json',
+     success: function (data) {
+
+         $("#ddldept").empty()
+         var s;
+
+         s = "<option value='--Please Select--'>--Please Select--</option>";
+         $("#ddldept").append(s);
+        for (var i = 0; i < data.length; i++) {
+
+
+            s = "<option value='" + data[i].DEPARTMENT + "'>" + data[i].DEPARTMENT + "</option>";
+
+
+
+            $("#ddldept").append(s);
+
+         }
+
+
+
+
+    }
+});
+
+
+
+    });*@
+    //----------
+ //----------- function-22----------
+
+        var funddldeptfillNew = (function () {
+
+        debugger;
+        var dept = $("#hiddept").val();
+
+
+            var ddlRegion = $("#hidregion").val();
+            var deptnew = $("#txtdeptnew").val();
+
+
+
+     $.ajax({
+
+
+           url: '@Url.Action("GetDepartmentList", "Home")',
+            type: 'Get',
+         contenType: 'application/json charset utf-8',
+
+
+         dataType: 'json',
+         data: { Region: ddlRegion },
+     success: function (data) {
+
+         $("#ddldept").empty()
+         var s;
+
+         s = "<option value='--Please Select--'>--Please Select--</option>";
+         $("#ddldept").append(s);
+        for (var i = 0; i < data.length; i++) {
+
+
+            s = "<option value='" + data[i].DEPARTMENT + "'>" + data[i].DEPARTMENT + "</option>";
+
+                $("#ddldept").append(s);
+
+         }
+         //---------
+
+
+         let text = deptnew;
+
+         $(".cldept option").filter(function () {
+
+             return $(this).text() == text;
+         }).attr('selected', true);
+
+         funemployeeddlfillNew();
+
+
+    }
+});
+
+
+
+    });
+
+
+
+     var funemployeeddlfillNew = (function () {
+
+         var ddldepttxt = $("#txtdeptnew").val();
+            $.ajax({
+
+    url: '@Url.Action("GetEmployeeList", "Home")',
+    type: 'Get',
+    contenType: 'application/json charset utf-8',
+                     dataType: 'json',
+                     data: { Dept: ddldepttxt },
+                     success: function (data) {
+
+                         $("#ddlEmployee").empty().append('<option selected disabled>--Please Select--</option> ');
+
+                         for (var i = 0; i < data.length; i++)
+                         {
+                        var s = "<option value='" + data[i].EMPLOYEE_ID + "'>" + data[i].DEPARTMENT + "</option>";
+
+                         $("#ddlEmployee").append(s);
+
+                         }
+
+                         let text = $("#txtempidnew").val();
+
+                         $(".clemp option").filter(function () {
+
+                             return $(this).val() == text;
+                         }).attr('selected', true);
+
+
+
+    }
+});
+
+ });
+
+    //-----------------------
+
+
+
+    $("#btnSave").click(function () {
+
+
+        var ddlEmployeetxt = $('#ddlEmployee option:selected').text();
+        var ddldepttxt = $('#ddldept option:selected').text();
+
+        var ddlRegiontxt = $('#ddlRegion option:selected').text();
+
+
+
+        if (ddlRegiontxt == "--Please Select--") {
+
+            alert("Please Select Region");
+            return false;
+        }
+      else if (ddldepttxt == "--Please Select--") {
+            alert("Please Select Department");
+            return false;
+        }
+      else if (ddlEmployeetxt == "--Please Select--") {
+            alert("Please Select Employee");
+            return false;
+        }
+
+
+
+
+    });
+
+
+
+</script>
+
+<script>
+
+
+
+
+    $('.CourierModelCANCEL').click(function () {
+
+        var DID = $(this).attr('href');
+
+
+        $("#CourierModelCANCEL").show(function () {
+            $("#Courier_ID_cancel").val(DID)
+
+
+        });
+    })
+
+    //-----
+
+
+
+</script>

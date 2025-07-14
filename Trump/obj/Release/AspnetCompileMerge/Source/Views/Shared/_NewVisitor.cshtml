@@ -1,0 +1,527 @@
+﻿<form id="FormQuickAddVisitor" method="post">
+    <div class="form-horizontal col-md-12">
+        <div class="main">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="widget-content">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <fieldset>
+                                        <div class="form-group">
+                                            <label for="name" class="col-md-10">Visitor Company</label>
+                                            <div class="col-md-10">
+                                                <select tabindex="-1" class="form-control select2_group" data-val="true" data-val-number="The field MeetingLocationID must be a number." name="ComanyID" required id="CompName" style="width:100%;">
+                                                    <option disabled selected>Select One</option>
+                                                </select>
+                                                <input type="hidden" class="form-control" id="HVisitorCompanyID" name="C_ID" ng-model="Visitor.C_ID" />
+                                            </div>
+                                            <div class="col-md-2">
+                                                <i class="fa fa-asterisk required"></i>
+                                                <a id="VisitorCompanyQuickAdd" class="VisitorCompanyQuickAdd">
+                                                    <i class="plus fa-plus-circle fa-1x"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="name" class="col-md-10">Name</label>
+                                            <div class="col-md-10">
+                                                <input class="form-control" data-val="true" id="fvVisitorName" maxlength="49" required ng-model="Visitor.V_Name" onkeypress="return isAlphabt(event)" value="" type="text">
+                                                <span id="ValidationForVisitorName" style="color: Red; display: none" class="field-validation-error">
+                                                </span>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <i class="fa fa-asterisk required" style="margin-left: -25px;"></i>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="name" class="col-md-10">Visitor Phone</label>
+                                            <div class="col-md-10">
+                                                <input class="form-control" id="fvVisitorPhone" maxlength="20" ng-model="Visitor.V_Phone" required onkeypress="return CheckPhone(event)" value="" type="text">
+                                            </div>
+                                            <div class="col-md-2">
+                                                <i class="fa fa-asterisk required" style="margin-left: -25px;"></i>
+                                            </div>
+                                        </div>
+
+                                    </fieldset>
+                                </div>
+                                <div class="col-md-6">
+                                    <fieldset>
+                                        <div class="form-group">
+                                            <label for="name" class="col-md-10">Email</label>
+                                            <div class="col-md-10">
+                                                <input class="form-control" data-val="true" data-val-length="The field VisitorEmail must be a string with a maximum length of 50." data-val-length-max="50" data-val-regex="The field VisitorEmail must match the regular expression '\w+([-+.]\w+)*\w+([-.]\w+)*\.\w+([-.]\w+)*'." data-val-regex-pattern="\w+([-+.]\w+)*\w+([-.]\w+)*\.\w+([-.]\w+)*" id="fvVisitorEmail" maxlength="50" ng-model="Visitor.V_Email" value="" type="text">
+                                            </div>
+                                            <div class="col-md-2">
+                                                @*<i class="fa fa-asterisk required" style="margin-left: -25px;"></i>*@
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="name" class="col-md-12">ID Type</label>
+                                            <div class="col-md-10">
+                                                <select tabindex="-1" class="form-control select2_group" ng-model="Visitor.Visitor_ID" id="VisIDType" style="width:100%;">
+                                                    <option selected disabled>--Please Select--</option>
+                                                    <option value="Company ID">Company ID</option>
+                                                    <option value="AADHAR">Aadhar</option>
+                                                    <option value="PASSPORT">Passport</option>
+                                                    <option value="VOTER ID">Voter ID</option>
+                                                    <option value="PAN CARD">PAN Card</option>
+                                                    <option value="DL">DL</option>
+
+
+                                                </select>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <i class="fa fa-asterisk required" style="margin-left: -25px;">
+                                                </i>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="name" class="col-md-12">ID Number</label>
+                                            <div class="col-md-10">
+                                                <input class="form-control" data-val="true" data-val-length-max="50" id="IDNumberP" maxlength="20" ng-model="Visitor.V_IDNumber" type="text">
+
+
+
+
+
+                                                @*val:<input class="form-control" data-val="true" data-val-length-max="50" id="IDcheckvalidation" maxlength="20" type="text">*@
+
+                                                <span id="ValidationForIDNumber" class="field-validation-error" style="display: none">
+                                                </span><span id="Validationmsg" style="color: red;"></span>
+                                            </div>
+                                            <div class="col-md-2">
+
+                                                <i class="fa fa-asterisk required" style="margin-left: -25px;"></i>                                                    <a onclick="GetVisitorDetails();return false;" style="margin-left: 2px; color: White" href="#">
+                                                    <img src="../../Content/images/btnSearch_small.png" alt="" style="vertical-align: middle" height="16px">
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                </div>
+                            </div>
+                            <br />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="ui-dialog-buttonpane ui-widget-content ui-helper-clearfix">
+        <div class="ui-dialog-buttonset">
+            @*<button class="btn btn-primary dialogClose" id="aaaa" type="button">Close</button>*@
+            <input type="button" id="btnsubmitnew" value="Save" ng-click="VisitorData()" class="btn btn-primary" />
+            @*<input type="button" id="btnsubmit" value="Save"  class="btn btn-primary" />*@
+
+        </div>
+    </div>
+</form>
+
+
+@*  *@
+@*<div aria-labelledby="ui-id-1" aria-describedby="dialog-form" role="dialog" tabindex="-1" style="display: none; position: absolute;" class="ui-dialog ui-widget ui-widget-content ui-corner-all ui-front ui-dialog-buttons ui-draggable ui-resizable" ng-controller="AppointmentController">
+    <div class="ui-dialog-titlebar ui-widget-header ui-corner-all ui-helper-clearfix">
+        <span class="ui-dialog-title" id="ui-id-1">New Company</span>
+        <button class="ui-dialog-titlebar-close"></button>
+    </div>
+    <div title="New Company" class="ui-front ui-dialog-content ui-widget-content dialog-form" style="overflow: auto; z-index: 2147483647; width: auto; height: auto;">
+        @Html.Partial("_NewCompany")
+    </div>
+</div>*@
+
+
+
+
+<script src="~/Scripts/jquery-3.4.1.js"></script>
+<script src="~/Scripts/jquery-ui.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $('.dialogClose').click(function () {
+            $(".dialog-form").dialog("close");
+        })
+    })
+</script>
+<script>
+    $(document).ready(function () {
+        $("#CompName").change(function () {
+            var d=$(this).val();
+            $("#HVisitorCompanyID").val(d);
+        })
+        $.ajax({
+                url: '@Url.Action("GetSiteData", "Home")',
+                type: 'Get',
+                contenType: 'application/json charset utf-8',
+                dataType: 'json',
+                success: function (SaleOrder) {
+                    for (var i = 0; i < SaleOrder.length; i++) {
+                        var s = "<option value='" + SaleOrder[i].C_ID+"'>" + SaleOrder[i].CName + "</option>";
+                        $("#CompName").append(s);
+                    }
+                }
+            })
+    })
+</script>
+<script type="text/javascript">
+    function UploadPic() {
+        $.ajax({
+            type: 'POST',
+            url: ("@Url.Content("~/Photo/Rebind")/"),
+            dataType: 'json',
+            success: function (data) {
+                $("#show").attr("src", data);
+                document.getElementById('Submit1').disabled = false;
+                alert("Photo Capture successfully!");
+            }
+        });
+    }
+
+    function Uploadsubmit() {
+        debugger;
+        var src = $('img').attr('src');
+        src_array = src.split('/');
+        src = src_array[4];
+        if (src != "") {
+            $.ajax({
+                type: 'POST',
+                url: ("@Url.Content("~/Photo/Index")/"),
+               dataType: 'json',
+               data: { Imagename: src },
+               success: function () { }
+           });
+            self.close();}}
+</script>
+
+<script src="~/Login/js/cleave.js"></script>
+<script src="~/Login/js/cleave-phone.in.js"></script>
+<script>
+    $(document).ready(function () {
+        new Cleave('#fvVisitorPhone', {
+            phone: true,
+            //phoneRegionCode: 'IN'
+        });
+        $("#fvVisitorPhone").blur(function () {
+            var d = $(this).val();
+            $.ajax({
+                url: '@Url.Action("CheckMobileNum", "Home")',
+                type: 'Get',
+                contenType: 'application/json charset utf-8',
+                dataType: 'json',
+                data: { num: d },
+                success: function (data) {
+                    if (data == true) {
+                        alert("This Number already exixtes");
+                        $("#fvVisitorPhone").val("");
+                    }
+                }
+            })
+        })
+
+    })
+</script>
+
+<script>
+
+    ///enableedjan26
+
+    $(document).ready(function () {
+
+     
+
+
+
+        //--remove email validation------------------
+        //$("#fvVisitorEmail").change(function () {
+        //    //alert(IsEmail(email));
+        //    //if (IsEmail(email) == false) {
+        //    //  alert('Please Enter corect email')
+        //    //    return false;
+        //    //}
+        //    var atSymbol = $("#fvVisitorEmail").val().indexOf("@@");
+
+        //    //Check minimum valid length of an Email.
+        //    if ($("#fvVisitorEmail").val().length <= 2) {
+        //        alert('please enter correct email');
+        //        $("#fvVisitorEmail").val('');
+        //        return false;
+        //    }
+        //    //If whether email has  character.
+        //    if ($("#fvVisitorEmail").val().indexOf("@@") == -1) {
+        //        alert('please enter correct email');
+        //        $("#fvVisitorEmail").val('');
+        //        return false;
+        //    }
+
+
+        //    var parts = $("#fvVisitorEmail").val().split("@@");
+        //    var dot = parts[1].indexOf(".");
+        //    var len = parts[1].length;
+        //    var dotSplits = parts[1].split(".");
+        //    var dotCount = dotSplits.length - 1;
+
+
+        //    //Check whether Dot is present, and that too minimum 1 character after
+        //    if (dot == -1 || dot < 2 || dotCount > 2) {
+        //        $("#fvVisitorEmail").val('');
+        //        alert('please enter correct email');
+        //        return false;
+        //    }
+
+        //    //Check whether Dot is not the last character and dots are not repeated.
+        //    for (var i = 0; i < dotSplits.length; i++) {
+        //        if (dotSplits[i].length == 0) {
+        //            $("#fvVisitorEmail").val('');
+        //            alert('please enter correct email');
+
+        //            return false;
+        //        }
+        //    }
+
+
+        //    return true;
+
+
+
+
+        //    //alert('Please Enter corect email')
+        //    //$("#fvVisitorEmail").val('');
+        //    //return false;
+        //});
+
+        //------------------
+         
+
+
+        $("#btnsubmitnew").click(function () {
+            // alert('kkkkjj');
+            var fvVisitorName = $("#fvVisitorName").val().trim();
+            var Phone = $("#fvVisitorPhone").val().trim();
+            var email = $("#fvVisitorEmail").val().trim();
+            var CompName = $('#CompName option:selected').text();
+            var VisIDType = $('#VisIDType option:selected').text();
+            var IDNumberP = $("#IDNumberP").val().trim();
+
+
+
+            /// CompName    VisIDType
+            //alert(fvVisitorName);
+            // alert(VisIDType);
+
+
+            //alert($("#IDcheckvalidation").val());
+            //if (CompName == "Select One") {
+
+            //    alert("Please Select  Company");
+            //    return false;
+            //}
+            //else if (fvVisitorName == "") {
+
+            //    alert("Please Enter  Visitor Name");
+            //    return false;
+            //}
+
+            //else if (Phone == "") {
+
+            //    alert("Please Enter  Visitor Phone");
+            //    return false;
+            //}
+
+            //else if (email == "") {
+
+            //    alert("Please Enter Email");
+            //    return false;
+            //}
+            //else if (VisIDType == "--Please Select--") {
+
+            //    alert("Please Select VisIDType");
+            //    return false;
+            //}
+            //else if (IDNumberP == "") {
+
+            //    alert("Please Enter IDNumber");
+            //    return false;
+            //}
+
+
+            //if (Phone.length == 10) {
+
+            //}
+            //else
+            //{
+            //    alert("please enter 10  digit mobile number22");
+            //    return false;
+            //}
+            //alert('kkk');
+            //$("#IDcheckvalidation").val('1')
+
+
+
+        });
+    });
+
+
+</script>
+
+
+@*<script>
+
+        $(document).ready(function () {
+            $("#btnsubmit").click(function () {
+
+         $.ajax({
+                type: 'POST',
+                url: ("/Home/RegisterVisitor"),
+             dataType: 'json',
+
+             data: { num: d },
+             //data: JSON.stringify(Visitor)
+
+
+                success: function (data) {
+                    //$("#show").attr("src", data);
+                    //document.getElementById('Submit1').disabled = false;
+                    //alert("Photo Capture successfully!");
+                    debugger
+                    var c = $("#CompName").val();
+                    var d = $("#CompName option:selected").text();
+                    var s = "<option selected value='" + c + "'>" + d + "</option>";
+                    $("#divCam").append(s);
+                    $("#DivVC").append(s);
+                    var n = $("#fvVisitorName").val();
+                    var vn = "<option selected value='" + response.data + "'>" + n + "</option>";
+                    $("#divVis").append(vn);
+                    $("#divVisS").append(vn);
+
+                    var m = $("#fvVisitorPhone").val();
+                    $("#MBNumber").val(m);
+                    $("#SecMblNumber").val(m);
+
+                    var e = $("#fvVisitorEmail").val();
+
+                    var idT = $("#VisIDType").val();
+                    var dt = "<option selected >" + idT + "</option>";
+                    $("#divID").append(dt);
+                    $("#IDProofType").append(dt);
+
+                    var idn = $("#IDNumberP").val();
+                    $("#IDNumber").val(idn);
+                    $("#V_IDNumber").val(idn);
+
+
+
+
+
+                }
+         });
+         });
+        });
+
+    </script>*@
+
+
+<script>
+
+
+    function IsEmail(email) {
+        var regex = "\w+([-+.]\w+)*\w+([-.]\w+)*\.\w+([-.]\w+)*";
+        if (!regex.test(email)) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+</script>
+
+
+
+
+@*<script>
+
+    $(".dialog-form").dialog({
+        autoOpen: false,
+        // height: 360,
+        height: 375,
+        width: 700,
+        modal: true,
+    });
+    $(".VisitorCompanyQuickAdd").click(function () {
+        alert('lll');
+        $(".dialog-form").dialog("open");
+    })
+
+</script>*@
+
+
+
+
+
+<script>
+    $(document).ready(function () {
+
+    $("#IDNumberP").change(function () {
+
+
+        var VisIDType = $('#VisIDType option:selected').text();
+        var inputvalues = $(this).val();
+       
+       
+        var regex;
+
+        if (VisIDType == "Aadhar")
+        {
+            //Adhar
+            //regex = /^[2-9]{1}[0-9]{3}\s[0-9]{4}\s[0-9]{4}$/;
+            regex = /^[2-9]{1}[0-9]{3}[0-9]{4}[0-9]{4}$/;
+        }
+        else if (VisIDType == "Passport") {
+            // passport =  
+             regex = /^[A-PR-WY][1-9]\d\s?\d{4}[1-9]$/;
+
+        }
+        else if (VisIDType == "Voter ID") {
+           
+            //  voterid
+             regex = /^[A-Z]{3}[0-9]{7}$/;
+        }
+        else if (VisIDType == "PAN Card") {
+
+            //pan
+             regex = /[A-Z]{5}[0-9]{4}[A-Z]{1}$/;
+        }
+        else if (VisIDType == "DL") {
+
+
+        }
+
+        if (!regex.test(inputvalues)) {
+           // $(".pan").val("");
+            alert("Please enter Valid " + VisIDType);
+            $(this).val('');
+            //return regex.test(inputvalues);
+            return false;
+        }
+
+        //Adhar
+        //var regexp = /^[2-9]{1}[0-9]{3}\s[0-9]{4}\s[0-9]{4}$/;
+
+
+
+
+       
+    });
+
+        $("#VisIDType").change(function () {
+          
+
+            $("#IDNumberP").val('');
+
+        });
+
+
+
+
+    });
+
+</script>

@@ -1,0 +1,344 @@
+﻿@model IEnumerable<TrumpCL.DataFieldCourier>
+
+<style>
+    table tr td {
+        border: 1px solid black
+    }
+
+    table tr th {
+        /*color: white;*/
+        border: 1px solid black
+    }
+</style>
+<div>
+    <div>
+        <table class="table table-bordered table-responsive bordered" id="tableToExport" style="width:100%;" border="0">
+            <tr style="font-size:14px;background-color:#ab4242;color:white">
+                <th>
+                    Packet ID
+                </th>
+
+                <th> Download POD </th>
+                <th>
+                    Packet Type
+                </th>
+                <th>
+                    Documents
+                </th>
+
+                @*<th>
+            Region
+        </th>*@
+                <th>
+                    Department
+                </th>
+                <th>
+                    Sender Name
+                </th>
+                <th>
+                    Sender Contact
+                    Number
+                </th>
+
+
+
+                @*<th>
+            Date
+        </th>*@
+
+                <th>
+                    Sender check-out (date & time)
+                </th>
+
+                <th>
+                    Sender Remark
+                </th>
+                @if (Session["RoleTypeBothYN"] != null)
+                {
+                    if (Session["RoleTypeBothYN"].ToString() == "No")
+                    {
+                        <th>
+                            Support Desk Check-out (Date & Time)
+                        </th>
+                        <th>
+                            DesK Remark
+                        </th>
+
+                        <th>
+                            Security Check-
+                            out (Date & Time)
+                        </th>
+                        <th>
+                            Security Remark
+                        </th>
+                    }
+
+                    else
+                    {
+
+            <th>
+                Support Desk Check-out (Date & Time)
+            </th>
+            <th>
+                DesK Remark
+            </th>
+
+
+
+
+                    }
+                }
+                <th>
+                    Docket No.
+                </th>
+
+                <th>
+                    Docket Date
+                </th>
+                <th>Delivery Provider </th>
+
+
+                <th>
+                    Expected Date of Delivery
+
+                </th>
+
+                <th>
+                    Status
+                </th>
+                <th>
+                    Company
+                </th>
+                <th>Person</th>
+                <th>Contact No.</th>
+                <th>City</th>
+                <th>
+                    Address
+                </th>
+
+                <th>
+                    Receive Time
+                </th>
+                <th>HazardousItem</th>
+                <th>Region</th>
+
+
+                @*<th>
+           Tran. Date
+        </th>*@
+
+
+
+                @*<th>Department</th>*@
+
+
+            </tr>
+            @if (Model.Count() != 0)
+            {
+                foreach (var item in Model)
+                {
+        <tr style="font-size:12.5px">
+            <td>
+                @Html.DisplayFor(modelItem => item.CouriarId)
+            </td>
+
+            <td>
+
+                @if (!string.IsNullOrEmpty(item.PODFile))
+                {
+                    <a href="@Url.Action("DownloadPdf", "Home", new { id = item.CouriarId })" class="list-link" target="_blank">
+                        View  POD
+                    </a>
+                }
+                else
+                {
+                    <span>@*No PDF Available*@</span>
+                }
+
+
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PacketType)
+
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Documents)
+            </td>
+            @*<td>
+            @Html.DisplayFor(modelItem => item.Region)
+
+        </td>*@
+            <td>
+
+                @Html.DisplayFor(modelItem => item.Department)
+            </td>
+            <td>
+
+                @Html.DisplayFor(modelItem => item.SenderName)
+            </td>
+            <td>
+
+                @Html.DisplayFor(modelItem => item.SenderContactNo)
+            </td>
+
+            <td>
+                @*@item.TransactionDate.ToString().Replace("1/1/1900 12:00:00 AM", "NA")*@
+                @Convert.ToDateTime(item.TransactionDate).ToString("dd/MMM/yyyy hh:mm tt")
+            </td>
+            <td>
+
+                @Html.DisplayFor(modelItem => item.Remark)
+
+            </td>
+            @if (Session["RoleTypeBothYN"] != null)
+            {
+                if (Session["RoleTypeBothYN"].ToString() == "No")
+                {
+                    <td>
+
+                        @Convert.ToString(Convert.ToDateTime(item.DeskTransDate).ToString("dd/MMM/yyyy hh:mm tt")).Replace("01/Jan/1900 12:00 AM", "NA")
+
+
+                    </td>
+
+                    <td>
+
+                        @Html.DisplayFor(modelItem => item.DeskRemarks)
+
+                    </td>
+
+
+                    <td>
+
+                        @if (@item.EmployeeTransDate.ToString() != "1/1/1900 12:00:00 AM")
+                        {
+
+                            @Convert.ToDateTime(item.EmployeeTransDate).ToString("dd/MMM/yyyy hh:mm tt")
+                        }
+                        else
+                        {
+                            <span>NA</span>
+                        }
+
+                    </td>
+                    <td>
+
+                        @Html.DisplayFor(modelItem => item.EmployeeRemark)
+
+                    </td>
+                }
+                else
+                {
+                    <td>
+
+                        @if (@item.EmployeeTransDate.ToString() != "1/1/1900 12:00:00 AM")
+                        {
+
+                            @Convert.ToDateTime(item.EmployeeTransDate).ToString("dd/MMM/yyyy hh:mm tt")
+                        }
+                        else
+                        {
+                            <span>NA</span>
+                        }
+
+                    </td>
+                    <td>
+
+                        @Html.DisplayFor(modelItem => item.EmployeeRemark)
+
+                    </td>
+
+
+
+
+
+
+
+
+                }
+
+
+            }
+
+            <td>
+                @item.DocketNo
+            </td>
+            <td>
+                @*@item.strDeskTransDate.Replace("12:00 AM", "")*@
+
+
+                @Convert.ToString(Convert.ToDateTime(item.DocketDate).ToString("dd/MMM/yyyy")).Replace("01/Jan/1900", "NA")
+            </td>
+
+            <td>
+                @item.CouriarVendor
+            </td>
+
+            <td>
+                @*@Convert.ToDateTime(item.DeliveryDate).ToString("dd/MMM/yyyy")*@
+                @Convert.ToString(Convert.ToDateTime(item.DeliveryDate).ToString("dd/MMM/yyyy")).Replace("01/Jan/1900", "NA")
+
+
+            <td>@item.CurrentStatus</td>
+            @*<td>
+            @Convert.ToDateTime(item.C_Date).ToString("dd/MMM/yyyy")
+        </td>*@
+            @*<td>@item.Region</td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.NameOfCompany)
+            </td>
+            <td>@item.Person</td>
+            <td>@item.ContactNo</td>
+            <td>@Html.DisplayFor(modelItem => item.City)</td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address)  
+            </td>
+
+
+            <td>
+                @Html.DisplayFor(modelItem => item.ReceiveTime)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.HazardousItemYN)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AdminRegion)
+            </td>
+
+            @*<td>
+            @Convert.ToDateTime(item.TransactionDate).ToString("dd/MMM/yyyy")
+        </td>*@
+
+
+
+            @*<td>@item.Department</td>*@
+
+
+
+            @*<td>
+            @Html.DisplayFor(modelItem => item.Department)
+        </td>*@
+        </tr>
+                }
+            }
+            else
+            {
+                <tr>
+                    <td colspan="11">
+                        <span>No Data found</span>
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+</div>
+
+<script src="~/Scripts/jquery-3.4.1.js"></script>
+<script type="text/javascript">
+    $(function () {
+        $("#btnExport").click(function () {
+            $("input[name='GridHtml']").val($("#Grid").html());
+        });
+    });
+</script>

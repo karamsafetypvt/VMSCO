@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MasterDatabaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Department">
+    <Key>
+      <PropertyRef Name="D_ID" />
+    </Key>
+    <Property Name="D_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DepartmentName" Type="nvarchar" MaxLength="100" />
+    <Property Name="Region" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Master_Requestor">
+    <Key>
+      <PropertyRef Name="Sr#No" />
+    </Key>
+    <Property Name="Sr#No" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EMPLOYEE_ID" Type="nvarchar" MaxLength="255" />
+    <Property Name="NAME" Type="nvarchar" MaxLength="255" />
+    <Property Name="KSS Department" Type="nvarchar" MaxLength="255" />
+    <Property Name="requestor_key" Type="nvarchar" MaxLength="255" />
+    <Property Name="DESIGNATION" Type="nvarchar" MaxLength="255" />
+    <Property Name="DEPARTMENT" Type="nvarchar" MaxLength="255" />
+    <Property Name="DepartmentID" Type="int" />
+    <Property Name="Immediate_Supervisor" Type="nvarchar" MaxLength="255" />
+    <Property Name="Immediate_Supervisor_EMP_ID" Type="nvarchar" MaxLength="255" />
+    <Property Name="HOD" Type="nvarchar" MaxLength="255" />
+    <Property Name="HOD_EMP_ID" Type="nvarchar" MaxLength="255" />
+    <Property Name="MOBILE NUMBER" Type="float" />
+    <Property Name="DATE OF BIRTH" Type="datetime" />
+    <Property Name="PAYROLL" Type="nvarchar" MaxLength="255" />
+    <Property Name="DATE OF JOINING" Type="datetime" />
+    <Property Name="Email ID" Type="nvarchar" MaxLength="255" />
+    <Property Name="VPF" Type="float" />
+    <Property Name="EPF" Type="float" />
+    <Property Name="PAN NO#" Type="nvarchar" MaxLength="255" />
+    <Property Name="Total deductions " Type="float" />
+    <Property Name="Yearly VPF" Type="float" />
+    <Property Name="Yearly EPF" Type="float" />
+    <Property Name="Password" Type="nvarchar" MaxLength="200" />
+    <Property Name="Status" Type="nvarchar" MaxLength="350" />
+    <Property Name="UserType" Type="nvarchar" MaxLength="50" />
+    <Property Name="InvestmentDeclarationStatus" Type="bit" />
+    <Property Name="Investment_Declaration_Password" Type="nvarchar" MaxLength="20" />
+    <Property Name="HRMSPassword" Type="nvarchar" MaxLength="20" />
+    <Property Name="TrumpPassword" Type="nvarchar" MaxLength="50" />
+    <Property Name="CompanyID" Type="int" />
+    <Property Name="Region" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="MasterCompany">
+    <Key>
+      <PropertyRef Name="MC_ID" />
+    </Key>
+    <Property Name="MC_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CompanyName" Type="nvarchar" MaxLength="100" />
+    <Property Name="C_Status" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityContainer Name="MasterDatabaseModelStoreContainer">
+    <EntitySet Name="Department" EntityType="Self.Department" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Master_Requestor" EntityType="Self.Master_Requestor" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MasterCompany" EntityType="Self.MasterCompany" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

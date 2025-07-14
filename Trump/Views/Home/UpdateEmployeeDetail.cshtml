@@ -1,0 +1,731 @@
+﻿@*@model EmployeeMaster.Models.MasterModel*@
+@model Trump.Models.Master_Requestor
+
+@{
+    ViewBag.Title = "ChangePassword";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="content" style="font-size:12px;min-height:100%">
+    <div class="content_resize">
+        <div class="mainbar">
+            <div class="article">
+                <div id="divNewInward" style="">
+                    <form action="/Home/UpdateEmployeeDetail" enctype="multipart/form-data" method="post">
+                        <input id="AuthoriserString" name="AuthoriserString" value="-1" type="hidden">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="widget stacked">
+                                        <div class="widget-header">
+                                            <i class="fa fa-check-circle"></i>
+                                            <h3>
+                                                <input type="hidden" name="hiddenSr_No" value="@Model.Sr_No" />
+                                                Update Employee Detail
+
+
+                                                <br />
+                                                <br />
+                                                <br />
+
+                                            </h3>
+                                        </div>
+                                        <div class="widget-content">
+
+
+
+                                            <div class="row">
+
+                                                <div class="col-md-3">
+                                                    <div class="form-group" id="divVisitors">
+                                                        <label for="name" class="col-md-8"> Employee Id </label>
+                                                        <div class="col-md-12">
+                                                            <input class="form-control" id="txtEMPLOYEE_ID" readonly name="txtEMPLOYEE_ID" value="@Model.EMPLOYEE_ID" type="text">
+
+
+                                                        </div>
+
+                                                    </div>
+
+                                                </div>
+
+                                                <div class="col-md-3">
+                                                    <div class="form-group" id="divVisitors">
+                                                        <label for="name" class="col-md-8"> Name </label>
+                                                        <div class="col-md-12">
+                                                            <input class="form-control" id="txtNAME" readonly name="txtNAME" value="@Model.NAME" type="text">
+
+
+                                                        </div>
+
+                                                    </div>
+
+                                                </div>
+
+                                                <div class="col-md-3">
+                                                    <div class="form-group" id="divVisitors">
+                                                        <label for="name" class="col-md-8">Region </label>
+                                                        <div class="col-md-12">
+
+
+                                                            <select tabindex="-1" class="form-control select2_group" disabled name="ddlRegion" id="ddlRegion">
+                                                                <option selected disabled>--Please Select--</option>
+                                                                @*<option value='--Please Select--'>--Please Select--</option>*@
+
+                                                                <option selected>@Model.Region</option>
+
+                                                                <option value="PNI">PNI</option>
+                                                                <option value="KNI">KNI</option>
+                                                            </select>
+                                                        </div>
+
+                                                    </div>
+
+                                                </div>
+
+                                                <div class="col-md-3" style="display:none;">
+                                                    <div class="form-group" id="divVisitors">
+                                                        <label for="name" class="col-md-8"> Requestor Key </label>
+                                                        <div class="col-md-12">
+                                                            <input class="form-control" id="txtrequestor_key" readonly name="txtrequestor_key" value="@Model.requestor_key" type="text">
+
+
+                                                        </div>
+
+                                                    </div>
+
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div class="form-group" id="divVisitors">
+                                                        <label for="name" class="col-md-8"> Designation </label>
+                                                        <div class="col-md-12">
+                                                            <input class="form-control" id="txtDESIGNATION" name="txtDESIGNATION" readonly value="@Model.DESIGNATION" type="text">
+
+
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="col-md-3" style="display:none;">
+                                                    <div class="form-group" id="divVisitors">
+                                                        <label for="name" class="col-md-8"> KSS Department </label>
+                                                        <div class="col-md-12">
+                                                            <input class="form-control" id="txtKSSDepartment" readonly name="txtKSSDepartment" style="display:none11;" value="@Model.KSS_Department" type="text">
+                                                            @*<select tabindex="-1" class="form-control select2_group" readonly name="ddlkssdept" id="ddlkssdept">
+                        <option selected disabled>--Please Select--</option>
+                    </select>*@
+
+                                                        </div>
+
+                                                    </div>
+
+                                                </div>
+
+                                                <div class="col-md-3">
+                                                    <div class="form-group" id="divVisitors">
+                                                        <label for="name" class="col-md-8"> Department </label>
+                                                        @*<input class="form-control" id="txtdept" name="txtUserType" readonly value="@Model.DEPARTMENT"type="text">*@
+                                                        <div class="col-md-12">
+                                                            <input class="form-control" id="txtDEPARTMENT" name="txtDEPARTMENT" readonly value="@Model.DEPARTMENT" type="text" style="display:none11;">
+                                                            @*<input class="form-control clsVisitorIDAutotext" id="txtdept" name="txtdept" value="" type="text" style="display:none;">*@
+                                                            <input class="form-control" id="txtDepartmentID" name="txtDepartmentID" value="@Model.DepartmentID" type="text" style="display:none;">
+                                                            <!--<select tabindex="-1" class="form-control select2_group" readonly name="ddldept" id="ddldept">
+                <option>@Model.DEPARTMENT</option>-->
+                                                            @*<option selected>@ViewBag.Dept</option>*@
+                                                            <!--<option selected disabled>--Please Select--</option>
+                </select>-->
+
+                                                        </div>
+
+                                                    </div>
+
+                                                </div>
+
+
+                                                <div class="col-md-3" style="display:none;">
+                                                    <div class="form-group" id="divVisitors">
+                                                        <label for="name" class="col-md-12"> Immediate Supervisor </label>
+                                                        <div class="col-md-12">
+                                                            <input class="form-control" id="txtImmediate_Supervisor" readonly name="txtImmediate_Supervisor" value="@Model.Immediate_Supervisor" type="text">
+
+
+                                                        </div>
+
+                                                    </div>
+
+                                                </div>
+
+                                                <div class="col-md-3" style="display:none;">
+                                                    <div class="form-group" id="divVisitors">
+                                                        <label for="name" class="col-md-12"> Immediate Supervisor Employee Id</label>
+                                                        <div class="col-md-12">
+                                                            <input class="form-control" id="txtImmediate_Supervisor_EMP_ID" readonly name="txtImmediate_Supervisor_EMP_ID" value="@Model.Immediate_Supervisor_EMP_ID" type="text">
+
+
+                                                        </div>
+
+                                                    </div>
+
+                                                </div>
+
+                                                @*<div class="col-md-3">
+            <div class="form-group" id="divVisitors" style="display:none;">
+                <label for="name" class="col-md-8"> HOD </label>
+                <div class="col-md-12">
+                    <input class="form-control" id="txtHOD" readonly name="txtHOD" value="@Model.HOD" type="text">
+
+
+                </div>
+
+            </div>
+
+        </div>*@
+                                                <div class="col-md-3">
+                                                    <div class="form-group" id="divVisitors">
+                                                        <label for="name" class="col-md-8"> Company </label>
+                                                        <div class="col-md-12">
+                                                            <input class="form-control" id="txtcompanyId" name="txtcompanyId" value="@Model.CompanyID" type="text" style="display:none;">
+
+                                                            <select tabindex="-1" class="form-control select2_group" disabled name="ddlCompany" id="ddlCompany">
+                                                                <option value="@Model.CompanyID" selected></option>
+                                                                <option selected disabled>--Please Select--</option>
+                                                            </select>
+
+                                                        </div>
+
+                                                    </div>
+
+                                                </div>
+
+
+
+
+                                                <div class="col-md-3" style="display:none;">
+                                                    <div class="form-group" id="divVisitors">
+                                                        <label for="name" class="col-md-8"> HOD Employee Id </label>
+                                                        <div class="col-md-12">
+                                                            <input class="form-control" id="txtHOD_EMP_ID" readonly name="txtHOD_EMP_ID" value="@Model.HOD_EMP_ID" type="text">
+
+
+                                                        </div>
+
+                                                    </div>
+
+                                                </div>
+
+                                                @*<div class="col-md-3">
+            <div class="form-group" id="divVisitors">
+                <label for="name" class="col-md-8"> Mobile Number </label>
+                <div class="col-md-12">
+                    <input class="form-control" id="txtMOBILE" onkeypress="return isNumberKey(event)" readonly name="txtMOBILE" maxlength="10" value="@Model.MOBILE_NUMBER" type="text">
+
+
+                </div>
+
+            </div>
+
+        </div>*@
+
+
+                                                <div class="col-md-3" style="display:none;">
+                                                    <div class="form-group" id="divVisitors">
+                                                        <label for="name" class="col-md-8"> Date Of Birth </label>
+                                                        <div class="col-md-12">
+
+
+                                                            <input tabindex="6" class="form-control hasDatepicker" readonly autocomplete="off" data-val="true" id="DobDateString" name="V_Dob" value="@Model.DATE_OF_BIRTH.ToString().Replace(" 12:00:00 AM", "")" onkeypress="return CheckPhone(event)" type="text">
+
+                                                        </div>
+
+                                                    </div>
+
+                                                </div>
+                                                <div class="col-md-3" style="display:none;">
+                                                    <div class="form-group" id="divVisitors">
+                                                        <label for="name" class="col-md-8"> Payroll </label>
+                                                        <div class="col-md-12">
+                                                            <input class="form-control" id="txtPAYROLL" onkeypress="return isNumberKey(event)" name="txtPAYROLL" readonly value="@Model.PAYROLL" type="text">
+
+
+                                                        </div>
+
+                                                    </div>
+
+                                                </div>
+                                                <div class="col-md-3" style="display:none;">
+                                                    <div class="form-group" id="divVisitors">
+                                                        <label for="name" class="col-md-8">Date Of Joining </label>
+                                                        <div class="col-md-12">
+                                                            @*<input class="form-control" id="txdoj" name="txdoj" value="" type="text">*@
+
+                                                            <input tabindex="6" class="form-control hasDatepicker" disabled autocomplete="off" data-val="true" id="DojDateString" name="V_Doj" value="@Model.DATE_OF_JOINING.ToString().Replace(" 12:00:00 AM", "")" onkeypress="return CheckPhone(event)" type="text">
+                                                        </div>
+
+                                                    </div>
+
+                                                </div>
+                                                @*<div class="col-md-3">
+            <div class="form-group" id="divVisitors">
+                <label for="name" class="col-md-8"> Email </label>
+                <div class="col-md-12">
+                    <input class="form-control" id="txtEmail" name="txtEmail" value="@Model.Email_ID" type="text">
+
+
+                </div>
+
+            </div>
+
+        </div>*@
+
+
+                                                <div class="col-md-3" style="display:none;">
+                                                    <div class="form-group" id="divVisitors">
+                                                        <label for="name" class="col-md-8"> VPF </label>
+                                                        <div class="col-md-12">
+                                                            <input class="form-control" id="txtVPF" readonly onkeypress="return isNumberKey(event)" name="txtVPF" value="@Model.VPF" type="text">
+
+
+                                                        </div>
+
+                                                    </div>
+
+                                                </div>
+                                                <div class="col-md-3" style="display:none;">
+                                                    <div class="form-group" id="divVisitors">
+                                                        <label for="name" class="col-md-8"> EPF </label>
+                                                        <div class="col-md-12">
+                                                            <input class="form-control" id="txtEPF" onkeypress="return isNumberKey(event)" readonly name="txtEPF" value="@Model.EPF" type="text">
+
+
+                                                        </div>
+
+                                                    </div>
+
+                                                </div>
+                                                <div class="col-md-3" style="display:none;">
+                                                    <div class="form-group" id="divVisitors">
+                                                        <label for="name" class="col-md-8"> Pan No. </label>
+                                                        <div class="col-md-12">
+                                                            <input class="form-control" id="txtPanNo" name="txtPanNo" readonly maxlength="25" value="@Model.PAN_NO_" type="text">
+
+
+                                                        </div>
+
+                                                    </div>
+
+                                                </div>
+                                                <div class="col-md-3" style="display:none;">
+                                                    <div class="form-group" id="divVisitors">
+                                                        <label for="name" class="col-md-8"> Total Deductions </label>
+                                                        <div class="col-md-12">
+                                                            <input class="form-control" id="txtDeduction" readonly onkeypress="return isNumberKey(event)" name="txtDeduction" value="@Model.Total_deductions_" type="text">
+
+
+                                                        </div>
+
+                                                    </div>
+
+                                                </div>
+                                                <div class="col-md-3" style="display:none;">
+                                                    <div class="form-group" id="divVisitors">
+                                                        <label for="name" class="col-md-8"> Yearly VPF </label>
+                                                        <div class="col-md-12">
+                                                            <input class="form-control" id="txtYVPF" readonly onkeypress="return isNumberKey(event)" name="txtYVPF" readonly value="@Model.Yearly_VPF" type="text">
+
+
+                                                        </div>
+
+                                                    </div>
+
+                                                </div>
+                                                <div class="col-md-3" style="display:none;">
+                                                    <div class="form-group" id="divVisitors">
+                                                        <label for="name" class="col-md-8"> Yearly EPF </label>
+                                                        <div class="col-md-12">
+                                                            <input class="form-control" id="txtYEPF" name="txtYEPF" readonly onkeypress="return isNumberKey(event)" readonly value="@Model.Yearly_EPF" type="text">
+
+
+                                                        </div>
+
+                                                    </div>
+
+                                                </div>
+                                                <div class="col-md-3" style="display:none;">
+                                                    <div class="form-group" id="divVisitors">
+                                                        <label for="name" class="col-md-8"> Password </label>
+                                                        <div class="col-md-12">
+                                                            <input class="form-control" id="txtPassword" readonly maxlength="25" readonly name="txtPassword" value="@Model.Password" type="text">
+
+
+                                                        </div>
+
+                                                    </div>
+
+                                                </div>
+
+
+
+                                                <div class="col-md-3" style="display:none;">
+                                                    <div class="form-group" id="divVisitors">
+                                                        <label for="name" class="col-md-12">Investment Declaration Status </label>
+                                                        <div class="col-md-12">
+                                                            @*<input class="form-control" id="txtInvestmentDeclarationStatus" readonly name="txtInvestmentDeclarationStatus" value="@Model.InvestmentDeclarationStatus" type="text">*@
+
+
+                                                            @*<label class="radio-inline">*@
+
+                                                            <div class="col-md-2">
+                                                                <input class="form-control col-md-12" disabled name="OperationType" type="radio"
+                                                                       value="Routing" checked="checked" readonly id="Routing" />
+                                                            </div>
+                                                            <div class="col-md-2  pull-left"><label for="Netflix" style="margin-top:15px;margin-left:-20px">Yes </label></div>
+
+                                                            <div class="col-md-2"><input class="form-control col-md-12" name="OperationType" disabled type="radio" readonly value="ADHoc" id="ADHoc" /></div>
+                                                            <div class="col-md-2">   <label for="Netflix" style="margin-top:15px;margin-left:-20px">No</label></div>
+                                                            <div class="col-md-4">   <label for="Netflix"></label></div>
+
+
+                                                            @*</label>*@
+                                                            @*</label>*@
+                                                            @*<label class="radio-inline">*@
+
+
+
+
+                                                            @*</label>*@
+
+
+
+
+
+                                                        </div>
+
+                                                    </div>
+
+                                                </div>
+                                                <br />
+                                                <div class="col-md-3" style="display:none;">
+                                                    <div class="form-group" id="divVisitors">
+                                                        <label for="name" class="col-md-12">Investment Declaration Password </label>
+                                                        <div class="col-md-12">
+                                                            <input class="form-control" id="txtInvestment_Declaration_Password" maxlength="25" readonly name="txtInvestment_Declaration_Password" value="@Model.Investment_Declaration_Password" type="text">
+
+
+                                                        </div>
+
+                                                    </div>
+
+                                                </div>
+                                                <div class="col-md-3" style="display:none;">
+                                                    <div class="form-group" id="divVisitors">
+                                                        <label for="name" class="col-md-8">HRMS Password </label>
+                                                        <div class="col-md-12">
+                                                            <input class="form-control" id="txtHRMSPassword" readonly maxlength="25" name="txtHRMSPassword" value="@Model.HRMSPassword" type="text">
+
+
+                                                        </div>
+
+                                                    </div>
+
+                                                </div>
+                                                <div class="col-md-3" style="display:none;">
+                                                    <div class="form-group" id="divVisitors">
+                                                        <label for="name" class="col-md-8"> Password </label>
+                                                        <div class="col-md-12">
+                                                            <input class="form-control" id="txtTrumpPassword" readonly maxlength="25" name="txtTrumpPassword" value="@Model.TrumpPassword" type="text">
+
+
+                                                        </div>
+
+                                                    </div>
+
+                                                </div>
+                                                @*<div class="col-md-3">
+            <div class="form-group" id="divVisitors">
+                <label for="name" class="col-md-8">Company </label>
+                <div class="col-md-12">
+                    <input class="form-control" id="txtCompanyID" readonly name="txtCompanyID" value="@Model.CompanyID" type="text">
+
+
+                </div>
+
+            </div>
+
+        </div>*@
+
+
+                                                <div class="col-md-3">
+                                                    <div class="form-group" id="divVisitors">
+                                                        <label for="name" class="col-md-8"> Status </label>
+                                                        <div class="col-md-12">
+                                                            <input class="form-control" id="txtSTATUS" readonly name="txtStatus" value="@Model.Status" style="display:none11;" type="text">
+
+
+
+
+
+
+
+                                                        </div>
+
+                                                    </div>
+
+                                                </div>
+
+
+
+                                                <div class="form-group col-md-3">
+                                                    <label for="name" class="col-md-8">
+                                                        Email<i class="readonly">*</i>
+                                                    </label>
+                                                    <div class="col-md-12">
+                                                        @*required*@
+                                                        <input class="form-control" id="txtEmail" readonly name="txtEmail" value="@Model.Email_ID" type="text">
+                                                    </div>
+                                                </div>
+
+
+
+
+
+
+
+
+
+
+
+
+                                                <div class="col-md-3" style="display:none;">
+                                                    <div class="form-group" id="divVisitors">
+                                                        <label for="name" class="col-md-8"> UserType </label>
+                                                        <div class="col-md-12">
+                                                            <input class="form-control" id="txtUserType" name="txtUserType" readonly value="@Model.UserType" type="text" style="display:none11;">
+                                                            <!--<select tabindex="-1" class="form-control select2_group ddlIDType22" readonly data-val="true" id="ddlUserType" name="ddlUserType">
+
+                <option>USER</option>
+                <option>HOD</option>-->
+                                                            @*<option>ADMIN</option>
+                    <option>HR</option>*@
+
+                                                            <!--</select>-->
+
+                                                        </div>
+
+                                                    </div>
+
+                                                </div>
+
+
+
+                                                <div class="col-md-3"></div>
+                                                <div class="col-md-3"></div>
+                                                @*</div>*@
+
+
+                                                <div class="col-md-6 pull-left">
+
+
+                                                </div>
+
+                                                <div class="col-md-6 pull-right">
+                                                    <br />
+                                                    @*<input type="submit"
+            name="btnSave" id="btnSave" value="Update" class="btn btn-primary" />*@
+
+                                                    <input class="form-control" id="txtInvestmentDeclarationStatus2" style="display:none;" name="txtInvestmentDeclarationStatus2" value="@ViewBag.INdStatus" type="text">
+
+                                                </div>
+
+
+                                                <div class="col-md-12">
+                                                    <fieldset style="border: 1px solid; padding: 5px; width: 100%; overflow: auto;
+                                                        border-color: #d3d3d3; ">
+                                                        <legend>Update  Detail</legend>
+                                                        @*<div style="border: 1px solid; padding: 5px; width: 100%; overflow: auto;
+            border-color: #d3d3d3; ">*@
+
+
+                                                        <div class="form-group col-md-3">
+                                                            <label for="name" class="col-md-8">
+
+                                                                Mobile No.<i class="readonly">*</i>
+                                                            </label>
+                                                            <div class="col-md-12">
+                                                                <input class="form-control" id="txtMOBILE" required onkeypress="return isNumberKey(event)"  name="txtMOBILE" maxlength="10" value="@Model.MOBILE_NUMBER" type="text">
+
+                                                            </div>
+                                                        </div>
+
+
+                                                        <div class="form-group col-md-3">
+                                                            <br />
+                                                            <input type="submit"
+                                                                   name="btnSave" id="btnSave" value="Update" class="btn btn-primary" />
+                                                        </div>
+                                                        @*</div>*@
+
+
+
+
+                                                    </fieldset>
+
+                                                    <br />
+                                                    <p style="font-size:14px; ">
+                                                        <label> Note:You can only change your mobile number from this section, For any other changes in your profile. Kindly contact System Administrator.</label>
+
+                                                    </p>
+
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+
+
+<script>
+    $(document).ready(function () {
+        //.attr("disabled", true);
+        
+        $("#ddlUserType").prop("disabled", true);
+    });
+</script>
+
+
+<script>
+
+            $(document).ready(function () {
+
+
+                var funddlCompanyFill = (function () {
+                    debugger;
+
+                    var ddlRegion = "aaa";
+                    var d = $("#txtcompanyId").val();
+
+                    $.ajax({
+
+
+                        url: '@Url.Action("GetCompanyList", "Home")',
+                        type: 'Get',
+                        contenType: 'application/json charset utf-8',
+
+
+                        dataType: 'json',
+                        data: { Region: ddlRegion },
+                        success: function (data) {
+
+                           
+                            for (var i = 0; i < data.length; i++) {
+
+                                s = "<option value='" + data[i].CompanyId + "'>" + data[i].Company + "</option>";
+
+                                $("#ddlCompany").append(s);
+
+                            }
+
+                            //--------
+
+                            let text = d;
+
+                            $("select option").filter(function () {
+                                //may want to use $.trim in here
+                                return $(this).val() == text;
+                            }).attr('selected', true);
+                            //---------
+
+                        }
+                    });
+
+
+
+                });
+                funddlCompanyFill();
+
+                //----------
+                //--------
+                var selectetext = $("#txtUserType").val();
+
+               // let text = d;
+
+
+
+                $("select option").filter(function () {
+
+
+                   // var classes = $(this).parent('select').attr('class');
+
+                    var Pddl = $(this).parent('select').attr('id');
+                    //alert(Pddl);
+                   // var a = $("#ddlUserType").children().text();
+                   // alert(classes);
+                    //may want to use $.trim in here
+                    if (Pddl =="ddlUserType") {
+                    //alert($(this).text());
+                        return $(this).text() == selectetext;
+                    }
+                }).attr('selected', true);
+
+
+                $("#ddlkssdept").change(function () {
+
+
+                    var depttxt = $('#ddlkssdept option:selected').text();
+
+                    $("#txtKSSDepartment").val(depttxt);
+
+                });
+
+                //---radio----------
+                var st = $("#txtInvestmentDeclarationStatus2").val();
+                //alert(st);
+                if (st == "True") {
+
+                    $("#Routing").attr('checked', 'checked');
+                }
+                else {
+
+                    $("#ADHoc").attr('checked', 'checked');
+                }
+                //---------
+
+                $("#btnSave").on("click", function () {
+
+                   
+                    var varcvMobile = $("#txtMOBILE").val().trim();
+                    if (varcvMobile.length != 10) {
+                        alert("Please Enter 10 digit Mobile No.");
+                        return false;
+
+                    }
+
+
+                });
+
+
+
+
+
+
+            });
+
+
+</script>
+
+<script type="text/javascript">
+    function isNumberKey(evt) {
+        var charCode = (evt.which) ? evt.which : evt.keyCode;
+        if (charCode > 31 && (charCode < 48 || charCode > 57))
+            return false;
+        return true;
+    }
+</script>

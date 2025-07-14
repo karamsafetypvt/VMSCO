@@ -1,0 +1,263 @@
+﻿@model IEnumerable<TrumpCL.DataField>
+
+<style>
+    table tr td {
+        border: 1px solid black
+    }
+
+    table tr th {
+        /*color: white;*/
+        border: 1px solid black
+    }
+
+   
+
+</style>
+<div>
+    <div>
+
+        <table class="table table-bordered table-responsive bordered" id="tableToExport" style="width:100%;" border="0">
+            <tr style="font-size:14px;background-color:#ab4242;color:white">
+                @*<th>
+            GPID
+        </th>
+        <th>
+            Requestor
+        </th>
+        <th>
+            Department
+        </th>
+        <th>
+            Company
+        </th>
+        <th>
+            Visitor
+        </th>
+        <th>
+            Duration
+        </th>
+        <th>
+            Date
+        </th>
+        <th>
+            Appointment Time
+        </th>
+        <th>
+            Visit In Time
+        </th>
+        <th>
+            Visit out Time
+        </th>
+        <th>Visit Type</th>
+        <th>Card Type</th>
+        <th>
+            Status
+        </th>
+        <th>
+            Reject Remark
+        </th>
+        <th>
+            Visitor Type
+        </th>*@
+
+                <th>
+                    @*GPID*@
+                    Appointment ID
+                </th>
+                <th>
+                    Visitor Name
+                </th>
+                <th>
+                    Company Name
+                </th>
+
+                <th>
+                    Appointment   Date
+                </th>
+                @*<th>
+                    Appointment Time
+                </th>*@
+                <th>
+                    Duration
+                </th>
+                <th>
+                    Visitor Type
+                </th>
+
+
+                <th>
+                    Host Name
+                </th>
+                <th>
+                    Department
+                </th>
+
+
+
+                <th>
+                    Check-in (Date & Time)
+                </th>
+                <th>
+                    Check-out (Date & Time)
+                </th>
+                <th>Visit Type</th>
+                @*<th>Card Type</th>*@
+                <th>
+                    Status
+                </th>
+                <th>
+                    @*Reject Remark*@Remarks
+                </th>
+                <th>
+
+                    Vehicle No.
+                </th>
+
+                <th>
+
+                    Region
+                </th>
+
+
+
+            </tr>
+            @if (Model.Count() != 0)
+            {
+                foreach (var item in Model)
+                {
+        <tr style="font-size:12.5px">
+            <td>
+                @Html.DisplayFor(modelItem => item.GP)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.visName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.comName)
+            </td>
+            <td>
+                @Convert.ToDateTime(item.VisDate).ToString("dd/MMM/yyyy")
+            </td>
+            @*<td>
+                @item.VisTime
+            </td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.VisDuration)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.V_Type)
+            </td>
+
+            <td>@item.Req</td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Dept)
+            </td>
+
+
+
+
+
+
+            <td>
+                @item.TimeIN
+                @*@if (@item.TimeIN != "")
+            {
+                // @item.TimeIN
+                @Convert.ToDateTime(item.TimeIN).ToString("dd/MMM/yyyy hh:mm tt")
+            }
+            else
+            {
+                <span>NA</span>
+            }*@
+            </td>
+            <td>
+                @item.TimeOUT
+                @*@if (@item.TimeOUT != "")
+            {
+
+                @Convert.ToDateTime(item.TimeOUT).ToString("dd/MMM/yyyy hh:mm tt")
+            }
+            else
+            {
+
+            }*@
+
+
+
+
+            </td>
+
+
+
+            <td>
+                @item.Type
+            </td>
+            @*<td>@item.Location</td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+
+                @*@if (@item.Status == "Pre")
+            {
+                <span>Prebooked</span>
+
+            }
+            @if (@item.Status == "Arrived")
+            {
+                <span>Check-in</span>
+            }
+
+            @if (@item.Status == "OUT")
+            {
+                <span>Check-out</span>
+            }
+            @if (@item.Status == "Reject")
+            {
+                <span>Reject</span>
+            }*@
+
+                @*else
+            {
+                <span>NA</span>
+            }*@
+
+
+
+
+
+
+
+
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RejectRemark)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Vehicleno)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Region)
+            </td>
+
+        </tr>
+                }
+            }
+            else
+            {
+                <tr>
+                    <td colspan="11">
+                        <span>No Data found</span>
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+</div>
+
+<script src="~/Scripts/jquery-3.4.1.js"></script>
+<script type="text/javascript">
+    $(function () {
+        $("#btnExport").click(function () {
+            $("input[name='GridHtml']").val($("#Grid").html());
+        });
+    });
+</script>

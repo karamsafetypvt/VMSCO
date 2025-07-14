@@ -1,0 +1,133 @@
+﻿@model IEnumerable<Trump.Models.Inward>
+@{
+    ViewBag.Title = "test";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link href="~/Content/Gridmvc.css" rel="stylesheet" />
+
+@using GridMvc.Html;
+@using GridMvc.DataAnnotations;
+@using GridMvc.Sorting;
+
+@helper CustomRenderingOfColumn(Trump.Models.Inward item)
+{
+    if ((item.M_Type == "NRGP" || item.M_Type == "RGP") && item.Status == "Partial")
+    {
+        @Html.ActionLink("View", "OutWardView", new { challan = item.ChallenNmbr })
+        <a href="PDF?ID=@item.ID">Print</a>
+    }
+    else if (item.M_Type == "NRGP" && item.Status == "Closed" && item.Delay != true)
+    {
+        @Html.ActionLink("View", "OutWardView", new { challan = item.ChallenNmbr })
+        <a href="PDF?ID=@item.ID">Print</a>
+    }
+    else if (item.M_Type == "NRGP" && item.Status == "Closed" && item.Delay == true)
+    {
+        @Html.ActionLink("Reason", "DelayReason", new { challan = item.ChallenNmbr })
+        <a href="PDF?ID=@item.ID">Print</a>
+    }
+    else if ((item.M_Type == "NRGP" || item.M_Type == "RGP") && item.Status == "OUT")
+    {
+        @Html.ActionLink("View", "OutWardView", new { challan = item.ChallenNmbr })
+        <a href="PDF?ID=@item.ID">Print</a>
+    }
+    else if (item.M_Type == "RGP" && item.Status == "IN" && item.Delay != true)
+    {
+        @Html.ActionLink("View", "OutWardView", new { challan = item.ChallenNmbr })
+        <a href="PDF?ID=@item.ID">Print</a>
+    }
+    else if (item.M_Type == "RGP" && item.Delay == true)
+    {
+        @Html.ActionLink("Reason", "DelayReason", new { challan = item.ChallenNmbr })
+        <a href="PDF?ID=@item.ID">Print</a>
+    }
+    else if (item.M_Type == "RGP" && item.Status == "Partialy Closed" && (item.Supp_Type == "THIRD" || item.Supp_Type == "INTER"))
+    {
+        @Html.ActionLink("Close", "ViewOutwardClosed", new { ID = item.ID })
+        <a href="PDF?ID=@item.ID">Print</a>
+    }
+    else if (item.M_Type == "RGP" && item.Status == "Short Closed" && (item.Supp_Type == "THIRD" || item.Supp_Type == "INTER"))
+    {
+        @Html.ActionLink("View", "OutWardView", new { challan = item.ChallenNmbr })
+        <a href="PDF?ID=@item.ID">Print</a>
+    }
+    else if (item.M_Type == "RGP" && item.Status == "Security Closed" && (item.Supp_Type == "THIRD" || item.Supp_Type == "INTER"))
+    {
+        @Html.ActionLink("Close", "UserClose", new { challan = item.ChallenNmbr })
+        <a href="PDF?ID=@item.ID">Print</a>
+    }
+}
+@helper CustomPostionOfItam(Trump.Models.Inward item)
+{
+    if (item.M_Type == "NRGP" && item.Status == "Closed" && item.Delay != true)
+    {
+        <span>Closed</span>
+    }
+    else if (item.M_Type == "NRGP" && item.Status == "Closed" && item.Delay == true)
+    {
+        <span>Delayed</span>
+    }
+    else if (item.M_Type == "RGP" && item.Status == "IN" && item.Delay != true)
+    {
+        <span>Pending for Return</span>
+    }
+    else if (item.M_Type == "RGP" && item.Status == "OUT" && item.Supp_Type == "THIRD")
+    {
+        <span>Material at Vendor</span>
+    }
+    else if (item.M_Type == "RGP" && item.Status == "Security Closed" && (item.Supp_Type == "THIRD" || item.Supp_Type == "INTER"))
+    {
+        <span>Pending for Closer</span>
+    }
+    else if (item.M_Type == "RGP" && item.Status == "Partialy Closed" && (item.Supp_Type == "THIRD" || item.Supp_Type == "INTER"))
+    {
+        <span>Partialy Closed</span>
+    }
+    else if (item.M_Type == "RGP" && item.Status == "Short Closed" && (item.Supp_Type == "THIRD" || item.Supp_Type == "INTER"))
+    {
+        <span>Short Closed</span>
+    }
+    else if (item.Delay == true && item.M_Type == "RGP")
+    {
+        <span>Delayed</span>
+    }
+}
+<link href="~/Layout/Css/jtable_jqueryui.css" rel="stylesheet" />
+<link href="~/Layout/Css/jquery.dataTables_themeroller.css" rel="stylesheet" />
+
+<div class="content" style="font-size:12px;min-height:100%">
+    <div class="content_resize">
+        <h3 style="text-align:center;font-weight:bold">Pending for Closer</h3>
+        <div class="mainbar">
+            <div class="article">
+                <div id="VisitorCompanyTableContainer">
+                    <div class="jtable-main-container">
+                        <div class="jtable" id="jtable">
+                            <div class="table table-bordered table-responsive" id="table2">
+                                @Html.Grid(Model).Columns(columns =>
+                           {
+                                columns.Add().Encoded(false).Sanitized(false)
+                                .RenderValueAs(o => Html.CheckBox("checked", false, new { key = o.ID, id = "checked" }));
+                                columns.Add(c => c.ID).Titled("ID").Filterable(true).Sortable(true).Css("hidden");
+                                columns.Add(c => c.ChallenNmbr).Titled("Challan Number").Css("ContentTitle").Filterable(true).Sortable(true);
+                                columns.Add(c => c.RaiseDate).Titled("Raise Date").Format("{0:dd/MMM/yyyy}").Css("ContentTitle").Sortable(true).Filterable(true);
+                                columns.Add(c => c.M_Type).Titled("Type").Css("ContentTitle").Filterable(true).Sortable(true);
+                                columns.Add(c => c.Supp_Type).Titled("Supplier Type").Css("ContentTitle").Sortable(true).Filterable(true);
+                                columns.Add(c => c.Suppliear).Titled("Suppliear Name").Css("ContentTitle").Sortable(true).Filterable(true);
+                                columns.Add(c => c.Item).Titled("Item").Css("ContentTitle").Sortable(true).Filterable(true);
+                                columns.Add(c => c.Desc).Titled("Description").Css("ContentTitle").Sortable(true).Filterable(true);
+                                columns.Add(c => c.Status).Titled("Status").Css("ContentTitle").Sortable(true).Encoded(false).Sanitized(false).RenderValueAs(o => CustomPostionOfItam(o)).Filterable(true);
+                               columns.Add().Titled("Action").Css("fr")
+                                    .Encoded(false)
+                                    .Sanitized(false)
+                               .RenderValueAs(o => CustomRenderingOfColumn(o));
+                           }).Sortable(true).WithPaging(15)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

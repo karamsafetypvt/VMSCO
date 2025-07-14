@@ -1,0 +1,1030 @@
+﻿@{
+    ViewBag.Title = "Courier Entry";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    // Layout = null;
+}
+<style type="text/css">
+    #accordion div {
+        display: none;
+    }
+
+    .tooltip {
+        position: absolute;
+        z-index: 1030;
+        display: block;
+        opacity: 1;
+        filter: alpha(opacity=75);
+        font-size: 11px;
+        line-height: 1.4;
+        zoom: 1;
+        visibility: visible;
+        width: auto;
+    }
+
+    .tooltip-inner {
+        max-width: 800px;
+        padding: 3px 8px;
+        color: #ffffff;
+        width: 400;
+        display: block;
+        text-align: left;
+        font-size: 11px;
+        text-decoration: none;
+        background-color: #000000;
+        border-radius: 4px;
+    }
+
+
+    .modalPOP {
+        position: fixed;
+        z-index: 999;
+        height: 100%;
+        width: 100%;
+        top: 0;
+        left: 0;
+        background-color: White;
+        filter: alpha(opacity=60);
+        opacity: 0.6;
+        -moz-opacity: 0.8;
+    }
+
+    .modal-dialog1 {
+        position: absolute;
+        left: 25%;
+        top: 25%;
+        -moz-transform: translate(-50%, -50%);
+        -webkit-transform: translate(-50%, -50%);
+        -o-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+    }
+</style>
+
+<style>
+    .modal-dialog1 {
+        position: absolute;
+        left: 25%;
+        top: 25%;
+        -moz-transform: translate(-50%, -50%);
+        -webkit-transform: translate(-50%, -50%);
+        -o-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+    }
+
+    .ui-widget-content {
+        border: 1px solid;
+    }
+
+    .ui-autocomplete li.ui-menu-item a {
+        background-image: none;
+    }
+
+    .focus {
+        border: 2px solid #AA88FF;
+        background-color: #FFEEAA;
+    }
+
+    .ui-datepicker select.ui-datepicker-month, .ui-datepicker select.ui-datepicker-year {
+        color: Black;
+        font-weight: normal;
+    }
+
+    .ui-autocomplete {
+        max-height: 100px;
+        overflow-y: auto; /* prevent horizontal scrollbar */
+        overflow-x: hidden; /* add padding to account for vertical scrollbar */
+        padding-right: 20px;
+    }
+
+    *html .ui-autocomplete {
+        height: 100px;
+    }
+
+    .select2-container--default .select2-selection--single {
+        border-radius: 4px;
+    }
+
+    .select2-container {
+        width: 100% !important;
+    }
+</style>
+<div class="content" style="font-size:12px;min-height:100%">
+    <div class="content_resize">
+        <div class="mainbar">
+            <div class="article">
+                <div id="divNewInward" style="">
+
+                    <form action="/Home/UpdateCouriarDetail" enctype="multipart/form-data" method="post">
+                        <input id="AuthoriserString" name="AuthoriserString" value="-1" type="hidden">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="widget stacked">
+                                        <div class="widget-header">
+                                            <i class="fa fa-check-circle"></i>
+                                            <h3>
+                                               Update Inward Packet
+                                                @Html.AntiForgeryToken()
+                                            </h3>
+                                        </div>
+                                        <div class="widget-content">
+
+                                            <input type="hidden" id="txtdelivery" value="@ViewBag.CouriarVendor" />
+                                            <input type="hidden" id="txtcity" value="@ViewBag.City" />
+                                            <input type="hidden" id="txthour" value="@ViewBag.hour" />
+                                            <input type="hidden" id="txtmin" value="@ViewBag.minute" />
+                                            <input type="hidden" id="txtampm" value="@ViewBag.AmPm" />
+                                            <input type="hidden" id="txtPacketType" value="@ViewBag.PacketType" />
+                                            <input type="hidden" id="txtCouriarId" name="txtCouriarId" value="@ViewBag.CouriarId" />
+
+                                          
+                                            <div class="row">
+                                                <div class="col-md-3">
+
+                                                    <div class="form-group" id="SupplierType">
+                                                        <label for="name" class="col-md-8">Date  <i class="fa fa-asterisk required"></i></label>
+                                                        <div class="col-md-12">
+
+                                                            <input tabindex="6" class="form-control hasDatepicker validate" autocomplete="off" readonly data-val="true" id="AppointmentDateString" name="V_DateFrom" value="@ViewBag.Cdate" onkeypress="return CheckPhone(event)" type="text">
+
+                                                            <div style="display:none;" id="invaliddate" class="field-validation-error">
+                                                                Date is invalid
+                                                            </div>
+
+                                                        </div>
+
+                                                    </div>
+
+
+
+
+                                                </div>
+
+                                                <div class="col-md-3">
+                                                    <div class="form-group" id="divWorker">
+                                                        <label for="name" class="col-md-8">Check-in time</label>
+                                                        <div class="col-md-12">
+
+                                                            <input class="form-control clsWorkerIDAutotext" style="display:none;" id="txtRecievetime" name="txtRecievetime" type="text">
+
+
+                                                            @*<input required tabindex="7" autocomplete="OFF" class="form-control" data-val="true" data-val-required="The AppointmentTimeString field is required." id="AppointmentTimeString" name="A_Time" type="text">
+                        <div style="display:none;" id="invalidtime" class="field-validation-error">
+                            Time is invalid
+                        </div>
+                        <span id="ValidationForTime" class="field-validation-error" style="display: none">
+                        </span>*@
+                                                        <div class="col-md-4">
+                                                            <input type="text" id="txthour22"  class="form-control" value="@ViewBag.hour" disabled />
+                                                           
+
+                                                            @*<select class="form-control select2_group clh" disabled name="hh" id="hh" width="50px" style="display:none;">
+                                                                <option value="-1">Hour</option>
+                                                                <option value="0">00</option>
+                                                                <option value="1">01</option>
+                                                                <option value="2">02</option>
+                                                                <option value="3">03</option>
+                                                                <option value="4">04</option>
+                                                                <option value="5">05</option>
+                                                                <option value="6">06</option>
+                                                                <option value="7">07</option>
+                                                                <option value="8">08</option>
+                                                                <option value="9">09</option>
+                                                                <option value="10">10</option>
+                                                                <option value="11">11</option>
+                                                                <option value="12">12</option>
+                                                                <option value="12">12</option>
+                                                            </select>*@
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <input type="text" id="txtmin22" class="form-control" value="@ViewBag.minute" disabled/>
+                                                           
+                                                            @*<select class="form-control select2_group clm" disabled name="mm" id="mm" width="50px" style="display:none;">
+                                                                <option value="0">Min</option>
+                                                                <option value="00">00</option>
+                                                                <option value="1">01</option>
+                                                                <option value="2">02</option>
+                                                                <option value="3">03</option>
+                                                                <option value="4">04</option>
+                                                                <option value="5">05</option>
+                                                                <option value="6">06</option>
+                                                                <option value="7">07</option>
+                                                                <option value="8">08</option>
+                                                                <option value="9">09</option>
+                                                                <option value="10">10</option>
+                                                                <option value="11">11</option>
+                                                                <option value="12">12</option>
+                                                                <option value="13">13</option>
+                                                                <option value="14">14</option>
+                                                                <option value="15">15</option>
+                                                                <option value="16">16</option>
+                                                                <option value="17">17</option>
+                                                                <option value="18">18</option>
+                                                                <option value="19">19</option>
+                                                                <option value="20">20</option>
+                                                                <option value="21">21</option>
+                                                                <option value="22">22</option>
+                                                                <option value="23">23</option>
+                                                                <option value="24">24</option>
+                                                                <option value="25">25</option>
+                                                                <option value="26">26</option>
+                                                                <option value="27">27</option>
+                                                                <option value="28">28</option>
+                                                                <option value="29">29</option>
+                                                                <option value="30">30</option>
+                                                                <option value="31">31</option>
+                                                                <option value="32">32</option>
+                                                                <option value="33">33</option>
+                                                                <option value="34">34</option>
+                                                                <option value="35">35</option>
+                                                                <option value="36">36</option>
+                                                                <option value="37">37</option>
+                                                                <option value="38">38</option>
+                                                                <option value="39">39</option>
+                                                                <option value="40">40</option>
+                                                                <option value="41">41</option>
+                                                                <option value="42">42</option>
+                                                                <option value="43">43</option>
+                                                                <option value="44">44</option>
+                                                                <option value="45">45</option>
+                                                                <option value="46">46</option>
+                                                                <option value="47">47</option>
+                                                                <option value="48">48</option>
+                                                                <option value="49">49</option>
+                                                                <option value="50">50</option>
+                                                                <option value="51">51</option>
+                                                                <option value="52">52</option>
+                                                                <option value="53">53</option>
+                                                                <option value="54">54</option>
+                                                                <option value="55">55</option>
+                                                                <option value="56">56</option>
+                                                                <option value="57">57</option>
+                                                                <option value="58">58</option>
+                                                                <option value="59">59</option>
+                                                            </select>*@
+                                                        </div>
+
+                                                        <div class="col-md-4">
+                                                            <input type="text" id="txtampm22" class="form-control" value="@ViewBag.AmPm" disabled />
+                                                            @*<select class="form-control clam" name="ampm" disabled id="ampm" width="50px" style="display:none;">
+                                                                <option value="AM">AM</option>
+                                                                <option value="PM">PM</option>
+                                                            </select>*@
+                                                        </div>
+
+
+
+
+                                                        </div>
+
+                                                    </div>
+
+
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div class="form-group" id="divWorker">
+                                                        <label for="name" class="col-md-8">Docket  Number <i class="fa fa-asterisk required"></i></label>
+
+
+                                                        <div class="col-md-12">
+
+                                                            <input class="form-control clsWorkerIDAutotext" maxlength="25" id="txtdocket" name="txtdocket" type="text" value="@ViewBag.DocketNo">
+                                                        </div>
+
+                                                    </div>
+
+                                                </div>
+                                                <div class="col-md-3">
+
+                                                    <div class="form-group" id="divWorker">
+                                                        <label for="name" class="col-md-8">Delivery Provider <i class="fa fa-asterisk required"></i></label>
+                                                        <div class="col-md-12">
+
+                                                            @*CouriarVendor*@
+
+                                                            <select tabindex="-1" class="form-control select2_group" name="ddlCourierCompany" id="ddlCourierCompany">
+                                                                <option selected disabled>--Please Select--</option>
+
+                                                            </select>
+
+
+
+                                                        </div>
+
+                                                    </div>
+
+                                                </div>
+                                                <div class="col-md-6">
+
+                                                    <div class="form-group" id="divContractor">
+                                                        <label for="name" class="col-md-8">Document Details <i class="fa fa-asterisk required"></i></label>
+                                                        <div class="col-md-12">
+
+
+                                                            <textarea type="text" row class="form-control" name="txtdoc" id="txtdoc" maxlength="500" value="@ViewBag.Documents" rows="3">@ViewBag.Documents</textarea>
+
+
+                                                        </div>
+
+                                                    </div>
+
+                                                </div>
+
+
+                                                <div class="col-md-3">
+                                                    <div class="form-group" id="divVisitors">
+                                                        <label for="name" class="col-md-8">Sender’s Name <i class="fa fa-asterisk required"></i> </label>
+                                                        <div class="col-md-12">
+
+                                                            <input class="form-control clsVisitorIDAutotext" id="txtSendername" onkeypress="return isAlphabt(event)" maxlength="49" name="txtSendername" value="@ViewBag.SenderName" type="text">
+                                                        </div>
+
+                                                    </div>
+
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div class="form-group" id="divUsers">
+                                                        <label for="name" class="col-md-8"> Sender’s City<i class="fa fa-asterisk required"></i></label>
+
+
+                                                        <div class="col-md-7">
+                                                            <select tabindex="-1" class="form-control select2_group " name="ddlCity" id="ddlCity">
+
+                                                                <option selected disabled>--Please Select--</option>
+
+
+
+                                                            </select>
+                                                        </div>
+                                                        <div class="col-md-5">
+
+                                                            <input autocomplete="off" class="form-control clsUserIDAutotext ui-autocomplete-input" maxlength="49" id="txtcity" style="display:none;" name="txtcity" type="text" value="@ViewBag.DocketNo">
+                                                        </div>
+
+
+
+                                                    </div>
+
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="col-md-12">
+
+
+                                                        <div class="col-md-3">
+                                                            <div class="form-group" id="divVisitors">
+                                                                <label for="name" class="col-md-8"> Recipient’s Name <i class="fa fa-asterisk required"></i> </label>
+                                                                <div class="col-md-12">
+
+                                                                    @*<input class="form-control clsVisitorIDAutotext" id="txtcompany" maxlength="49" name="txtcompany" onkeypress="return isAlphabt(event)" value="" type="text">*@
+
+                                                                    <input type="text" id="Req_sec" required onkeypress="return isAlphabt(event)" class="form-control" name="host" value="@ViewBag.Empname" readonly />
+                                                                    <input class="form-control" required data-val="true" name="Requestor" id="EmpSec" type="text" style="display:none;" readonly>
+
+
+
+                                                                </div>
+
+                                                            </div>
+
+                                                        </div>
+
+                                                        <div class="col-md-3">
+                                                            <div class="form-group" id="divVisitors">
+                                                                <label for="name" class="col-md-8"> Recipient’s Region <i class="fa fa-asterisk required"></i></label>
+                                                                <div class="col-md-12">
+
+                                                                    @*<select tabindex="-1" class="form-control select2_group " name="ddlRegion" id="ddlRegion">
+                                    <option selected disabled>--Please Select--</option>
+
+
+
+                                </select>*@
+                                                                    <input type="text" name="txtRegionNew" class="form-control" id="txtRegionNew" readonly value="@ViewBag.Region" />
+
+                                                                </div>
+                                                                <div class="col-md-5">
+                                                                    @*<input class="form-control clsVisitorIDAutotext" id="txtRegion" style="display:none;" name="txtRegion" value="" type="text">*@
+
+                                                                </div>
+                                                            </div>
+
+
+
+                                                        </div>
+                                                        <div class="col-md-3">
+                                                            <div class="form-group" id="divVisitors">
+                                                                <label for="name" class="col-md-8"> Recipient’s Department <i class="fa fa-asterisk required"></i></label>
+
+
+
+                                                                <div class="col-md-12">
+                                                                    @*<select tabindex="-1" class="form-control select2_group cldept" name="ddldept" id="ddldept">
+
+                                </select>*@
+                                                                    <input type="text" name="Deptment" maxlength="550" class="form-control" id="secDept" readonly value="@ViewBag.Department" />
+
+                                                                </div>
+                                                                <div class="col-md-5">
+                                                                    @*<input class="form-control clsVisitorIDAutotext" id="txtdept" name="txtdept" style="display:none;" value="" type="text">*@
+
+                                                                </div>
+
+
+
+                                                            </div>
+
+
+
+                                                        </div>
+
+
+
+                                                        <div class="col-md-3">
+                                                            <div class="form-group" id="divUsers">
+
+                                                                <label for="name" class="col-md-8">Packet Type<i class="fa fa-asterisk required"></i></label>
+                                                                <div class="col-md-12">
+
+                                                                    <select tabindex="-1" class="form-control select2_group " name="ddlPacketType" id="ddlPacketType">
+                                                                        <option selected disabled>--Please Select--</option>
+
+                                                                    </select>
+
+
+                                                                </div>
+
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+
+
+
+
+
+
+                                                <div class="col-md-6">
+                                                    <div class="form-group" id="divWorker">
+                                                        <label for="name" class="col-md-8">Remark</label>
+                                                        <div class="col-md-12">
+
+                                                            @*<input class="form-control clsWorkerIDAutotext" id="txtremark" name="txtremark" type="text">*@
+
+                                                            <textarea type="text" row class="form-control" name="txtremark" id="txtremark" maxlength="500" value="@ViewBag.Remark" rows="3">@ViewBag.Remark</textarea>
+
+                                                            <input class="form-control" style="display:none;" id="txtgenno" name="txtgenno" type="text">
+
+                                                        </div>
+
+                                                    </div>
+
+                                                </div>
+
+                                                <div class="col-md-6">
+                                                    <br /> <br /> <br />
+                                                    <input type="submit"
+                                                           name="btnSave" id="btnSave" value="Submit" class="btn btn-primary" />
+
+                                                </div>
+
+
+
+
+
+                                            </div>
+
+
+
+
+                                            <div class="row">
+                                                <div class="col-md-4">
+
+                                                </div>
+                                                <div class="col-md-6" id="SupplierDetail">
+
+
+
+                                                    <div class="form-group" id="divWorker11">
+                                                        <div class="col-md-8"></div>
+                                                        <div class="col-md-4">
+                                                            <br />
+
+                                                        </div>
+                                                    </div>
+
+
+                                                </div>
+
+                                            </div>
+                                            <hr>
+
+                                            <hr>
+                                            <div class="row">
+                                                <div style="padding-left: 20px" class="col-md-offset-10">
+                                                    <div class="col-md-12">
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+
+
+
+
+<script>
+
+    $(document).ready(function () {
+
+
+
+    });
+
+    //*********Current Time Setting
+    //var d = new Date();
+    var h;
+    var m ;
+    h = $("#txthour").val();
+    m = $("#txtmin").val();
+   
+    // Check whether AM or PM
+    var newformat = h >= 12 ? 'PM' : 'AM';
+    if (h > 12) {
+
+        h = h - 12;
+    }
+
+    if (m.length == 1)
+    {
+        m = "0" + m;
+    }
+    newformat = $("#txtampm").val();
+      
+  
+    let text = h;
+    //alert(text);
+    $(".clh option").filter(function () {
+
+        return $(this).text() == h;
+    }).attr('selected', true);
+
+    $(".clm option").filter(function () {
+
+        return $(this).text() == m;
+    }).attr('selected', true);
+
+
+    $(".clam option").filter(function () {
+
+        return $(this).text() == newformat;
+    }).attr('selected', true)
+
+
+    //********End Time Setting
+
+
+
+   
+
+    $("#btnSave").click(function () {
+
+
+        var Hour = $('#hh option:selected').text();
+        var Min = $('#mm option:selected').text();
+        var ampm = $('#ampm option:selected').text();
+
+        var ddlCity = $('#ddlCity option:selected').text();
+        //var ddldept = $('#ddldept option:selected').text();
+        //var ddlRegion = $('#ddlRegion option:selected').text();
+        var ddlPacketType = $('#ddlPacketType option:selected').text();
+        var ddlCourierCompany = $('#ddlCourierCompany option:selected').text();
+
+        //Req_sec
+        var txtRegionNew = $('#txtRegionNew').val();
+        var txtDept = $('#secDept').val();
+
+        var stime = Hour + ":" + Min + ampm;
+
+
+        if ($("#AppointmentDateString").val() == "") {
+            alert("Please Enter Date");
+            return false;
+        }
+
+        else if ($("#txtdocket").val() == "") {
+            alert("Please Enter Docket No.");
+            return false;
+        }
+        else if (ddlCourierCompany == "--Please Select--") {
+
+            alert("Please Select Delivery Provider Name");
+            return false;
+        }
+        else if ($("#txtdoc").val() == "") {
+            alert("Please Enter Document");
+            return false;
+        }
+        else if ($("#txtSendername").val() == "") {
+            alert("Please Enter Sender Name");
+            return false;
+
+        }
+
+        else if (ddlCity == "--Please Select--") {
+            alert("Please Select City");
+            return false;
+        }
+        /*txtcompany*/
+        else if ($("#Req_sec").val() == "") {
+            alert("Please Enter Recipient’s Name ");
+            return false;
+        }
+        else if (txtRegionNew == "") {
+            alert("Please Enter Region");
+            return false;
+        }
+        else if (txtDept == "") {
+            alert("Please Enter Deparment");
+            return false;
+        }
+        //else if (ddlRegion == "--Please Select--") {
+        //    alert("Please Select Region");
+        //    return false;
+        //}
+
+
+        //else if ($("#txtRegion").val() == "") {
+        //    alert("Please Enter Region");
+        //    return false;
+        //}
+        //else if (ddldept == "--Please Select--") {
+        //    alert("Please Select Department");
+        //    return false;
+        //}
+        //else if ($("#txtdept").val() == "") {
+        //    alert("Please Enter Department");
+        //    return false;
+        //}
+
+
+
+
+        else if ($("#hh").val() == "-1") {
+            alert("Please Select Hour");
+            return false;
+        }
+        else if ($("#mm").val() == "0") {
+            alert("Please Select Minute");
+            return false;
+        }
+
+
+
+
+
+
+        else if (ddlPacketType == "--Please Select--") {
+            alert("Please Select PacketType");
+            return false;
+        }
+
+
+
+        $("#txtRecievetime").val(stime);
+
+    });
+
+
+</script>
+
+<script>
+    $(document).ready(function () {
+        //$("#AppointmentTimeString").timepicker({
+        //    'interval': 05,
+        //    'showDuration': true,
+        //    'timeFormat': 'g:ia',
+        //    'minTime': '09',
+        //    'maxTime': '6:00pm',
+        //});
+        //$("#VehicleNo").prop("disabled", true);
+
+        $("#txtRecievetime").timepicker({
+            'step': 05,
+            timeFormat: 'g:ia',
+            interval: '05',
+            minTime: '10',
+            maxTime: '6:00pm',
+            defaultTime: '11',
+            startTime: '10:00',
+            dynamic: true,
+            dropdown: true,
+            scrollbar: true
+        });
+
+
+        funddlCityfill();
+        funddlRegionfill();
+
+    })
+</script>
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script>
+     //*********city------------
+    var funddlCityfill = (function () {
+
+        var ddldepttxt = '';
+        var city = $("#txtcity").val();
+
+ $.ajax({
+
+    url: '@Url.Action("GetCityCourier", "Home")',
+    type: 'Get',
+    contenType: 'application/json charset utf-8',
+                     dataType: 'json',
+                     data: { Dept: ddldepttxt },
+                     success: function (data) {
+
+                     $("#ddlCity").empty().append('<option selected disabled>--Please Select--</option> ');
+                         var s;
+                         for (var i = 0; i < data.length; i++)
+                         {
+                             if (data[i].DEPARTMENT == city) {
+                                 s = "<option selected  value='" + data[i].DEPARTMENT + "'>" + data[i].DEPARTMENT + "</option>";
+                             }
+                             else
+                             {
+                                 s = "<option value='" + data[i].DEPARTMENT + "'>" + data[i].DEPARTMENT + "</option>";
+
+                             }
+
+
+                             $("#ddlCity").append(s);
+
+                         }
+    }
+});
+
+
+    });
+
+    //*******city end**********
+     //*********region------------
+    var funddlRegionfill = (function () {
+
+        var ddldepttxt = $('#ddldept option:selected').text();
+ $.ajax({
+
+    url: '@Url.Action("GetRegionListForCourier", "Home")',
+    type: 'Get',
+    contenType: 'application/json charset utf-8',
+                     dataType: 'json',
+                     data: { Dept: ddldepttxt },
+                     success: function (data) {
+
+                     $("#ddlRegion").empty().append('<option selected disabled>--Please Select--</option> ');
+
+                         for (var i = 0; i < data.length; i++)
+                         {
+
+                             var s = "<option value='" + data[i].DEPARTMENT + "'>" + data[i].DEPARTMENT + "</option>";
+
+                            $("#ddlRegion").append(s);
+
+                         }
+    }
+});
+
+
+
+
+
+    });
+
+    //*******region end**********
+
+
+
+
+
+    //--------dept-------
+    var funddldeptfill = (function () {
+
+
+
+        var ddlRegion = $('#ddlRegion option:selected').text();
+
+
+        $.ajax(
+            {
+
+
+           url: '@Url.Action("GetDepartmentListForCourier", "Home")',
+            type: 'Get',
+         contenType: 'application/json charset utf-8',
+
+
+         dataType: 'json',
+         data: { Region: ddlRegion },
+     success: function (data) {
+
+         $("#ddldept").empty()
+         var s;
+
+         s = "<option value='--Please Select--'>--Please Select--</option>";
+         $("#ddldept").append(s);
+         for (var i = 0; i < data.length; i++)
+         {
+
+            s = "<option value='" + data[i].DEPARTMENT + "'>" + data[i].DEPARTMENT + "</option>";
+
+            $("#ddldept").append(s);
+
+         }
+         var s1 = "<option value='Other'>Other</option>";
+         $("#ddldept").append(s1);
+         //---------
+
+
+    }
+});
+
+
+
+    });
+    //-----------
+
+</script>
+
+<script>
+
+    $(document).ready(function () {
+
+        ///-----------
+        $("#ddlRegion").change(function () {
+
+
+
+            var ddlRegiontxt = $('#ddlRegion option:selected').text();
+            if (ddlRegiontxt == "Other") {
+                $('#txtRegion').show();
+                $('#txtRegion').val('');
+            }
+            else {
+                $('#txtRegion').hide();
+                $('#txtRegion').val(ddlRegiontxt);
+            }
+           // alert(ddlRegiontxt);
+            funddldeptfill();
+            //---------
+
+        });
+
+        $("#ddldept").change(function () {
+
+
+            var ddldept = $('#ddldept option:selected').text();
+
+            if (ddldept == "Other") {
+                $('#txtdept').show();
+                $('#txtdept').val('');
+            }
+            else {
+               $('#txtdept').hide();
+                $('#txtdept').val(ddldept);
+            }
+
+
+
+        });
+        $("#ddlCity").change(function () {
+
+
+            var ddlCity = $('#ddlCity option:selected').text();
+
+            if (ddlCity == "Other") {
+                $('#txtcity').show();
+                $('#txtcity').val('');
+            }
+            else {
+
+                $('#txtcity').hide()
+                $('#txtcity').val(ddlCity);
+            }
+
+
+
+        });
+
+
+         var funddlPacketType = (function () {
+
+             var ddldepttxt = "Courier";
+             var txtPacketType = $("#txtPacketType").val();
+            $.ajax({
+
+    url: '@Url.Action("GetPacketTypeList", "Home")',
+    type: 'Get',
+    contenType: 'application/json charset utf-8',
+                     dataType: 'json',
+                     data: { Dept: ddldepttxt },
+                     success: function (data) {
+
+                         $("#ddlPacketType").empty().append('<option selected disabled>--Please Select--</option> ');
+
+        for (var i = 0; i < data.length; i++) {
+            //var s = "<option value='" + data[i].CourierCompanyId + "'>" + data[i].CourierCompany + "</option>";
+            var s;
+            if (data[i].CourierCompany == txtPacketType) {
+                s = "<option selected value='" + data[i].CourierCompany + "'>" + data[i].CourierCompany + "</option>";
+            }
+            else
+            {
+                s = "<option value='" + data[i].CourierCompany + "'>" + data[i].CourierCompany + "</option>";
+            }
+           
+           
+            $("#ddlPacketType").append(s);
+
+        }
+    }
+});
+
+        });
+
+
+        funddlPacketType();
+
+
+        var funCourierListfill = (function () {
+
+            var ddldepttxt = "";
+            //txtdelivery, txtcity
+          var delivery = $("#txtdelivery").val();
+
+$.ajax({
+    url: '@Url.Action("GetCourierCompanyList", "Home")',
+    type: 'GET',
+    contentType: 'application/json; charset=utf-8',
+    dataType: 'json',
+    data: { Dept: ddldepttxt },
+    success: function (data) {
+        $("#ddlCourierCompany").empty().append('<option selected disabled>--Please Select--</option>');
+
+        for (var i = 0; i < data.length; i++) {
+            var s;
+            if (data[i].CourierCompany == delivery) {
+                s = "<option selected value='" + data[i].CourierCompany + "'>" + data[i].CourierCompany + "</option>";
+            } else {
+                s = "<option value='" + data[i].CourierCompany + "'>" + data[i].CourierCompany + "</option>";
+            }
+            $("#ddlCourierCompany").append(s);
+        }
+    }
+});
+        });
+        funCourierListfill();
+    });
+</script>
+
+<script>
+    $(document).ready(function () {
+        var currentDate = new Date();
+
+        var year = currentDate.getFullYear();
+        var month = ('0' + (currentDate.getMonth() + 1)).slice(-2);
+        var day = ('0' + currentDate.getDate()).slice(-2);
+        var hours = ('0' + currentDate.getHours()).slice(-2);
+        var minutes = ('0' + currentDate.getMinutes()).slice(-2);
+        var seconds = ('0' + currentDate.getSeconds()).slice(-2);
+        // var date = new Date("May 14, 2023 08:00:00");
+        var timestamp = currentDate.getTime();
+        //var formattedDate = year + '-' + month + '-' + day + ' ' + hours + ':' + minutes + ':' + seconds;
+
+        $("#txtgenno").val(timestamp);
+        //alert($("#txtgenno").val());
+    });
+</script>
+
+
+
+
+
+ @*txthour
+ txtmin
+ txtampm*@

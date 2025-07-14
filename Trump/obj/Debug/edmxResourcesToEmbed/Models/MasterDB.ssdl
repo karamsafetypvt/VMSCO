@@ -1,0 +1,176 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MasterDatabaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'MasterDatabaseCOUpgrade.dbo.Department' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Department">
+    <Key>
+      <PropertyRef Name="D_ID" />
+    </Key>
+    <Property Name="D_ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="DepartmentName" Type="nvarchar" MaxLength="100" />
+    <Property Name="Region" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'MasterDatabaseCOUpgrade.dbo.Logs' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Logs">
+    <Key>
+      <PropertyRef Name="EmployeeCode" />
+      <PropertyRef Name="LogDateTime" />
+      <PropertyRef Name="LogDate" />
+      <PropertyRef Name="LogTime" />
+      <PropertyRef Name="Direction" />
+      <PropertyRef Name="DeviceShortName" />
+      <PropertyRef Name="SerialNumber" />
+    </Key>
+    <Property Name="EmployeeCode" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="LogDateTime" Type="datetime" Nullable="false" />
+    <Property Name="LogDate" Type="date" Nullable="false" />
+    <Property Name="LogTime" Type="time" Precision="7" Nullable="false" />
+    <Property Name="Direction" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="DeviceShortName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="SerialNumber" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'MasterDatabaseCOUpgrade.dbo.Logs2' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Logs2">
+    <Key>
+      <PropertyRef Name="EmployeeCode" />
+      <PropertyRef Name="LogDateTime" />
+      <PropertyRef Name="LogDate" />
+      <PropertyRef Name="LogTime" />
+      <PropertyRef Name="Direction" />
+      <PropertyRef Name="SerialNumber" />
+    </Key>
+    <Property Name="EmployeeCode" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="LogDateTime" Type="datetime" Nullable="false" />
+    <Property Name="LogDate" Type="date" Nullable="false" />
+    <Property Name="LogTime" Type="time" Precision="7" Nullable="false" />
+    <Property Name="Direction" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="SerialNumber" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'MasterDatabaseCOUpgrade.dbo.Master_Requestor' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Master_Requestor">
+    <Key>
+      <PropertyRef Name="Sr#No" />
+    </Key>
+    <Property Name="Sr#No" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="EMPLOYEE_ID" Type="nvarchar" MaxLength="255" />
+    <Property Name="NAME" Type="nvarchar" MaxLength="255" />
+    <Property Name="KSS Department" Type="nvarchar" MaxLength="255" />
+    <Property Name="requestor_key" Type="nvarchar" MaxLength="255" />
+    <Property Name="DESIGNATION" Type="nvarchar" MaxLength="255" />
+    <Property Name="DEPARTMENT" Type="nvarchar" MaxLength="255" />
+    <Property Name="DepartmentID" Type="int" />
+    <Property Name="Immediate_Supervisor" Type="nvarchar" MaxLength="255" />
+    <Property Name="Immediate_Supervisor_EMP_ID" Type="nvarchar" MaxLength="255" />
+    <Property Name="HOD" Type="nvarchar" MaxLength="255" />
+    <Property Name="HOD_EMP_ID" Type="nvarchar" MaxLength="255" />
+    <Property Name="MOBILE NUMBER" Type="float" />
+    <Property Name="DATE OF BIRTH" Type="smalldatetime" />
+    <Property Name="PAYROLL" Type="nvarchar" MaxLength="255" />
+    <Property Name="DATE OF JOINING" Type="smalldatetime" />
+    <Property Name="Email ID" Type="nvarchar" MaxLength="255" />
+    <Property Name="VPF" Type="float" />
+    <Property Name="EPF" Type="float" />
+    <Property Name="PAN NO#" Type="nvarchar" MaxLength="255" />
+    <Property Name="Total deductions " Type="float" />
+    <Property Name="Yearly VPF" Type="float" />
+    <Property Name="Yearly EPF" Type="float" />
+    <Property Name="Password" Type="nvarchar" MaxLength="200" />
+    <Property Name="Status" Type="nvarchar" MaxLength="350" />
+    <Property Name="UserType" Type="nvarchar" MaxLength="50" />
+    <Property Name="InvestmentDeclarationStatus" Type="bit" />
+    <Property Name="Investment_Declaration_Password" Type="nvarchar" MaxLength="20" />
+    <Property Name="HRMSPassword" Type="nvarchar" MaxLength="20" />
+    <Property Name="TrumpPassword" Type="nvarchar" MaxLength="50" />
+    <Property Name="CompanyID" Type="int" />
+    <Property Name="Region" Type="nvarchar" MaxLength="50" />
+    <Property Name="RegionId" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'MasterDatabaseCOUpgrade.dbo.MasterCompany' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="MasterCompany">
+    <Key>
+      <PropertyRef Name="MC_ID" />
+    </Key>
+    <Property Name="MC_ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="CompanyName" Type="nvarchar" MaxLength="100" />
+    <Property Name="C_Status" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <Function Name="sp_HCE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <EntityContainer Name="MasterDatabaseModelStoreContainer">
+    <EntitySet Name="Department" EntityType="Self.Department" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Department].[D_ID] AS [D_ID], 
+    [Department].[DepartmentName] AS [DepartmentName], 
+    [Department].[Region] AS [Region]
+    FROM [dbo].[Department] AS [Department]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Logs" EntityType="Self.Logs" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Logs].[EmployeeCode] AS [EmployeeCode], 
+    [Logs].[LogDateTime] AS [LogDateTime], 
+    [Logs].[LogDate] AS [LogDate], 
+    [Logs].[LogTime] AS [LogTime], 
+    [Logs].[Direction] AS [Direction], 
+    [Logs].[DeviceShortName] AS [DeviceShortName], 
+    [Logs].[SerialNumber] AS [SerialNumber]
+    FROM [dbo].[Logs] AS [Logs]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Logs2" EntityType="Self.Logs2" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Logs2].[EmployeeCode] AS [EmployeeCode], 
+    [Logs2].[LogDateTime] AS [LogDateTime], 
+    [Logs2].[LogDate] AS [LogDate], 
+    [Logs2].[LogTime] AS [LogTime], 
+    [Logs2].[Direction] AS [Direction], 
+    [Logs2].[SerialNumber] AS [SerialNumber]
+    FROM [dbo].[Logs2] AS [Logs2]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Master_Requestor" EntityType="Self.Master_Requestor" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Master_Requestor].[Sr#No] AS [Sr#No], 
+    [Master_Requestor].[EMPLOYEE_ID] AS [EMPLOYEE_ID], 
+    [Master_Requestor].[NAME] AS [NAME], 
+    [Master_Requestor].[KSS Department] AS [KSS Department], 
+    [Master_Requestor].[requestor_key] AS [requestor_key], 
+    [Master_Requestor].[DESIGNATION] AS [DESIGNATION], 
+    [Master_Requestor].[DEPARTMENT] AS [DEPARTMENT], 
+    [Master_Requestor].[DepartmentID] AS [DepartmentID], 
+    [Master_Requestor].[Immediate_Supervisor] AS [Immediate_Supervisor], 
+    [Master_Requestor].[Immediate_Supervisor_EMP_ID] AS [Immediate_Supervisor_EMP_ID], 
+    [Master_Requestor].[HOD] AS [HOD], 
+    [Master_Requestor].[HOD_EMP_ID] AS [HOD_EMP_ID], 
+    [Master_Requestor].[MOBILE NUMBER] AS [MOBILE NUMBER], 
+    [Master_Requestor].[DATE OF BIRTH] AS [DATE OF BIRTH], 
+    [Master_Requestor].[PAYROLL] AS [PAYROLL], 
+    [Master_Requestor].[DATE OF JOINING] AS [DATE OF JOINING], 
+    [Master_Requestor].[Email ID] AS [Email ID], 
+    [Master_Requestor].[VPF] AS [VPF], 
+    [Master_Requestor].[EPF] AS [EPF], 
+    [Master_Requestor].[PAN NO#] AS [PAN NO#], 
+    [Master_Requestor].[Total deductions ] AS [Total deductions ], 
+    [Master_Requestor].[Yearly VPF] AS [Yearly VPF], 
+    [Master_Requestor].[Yearly EPF] AS [Yearly EPF], 
+    [Master_Requestor].[Password] AS [Password], 
+    [Master_Requestor].[Status] AS [Status], 
+    [Master_Requestor].[UserType] AS [UserType], 
+    [Master_Requestor].[InvestmentDeclarationStatus] AS [InvestmentDeclarationStatus], 
+    [Master_Requestor].[Investment_Declaration_Password] AS [Investment_Declaration_Password], 
+    [Master_Requestor].[HRMSPassword] AS [HRMSPassword], 
+    [Master_Requestor].[TrumpPassword] AS [TrumpPassword], 
+    [Master_Requestor].[CompanyID] AS [CompanyID], 
+    [Master_Requestor].[Region] AS [Region], 
+    [Master_Requestor].[RegionId] AS [RegionId]
+    FROM [dbo].[Master_Requestor] AS [Master_Requestor]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="MasterCompany" EntityType="Self.MasterCompany" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [MasterCompany].[MC_ID] AS [MC_ID], 
+    [MasterCompany].[CompanyName] AS [CompanyName], 
+    [MasterCompany].[C_Status] AS [C_Status]
+    FROM [dbo].[MasterCompany] AS [MasterCompany]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>

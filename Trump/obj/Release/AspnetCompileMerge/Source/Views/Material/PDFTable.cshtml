@@ -1,0 +1,92 @@
+﻿@model IEnumerable<TrumpCL.MaterialReport>
+<style>
+    table tr td {
+        border-bottom: 1px solid black;
+        border-left: 1px solid black;
+        text-align: left;
+    }
+
+    table tr {
+        border: 1px solid black;
+    }
+
+        table tr th {
+            background-color: lightgray;
+            font-size: 14px;
+            text-align: left;
+        }
+
+    .heading {
+        text-align: center;
+        font-weight: bold;
+        font-size: 20px;
+    }
+</style>
+<div class="heading">
+    
+</div>
+<br />
+<table class="table table-bordered table-responsive table-striped" style="border:solid">
+    <tr style="border:solid;">
+        <th>
+            Line
+        </th>
+        <th>
+            Resource
+        </th>
+        <th>
+            Operation
+        </th>
+        <th>
+            Item
+        </th>
+        <th>
+            Job
+        </th>
+        <th>
+            Total Qty
+        </th>
+        <th>
+            Rem Qty
+        </th>
+        <th>
+            Start Time
+        </th>
+        <th>
+            End Time
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr style="font-size:12px;border-right:2px solid black">
+            <td>
+                @Html.DisplayFor(modelItem => item.ChallanNmbr)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Dept)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.M_Location)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OutFrom)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Requestor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.M_Status)
+            </td>
+            <td>
+                @Convert.ToDateTime(item.RaiseDate).ToString("dd/MM/yyyy HH:mm")
+            </td>
+            <td>
+                @Convert.ToDateTime(item.SecApproveTime).ToString("dd/MM/yyyy HH:mm")
+            </td>
+        </tr>
+    }
+</table>

@@ -1,0 +1,161 @@
+﻿<!doctype html>
+
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>WebcamJS Test Page</title>
+    <style type="text/css">
+
+        body {
+            font-family: Helvetica, sans-serif;
+        }
+
+        h2, h3 {
+            margin-top: 0;
+        }
+
+        form {
+            margin-top: 15px;
+        }
+
+            form > input {
+                margin-right: 15px;
+            }
+
+        #results {
+            float: right;
+            /*border:1px solid black;*/
+            /*margin: 20px;
+            padding: 20px;*/
+            /*border: 1px solid;
+            background: #ccc;*/
+            text-align: center;
+        }
+
+        #my_camera {
+            float: left;
+            top: 0;
+            left: 30%;
+            position: fixed;
+        }
+
+        .imgcl {
+            height:130px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <a onClick="myFunction()">
+                    <span class="badge"  style="cursor:pointer; font-size:10px;">Open Camera</span>
+                    @*<i class="plus fa-camera"></i>*@
+                </a>
+            </div>
+            <div class="col-md-4">
+                <a onClick="take_snapshot()">
+                    <span class="badge pull-right" style="cursor: pointer; font-size: 10px;">Take Photo</span>
+                    @*<i class="plus fa-camera"></i>*@
+                </a>
+            </div>
+
+            <div class="col-md-4">
+                <a onClick="close_snapshot()">
+                    <span class="badge pull-right" style="cursor: pointer; font-size: 10px;">Close Camera</span>
+                    @*<i class="plus fa-camera"></i>*@
+                </a>
+            </div>
+
+
+        </div>
+    </div>
+
+   
+    <div id="results" class="container">Your captured image will appear here...</div>
+    <h1></h1>
+    <h3></h3>
+
+    <div id="dialog">
+        <div id="my_camera"></div>
+    </div>
+
+    <!-- First, include the Webcam.js JavaScript Library -->
+    <script src="~/Scripts/webcam.min.js"></script>
+    <!-- Configure a few settings and attach camera -->
+    <script language="JavaScript">
+        $("#dialog").dialog({
+            autoOpen: false,
+            height: 100,
+            width: 100,
+            modal: true,
+        })
+        function myFunction() {
+            debugger
+            //SecMblNumber
+            var mob = $("#SecMblNumber").val();
+            if (mob == "") {
+                alert('Please enter Mobile No.');
+                return false;
+            }
+
+          
+            Webcam.set({
+                width: 500,
+                height: 500,
+                image_format: 'jpeg',
+
+                jpeg_quality: 90
+            });
+            Webcam.attach('#my_camera');
+            $("#dialog").dialog("open");
+        }
+    </script>
+
+    <!-- A button for taking snaps -->
+    <!-- Code to handle taking the snapshot and displaying it locally -->
+    <script language="JavaScript">
+        function take_snapshot() {
+            // take snapshot and get image data
+            Webcam.snap(function (data_uri) {
+                // display results in page
+                document.getElementById('results').innerHTML =
+                    //'<h2>Here is your image:</h2>' +
+                    '<img width="250px" class="imgcl" id="imgclick" name="imgclick" src="' + data_uri + '"/>';
+                //$("#my_camera").toggle();
+                $("#imgHidden")[0].src = data_uri;
+                Webcam.reset('#my_camera');
+                $("#imgHidden").val(data_uri);
+                //$("#my_camera").hide();
+                $("#displayimg").hide();
+                $("#divAlt").hide();
+                $("#imgVisitorPhoto1").hide();
+
+
+
+
+
+            });
+
+
+            
+           $("#my_camera").removeAttr("style");
+
+
+        }
+    </script>
+</body>
+</html>
+
+
+<script language="JavaScript">
+    function close_snapshot() {
+        // take snapshot and get image data
+       
+        Webcam.reset('#my_camera');
+        $("#my_camera").removeAttr("style");
+       
+        
+    }
+</script>

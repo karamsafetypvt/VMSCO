@@ -1,0 +1,126 @@
+﻿@model IEnumerable<TrumpCL.MaterialReport>
+@{
+    ViewBag.Title = "PDFpage";
+    Layout = null;
+}
+
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<style>
+    table {
+        border: 2px solid;
+        border-color: gray;
+    }
+
+        table tr td {
+            text-align: center;
+            font-size: 13px;
+        }
+
+        table tr th {
+            color: white;
+            text-align: center;
+            font-size: 14px;
+            background-color: #ab4242;
+        }
+
+    html {
+        box-shadow: inset 2000px 0 0 0 rgba(255, 255, 255, 0.9);
+        border-color: rgba(255, 255, 255, 1);
+    }
+
+    body {
+        font-family: Tahoma;
+        border: 1px solid black;
+        outline: 2px solid red;
+        outline-offset: 2px;
+        background-image: url('../../Layout/Images/karam logo black punchline.png');
+        background-repeat: no-repeat;
+        background-position-x: center;
+        background-position-y: center;
+        background-position: center;
+        background-size: 40%;
+        transform: rotate(20deg);
+    }
+
+    .watermark {
+        height: 95%;
+        width: 90%;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        background-repeat: repeat-y;
+        z-index: 9999;
+        opacity: 0.2;
+    }
+
+    .center {
+    }
+</style>
+<html>
+<body>
+    <div class="col-md-12">
+        <div class="col-md-2">
+            <img src="~/Layout/Images/karam logo black punchline.png" height="75" width="150" />
+            <span style="margin-left:25%;margin-top:20px;font-size:30px;font-weight:bold;">PO Report</span>
+        </div>
+    </div>
+    <div class="container">
+        <table class="table table-responsive " style="width:100%;height:auto;" border="0">
+            <tr>
+                <th>
+                    PO Number
+                </th>
+                <th>
+                    Supplier Name
+                </th>
+                <th>
+                    Supplier Address
+                </th>
+                <th>
+                    PO Date
+                </th>
+                <th>
+                    GST
+                </th>
+                <th>
+                    Item
+                </th>
+                <th>
+                    UOM
+                </th>
+                <th>
+                    Qty
+                </th>
+                <th>
+                    Rec Qty
+                </th>
+                <th>
+                    Rec Date
+                </th>
+            </tr>
+
+            @if (Model.Count() != 0)
+            {
+                foreach (var i in Model)
+                {
+                    <tr style="font-size:12.5px">
+                        <td>@i.ChallanNmbr</td>
+                        <td>@i.Requestor</td>
+                        <td>@i.Dept</td>
+                        <td>@i.RaiseDate.ToString("dd/MMM/yyyy")</td>
+                        <td>@i.S_Type</td>
+                        <td>@i.M_Type</td>
+                        <td>@i.M_Location</td>
+                        <td>@i.OutFrom</td>
+                        <td>@i.ModeOfTrans</td>
+                        <td>@i.SecApproveTime</td>
+                    </tr>
+                }
+            }
+        </table>
+    </div>
+
+</body>
+</html>

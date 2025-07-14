@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="SAVIORModelStoreContainer" CdmEntityContainer="SAVIOREntities">
+    <FunctionImportMapping FunctionImportName="sp_HCW" FunctionName="SAVIORModel.Store.sp_HCW">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SAVIORModel.sp_HCW_Result">
+          <ScalarProperty Name="paycode" ColumnName="paycode" />
+          <ScalarProperty Name="empname" ColumnName="empname" />
+          <ScalarProperty Name="departmentcode" ColumnName="departmentcode" />
+          <ScalarProperty Name="DEPARTMENT" ColumnName="DEPARTMENT" />
+          <ScalarProperty Name="UNIT" ColumnName="UNIT" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="dateoffice" ColumnName="dateoffice" />
+          <ScalarProperty Name="in1" ColumnName="in1" />
+          <ScalarProperty Name="out1" ColumnName="out1" />
+          <ScalarProperty Name="in2" ColumnName="in2" />
+          <ScalarProperty Name="out2" ColumnName="out2" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="Current_Status" ColumnName="Current_Status" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>

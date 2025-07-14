@@ -1,0 +1,420 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="MasterDatabaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'MasterDatabaseCOUpgrade.dbo.Department' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Department">
+          <Key>
+            <PropertyRef Name="D_ID" />
+          </Key>
+          <Property Name="D_ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="DepartmentName" Type="nvarchar" MaxLength="100" />
+          <Property Name="Region" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'MasterDatabaseCOUpgrade.dbo.Logs' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Logs">
+          <Key>
+            <PropertyRef Name="EmployeeCode" />
+            <PropertyRef Name="LogDateTime" />
+            <PropertyRef Name="LogDate" />
+            <PropertyRef Name="LogTime" />
+            <PropertyRef Name="Direction" />
+            <PropertyRef Name="DeviceShortName" />
+            <PropertyRef Name="SerialNumber" />
+          </Key>
+          <Property Name="EmployeeCode" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="LogDateTime" Type="datetime" Nullable="false" />
+          <Property Name="LogDate" Type="date" Nullable="false" />
+          <Property Name="LogTime" Type="time" Precision="7" Nullable="false" />
+          <Property Name="Direction" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="DeviceShortName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="SerialNumber" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'MasterDatabaseCOUpgrade.dbo.Logs2' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Logs2">
+          <Key>
+            <PropertyRef Name="EmployeeCode" />
+            <PropertyRef Name="LogDateTime" />
+            <PropertyRef Name="LogDate" />
+            <PropertyRef Name="LogTime" />
+            <PropertyRef Name="Direction" />
+            <PropertyRef Name="SerialNumber" />
+          </Key>
+          <Property Name="EmployeeCode" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="LogDateTime" Type="datetime" Nullable="false" />
+          <Property Name="LogDate" Type="date" Nullable="false" />
+          <Property Name="LogTime" Type="time" Precision="7" Nullable="false" />
+          <Property Name="Direction" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="SerialNumber" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'MasterDatabaseCOUpgrade.dbo.Master_Requestor' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Master_Requestor">
+          <Key>
+            <PropertyRef Name="Sr#No" />
+          </Key>
+          <Property Name="Sr#No" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="EMPLOYEE_ID" Type="nvarchar" MaxLength="255" />
+          <Property Name="NAME" Type="nvarchar" MaxLength="255" />
+          <Property Name="KSS Department" Type="nvarchar" MaxLength="255" />
+          <Property Name="requestor_key" Type="nvarchar" MaxLength="255" />
+          <Property Name="DESIGNATION" Type="nvarchar" MaxLength="255" />
+          <Property Name="DEPARTMENT" Type="nvarchar" MaxLength="255" />
+          <Property Name="DepartmentID" Type="int" />
+          <Property Name="Immediate_Supervisor" Type="nvarchar" MaxLength="255" />
+          <Property Name="Immediate_Supervisor_EMP_ID" Type="nvarchar" MaxLength="255" />
+          <Property Name="HOD" Type="nvarchar" MaxLength="255" />
+          <Property Name="HOD_EMP_ID" Type="nvarchar" MaxLength="255" />
+          <Property Name="MOBILE NUMBER" Type="float" />
+          <Property Name="DATE OF BIRTH" Type="smalldatetime" />
+          <Property Name="PAYROLL" Type="nvarchar" MaxLength="255" />
+          <Property Name="DATE OF JOINING" Type="smalldatetime" />
+          <Property Name="Email ID" Type="nvarchar" MaxLength="255" />
+          <Property Name="VPF" Type="float" />
+          <Property Name="EPF" Type="float" />
+          <Property Name="PAN NO#" Type="nvarchar" MaxLength="255" />
+          <Property Name="Total deductions " Type="float" />
+          <Property Name="Yearly VPF" Type="float" />
+          <Property Name="Yearly EPF" Type="float" />
+          <Property Name="Password" Type="nvarchar" MaxLength="200" />
+          <Property Name="Status" Type="nvarchar" MaxLength="350" />
+          <Property Name="UserType" Type="nvarchar" MaxLength="50" />
+          <Property Name="InvestmentDeclarationStatus" Type="bit" />
+          <Property Name="Investment_Declaration_Password" Type="nvarchar" MaxLength="20" />
+          <Property Name="HRMSPassword" Type="nvarchar" MaxLength="20" />
+          <Property Name="TrumpPassword" Type="nvarchar" MaxLength="50" />
+          <Property Name="CompanyID" Type="int" />
+          <Property Name="Region" Type="nvarchar" MaxLength="50" />
+          <Property Name="RegionId" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'MasterDatabaseCOUpgrade.dbo.MasterCompany' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="MasterCompany">
+          <Key>
+            <PropertyRef Name="MC_ID" />
+          </Key>
+          <Property Name="MC_ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="CompanyName" Type="nvarchar" MaxLength="100" />
+          <Property Name="C_Status" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <Function Name="sp_HCE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <EntityContainer Name="MasterDatabaseModelStoreContainer">
+          <EntitySet Name="Department" EntityType="Self.Department" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Department].[D_ID] AS [D_ID], 
+    [Department].[DepartmentName] AS [DepartmentName], 
+    [Department].[Region] AS [Region]
+    FROM [dbo].[Department] AS [Department]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Logs" EntityType="Self.Logs" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Logs].[EmployeeCode] AS [EmployeeCode], 
+    [Logs].[LogDateTime] AS [LogDateTime], 
+    [Logs].[LogDate] AS [LogDate], 
+    [Logs].[LogTime] AS [LogTime], 
+    [Logs].[Direction] AS [Direction], 
+    [Logs].[DeviceShortName] AS [DeviceShortName], 
+    [Logs].[SerialNumber] AS [SerialNumber]
+    FROM [dbo].[Logs] AS [Logs]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Logs2" EntityType="Self.Logs2" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Logs2].[EmployeeCode] AS [EmployeeCode], 
+    [Logs2].[LogDateTime] AS [LogDateTime], 
+    [Logs2].[LogDate] AS [LogDate], 
+    [Logs2].[LogTime] AS [LogTime], 
+    [Logs2].[Direction] AS [Direction], 
+    [Logs2].[SerialNumber] AS [SerialNumber]
+    FROM [dbo].[Logs2] AS [Logs2]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Master_Requestor" EntityType="Self.Master_Requestor" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Master_Requestor].[Sr#No] AS [Sr#No], 
+    [Master_Requestor].[EMPLOYEE_ID] AS [EMPLOYEE_ID], 
+    [Master_Requestor].[NAME] AS [NAME], 
+    [Master_Requestor].[KSS Department] AS [KSS Department], 
+    [Master_Requestor].[requestor_key] AS [requestor_key], 
+    [Master_Requestor].[DESIGNATION] AS [DESIGNATION], 
+    [Master_Requestor].[DEPARTMENT] AS [DEPARTMENT], 
+    [Master_Requestor].[DepartmentID] AS [DepartmentID], 
+    [Master_Requestor].[Immediate_Supervisor] AS [Immediate_Supervisor], 
+    [Master_Requestor].[Immediate_Supervisor_EMP_ID] AS [Immediate_Supervisor_EMP_ID], 
+    [Master_Requestor].[HOD] AS [HOD], 
+    [Master_Requestor].[HOD_EMP_ID] AS [HOD_EMP_ID], 
+    [Master_Requestor].[MOBILE NUMBER] AS [MOBILE NUMBER], 
+    [Master_Requestor].[DATE OF BIRTH] AS [DATE OF BIRTH], 
+    [Master_Requestor].[PAYROLL] AS [PAYROLL], 
+    [Master_Requestor].[DATE OF JOINING] AS [DATE OF JOINING], 
+    [Master_Requestor].[Email ID] AS [Email ID], 
+    [Master_Requestor].[VPF] AS [VPF], 
+    [Master_Requestor].[EPF] AS [EPF], 
+    [Master_Requestor].[PAN NO#] AS [PAN NO#], 
+    [Master_Requestor].[Total deductions ] AS [Total deductions ], 
+    [Master_Requestor].[Yearly VPF] AS [Yearly VPF], 
+    [Master_Requestor].[Yearly EPF] AS [Yearly EPF], 
+    [Master_Requestor].[Password] AS [Password], 
+    [Master_Requestor].[Status] AS [Status], 
+    [Master_Requestor].[UserType] AS [UserType], 
+    [Master_Requestor].[InvestmentDeclarationStatus] AS [InvestmentDeclarationStatus], 
+    [Master_Requestor].[Investment_Declaration_Password] AS [Investment_Declaration_Password], 
+    [Master_Requestor].[HRMSPassword] AS [HRMSPassword], 
+    [Master_Requestor].[TrumpPassword] AS [TrumpPassword], 
+    [Master_Requestor].[CompanyID] AS [CompanyID], 
+    [Master_Requestor].[Region] AS [Region], 
+    [Master_Requestor].[RegionId] AS [RegionId]
+    FROM [dbo].[Master_Requestor] AS [Master_Requestor]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="MasterCompany" EntityType="Self.MasterCompany" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [MasterCompany].[MC_ID] AS [MC_ID], 
+    [MasterCompany].[CompanyName] AS [CompanyName], 
+    [MasterCompany].[C_Status] AS [C_Status]
+    FROM [dbo].[MasterCompany] AS [MasterCompany]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="MasterDatabaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Department">
+          <Key>
+            <PropertyRef Name="D_ID" />
+          </Key>
+          <Property Name="D_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DepartmentName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Region" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Master_Requestor">
+          <Key>
+            <PropertyRef Name="Sr_No" />
+          </Key>
+          <Property Name="Sr_No" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EMPLOYEE_ID" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="NAME" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="KSS_Department" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="requestor_key" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="DESIGNATION" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="DEPARTMENT" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="DepartmentID" Type="Int32" />
+          <Property Name="Immediate_Supervisor" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Immediate_Supervisor_EMP_ID" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="HOD" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="HOD_EMP_ID" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="MOBILE_NUMBER" Type="Double" />
+          <Property Name="DATE_OF_BIRTH" Type="DateTime" Precision="0" />
+          <Property Name="PAYROLL" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="DATE_OF_JOINING" Type="DateTime" Precision="0" />
+          <Property Name="Email_ID" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="VPF" Type="Double" />
+          <Property Name="EPF" Type="Double" />
+          <Property Name="PAN_NO_" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Total_deductions_" Type="Double" />
+          <Property Name="Yearly_VPF" Type="Double" />
+          <Property Name="Yearly_EPF" Type="Double" />
+          <Property Name="Password" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="String" MaxLength="350" FixedLength="false" Unicode="true" />
+          <Property Name="UserType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="InvestmentDeclarationStatus" Type="Boolean" />
+          <Property Name="Investment_Declaration_Password" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="HRMSPassword" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="TrumpPassword" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CompanyID" Type="Int32" />
+          <Property Name="Region" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="RegionId" Type="Int32" />
+        </EntityType>
+        <EntityType Name="MasterCompany">
+          <Key>
+            <PropertyRef Name="MC_ID" />
+          </Key>
+          <Property Name="MC_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CompanyName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="C_Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Log">
+          <Key>
+            <PropertyRef Name="EmployeeCode" />
+            <PropertyRef Name="LogDateTime" />
+            <PropertyRef Name="LogDate" />
+            <PropertyRef Name="LogTime" />
+            <PropertyRef Name="Direction" />
+            <PropertyRef Name="DeviceShortName" />
+            <PropertyRef Name="SerialNumber" />
+          </Key>
+          <Property Name="EmployeeCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LogDateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LogDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="LogTime" Type="Time" Nullable="false" Precision="7" />
+          <Property Name="Direction" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DeviceShortName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SerialNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Logs2">
+          <Key>
+            <PropertyRef Name="EmployeeCode" />
+            <PropertyRef Name="LogDateTime" />
+            <PropertyRef Name="LogDate" />
+            <PropertyRef Name="LogTime" />
+            <PropertyRef Name="Direction" />
+            <PropertyRef Name="SerialNumber" />
+          </Key>
+          <Property Name="EmployeeCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LogDateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LogDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="LogTime" Type="Time" Nullable="false" Precision="7" />
+          <Property Name="Direction" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SerialNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="MasterDatabaseEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Departments" EntityType="Self.Department" />
+          <EntitySet Name="Master_Requestor" EntityType="Self.Master_Requestor" />
+          <EntitySet Name="MasterCompanies" EntityType="Self.MasterCompany" />
+          <EntitySet Name="Logs" EntityType="Self.Log" />
+          <EntitySet Name="Logs2" EntityType="Self.Logs2" />
+          <FunctionImport Name="sp_HCE" ReturnType="Collection(MasterDatabaseModel.sp_HCE_Result)" />
+        </EntityContainer>
+        <ComplexType Name="sp_HCE_Result">
+          <Property Type="String" Name="EmployeeCode" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="PNI_code" Nullable="false" MaxLength="54" />
+          <Property Type="String" Name="NAME" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="DEPARTMENT" Nullable="true" MaxLength="255" />
+          <Property Type="DateTime" Name="LogDate" Nullable="false" />
+          <Property Type="Time" Name="LogTime" Nullable="false" />
+          <Property Type="String" Name="DeviceShortName" Nullable="true" MaxLength="350" />
+          <Property Type="Int64" Name="ROW_NUM" Nullable="true" />
+          <Property Type="Int32" Name="TIME_DIFF" Nullable="true" />
+          <Property Type="String" Name="status" Nullable="false" MaxLength="15" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="MasterDatabaseModelStoreContainer" CdmEntityContainer="MasterDatabaseEntities">
+          <EntitySetMapping Name="Departments">
+            <EntityTypeMapping TypeName="MasterDatabaseModel.Department">
+              <MappingFragment StoreEntitySet="Department">
+                <ScalarProperty Name="D_ID" ColumnName="D_ID" />
+                <ScalarProperty Name="DepartmentName" ColumnName="DepartmentName" />
+                <ScalarProperty Name="Region" ColumnName="Region" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Master_Requestor">
+            <EntityTypeMapping TypeName="MasterDatabaseModel.Master_Requestor">
+              <MappingFragment StoreEntitySet="Master_Requestor">
+                <ScalarProperty Name="RegionId" ColumnName="RegionId" />
+                <ScalarProperty Name="Sr_No" ColumnName="Sr#No" />
+                <ScalarProperty Name="EMPLOYEE_ID" ColumnName="EMPLOYEE_ID" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="KSS_Department" ColumnName="KSS Department" />
+                <ScalarProperty Name="requestor_key" ColumnName="requestor_key" />
+                <ScalarProperty Name="DESIGNATION" ColumnName="DESIGNATION" />
+                <ScalarProperty Name="DEPARTMENT" ColumnName="DEPARTMENT" />
+                <ScalarProperty Name="DepartmentID" ColumnName="DepartmentID" />
+                <ScalarProperty Name="Immediate_Supervisor" ColumnName="Immediate_Supervisor" />
+                <ScalarProperty Name="Immediate_Supervisor_EMP_ID" ColumnName="Immediate_Supervisor_EMP_ID" />
+                <ScalarProperty Name="HOD" ColumnName="HOD" />
+                <ScalarProperty Name="HOD_EMP_ID" ColumnName="HOD_EMP_ID" />
+                <ScalarProperty Name="MOBILE_NUMBER" ColumnName="MOBILE NUMBER" />
+                <ScalarProperty Name="DATE_OF_BIRTH" ColumnName="DATE OF BIRTH" />
+                <ScalarProperty Name="PAYROLL" ColumnName="PAYROLL" />
+                <ScalarProperty Name="DATE_OF_JOINING" ColumnName="DATE OF JOINING" />
+                <ScalarProperty Name="Email_ID" ColumnName="Email ID" />
+                <ScalarProperty Name="VPF" ColumnName="VPF" />
+                <ScalarProperty Name="EPF" ColumnName="EPF" />
+                <ScalarProperty Name="PAN_NO_" ColumnName="PAN NO#" />
+                <ScalarProperty Name="Total_deductions_" ColumnName="Total deductions " />
+                <ScalarProperty Name="Yearly_VPF" ColumnName="Yearly VPF" />
+                <ScalarProperty Name="Yearly_EPF" ColumnName="Yearly EPF" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="UserType" ColumnName="UserType" />
+                <ScalarProperty Name="InvestmentDeclarationStatus" ColumnName="InvestmentDeclarationStatus" />
+                <ScalarProperty Name="Investment_Declaration_Password" ColumnName="Investment_Declaration_Password" />
+                <ScalarProperty Name="HRMSPassword" ColumnName="HRMSPassword" />
+                <ScalarProperty Name="TrumpPassword" ColumnName="TrumpPassword" />
+                <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+                <ScalarProperty Name="Region" ColumnName="Region" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MasterCompanies">
+            <EntityTypeMapping TypeName="MasterDatabaseModel.MasterCompany">
+              <MappingFragment StoreEntitySet="MasterCompany">
+                <ScalarProperty Name="MC_ID" ColumnName="MC_ID" />
+                <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+                <ScalarProperty Name="C_Status" ColumnName="C_Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Logs">
+            <EntityTypeMapping TypeName="MasterDatabaseModel.Log">
+              <MappingFragment StoreEntitySet="Logs">
+                <ScalarProperty Name="EmployeeCode" ColumnName="EmployeeCode" />
+                <ScalarProperty Name="LogDateTime" ColumnName="LogDateTime" />
+                <ScalarProperty Name="LogDate" ColumnName="LogDate" />
+                <ScalarProperty Name="LogTime" ColumnName="LogTime" />
+                <ScalarProperty Name="Direction" ColumnName="Direction" />
+                <ScalarProperty Name="DeviceShortName" ColumnName="DeviceShortName" />
+                <ScalarProperty Name="SerialNumber" ColumnName="SerialNumber" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Logs2">
+            <EntityTypeMapping TypeName="MasterDatabaseModel.Logs2">
+              <MappingFragment StoreEntitySet="Logs2">
+                <ScalarProperty Name="EmployeeCode" ColumnName="EmployeeCode" />
+                <ScalarProperty Name="LogDateTime" ColumnName="LogDateTime" />
+                <ScalarProperty Name="LogDate" ColumnName="LogDate" />
+                <ScalarProperty Name="LogTime" ColumnName="LogTime" />
+                <ScalarProperty Name="Direction" ColumnName="Direction" />
+                <ScalarProperty Name="SerialNumber" ColumnName="SerialNumber" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="sp_HCE" FunctionName="MasterDatabaseModel.Store.sp_HCE">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="MasterDatabaseModel.sp_HCE_Result">
+                <ScalarProperty Name="EmployeeCode" ColumnName="EmployeeCode" />
+                <ScalarProperty Name="PNI_code" ColumnName="PNI_code" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="DEPARTMENT" ColumnName="DEPARTMENT" />
+                <ScalarProperty Name="LogDate" ColumnName="LogDate" />
+                <ScalarProperty Name="LogTime" ColumnName="LogTime" />
+                <ScalarProperty Name="DeviceShortName" ColumnName="DeviceShortName" />
+                <ScalarProperty Name="ROW_NUM" ColumnName="ROW_NUM" />
+                <ScalarProperty Name="TIME_DIFF" ColumnName="TIME_DIFF" />
+                <ScalarProperty Name="status" ColumnName="status" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

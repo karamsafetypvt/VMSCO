@@ -1,0 +1,447 @@
+﻿@model Trump.Models.SecurityMaterial
+@{
+    ViewBag.Title = "GatePassOUT";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var Approver = ViewBag.Req as IEnumerable<Trump.Models.Master_Requestor>;
+}
+<link href="~/Layout/Dashboard_files/AdminDashboard.min.css" rel="stylesheet" />
+<style type="text/css">
+    .txtbox {
+        height: 32px;
+        padding: 6px 2px;
+        font-size: 14px;
+        color: #555;
+        vertical-align: middle;
+        background-color: #fff;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
+        box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
+        -webkit-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+        transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    #mySidenav div {
+        position: fixed; /* Position them relative to the browser window */
+        right: -292px; /* Position them outside of the screen */
+        transition: 0.3s; /* Add transition on hover */
+        padding: 15px; /* 15px padding */
+        width: 330px; /* Set a specific width */
+        text-decoration: none; /* Remove underline */
+        font-size: 20px; /* Increase font size */
+        color: white; /* White text color */
+        border-radius: 5px; /* Rounded corners on the top right and bottom right side */
+        z-index: 1000;
+        background-color: #C73B38;
+    }
+
+    #about {
+        top: 50%;
+    }
+</style>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="widget stacked">
+                <div class="widget-header" style="text-align:center">
+                    <h3 style="font-weight:bold;width:0%">
+                        RGP
+                    </h3><span>(Retunable Gate Pass)</span>
+                    <span class="pull-right"><i id="dropdownArrow" class="plus fa-minus"></i></span>
+                </div>
+                <div class="widget-content" id="rgpContainer">
+                    <div class="row">
+                        <div class="box-body pad-0">
+                            <div id="myCarousel" class="carousel slide Dashboard_Slides" data-type="multi" data-ride="carousel" data-interval="false">
+                                <div class="carousel-inner">
+                                    <div class="item active myDashboardFirstSlide">
+                                        <div class="col-md-6">
+                                            <div id="dashboardMyVisitorPermission" class="clsdashboardMyVisitorPermission col-md-4 col-sm-6 col-xs-12 itemBox">
+                                                <div class="box">
+                                                    <div class="box-header with-border">
+                                                        <h3 class="box-title">
+                                                            Inter UNIT
+                                                        </h3>
+                                                        <div class="box-tools pull-right">
+
+                                                        </div>
+                                                    </div>
+                                                    <!-- /.box-header -->
+                                                    <div class="box-body">
+                                                        <ul class="products-list product-list-in-box divWidgetMyVisitors_cls" id="divWidgetMyVisitors">
+                                                            @foreach (var item in Model.RPG)
+                                                            {
+                                                                <li class="item">
+                                                                    <table width="100%">
+                                                                        <tr>
+                                                                            <td style="width:1%">
+                                                                                <div class="product-img Box1ProdImg">
+                                                                                    <a class="pull-left datemonth Box1Visitor">
+                                                                                        <p class="month">@item.RaiseDate.Value.ToString("MMM")</p>
+                                                                                        <p class="day">@item.RaiseDate.Value.Date.Day</p>
+                                                                                    </a>
+                                                                                </div>
+                                                                            </td>
+                                                                            <td style="width:10%">
+                                                                                <div class="product-info Box1Prod_Info">
+                                                                                    <label class="product-title">
+                                                                                        <i class="fa fa-fw fa-user"></i>
+                                                                                        <span>@item.ChallanNmbr</span>
+                                                                                    </label>
+                                                                                    <span class="product-description">
+                                                                                        <span class="greenTxt" style="font-weight:bold">@item.S_Type</span>
+                                                                                    </span>
+                                                                                </div>
+                                                                            </td>
+                                                                            <td style="width:10%">
+                                                                                <div class="product-info Box1Prod_Info">
+                                                                                    <label class="product-title">
+                                                                                        <i class="fa fa-fw fa-home"></i>
+                                                                                        <span>@item.M_Type</span>
+                                                                                    </label>
+                                                                                </div>
+                                                                            </td>
+                                                                            <td style="width:10%">
+                                                                                <div class="product-info Box1Prod_Info">
+
+
+                                                                                    <span class="pull-right">
+                                                                                        <span>
+                                                                                            <i class="fa fa-fw fa-building"></i>@item.OutFrom
+                                                                                        </span>
+                                                                                    </span>
+                                                                                </div>
+                                                                            </td>
+                                                                            <td style="width:15%">
+                                                                                <div class="product-info Box1Prod_Info">
+
+
+                                                                                    <span class="pull-right">
+                                                                                        <span data-toggle="tooltip">
+                                                                                            <i class="fa fa-fw fa-building"></i>@*@Approver.Where(m => m.EMPLOYEE_ID == item.Requestor).FirstOrDefault().NAME*@
+                                                                                        </span>
+                                                                                        <a class="pull-right label label-danger" href="../Material/OutWardIN?challan=@item.ChallanNmbr">Approve</a>
+                                                                                    </span>
+                                                                                </div>
+                                                                            </td>
+                                                                        </tr>
+                                                                    </table>
+                                                                </li>
+                                                            }
+                                                        </ul>
+                                                    </div>
+                                                    <!-- /.box-body -->
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div id="dashboardMyMaterialPermission" class="clsdashboardMyMaterialPermission col-md-4 col-sm-6 col-xs-12 itemBox">
+                                                <div class="box">
+                                                    <div class="box-header with-border">
+                                                        <h3 class="box-title">
+                                                            Third Party
+                                                        </h3>
+                                                        <div class="box-tools pull-right">
+
+                                                        </div>
+                                                    </div>
+                                                    <!-- /.box-header -->
+                                                    <div class="box-body">
+                                                        <ul class="products-list product-list-in-box divWidgetMyMaterials_cls" id="divWidgetMyMaterials">
+
+                                                            @foreach (var item in Model.RPG_Third)
+                                                            {
+                                                                <li class="item">
+                                                                    <table width="100%">
+                                                                        <tr>
+                                                                            <td style="width:1%">
+                                                                                <div class="product-img Box1ProdImg">
+                                                                                    <a class="pull-left datemonth Box1Visitor">
+                                                                                        <p class="month">@item.RaiseDate.Value.ToString("MMM")</p>
+                                                                                        <p class="day">@item.RaiseDate.Value.Date.Day</p>
+                                                                                    </a>
+                                                                                </div>
+                                                                            </td>
+                                                                            <td style="width:10%">
+                                                                                <div class="product-info Box1Prod_Info">
+                                                                                    <label class="product-title">
+                                                                                        <i class="fa fa-fw fa-user"></i>
+                                                                                        <span>@item.ChallanNmbr</span>
+                                                                                    </label>
+                                                                                    <span class="product-description">
+                                                                                        <span class="greenTxt" style="font-weight:bold">@item.S_Type</span>
+                                                                                    </span>
+                                                                                </div>
+                                                                            </td>
+                                                                            <td style="width:10%">
+                                                                                <div class="product-info Box1Prod_Info">
+                                                                                    <label class="product-title">
+                                                                                        <i class="fa fa-fw fa-home"></i>
+                                                                                        <span>@item.M_Type</span>
+                                                                                    </label>
+                                                                                </div>
+                                                                            </td>
+                                                                            <td style="width:10%">
+                                                                                <div class="product-info Box1Prod_Info">
+
+
+                                                                                    <span class="pull-right">
+                                                                                        <span>
+                                                                                            <i class="fa fa-fw fa-building"></i>@item.OutFrom
+                                                                                        </span>
+                                                                                    </span>
+                                                                                </div>
+                                                                            </td>
+                                                                            <td style="width:15%">
+                                                                                <div class="product-info Box1Prod_Info">
+
+
+                                                                                    <span class="pull-right">
+                                                                                        <span data-toggle="tooltip">
+                                                                                            <i class="fa fa-fw fa-building"></i>@*@Approver.Where(m => m.EMPLOYEE_ID == item.Requestor).FirstOrDefault().NAME*@
+                                                                                        </span>
+                                                                                        <a class="pull-right label label-danger" href="../Material/OutWardIN?challan=@item.ChallanNmbr">Approve</a>
+                                                                                    </span>
+                                                                                </div>
+                                                                            </td>
+                                                                        </tr>
+                                                                    </table>
+                                                                </li>
+                                                            }
+
+                                                        </ul>
+                                                    </div>
+                                                    <!-- /.box-body -->
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="widget stacked">
+                <div class="widget-header" style="text-align:center">
+                    <h3 style="font-weight:bold;width:1%">
+                        NRGP
+                    </h3><span>(Non-Retunable Gate Pass)</span>
+                    <span class="pull-right"><i id="dropdownArrowNRGP" class="plus fa-minus"></i></span>
+                </div>
+                <div class="widget-content" id="nrgpContainer">
+                    <div class="row">
+                        <div class="box-body pad-0">
+                            <div id="myCarousel" class="carousel slide Dashboard_Slides" data-type="multi" data-ride="carousel" data-interval="false">
+                                <div class="carousel-inner">
+                                    <div class="item active myDashboardFirstSlide">
+                                        <div class="col-md-6">
+                                            <div id="dashboardMyVisitorPermission" class="clsdashboardMyVisitorPermission col-md-4 col-sm-6 col-xs-12 itemBox">
+                                                <div class="box">
+                                                    <div class="box-header with-border">
+                                                        <h3 class="box-title">
+                                                            Inter UNIT
+                                                        </h3>
+                                                        <div class="box-tools pull-right">
+
+                                                        </div>
+                                                    </div>
+                                                    <!-- /.box-header -->
+                                                    <div class="box-body">
+                                                        <ul class="products-list product-list-in-box divWidgetMyVisitors_cls" id="divWidgetMyVisitors">
+                                                            @foreach (var item in Model.NRGP)
+                                                            {
+                                                                <li class="item">
+                                                                    <table width="100%">
+                                                                        <tr>
+                                                                            <td style="width:1%">
+                                                                                <div class="product-img Box1ProdImg">
+                                                                                    <a class="pull-left datemonth Box1Visitor">
+                                                                                        <p class="month">@item.RaiseDate.Value.ToString("MMM")</p>
+                                                                                        <p class="day">@item.RaiseDate.Value.Date.Day</p>
+                                                                                    </a>
+                                                                                </div>
+                                                                            </td>
+                                                                            <td style="width:10%">
+                                                                                <div class="product-info Box1Prod_Info">
+                                                                                    <label class="product-title">
+                                                                                        <i class="fa fa-fw fa-user"></i>
+                                                                                        <span>@item.ChallanNmbr</span>
+                                                                                    </label>
+                                                                                    <span class="product-description">
+                                                                                        <span class="greenTxt" style="font-weight:bold">@item.S_Type</span>
+                                                                                    </span>
+                                                                                </div>
+                                                                            </td>
+                                                                            <td style="width:10%">
+                                                                                <div class="product-info Box1Prod_Info">
+                                                                                    <label class="product-title">
+                                                                                        <i class="fa fa-fw fa-home"></i>
+                                                                                        <span>@item.M_Type</span>
+                                                                                    </label>
+                                                                                </div>
+                                                                            </td>
+                                                                            <td style="width:10%">
+                                                                                <div class="product-info Box1Prod_Info">
+
+
+                                                                                    <span class="pull-right">
+                                                                                        <span>
+                                                                                            <i class="fa fa-fw fa-building"></i>@item.OutFrom
+                                                                                        </span>
+                                                                                    </span>
+                                                                                </div>
+                                                                            </td>
+                                                                            <td style="width:15%">
+                                                                                <div class="product-info Box1Prod_Info">
+
+
+                                                                                    <span class="pull-right">
+                                                                                        <span data-toggle="tooltip">
+                                                                                            <i class="fa fa-fw fa-building"></i>@*@Approver.Where(m => m.EMPLOYEE_ID == item.Requestor).FirstOrDefault().NAME*@
+                                                                                        </span>
+                                                                                        <a class="pull-right label label-danger" href="../Material/OutWardIN?challan=@item.ChallanNmbr">Approve</a>
+                                                                                    </span>
+                                                                                </div>
+                                                                            </td>
+                                                                        </tr>
+                                                                    </table>
+                                                                </li>
+                                                            }
+                                                        </ul>
+                                                    </div>
+                                                    <!-- /.box-body -->
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div id="dashboardMyMaterialPermission" class="clsdashboardMyMaterialPermission col-md-4 col-sm-6 col-xs-12 itemBox">
+                                                <div class="box">
+                                                    <div class="box-header with-border">
+                                                        <h3 class="box-title">
+                                                            Third Party
+                                                        </h3>
+                                                        <div class="box-tools pull-right">
+
+                                                        </div>
+                                                    </div>
+                                                    <!-- /.box-header -->
+                                                    <div class="box-body">
+                                                        <ul class="products-list product-list-in-box divWidgetMyMaterials_cls" id="divWidgetMyMaterials">
+                                                            @foreach (var item in Model.NRPG_Third)
+                                                            {
+                                                                <li class="item">
+                                                                    <table width="100%">
+                                                                        <tr>
+                                                                            <td style="width:1%">
+                                                                                <div class="product-img Box1ProdImg">
+                                                                                    <a class="pull-left datemonth Box1Visitor">
+                                                                                        <p class="month">@item.RaiseDate.Value.ToString("MMM")</p>
+                                                                                        <p class="day">@item.RaiseDate.Value.Date.Day</p>
+                                                                                    </a>
+                                                                                </div>
+                                                                            </td>
+                                                                            <td style="width:10%">
+                                                                                <div class="product-info Box1Prod_Info">
+                                                                                    <label class="product-title">
+                                                                                        <i class="fa fa-fw fa-user"></i>
+                                                                                        <span>@item.ChallanNmbr</span>
+                                                                                    </label>
+                                                                                    <span class="product-description">
+                                                                                        <span class="greenTxt" style="font-weight:bold">@item.S_Type</span>
+                                                                                    </span>
+                                                                                </div>
+                                                                            </td>
+                                                                            <td style="width:10%">
+                                                                                <div class="product-info Box1Prod_Info">
+                                                                                    <label class="product-title">
+                                                                                        <i class="fa fa-fw fa-home"></i>
+                                                                                        <span>@item.M_Type</span>
+                                                                                    </label>
+                                                                                </div>
+                                                                            </td>
+                                                                            <td style="width:10%">
+                                                                                <div class="product-info Box1Prod_Info">
+
+
+                                                                                    <span class="pull-right">
+                                                                                        <span>
+                                                                                            <i class="fa fa-fw fa-building"></i>@item.OutFrom
+                                                                                        </span>
+                                                                                    </span>
+                                                                                </div>
+                                                                            </td>
+                                                                            <td style="width:15%">
+                                                                                <div class="product-info Box1Prod_Info">
+
+
+                                                                                    <span class="pull-right">
+                                                                                        <span data-toggle="tooltip">
+                                                                                            <i class="fa fa-fw fa-building"></i>@Approver.Where(m => m.EMPLOYEE_ID == item.Requestor).FirstOrDefault().NAME
+                                                                                        </span>
+                                                                                        <a class="pull-right label label-danger" href="../Material/OutWardIN?challan=@item.ChallanNmbr">Approve</a>
+                                                                                    </span>
+                                                                                </div>
+                                                                            </td>
+                                                                        </tr>
+                                                                    </table>
+                                                                </li>
+                                                            }
+                                                        </ul>
+                                                    </div>
+                                                    <!-- /.box-body -->
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="mySidenav" class="sidenav" style="display: block;">
+    <div id="about" style="border-top-right-radius: 0px; border-bottom-right-radius: 0px; right: -292px;">
+        <a href="#" id="aboutbtn">
+            <i class="fa fa-cog fa-qrcode" style="font-size: large;
+            color: White; border-top-right-radius: 0; border-top-left-radius: 0;">&nbsp;</i>
+        </a>
+        <input id="txtEntryCode" autofocus value="" class="txtbox" style=" width: 225px;
+        color: Black;
+        background-color: White;
+        display: inline-block;
+        font-family: Verdana;" focus="" placeholder="Scan here" title="Scan here" type="text">
+        <input type="submit" class="btn btn-success btn-sm" id="btnScanGO" style="display: inline-block;font-family: Verdana;" focus="" value="GO" />
+    </div>
+</div>
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $("#dropdownArrow").click(function () {
+            $("#rgpContainer").slideToggle("slow");
+        })
+    })
+</script>
+<script>
+    $(document).ready(function () {
+        $("#dropdownArrowNRGP").click(function () {
+            $("#nrgpContainer").slideToggle("slow");
+        })
+    })
+</script>

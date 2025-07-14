@@ -1,0 +1,132 @@
+﻿@model IEnumerable<TrumpCL.MaterialReport>
+@{
+    ViewBag.Title = "PDFpage";
+    Layout = null;
+}
+
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<style>
+    table {
+        border: 2px solid;
+        border-color: gray;
+    }
+
+        table tr td {
+            text-align: center;
+            font-size: 13px;
+        }
+
+        table tr th {
+            color: white;
+            text-align: center;
+            font-size: 14px;
+            background-color: #ab4242;
+        }
+
+    html {
+        box-shadow: inset 2000px 0 0 0 rgba(255, 255, 255, 0.9);
+        border-color: rgba(255, 255, 255, 1);
+    }
+
+    body {
+        font-family: Tahoma;
+        border: 1px solid black;
+        outline: 2px solid red;
+        outline-offset: 2px;
+        background-image: url('../../Layout/Images/karam logo black punchline.png');
+        background-repeat: no-repeat;
+        background-position-x: center;
+        background-position-y: center;
+        background-position: center;
+        background-size: 40%;
+        transform: rotate(20deg);
+    }
+
+    .watermark {
+        height: 95%;
+        width: 90%;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        background-repeat: repeat-y;
+        z-index: 9999;
+        opacity: 0.2;
+    }
+
+    .center {
+    }
+</style>
+<html>
+<body>
+    <div class="col-md-12">
+        <div class="col-md-2">
+            <img src="~/Layout/Images/karam logo black punchline.png" height="75" width="150" />
+            <span style="margin-left:25%;margin-top:20px;font-size:30px;font-weight:bold;">Material Report</span>
+        </div>
+    </div>
+    <div class="container">
+        <table class="table table-responsive " style="width:100%;height:auto;" border="0">
+            <tr>
+                <th>
+                    Challan Num
+                </th>
+                <th>
+                    Requestor
+                </th>
+                <th>
+                    Dept
+                </th>
+                <th>
+                    Raise Date
+                </th>
+                <th>
+                    Material Type
+                </th>
+                <th>
+                    Supplier Type
+                </th>
+                <th>
+                    From Location
+                </th>
+                <th>
+                    To Location
+                </th>
+                <th>
+                    Mode Of Transport
+                </th>
+                <th>
+                    Security Approve Time
+                </th>
+                <th>
+                    Description
+                </th>
+                <th>
+                    Status
+                </th>
+            </tr>
+
+            @foreach (var i in Model)
+            {
+                <tr>
+                    <td>@i.ChallanNmbr</td>
+                    <td>@i.Requestor</td>
+                    <td>@i.Dept</td>
+                    <td>@i.RaiseDate.ToString().Split()[0]</td>
+                    <td>@i.M_Type</td>
+                    <td>@i.S_Type</td>
+                    <td>@i.OutFrom</td>
+                    <td>@i.M_Location</td>
+                    <td>@i.ModeOfTrans</td>
+                    <td>@i.SecApproveTime</td>
+                    <td>@i.Description</td>
+                    <td>@i.M_Status</td>
+                </tr>
+            }
+        </table>
+    </div>
+
+
+</body>
+</html>

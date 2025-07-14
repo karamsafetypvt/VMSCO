@@ -1,0 +1,15 @@
+
+//----------Changed Jitendra 14 October(Visitor Type)
+ALTER proc [dbo].[sp_visitor]
+@V_Name nvarchar(50),@V_Phone nvarchar(50),@V_Email nvarchar(50)=null,
+@Visitor_ID nvarchar(50)=null,
+@V_IDNumber nvarchar(50)=null,@V_Pic varbinary(max)=null,@C_ID int,
+@V_Type nvarchar(100)=null,
+@ID int Out 
+as
+begin
+	insert into tblVisitor(V_Name,V_Phone,V_Email,Visitor_ID,V_IDNumber,V_Pic,V_Status,C_ID,V_Type) 
+	values(@V_Name,@V_Phone,@V_Email,@Visitor_ID,@V_IDNumber,@V_Pic,'Active',@C_ID,@V_Type)
+	Select @ID = SCOPE_IDENTITY() 
+end
+//------------

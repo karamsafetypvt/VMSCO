@@ -1,0 +1,671 @@
+D:\Working Project\TrumpCL\bin\Debug\TrumpCL.dll
+D:\Working Project\TrumpCL\bin\Debug\TrumpCL.pdb
+D:\Working Project\TrumpCL\bin\Debug\BouncyCastle.Crypto.dll
+D:\Working Project\TrumpCL\bin\Debug\itextsharp.dll
+D:\Working Project\TrumpCL\bin\Debug\Microsoft.Web.Infrastructure.dll
+D:\Working Project\TrumpCL\bin\Debug\QRCoder.dll
+D:\Working Project\TrumpCL\bin\Debug\System.Web.Helpers.dll
+D:\Working Project\TrumpCL\bin\Debug\System.Web.Mvc.dll
+D:\Working Project\TrumpCL\bin\Debug\System.Web.Razor.dll
+D:\Working Project\TrumpCL\bin\Debug\System.Web.WebPages.Deployment.dll
+D:\Working Project\TrumpCL\bin\Debug\System.Web.WebPages.dll
+D:\Working Project\TrumpCL\bin\Debug\System.Web.WebPages.Razor.dll
+D:\Working Project\TrumpCL\bin\Debug\zxing.dll
+D:\Working Project\TrumpCL\bin\Debug\zxing.presentation.dll
+D:\Working Project\TrumpCL\bin\Debug\itextsharp.xml
+D:\Working Project\TrumpCL\bin\Debug\System.Web.Helpers.xml
+D:\Working Project\TrumpCL\bin\Debug\System.Web.Mvc.xml
+D:\Working Project\TrumpCL\bin\Debug\System.Web.Razor.xml
+D:\Working Project\TrumpCL\bin\Debug\System.Web.WebPages.xml
+D:\Working Project\TrumpCL\bin\Debug\System.Web.WebPages.Deployment.xml
+D:\Working Project\TrumpCL\bin\Debug\System.Web.WebPages.Razor.xml
+D:\Working Project\TrumpCL\bin\Debug\zxing.pdb
+D:\Working Project\TrumpCL\bin\Debug\zxing.xml
+D:\Working Project\TrumpCL\bin\Debug\zxing.presentation.pdb
+D:\Working Project\TrumpCL\bin\Debug\zxing.presentation.xml
+D:\Working Project\TrumpCL\obj\Debug\TrumpCL.csprojAssemblyReference.cache
+D:\Working Project\TrumpCL\obj\Debug\TrumpCL.csproj.CoreCompileInputs.cache
+D:\Working Project\TrumpCL\obj\Debug\TrumpCL.csproj.CopyComplete
+D:\Working Project\TrumpCL\obj\Debug\TrumpCL.dll
+D:\Working Project\TrumpCL\obj\Debug\TrumpCL.pdb
+D:\Working Project\TrumpCL\bin\Debug\RestSharp.dll
+D:\Working Project\TrumpCL\bin\Debug\RestSharp.xml
+D:\Working\TrumpCL\bin\Debug\TrumpCL.dll
+D:\Working\TrumpCL\bin\Debug\TrumpCL.pdb
+D:\Working\TrumpCL\bin\Debug\BouncyCastle.Crypto.dll
+D:\Working\TrumpCL\bin\Debug\itextsharp.dll
+D:\Working\TrumpCL\bin\Debug\Microsoft.Web.Infrastructure.dll
+D:\Working\TrumpCL\bin\Debug\QRCoder.dll
+D:\Working\TrumpCL\bin\Debug\RestSharp.dll
+D:\Working\TrumpCL\bin\Debug\System.Web.Helpers.dll
+D:\Working\TrumpCL\bin\Debug\System.Web.Mvc.dll
+D:\Working\TrumpCL\bin\Debug\System.Web.Razor.dll
+D:\Working\TrumpCL\bin\Debug\System.Web.WebPages.Deployment.dll
+D:\Working\TrumpCL\bin\Debug\System.Web.WebPages.dll
+D:\Working\TrumpCL\bin\Debug\System.Web.WebPages.Razor.dll
+D:\Working\TrumpCL\bin\Debug\zxing.dll
+D:\Working\TrumpCL\bin\Debug\zxing.presentation.dll
+D:\Working\TrumpCL\bin\Debug\itextsharp.xml
+D:\Working\TrumpCL\bin\Debug\RestSharp.xml
+D:\Working\TrumpCL\bin\Debug\System.Web.Helpers.xml
+D:\Working\TrumpCL\bin\Debug\System.Web.Mvc.xml
+D:\Working\TrumpCL\bin\Debug\System.Web.Razor.xml
+D:\Working\TrumpCL\bin\Debug\System.Web.WebPages.xml
+D:\Working\TrumpCL\bin\Debug\System.Web.WebPages.Deployment.xml
+D:\Working\TrumpCL\bin\Debug\System.Web.WebPages.Razor.xml
+D:\Working\TrumpCL\bin\Debug\zxing.pdb
+D:\Working\TrumpCL\bin\Debug\zxing.xml
+D:\Working\TrumpCL\bin\Debug\zxing.presentation.pdb
+D:\Working\TrumpCL\bin\Debug\zxing.presentation.xml
+D:\Working\TrumpCL\obj\Debug\TrumpCL.csproj.CoreCompileInputs.cache
+D:\Working\TrumpCL\obj\Debug\TrumpCL.csproj.CopyComplete
+D:\Working\TrumpCL\obj\Debug\TrumpCL.dll
+D:\Working\TrumpCL\obj\Debug\TrumpCL.pdb
+D:\Working\TrumpCL\obj\Debug\TrumpCL.csproj.AssemblyReference.cache
+D:\Project\JITETrump\TrumpCL\bin\Debug\TrumpCL.dll
+D:\Project\JITETrump\TrumpCL\bin\Debug\TrumpCL.pdb
+D:\Project\JITETrump\TrumpCL\bin\Debug\BouncyCastle.Crypto.dll
+D:\Project\JITETrump\TrumpCL\bin\Debug\itextsharp.dll
+D:\Project\JITETrump\TrumpCL\bin\Debug\Microsoft.Web.Infrastructure.dll
+D:\Project\JITETrump\TrumpCL\bin\Debug\QRCoder.dll
+D:\Project\JITETrump\TrumpCL\bin\Debug\RestSharp.dll
+D:\Project\JITETrump\TrumpCL\bin\Debug\System.Web.Helpers.dll
+D:\Project\JITETrump\TrumpCL\bin\Debug\System.Web.Mvc.dll
+D:\Project\JITETrump\TrumpCL\bin\Debug\System.Web.Razor.dll
+D:\Project\JITETrump\TrumpCL\bin\Debug\System.Web.WebPages.Deployment.dll
+D:\Project\JITETrump\TrumpCL\bin\Debug\System.Web.WebPages.dll
+D:\Project\JITETrump\TrumpCL\bin\Debug\System.Web.WebPages.Razor.dll
+D:\Project\JITETrump\TrumpCL\bin\Debug\zxing.dll
+D:\Project\JITETrump\TrumpCL\bin\Debug\zxing.presentation.dll
+D:\Project\JITETrump\TrumpCL\bin\Debug\itextsharp.xml
+D:\Project\JITETrump\TrumpCL\bin\Debug\RestSharp.xml
+D:\Project\JITETrump\TrumpCL\bin\Debug\System.Web.Helpers.xml
+D:\Project\JITETrump\TrumpCL\bin\Debug\System.Web.Mvc.xml
+D:\Project\JITETrump\TrumpCL\bin\Debug\System.Web.Razor.xml
+D:\Project\JITETrump\TrumpCL\bin\Debug\System.Web.WebPages.xml
+D:\Project\JITETrump\TrumpCL\bin\Debug\System.Web.WebPages.Deployment.xml
+D:\Project\JITETrump\TrumpCL\bin\Debug\System.Web.WebPages.Razor.xml
+D:\Project\JITETrump\TrumpCL\bin\Debug\zxing.pdb
+D:\Project\JITETrump\TrumpCL\bin\Debug\zxing.xml
+D:\Project\JITETrump\TrumpCL\bin\Debug\zxing.presentation.pdb
+D:\Project\JITETrump\TrumpCL\bin\Debug\zxing.presentation.xml
+D:\Project\JITETrump\TrumpCL\obj\Debug\TrumpCL.csproj.AssemblyReference.cache
+D:\Project\JITETrump\TrumpCL\obj\Debug\TrumpCL.csproj.CoreCompileInputs.cache
+D:\Project\JITETrump\TrumpCL\obj\Debug\TrumpCL.csproj.CopyComplete
+D:\Project\JITETrump\TrumpCL\obj\Debug\TrumpCL.dll
+D:\Project\JITETrump\TrumpCL\obj\Debug\TrumpCL.pdb
+D:\Office\ENX Solution\TrumpCL\bin\Debug\TrumpCL.dll
+D:\Office\ENX Solution\TrumpCL\bin\Debug\TrumpCL.pdb
+D:\Office\ENX Solution\TrumpCL\bin\Debug\BouncyCastle.Crypto.dll
+D:\Office\ENX Solution\TrumpCL\bin\Debug\itextsharp.dll
+D:\Office\ENX Solution\TrumpCL\bin\Debug\Microsoft.Web.Infrastructure.dll
+D:\Office\ENX Solution\TrumpCL\bin\Debug\QRCoder.dll
+D:\Office\ENX Solution\TrumpCL\bin\Debug\RestSharp.dll
+D:\Office\ENX Solution\TrumpCL\bin\Debug\System.Web.Helpers.dll
+D:\Office\ENX Solution\TrumpCL\bin\Debug\System.Web.Mvc.dll
+D:\Office\ENX Solution\TrumpCL\bin\Debug\System.Web.Razor.dll
+D:\Office\ENX Solution\TrumpCL\bin\Debug\System.Web.WebPages.Deployment.dll
+D:\Office\ENX Solution\TrumpCL\bin\Debug\System.Web.WebPages.dll
+D:\Office\ENX Solution\TrumpCL\bin\Debug\System.Web.WebPages.Razor.dll
+D:\Office\ENX Solution\TrumpCL\bin\Debug\zxing.dll
+D:\Office\ENX Solution\TrumpCL\bin\Debug\zxing.presentation.dll
+D:\Office\ENX Solution\TrumpCL\bin\Debug\itextsharp.xml
+D:\Office\ENX Solution\TrumpCL\bin\Debug\RestSharp.xml
+D:\Office\ENX Solution\TrumpCL\bin\Debug\System.Web.Helpers.xml
+D:\Office\ENX Solution\TrumpCL\bin\Debug\System.Web.Mvc.xml
+D:\Office\ENX Solution\TrumpCL\bin\Debug\System.Web.Razor.xml
+D:\Office\ENX Solution\TrumpCL\bin\Debug\System.Web.WebPages.xml
+D:\Office\ENX Solution\TrumpCL\bin\Debug\System.Web.WebPages.Deployment.xml
+D:\Office\ENX Solution\TrumpCL\bin\Debug\System.Web.WebPages.Razor.xml
+D:\Office\ENX Solution\TrumpCL\bin\Debug\zxing.pdb
+D:\Office\ENX Solution\TrumpCL\bin\Debug\zxing.xml
+D:\Office\ENX Solution\TrumpCL\bin\Debug\zxing.presentation.pdb
+D:\Office\ENX Solution\TrumpCL\bin\Debug\zxing.presentation.xml
+D:\Office\ENX Solution\TrumpCL\obj\Debug\TrumpCL.csproj.AssemblyReference.cache
+D:\Office\ENX Solution\TrumpCL\obj\Debug\TrumpCL.csproj.CoreCompileInputs.cache
+D:\Office\ENX Solution\TrumpCL\obj\Debug\TrumpCL.csproj.CopyComplete
+D:\Office\ENX Solution\TrumpCL\obj\Debug\TrumpCL.dll
+D:\Office\ENX Solution\TrumpCL\obj\Debug\TrumpCL.pdb
+D:\Project\KeshavSir\ENX Solution\TrumpCL\bin\Debug\TrumpCL.dll
+D:\Project\KeshavSir\ENX Solution\TrumpCL\bin\Debug\TrumpCL.pdb
+D:\Project\KeshavSir\ENX Solution\TrumpCL\bin\Debug\BouncyCastle.Crypto.dll
+D:\Project\KeshavSir\ENX Solution\TrumpCL\bin\Debug\itextsharp.dll
+D:\Project\KeshavSir\ENX Solution\TrumpCL\bin\Debug\Microsoft.Web.Infrastructure.dll
+D:\Project\KeshavSir\ENX Solution\TrumpCL\bin\Debug\QRCoder.dll
+D:\Project\KeshavSir\ENX Solution\TrumpCL\bin\Debug\RestSharp.dll
+D:\Project\KeshavSir\ENX Solution\TrumpCL\bin\Debug\System.Web.Helpers.dll
+D:\Project\KeshavSir\ENX Solution\TrumpCL\bin\Debug\System.Web.Mvc.dll
+D:\Project\KeshavSir\ENX Solution\TrumpCL\bin\Debug\System.Web.Razor.dll
+D:\Project\KeshavSir\ENX Solution\TrumpCL\bin\Debug\System.Web.WebPages.Deployment.dll
+D:\Project\KeshavSir\ENX Solution\TrumpCL\bin\Debug\System.Web.WebPages.dll
+D:\Project\KeshavSir\ENX Solution\TrumpCL\bin\Debug\System.Web.WebPages.Razor.dll
+D:\Project\KeshavSir\ENX Solution\TrumpCL\bin\Debug\zxing.dll
+D:\Project\KeshavSir\ENX Solution\TrumpCL\bin\Debug\zxing.presentation.dll
+D:\Project\KeshavSir\ENX Solution\TrumpCL\bin\Debug\itextsharp.xml
+D:\Project\KeshavSir\ENX Solution\TrumpCL\bin\Debug\RestSharp.xml
+D:\Project\KeshavSir\ENX Solution\TrumpCL\bin\Debug\System.Web.Helpers.xml
+D:\Project\KeshavSir\ENX Solution\TrumpCL\bin\Debug\System.Web.Mvc.xml
+D:\Project\KeshavSir\ENX Solution\TrumpCL\bin\Debug\System.Web.Razor.xml
+D:\Project\KeshavSir\ENX Solution\TrumpCL\bin\Debug\System.Web.WebPages.xml
+D:\Project\KeshavSir\ENX Solution\TrumpCL\bin\Debug\System.Web.WebPages.Deployment.xml
+D:\Project\KeshavSir\ENX Solution\TrumpCL\bin\Debug\System.Web.WebPages.Razor.xml
+D:\Project\KeshavSir\ENX Solution\TrumpCL\bin\Debug\zxing.pdb
+D:\Project\KeshavSir\ENX Solution\TrumpCL\bin\Debug\zxing.xml
+D:\Project\KeshavSir\ENX Solution\TrumpCL\bin\Debug\zxing.presentation.pdb
+D:\Project\KeshavSir\ENX Solution\TrumpCL\bin\Debug\zxing.presentation.xml
+D:\Project\KeshavSir\ENX Solution\TrumpCL\obj\Debug\TrumpCL.csproj.AssemblyReference.cache
+D:\Project\KeshavSir\ENX Solution\TrumpCL\obj\Debug\TrumpCL.csproj.CoreCompileInputs.cache
+D:\Project\KeshavSir\ENX Solution\TrumpCL\obj\Debug\TrumpCL.csproj.CopyComplete
+D:\Project\KeshavSir\ENX Solution\TrumpCL\obj\Debug\TrumpCL.dll
+D:\Project\KeshavSir\ENX Solution\TrumpCL\obj\Debug\TrumpCL.pdb
+D:\Office\ENX CO\TrumpCL\bin\Debug\TrumpCL.dll
+D:\Office\ENX CO\TrumpCL\bin\Debug\TrumpCL.pdb
+D:\Office\ENX CO\TrumpCL\bin\Debug\BouncyCastle.Crypto.dll
+D:\Office\ENX CO\TrumpCL\bin\Debug\itextsharp.dll
+D:\Office\ENX CO\TrumpCL\bin\Debug\Microsoft.Web.Infrastructure.dll
+D:\Office\ENX CO\TrumpCL\bin\Debug\QRCoder.dll
+D:\Office\ENX CO\TrumpCL\bin\Debug\RestSharp.dll
+D:\Office\ENX CO\TrumpCL\bin\Debug\System.Web.Helpers.dll
+D:\Office\ENX CO\TrumpCL\bin\Debug\System.Web.Mvc.dll
+D:\Office\ENX CO\TrumpCL\bin\Debug\System.Web.Razor.dll
+D:\Office\ENX CO\TrumpCL\bin\Debug\System.Web.WebPages.Deployment.dll
+D:\Office\ENX CO\TrumpCL\bin\Debug\System.Web.WebPages.dll
+D:\Office\ENX CO\TrumpCL\bin\Debug\System.Web.WebPages.Razor.dll
+D:\Office\ENX CO\TrumpCL\bin\Debug\zxing.dll
+D:\Office\ENX CO\TrumpCL\bin\Debug\zxing.presentation.dll
+D:\Office\ENX CO\TrumpCL\bin\Debug\itextsharp.xml
+D:\Office\ENX CO\TrumpCL\bin\Debug\RestSharp.xml
+D:\Office\ENX CO\TrumpCL\bin\Debug\System.Web.Helpers.xml
+D:\Office\ENX CO\TrumpCL\bin\Debug\System.Web.Mvc.xml
+D:\Office\ENX CO\TrumpCL\bin\Debug\System.Web.Razor.xml
+D:\Office\ENX CO\TrumpCL\bin\Debug\System.Web.WebPages.xml
+D:\Office\ENX CO\TrumpCL\bin\Debug\System.Web.WebPages.Deployment.xml
+D:\Office\ENX CO\TrumpCL\bin\Debug\System.Web.WebPages.Razor.xml
+D:\Office\ENX CO\TrumpCL\bin\Debug\zxing.pdb
+D:\Office\ENX CO\TrumpCL\bin\Debug\zxing.xml
+D:\Office\ENX CO\TrumpCL\bin\Debug\zxing.presentation.pdb
+D:\Office\ENX CO\TrumpCL\bin\Debug\zxing.presentation.xml
+D:\Office\ENX CO\TrumpCL\obj\Debug\TrumpCL.csproj.AssemblyReference.cache
+D:\Office\ENX CO\TrumpCL\obj\Debug\TrumpCL.csproj.CoreCompileInputs.cache
+D:\Office\ENX CO\TrumpCL\obj\Debug\TrumpCL.csproj.CopyComplete
+D:\Office\ENX CO\TrumpCL\obj\Debug\TrumpCL.dll
+D:\Office\ENX CO\TrumpCL\obj\Debug\TrumpCL.pdb
+D:\Project\KeshavSir\ENX CO\TrumpCL\bin\Debug\TrumpCL.dll
+D:\Project\KeshavSir\ENX CO\TrumpCL\bin\Debug\TrumpCL.pdb
+D:\Project\KeshavSir\ENX CO\TrumpCL\bin\Debug\BouncyCastle.Crypto.dll
+D:\Project\KeshavSir\ENX CO\TrumpCL\bin\Debug\itextsharp.dll
+D:\Project\KeshavSir\ENX CO\TrumpCL\bin\Debug\Microsoft.Web.Infrastructure.dll
+D:\Project\KeshavSir\ENX CO\TrumpCL\bin\Debug\QRCoder.dll
+D:\Project\KeshavSir\ENX CO\TrumpCL\bin\Debug\RestSharp.dll
+D:\Project\KeshavSir\ENX CO\TrumpCL\bin\Debug\System.Web.Helpers.dll
+D:\Project\KeshavSir\ENX CO\TrumpCL\bin\Debug\System.Web.Mvc.dll
+D:\Project\KeshavSir\ENX CO\TrumpCL\bin\Debug\System.Web.Razor.dll
+D:\Project\KeshavSir\ENX CO\TrumpCL\bin\Debug\System.Web.WebPages.Deployment.dll
+D:\Project\KeshavSir\ENX CO\TrumpCL\bin\Debug\System.Web.WebPages.dll
+D:\Project\KeshavSir\ENX CO\TrumpCL\bin\Debug\System.Web.WebPages.Razor.dll
+D:\Project\KeshavSir\ENX CO\TrumpCL\bin\Debug\zxing.dll
+D:\Project\KeshavSir\ENX CO\TrumpCL\bin\Debug\zxing.presentation.dll
+D:\Project\KeshavSir\ENX CO\TrumpCL\bin\Debug\itextsharp.xml
+D:\Project\KeshavSir\ENX CO\TrumpCL\bin\Debug\RestSharp.xml
+D:\Project\KeshavSir\ENX CO\TrumpCL\bin\Debug\System.Web.Helpers.xml
+D:\Project\KeshavSir\ENX CO\TrumpCL\bin\Debug\System.Web.Mvc.xml
+D:\Project\KeshavSir\ENX CO\TrumpCL\bin\Debug\System.Web.Razor.xml
+D:\Project\KeshavSir\ENX CO\TrumpCL\bin\Debug\System.Web.WebPages.xml
+D:\Project\KeshavSir\ENX CO\TrumpCL\bin\Debug\System.Web.WebPages.Deployment.xml
+D:\Project\KeshavSir\ENX CO\TrumpCL\bin\Debug\System.Web.WebPages.Razor.xml
+D:\Project\KeshavSir\ENX CO\TrumpCL\bin\Debug\zxing.pdb
+D:\Project\KeshavSir\ENX CO\TrumpCL\bin\Debug\zxing.xml
+D:\Project\KeshavSir\ENX CO\TrumpCL\bin\Debug\zxing.presentation.pdb
+D:\Project\KeshavSir\ENX CO\TrumpCL\bin\Debug\zxing.presentation.xml
+D:\Project\KeshavSir\ENX CO\TrumpCL\obj\Debug\TrumpCL.csproj.CoreCompileInputs.cache
+D:\Project\KeshavSir\ENX CO\TrumpCL\obj\Debug\TrumpCL.csproj.CopyComplete
+D:\Project\KeshavSir\ENX CO\TrumpCL\obj\Debug\TrumpCL.dll
+D:\Project\KeshavSir\ENX CO\TrumpCL\obj\Debug\TrumpCL.pdb
+D:\Project\KeshavSir\PRO\NOV4ENXCO\TrumpCL\bin\Debug\TrumpCL.dll
+D:\Project\KeshavSir\PRO\NOV4ENXCO\TrumpCL\bin\Debug\TrumpCL.pdb
+D:\Project\KeshavSir\PRO\NOV4ENXCO\TrumpCL\bin\Debug\BouncyCastle.Crypto.dll
+D:\Project\KeshavSir\PRO\NOV4ENXCO\TrumpCL\bin\Debug\itextsharp.dll
+D:\Project\KeshavSir\PRO\NOV4ENXCO\TrumpCL\bin\Debug\Microsoft.Web.Infrastructure.dll
+D:\Project\KeshavSir\PRO\NOV4ENXCO\TrumpCL\bin\Debug\QRCoder.dll
+D:\Project\KeshavSir\PRO\NOV4ENXCO\TrumpCL\bin\Debug\RestSharp.dll
+D:\Project\KeshavSir\PRO\NOV4ENXCO\TrumpCL\bin\Debug\System.Web.Helpers.dll
+D:\Project\KeshavSir\PRO\NOV4ENXCO\TrumpCL\bin\Debug\System.Web.Mvc.dll
+D:\Project\KeshavSir\PRO\NOV4ENXCO\TrumpCL\bin\Debug\System.Web.Razor.dll
+D:\Project\KeshavSir\PRO\NOV4ENXCO\TrumpCL\bin\Debug\System.Web.WebPages.Deployment.dll
+D:\Project\KeshavSir\PRO\NOV4ENXCO\TrumpCL\bin\Debug\System.Web.WebPages.dll
+D:\Project\KeshavSir\PRO\NOV4ENXCO\TrumpCL\bin\Debug\System.Web.WebPages.Razor.dll
+D:\Project\KeshavSir\PRO\NOV4ENXCO\TrumpCL\bin\Debug\zxing.dll
+D:\Project\KeshavSir\PRO\NOV4ENXCO\TrumpCL\bin\Debug\zxing.presentation.dll
+D:\Project\KeshavSir\PRO\NOV4ENXCO\TrumpCL\bin\Debug\itextsharp.xml
+D:\Project\KeshavSir\PRO\NOV4ENXCO\TrumpCL\bin\Debug\RestSharp.xml
+D:\Project\KeshavSir\PRO\NOV4ENXCO\TrumpCL\bin\Debug\System.Web.Helpers.xml
+D:\Project\KeshavSir\PRO\NOV4ENXCO\TrumpCL\bin\Debug\System.Web.Mvc.xml
+D:\Project\KeshavSir\PRO\NOV4ENXCO\TrumpCL\bin\Debug\System.Web.Razor.xml
+D:\Project\KeshavSir\PRO\NOV4ENXCO\TrumpCL\bin\Debug\System.Web.WebPages.xml
+D:\Project\KeshavSir\PRO\NOV4ENXCO\TrumpCL\bin\Debug\System.Web.WebPages.Deployment.xml
+D:\Project\KeshavSir\PRO\NOV4ENXCO\TrumpCL\bin\Debug\System.Web.WebPages.Razor.xml
+D:\Project\KeshavSir\PRO\NOV4ENXCO\TrumpCL\bin\Debug\zxing.pdb
+D:\Project\KeshavSir\PRO\NOV4ENXCO\TrumpCL\bin\Debug\zxing.xml
+D:\Project\KeshavSir\PRO\NOV4ENXCO\TrumpCL\bin\Debug\zxing.presentation.pdb
+D:\Project\KeshavSir\PRO\NOV4ENXCO\TrumpCL\bin\Debug\zxing.presentation.xml
+D:\Project\KeshavSir\PRO\NOV4ENXCO\TrumpCL\obj\Debug\TrumpCL.csproj.AssemblyReference.cache
+D:\Project\KeshavSir\PRO\NOV4ENXCO\TrumpCL\obj\Debug\TrumpCL.csproj.CoreCompileInputs.cache
+D:\Project\KeshavSir\PRO\NOV4ENXCO\TrumpCL\obj\Debug\TrumpCL.csproj.CopyComplete
+D:\Project\KeshavSir\PRO\NOV4ENXCO\TrumpCL\obj\Debug\TrumpCL.dll
+D:\Project\KeshavSir\PRO\NOV4ENXCO\TrumpCL\obj\Debug\TrumpCL.pdb
+D:\Project\KeshavSir\PRO\NOV4ENXCORealData\TrumpCL\bin\Debug\TrumpCL.dll
+D:\Project\KeshavSir\PRO\NOV4ENXCORealData\TrumpCL\bin\Debug\TrumpCL.pdb
+D:\Project\KeshavSir\PRO\NOV4ENXCORealData\TrumpCL\bin\Debug\BouncyCastle.Crypto.dll
+D:\Project\KeshavSir\PRO\NOV4ENXCORealData\TrumpCL\bin\Debug\itextsharp.dll
+D:\Project\KeshavSir\PRO\NOV4ENXCORealData\TrumpCL\bin\Debug\Microsoft.Web.Infrastructure.dll
+D:\Project\KeshavSir\PRO\NOV4ENXCORealData\TrumpCL\bin\Debug\QRCoder.dll
+D:\Project\KeshavSir\PRO\NOV4ENXCORealData\TrumpCL\bin\Debug\RestSharp.dll
+D:\Project\KeshavSir\PRO\NOV4ENXCORealData\TrumpCL\bin\Debug\System.Web.Helpers.dll
+D:\Project\KeshavSir\PRO\NOV4ENXCORealData\TrumpCL\bin\Debug\System.Web.Mvc.dll
+D:\Project\KeshavSir\PRO\NOV4ENXCORealData\TrumpCL\bin\Debug\System.Web.Razor.dll
+D:\Project\KeshavSir\PRO\NOV4ENXCORealData\TrumpCL\bin\Debug\System.Web.WebPages.Deployment.dll
+D:\Project\KeshavSir\PRO\NOV4ENXCORealData\TrumpCL\bin\Debug\System.Web.WebPages.dll
+D:\Project\KeshavSir\PRO\NOV4ENXCORealData\TrumpCL\bin\Debug\System.Web.WebPages.Razor.dll
+D:\Project\KeshavSir\PRO\NOV4ENXCORealData\TrumpCL\bin\Debug\zxing.dll
+D:\Project\KeshavSir\PRO\NOV4ENXCORealData\TrumpCL\bin\Debug\zxing.presentation.dll
+D:\Project\KeshavSir\PRO\NOV4ENXCORealData\TrumpCL\bin\Debug\itextsharp.xml
+D:\Project\KeshavSir\PRO\NOV4ENXCORealData\TrumpCL\bin\Debug\RestSharp.xml
+D:\Project\KeshavSir\PRO\NOV4ENXCORealData\TrumpCL\bin\Debug\System.Web.Helpers.xml
+D:\Project\KeshavSir\PRO\NOV4ENXCORealData\TrumpCL\bin\Debug\System.Web.Mvc.xml
+D:\Project\KeshavSir\PRO\NOV4ENXCORealData\TrumpCL\bin\Debug\System.Web.Razor.xml
+D:\Project\KeshavSir\PRO\NOV4ENXCORealData\TrumpCL\bin\Debug\System.Web.WebPages.xml
+D:\Project\KeshavSir\PRO\NOV4ENXCORealData\TrumpCL\bin\Debug\System.Web.WebPages.Deployment.xml
+D:\Project\KeshavSir\PRO\NOV4ENXCORealData\TrumpCL\bin\Debug\System.Web.WebPages.Razor.xml
+D:\Project\KeshavSir\PRO\NOV4ENXCORealData\TrumpCL\bin\Debug\zxing.pdb
+D:\Project\KeshavSir\PRO\NOV4ENXCORealData\TrumpCL\bin\Debug\zxing.xml
+D:\Project\KeshavSir\PRO\NOV4ENXCORealData\TrumpCL\bin\Debug\zxing.presentation.pdb
+D:\Project\KeshavSir\PRO\NOV4ENXCORealData\TrumpCL\bin\Debug\zxing.presentation.xml
+D:\Project\KeshavSir\PRO\NOV4ENXCORealData\TrumpCL\obj\Debug\TrumpCL.csproj.AssemblyReference.cache
+D:\Project\KeshavSir\PRO\NOV4ENXCORealData\TrumpCL\obj\Debug\TrumpCL.csproj.CoreCompileInputs.cache
+D:\Project\KeshavSir\PRO\NOV4ENXCORealData\TrumpCL\obj\Debug\TrumpCL.csproj.CopyComplete
+D:\Project\KeshavSir\PRO\NOV4ENXCORealData\TrumpCL\obj\Debug\TrumpCL.dll
+D:\Project\KeshavSir\PRO\NOV4ENXCORealData\TrumpCL\obj\Debug\TrumpCL.pdb
+D:\Office\ENX VMS CO\TrumpCL\bin\Debug\TrumpCL.dll
+D:\Office\ENX VMS CO\TrumpCL\bin\Debug\TrumpCL.pdb
+D:\Office\ENX VMS CO\TrumpCL\bin\Debug\BouncyCastle.Crypto.dll
+D:\Office\ENX VMS CO\TrumpCL\bin\Debug\itextsharp.dll
+D:\Office\ENX VMS CO\TrumpCL\bin\Debug\Microsoft.Web.Infrastructure.dll
+D:\Office\ENX VMS CO\TrumpCL\bin\Debug\QRCoder.dll
+D:\Office\ENX VMS CO\TrumpCL\bin\Debug\RestSharp.dll
+D:\Office\ENX VMS CO\TrumpCL\bin\Debug\System.Web.Helpers.dll
+D:\Office\ENX VMS CO\TrumpCL\bin\Debug\System.Web.Mvc.dll
+D:\Office\ENX VMS CO\TrumpCL\bin\Debug\System.Web.Razor.dll
+D:\Office\ENX VMS CO\TrumpCL\bin\Debug\System.Web.WebPages.Deployment.dll
+D:\Office\ENX VMS CO\TrumpCL\bin\Debug\System.Web.WebPages.dll
+D:\Office\ENX VMS CO\TrumpCL\bin\Debug\System.Web.WebPages.Razor.dll
+D:\Office\ENX VMS CO\TrumpCL\bin\Debug\zxing.dll
+D:\Office\ENX VMS CO\TrumpCL\bin\Debug\zxing.presentation.dll
+D:\Office\ENX VMS CO\TrumpCL\bin\Debug\itextsharp.xml
+D:\Office\ENX VMS CO\TrumpCL\bin\Debug\RestSharp.xml
+D:\Office\ENX VMS CO\TrumpCL\bin\Debug\System.Web.Helpers.xml
+D:\Office\ENX VMS CO\TrumpCL\bin\Debug\System.Web.Mvc.xml
+D:\Office\ENX VMS CO\TrumpCL\bin\Debug\System.Web.Razor.xml
+D:\Office\ENX VMS CO\TrumpCL\bin\Debug\System.Web.WebPages.xml
+D:\Office\ENX VMS CO\TrumpCL\bin\Debug\System.Web.WebPages.Deployment.xml
+D:\Office\ENX VMS CO\TrumpCL\bin\Debug\System.Web.WebPages.Razor.xml
+D:\Office\ENX VMS CO\TrumpCL\bin\Debug\zxing.pdb
+D:\Office\ENX VMS CO\TrumpCL\bin\Debug\zxing.xml
+D:\Office\ENX VMS CO\TrumpCL\bin\Debug\zxing.presentation.pdb
+D:\Office\ENX VMS CO\TrumpCL\bin\Debug\zxing.presentation.xml
+D:\Office\ENX VMS CO\TrumpCL\obj\Debug\TrumpCL.csproj.AssemblyReference.cache
+D:\Office\ENX VMS CO\TrumpCL\obj\Debug\TrumpCL.csproj.CoreCompileInputs.cache
+D:\Office\ENX VMS CO\TrumpCL\obj\Debug\TrumpCL.csproj.CopyComplete
+D:\Office\ENX VMS CO\TrumpCL\obj\Debug\TrumpCL.dll
+D:\Office\ENX VMS CO\TrumpCL\obj\Debug\TrumpCL.pdb
+D:\Project\KeshavSir\PRO\VMSKesavSir 24 Feb Final\ENX VMS CO\TrumpCL\bin\Debug\TrumpCL.dll
+D:\Project\KeshavSir\PRO\VMSKesavSir 24 Feb Final\ENX VMS CO\TrumpCL\bin\Debug\TrumpCL.pdb
+D:\Project\KeshavSir\PRO\VMSKesavSir 24 Feb Final\ENX VMS CO\TrumpCL\bin\Debug\BouncyCastle.Crypto.dll
+D:\Project\KeshavSir\PRO\VMSKesavSir 24 Feb Final\ENX VMS CO\TrumpCL\bin\Debug\itextsharp.dll
+D:\Project\KeshavSir\PRO\VMSKesavSir 24 Feb Final\ENX VMS CO\TrumpCL\bin\Debug\Microsoft.Web.Infrastructure.dll
+D:\Project\KeshavSir\PRO\VMSKesavSir 24 Feb Final\ENX VMS CO\TrumpCL\bin\Debug\QRCoder.dll
+D:\Project\KeshavSir\PRO\VMSKesavSir 24 Feb Final\ENX VMS CO\TrumpCL\bin\Debug\RestSharp.dll
+D:\Project\KeshavSir\PRO\VMSKesavSir 24 Feb Final\ENX VMS CO\TrumpCL\bin\Debug\System.Web.Helpers.dll
+D:\Project\KeshavSir\PRO\VMSKesavSir 24 Feb Final\ENX VMS CO\TrumpCL\bin\Debug\System.Web.Mvc.dll
+D:\Project\KeshavSir\PRO\VMSKesavSir 24 Feb Final\ENX VMS CO\TrumpCL\bin\Debug\System.Web.Razor.dll
+D:\Project\KeshavSir\PRO\VMSKesavSir 24 Feb Final\ENX VMS CO\TrumpCL\bin\Debug\System.Web.WebPages.Deployment.dll
+D:\Project\KeshavSir\PRO\VMSKesavSir 24 Feb Final\ENX VMS CO\TrumpCL\bin\Debug\System.Web.WebPages.dll
+D:\Project\KeshavSir\PRO\VMSKesavSir 24 Feb Final\ENX VMS CO\TrumpCL\bin\Debug\System.Web.WebPages.Razor.dll
+D:\Project\KeshavSir\PRO\VMSKesavSir 24 Feb Final\ENX VMS CO\TrumpCL\bin\Debug\zxing.dll
+D:\Project\KeshavSir\PRO\VMSKesavSir 24 Feb Final\ENX VMS CO\TrumpCL\bin\Debug\zxing.presentation.dll
+D:\Project\KeshavSir\PRO\VMSKesavSir 24 Feb Final\ENX VMS CO\TrumpCL\bin\Debug\itextsharp.xml
+D:\Project\KeshavSir\PRO\VMSKesavSir 24 Feb Final\ENX VMS CO\TrumpCL\bin\Debug\RestSharp.xml
+D:\Project\KeshavSir\PRO\VMSKesavSir 24 Feb Final\ENX VMS CO\TrumpCL\bin\Debug\System.Web.Helpers.xml
+D:\Project\KeshavSir\PRO\VMSKesavSir 24 Feb Final\ENX VMS CO\TrumpCL\bin\Debug\System.Web.Mvc.xml
+D:\Project\KeshavSir\PRO\VMSKesavSir 24 Feb Final\ENX VMS CO\TrumpCL\bin\Debug\System.Web.Razor.xml
+D:\Project\KeshavSir\PRO\VMSKesavSir 24 Feb Final\ENX VMS CO\TrumpCL\bin\Debug\System.Web.WebPages.xml
+D:\Project\KeshavSir\PRO\VMSKesavSir 24 Feb Final\ENX VMS CO\TrumpCL\bin\Debug\System.Web.WebPages.Deployment.xml
+D:\Project\KeshavSir\PRO\VMSKesavSir 24 Feb Final\ENX VMS CO\TrumpCL\bin\Debug\System.Web.WebPages.Razor.xml
+D:\Project\KeshavSir\PRO\VMSKesavSir 24 Feb Final\ENX VMS CO\TrumpCL\bin\Debug\zxing.pdb
+D:\Project\KeshavSir\PRO\VMSKesavSir 24 Feb Final\ENX VMS CO\TrumpCL\bin\Debug\zxing.xml
+D:\Project\KeshavSir\PRO\VMSKesavSir 24 Feb Final\ENX VMS CO\TrumpCL\bin\Debug\zxing.presentation.pdb
+D:\Project\KeshavSir\PRO\VMSKesavSir 24 Feb Final\ENX VMS CO\TrumpCL\bin\Debug\zxing.presentation.xml
+D:\Project\KeshavSir\PRO\VMSKesavSir 24 Feb Final\ENX VMS CO\TrumpCL\obj\Debug\TrumpCL.csproj.AssemblyReference.cache
+D:\Project\KeshavSir\PRO\VMSKesavSir 24 Feb Final\ENX VMS CO\TrumpCL\obj\Debug\TrumpCL.csproj.CoreCompileInputs.cache
+D:\Project\KeshavSir\PRO\VMSKesavSir 24 Feb Final\ENX VMS CO\TrumpCL\obj\Debug\TrumpCL.csproj.CopyComplete
+D:\Project\KeshavSir\PRO\VMSKesavSir 24 Feb Final\ENX VMS CO\TrumpCL\obj\Debug\TrumpCL.dll
+D:\Project\KeshavSir\PRO\VMSKesavSir 24 Feb Final\ENX VMS CO\TrumpCL\obj\Debug\TrumpCL.pdb
+D:\Project\WorkingProject\Keshavsir Solution\ENX VMS CO\TrumpCL\bin\Debug\TrumpCL.dll
+D:\Project\WorkingProject\Keshavsir Solution\ENX VMS CO\TrumpCL\bin\Debug\TrumpCL.pdb
+D:\Project\WorkingProject\Keshavsir Solution\ENX VMS CO\TrumpCL\bin\Debug\BouncyCastle.Crypto.dll
+D:\Project\WorkingProject\Keshavsir Solution\ENX VMS CO\TrumpCL\bin\Debug\itextsharp.dll
+D:\Project\WorkingProject\Keshavsir Solution\ENX VMS CO\TrumpCL\bin\Debug\Microsoft.Web.Infrastructure.dll
+D:\Project\WorkingProject\Keshavsir Solution\ENX VMS CO\TrumpCL\bin\Debug\QRCoder.dll
+D:\Project\WorkingProject\Keshavsir Solution\ENX VMS CO\TrumpCL\bin\Debug\RestSharp.dll
+D:\Project\WorkingProject\Keshavsir Solution\ENX VMS CO\TrumpCL\bin\Debug\System.Web.Helpers.dll
+D:\Project\WorkingProject\Keshavsir Solution\ENX VMS CO\TrumpCL\bin\Debug\System.Web.Mvc.dll
+D:\Project\WorkingProject\Keshavsir Solution\ENX VMS CO\TrumpCL\bin\Debug\System.Web.Razor.dll
+D:\Project\WorkingProject\Keshavsir Solution\ENX VMS CO\TrumpCL\bin\Debug\System.Web.WebPages.Deployment.dll
+D:\Project\WorkingProject\Keshavsir Solution\ENX VMS CO\TrumpCL\bin\Debug\System.Web.WebPages.dll
+D:\Project\WorkingProject\Keshavsir Solution\ENX VMS CO\TrumpCL\bin\Debug\System.Web.WebPages.Razor.dll
+D:\Project\WorkingProject\Keshavsir Solution\ENX VMS CO\TrumpCL\bin\Debug\zxing.dll
+D:\Project\WorkingProject\Keshavsir Solution\ENX VMS CO\TrumpCL\bin\Debug\zxing.presentation.dll
+D:\Project\WorkingProject\Keshavsir Solution\ENX VMS CO\TrumpCL\bin\Debug\itextsharp.xml
+D:\Project\WorkingProject\Keshavsir Solution\ENX VMS CO\TrumpCL\bin\Debug\RestSharp.xml
+D:\Project\WorkingProject\Keshavsir Solution\ENX VMS CO\TrumpCL\bin\Debug\System.Web.Helpers.xml
+D:\Project\WorkingProject\Keshavsir Solution\ENX VMS CO\TrumpCL\bin\Debug\System.Web.Mvc.xml
+D:\Project\WorkingProject\Keshavsir Solution\ENX VMS CO\TrumpCL\bin\Debug\System.Web.Razor.xml
+D:\Project\WorkingProject\Keshavsir Solution\ENX VMS CO\TrumpCL\bin\Debug\System.Web.WebPages.xml
+D:\Project\WorkingProject\Keshavsir Solution\ENX VMS CO\TrumpCL\bin\Debug\System.Web.WebPages.Deployment.xml
+D:\Project\WorkingProject\Keshavsir Solution\ENX VMS CO\TrumpCL\bin\Debug\System.Web.WebPages.Razor.xml
+D:\Project\WorkingProject\Keshavsir Solution\ENX VMS CO\TrumpCL\bin\Debug\zxing.pdb
+D:\Project\WorkingProject\Keshavsir Solution\ENX VMS CO\TrumpCL\bin\Debug\zxing.xml
+D:\Project\WorkingProject\Keshavsir Solution\ENX VMS CO\TrumpCL\bin\Debug\zxing.presentation.pdb
+D:\Project\WorkingProject\Keshavsir Solution\ENX VMS CO\TrumpCL\bin\Debug\zxing.presentation.xml
+D:\Project\WorkingProject\Keshavsir Solution\ENX VMS CO\TrumpCL\obj\Debug\TrumpCL.csproj.AssemblyReference.cache
+D:\Project\WorkingProject\Keshavsir Solution\ENX VMS CO\TrumpCL\obj\Debug\TrumpCL.csproj.CoreCompileInputs.cache
+D:\Project\WorkingProject\Keshavsir Solution\ENX VMS CO\TrumpCL\obj\Debug\TrumpCL.csproj.CopyComplete
+D:\Project\WorkingProject\Keshavsir Solution\ENX VMS CO\TrumpCL\obj\Debug\TrumpCL.dll
+D:\Project\WorkingProject\Keshavsir Solution\ENX VMS CO\TrumpCL\obj\Debug\TrumpCL.pdb
+D:\Project\WorkingProject\Keshavsir Solution\Original\ENX VMS CO\TrumpCL\obj\Debug\TrumpCL.csproj.AssemblyReference.cache
+D:\Project\WorkingProject\Keshavsir Solution\Original\ENX VMS CO\TrumpCL\obj\Debug\TrumpCL.csproj.CoreCompileInputs.cache
+D:\Project\WorkingProject\Keshavsir Solution\Original\ENX VMS CO\TrumpCL\bin\Debug\TrumpCL.dll
+D:\Project\WorkingProject\Keshavsir Solution\Original\ENX VMS CO\TrumpCL\bin\Debug\TrumpCL.pdb
+D:\Project\WorkingProject\Keshavsir Solution\Original\ENX VMS CO\TrumpCL\bin\Debug\BouncyCastle.Crypto.dll
+D:\Project\WorkingProject\Keshavsir Solution\Original\ENX VMS CO\TrumpCL\bin\Debug\itextsharp.dll
+D:\Project\WorkingProject\Keshavsir Solution\Original\ENX VMS CO\TrumpCL\bin\Debug\Microsoft.Web.Infrastructure.dll
+D:\Project\WorkingProject\Keshavsir Solution\Original\ENX VMS CO\TrumpCL\bin\Debug\QRCoder.dll
+D:\Project\WorkingProject\Keshavsir Solution\Original\ENX VMS CO\TrumpCL\bin\Debug\RestSharp.dll
+D:\Project\WorkingProject\Keshavsir Solution\Original\ENX VMS CO\TrumpCL\bin\Debug\System.Web.Helpers.dll
+D:\Project\WorkingProject\Keshavsir Solution\Original\ENX VMS CO\TrumpCL\bin\Debug\System.Web.Mvc.dll
+D:\Project\WorkingProject\Keshavsir Solution\Original\ENX VMS CO\TrumpCL\bin\Debug\System.Web.Razor.dll
+D:\Project\WorkingProject\Keshavsir Solution\Original\ENX VMS CO\TrumpCL\bin\Debug\System.Web.WebPages.Deployment.dll
+D:\Project\WorkingProject\Keshavsir Solution\Original\ENX VMS CO\TrumpCL\bin\Debug\System.Web.WebPages.dll
+D:\Project\WorkingProject\Keshavsir Solution\Original\ENX VMS CO\TrumpCL\bin\Debug\System.Web.WebPages.Razor.dll
+D:\Project\WorkingProject\Keshavsir Solution\Original\ENX VMS CO\TrumpCL\bin\Debug\zxing.dll
+D:\Project\WorkingProject\Keshavsir Solution\Original\ENX VMS CO\TrumpCL\bin\Debug\zxing.presentation.dll
+D:\Project\WorkingProject\Keshavsir Solution\Original\ENX VMS CO\TrumpCL\bin\Debug\itextsharp.xml
+D:\Project\WorkingProject\Keshavsir Solution\Original\ENX VMS CO\TrumpCL\bin\Debug\RestSharp.xml
+D:\Project\WorkingProject\Keshavsir Solution\Original\ENX VMS CO\TrumpCL\bin\Debug\System.Web.Helpers.xml
+D:\Project\WorkingProject\Keshavsir Solution\Original\ENX VMS CO\TrumpCL\bin\Debug\System.Web.Mvc.xml
+D:\Project\WorkingProject\Keshavsir Solution\Original\ENX VMS CO\TrumpCL\bin\Debug\System.Web.Razor.xml
+D:\Project\WorkingProject\Keshavsir Solution\Original\ENX VMS CO\TrumpCL\bin\Debug\System.Web.WebPages.xml
+D:\Project\WorkingProject\Keshavsir Solution\Original\ENX VMS CO\TrumpCL\bin\Debug\System.Web.WebPages.Deployment.xml
+D:\Project\WorkingProject\Keshavsir Solution\Original\ENX VMS CO\TrumpCL\bin\Debug\System.Web.WebPages.Razor.xml
+D:\Project\WorkingProject\Keshavsir Solution\Original\ENX VMS CO\TrumpCL\bin\Debug\zxing.pdb
+D:\Project\WorkingProject\Keshavsir Solution\Original\ENX VMS CO\TrumpCL\bin\Debug\zxing.xml
+D:\Project\WorkingProject\Keshavsir Solution\Original\ENX VMS CO\TrumpCL\bin\Debug\zxing.presentation.pdb
+D:\Project\WorkingProject\Keshavsir Solution\Original\ENX VMS CO\TrumpCL\bin\Debug\zxing.presentation.xml
+D:\Project\WorkingProject\Keshavsir Solution\Original\ENX VMS CO\TrumpCL\obj\Debug\TrumpCL.csproj.CopyComplete
+D:\Project\WorkingProject\Keshavsir Solution\Original\ENX VMS CO\TrumpCL\obj\Debug\TrumpCL.dll
+D:\Project\WorkingProject\Keshavsir Solution\Original\ENX VMS CO\TrumpCL\obj\Debug\TrumpCL.pdb
+D:\Project\WorkingProject\ENXco final\ENX VMS CO\TrumpCL\bin\Debug\TrumpCL.dll
+D:\Project\WorkingProject\ENXco final\ENX VMS CO\TrumpCL\bin\Debug\TrumpCL.pdb
+D:\Project\WorkingProject\ENXco final\ENX VMS CO\TrumpCL\bin\Debug\BouncyCastle.Crypto.dll
+D:\Project\WorkingProject\ENXco final\ENX VMS CO\TrumpCL\bin\Debug\itextsharp.dll
+D:\Project\WorkingProject\ENXco final\ENX VMS CO\TrumpCL\bin\Debug\Microsoft.Web.Infrastructure.dll
+D:\Project\WorkingProject\ENXco final\ENX VMS CO\TrumpCL\bin\Debug\QRCoder.dll
+D:\Project\WorkingProject\ENXco final\ENX VMS CO\TrumpCL\bin\Debug\RestSharp.dll
+D:\Project\WorkingProject\ENXco final\ENX VMS CO\TrumpCL\bin\Debug\System.Web.Helpers.dll
+D:\Project\WorkingProject\ENXco final\ENX VMS CO\TrumpCL\bin\Debug\System.Web.Mvc.dll
+D:\Project\WorkingProject\ENXco final\ENX VMS CO\TrumpCL\bin\Debug\System.Web.Razor.dll
+D:\Project\WorkingProject\ENXco final\ENX VMS CO\TrumpCL\bin\Debug\System.Web.WebPages.Deployment.dll
+D:\Project\WorkingProject\ENXco final\ENX VMS CO\TrumpCL\bin\Debug\System.Web.WebPages.dll
+D:\Project\WorkingProject\ENXco final\ENX VMS CO\TrumpCL\bin\Debug\System.Web.WebPages.Razor.dll
+D:\Project\WorkingProject\ENXco final\ENX VMS CO\TrumpCL\bin\Debug\zxing.dll
+D:\Project\WorkingProject\ENXco final\ENX VMS CO\TrumpCL\bin\Debug\zxing.presentation.dll
+D:\Project\WorkingProject\ENXco final\ENX VMS CO\TrumpCL\bin\Debug\itextsharp.xml
+D:\Project\WorkingProject\ENXco final\ENX VMS CO\TrumpCL\bin\Debug\RestSharp.xml
+D:\Project\WorkingProject\ENXco final\ENX VMS CO\TrumpCL\bin\Debug\System.Web.Helpers.xml
+D:\Project\WorkingProject\ENXco final\ENX VMS CO\TrumpCL\bin\Debug\System.Web.Mvc.xml
+D:\Project\WorkingProject\ENXco final\ENX VMS CO\TrumpCL\bin\Debug\System.Web.Razor.xml
+D:\Project\WorkingProject\ENXco final\ENX VMS CO\TrumpCL\bin\Debug\System.Web.WebPages.xml
+D:\Project\WorkingProject\ENXco final\ENX VMS CO\TrumpCL\bin\Debug\System.Web.WebPages.Deployment.xml
+D:\Project\WorkingProject\ENXco final\ENX VMS CO\TrumpCL\bin\Debug\System.Web.WebPages.Razor.xml
+D:\Project\WorkingProject\ENXco final\ENX VMS CO\TrumpCL\bin\Debug\zxing.pdb
+D:\Project\WorkingProject\ENXco final\ENX VMS CO\TrumpCL\bin\Debug\zxing.xml
+D:\Project\WorkingProject\ENXco final\ENX VMS CO\TrumpCL\bin\Debug\zxing.presentation.pdb
+D:\Project\WorkingProject\ENXco final\ENX VMS CO\TrumpCL\bin\Debug\zxing.presentation.xml
+D:\Project\WorkingProject\ENXco final\ENX VMS CO\TrumpCL\obj\Debug\TrumpCL.csproj.AssemblyReference.cache
+D:\Project\WorkingProject\ENXco final\ENX VMS CO\TrumpCL\obj\Debug\TrumpCL.csproj.CoreCompileInputs.cache
+D:\Project\WorkingProject\ENXco final\ENX VMS CO\TrumpCL\obj\Debug\TrumpCL.csproj.CopyComplete
+D:\Project\WorkingProject\ENXco final\ENX VMS CO\TrumpCL\obj\Debug\TrumpCL.dll
+D:\Project\WorkingProject\ENXco final\ENX VMS CO\TrumpCL\obj\Debug\TrumpCL.pdb
+D:\Project\WorkingProject\VMSCOUpgrade2\VMS CO Upgrade2\TrumpCL\bin\Debug\TrumpCL.dll
+D:\Project\WorkingProject\VMSCOUpgrade2\VMS CO Upgrade2\TrumpCL\bin\Debug\TrumpCL.pdb
+D:\Project\WorkingProject\VMSCOUpgrade2\VMS CO Upgrade2\TrumpCL\bin\Debug\BouncyCastle.Crypto.dll
+D:\Project\WorkingProject\VMSCOUpgrade2\VMS CO Upgrade2\TrumpCL\bin\Debug\itextsharp.dll
+D:\Project\WorkingProject\VMSCOUpgrade2\VMS CO Upgrade2\TrumpCL\bin\Debug\Microsoft.Web.Infrastructure.dll
+D:\Project\WorkingProject\VMSCOUpgrade2\VMS CO Upgrade2\TrumpCL\bin\Debug\QRCoder.dll
+D:\Project\WorkingProject\VMSCOUpgrade2\VMS CO Upgrade2\TrumpCL\bin\Debug\RestSharp.dll
+D:\Project\WorkingProject\VMSCOUpgrade2\VMS CO Upgrade2\TrumpCL\bin\Debug\System.Web.Helpers.dll
+D:\Project\WorkingProject\VMSCOUpgrade2\VMS CO Upgrade2\TrumpCL\bin\Debug\System.Web.Mvc.dll
+D:\Project\WorkingProject\VMSCOUpgrade2\VMS CO Upgrade2\TrumpCL\bin\Debug\System.Web.Razor.dll
+D:\Project\WorkingProject\VMSCOUpgrade2\VMS CO Upgrade2\TrumpCL\bin\Debug\System.Web.WebPages.Deployment.dll
+D:\Project\WorkingProject\VMSCOUpgrade2\VMS CO Upgrade2\TrumpCL\bin\Debug\System.Web.WebPages.dll
+D:\Project\WorkingProject\VMSCOUpgrade2\VMS CO Upgrade2\TrumpCL\bin\Debug\System.Web.WebPages.Razor.dll
+D:\Project\WorkingProject\VMSCOUpgrade2\VMS CO Upgrade2\TrumpCL\bin\Debug\zxing.dll
+D:\Project\WorkingProject\VMSCOUpgrade2\VMS CO Upgrade2\TrumpCL\bin\Debug\zxing.presentation.dll
+D:\Project\WorkingProject\VMSCOUpgrade2\VMS CO Upgrade2\TrumpCL\bin\Debug\itextsharp.xml
+D:\Project\WorkingProject\VMSCOUpgrade2\VMS CO Upgrade2\TrumpCL\bin\Debug\RestSharp.xml
+D:\Project\WorkingProject\VMSCOUpgrade2\VMS CO Upgrade2\TrumpCL\bin\Debug\System.Web.Helpers.xml
+D:\Project\WorkingProject\VMSCOUpgrade2\VMS CO Upgrade2\TrumpCL\bin\Debug\System.Web.Mvc.xml
+D:\Project\WorkingProject\VMSCOUpgrade2\VMS CO Upgrade2\TrumpCL\bin\Debug\System.Web.Razor.xml
+D:\Project\WorkingProject\VMSCOUpgrade2\VMS CO Upgrade2\TrumpCL\bin\Debug\System.Web.WebPages.xml
+D:\Project\WorkingProject\VMSCOUpgrade2\VMS CO Upgrade2\TrumpCL\bin\Debug\System.Web.WebPages.Deployment.xml
+D:\Project\WorkingProject\VMSCOUpgrade2\VMS CO Upgrade2\TrumpCL\bin\Debug\System.Web.WebPages.Razor.xml
+D:\Project\WorkingProject\VMSCOUpgrade2\VMS CO Upgrade2\TrumpCL\bin\Debug\zxing.pdb
+D:\Project\WorkingProject\VMSCOUpgrade2\VMS CO Upgrade2\TrumpCL\bin\Debug\zxing.xml
+D:\Project\WorkingProject\VMSCOUpgrade2\VMS CO Upgrade2\TrumpCL\bin\Debug\zxing.presentation.pdb
+D:\Project\WorkingProject\VMSCOUpgrade2\VMS CO Upgrade2\TrumpCL\bin\Debug\zxing.presentation.xml
+D:\Project\WorkingProject\VMSCOUpgrade2\VMS CO Upgrade2\TrumpCL\obj\Debug\TrumpCL.csproj.AssemblyReference.cache
+D:\Project\WorkingProject\VMSCOUpgrade2\VMS CO Upgrade2\TrumpCL\obj\Debug\TrumpCL.csproj.CoreCompileInputs.cache
+D:\Project\WorkingProject\VMSCOUpgrade2\VMS CO Upgrade2\TrumpCL\obj\Debug\TrumpCL.csproj.CopyComplete
+D:\Project\WorkingProject\VMSCOUpgrade2\VMS CO Upgrade2\TrumpCL\obj\Debug\TrumpCL.dll
+D:\Project\WorkingProject\VMSCOUpgrade2\VMS CO Upgrade2\TrumpCL\obj\Debug\TrumpCL.pdb
+E:\Working Project\VMS CO Upgrade2\TrumpCL\bin\Debug\TrumpCL.dll
+E:\Working Project\VMS CO Upgrade2\TrumpCL\bin\Debug\TrumpCL.pdb
+E:\Working Project\VMS CO Upgrade2\TrumpCL\bin\Debug\BouncyCastle.Crypto.dll
+E:\Working Project\VMS CO Upgrade2\TrumpCL\bin\Debug\itextsharp.dll
+E:\Working Project\VMS CO Upgrade2\TrumpCL\bin\Debug\Microsoft.Web.Infrastructure.dll
+E:\Working Project\VMS CO Upgrade2\TrumpCL\bin\Debug\QRCoder.dll
+E:\Working Project\VMS CO Upgrade2\TrumpCL\bin\Debug\RestSharp.dll
+E:\Working Project\VMS CO Upgrade2\TrumpCL\bin\Debug\System.Web.Helpers.dll
+E:\Working Project\VMS CO Upgrade2\TrumpCL\bin\Debug\System.Web.Mvc.dll
+E:\Working Project\VMS CO Upgrade2\TrumpCL\bin\Debug\System.Web.Razor.dll
+E:\Working Project\VMS CO Upgrade2\TrumpCL\bin\Debug\System.Web.WebPages.Deployment.dll
+E:\Working Project\VMS CO Upgrade2\TrumpCL\bin\Debug\System.Web.WebPages.dll
+E:\Working Project\VMS CO Upgrade2\TrumpCL\bin\Debug\System.Web.WebPages.Razor.dll
+E:\Working Project\VMS CO Upgrade2\TrumpCL\bin\Debug\zxing.dll
+E:\Working Project\VMS CO Upgrade2\TrumpCL\bin\Debug\zxing.presentation.dll
+E:\Working Project\VMS CO Upgrade2\TrumpCL\bin\Debug\itextsharp.xml
+E:\Working Project\VMS CO Upgrade2\TrumpCL\bin\Debug\RestSharp.xml
+E:\Working Project\VMS CO Upgrade2\TrumpCL\bin\Debug\System.Web.Helpers.xml
+E:\Working Project\VMS CO Upgrade2\TrumpCL\bin\Debug\System.Web.Mvc.xml
+E:\Working Project\VMS CO Upgrade2\TrumpCL\bin\Debug\System.Web.Razor.xml
+E:\Working Project\VMS CO Upgrade2\TrumpCL\bin\Debug\System.Web.WebPages.xml
+E:\Working Project\VMS CO Upgrade2\TrumpCL\bin\Debug\System.Web.WebPages.Deployment.xml
+E:\Working Project\VMS CO Upgrade2\TrumpCL\bin\Debug\System.Web.WebPages.Razor.xml
+E:\Working Project\VMS CO Upgrade2\TrumpCL\bin\Debug\zxing.pdb
+E:\Working Project\VMS CO Upgrade2\TrumpCL\bin\Debug\zxing.xml
+E:\Working Project\VMS CO Upgrade2\TrumpCL\bin\Debug\zxing.presentation.pdb
+E:\Working Project\VMS CO Upgrade2\TrumpCL\bin\Debug\zxing.presentation.xml
+E:\Working Project\VMS CO Upgrade2\TrumpCL\obj\Debug\TrumpCL.csproj.AssemblyReference.cache
+E:\Working Project\VMS CO Upgrade2\TrumpCL\obj\Debug\TrumpCL.csproj.CoreCompileInputs.cache
+E:\Working Project\VMS CO Upgrade2\TrumpCL\obj\Debug\TrumpCL.csproj.CopyComplete
+E:\Working Project\VMS CO Upgrade2\TrumpCL\obj\Debug\TrumpCL.dll
+E:\Working Project\VMS CO Upgrade2\TrumpCL\obj\Debug\TrumpCL.pdb
+E:\Working Project\VMS CO Upgrade2 desk and security\TrumpCL\bin\Debug\TrumpCL.dll
+E:\Working Project\VMS CO Upgrade2 desk and security\TrumpCL\bin\Debug\TrumpCL.pdb
+E:\Working Project\VMS CO Upgrade2 desk and security\TrumpCL\bin\Debug\BouncyCastle.Crypto.dll
+E:\Working Project\VMS CO Upgrade2 desk and security\TrumpCL\bin\Debug\itextsharp.dll
+E:\Working Project\VMS CO Upgrade2 desk and security\TrumpCL\bin\Debug\Microsoft.Web.Infrastructure.dll
+E:\Working Project\VMS CO Upgrade2 desk and security\TrumpCL\bin\Debug\QRCoder.dll
+E:\Working Project\VMS CO Upgrade2 desk and security\TrumpCL\bin\Debug\RestSharp.dll
+E:\Working Project\VMS CO Upgrade2 desk and security\TrumpCL\bin\Debug\System.Web.Helpers.dll
+E:\Working Project\VMS CO Upgrade2 desk and security\TrumpCL\bin\Debug\System.Web.Mvc.dll
+E:\Working Project\VMS CO Upgrade2 desk and security\TrumpCL\bin\Debug\System.Web.Razor.dll
+E:\Working Project\VMS CO Upgrade2 desk and security\TrumpCL\bin\Debug\System.Web.WebPages.Deployment.dll
+E:\Working Project\VMS CO Upgrade2 desk and security\TrumpCL\bin\Debug\System.Web.WebPages.dll
+E:\Working Project\VMS CO Upgrade2 desk and security\TrumpCL\bin\Debug\System.Web.WebPages.Razor.dll
+E:\Working Project\VMS CO Upgrade2 desk and security\TrumpCL\bin\Debug\zxing.dll
+E:\Working Project\VMS CO Upgrade2 desk and security\TrumpCL\bin\Debug\zxing.presentation.dll
+E:\Working Project\VMS CO Upgrade2 desk and security\TrumpCL\bin\Debug\itextsharp.xml
+E:\Working Project\VMS CO Upgrade2 desk and security\TrumpCL\bin\Debug\RestSharp.xml
+E:\Working Project\VMS CO Upgrade2 desk and security\TrumpCL\bin\Debug\System.Web.Helpers.xml
+E:\Working Project\VMS CO Upgrade2 desk and security\TrumpCL\bin\Debug\System.Web.Mvc.xml
+E:\Working Project\VMS CO Upgrade2 desk and security\TrumpCL\bin\Debug\System.Web.Razor.xml
+E:\Working Project\VMS CO Upgrade2 desk and security\TrumpCL\bin\Debug\System.Web.WebPages.xml
+E:\Working Project\VMS CO Upgrade2 desk and security\TrumpCL\bin\Debug\System.Web.WebPages.Deployment.xml
+E:\Working Project\VMS CO Upgrade2 desk and security\TrumpCL\bin\Debug\System.Web.WebPages.Razor.xml
+E:\Working Project\VMS CO Upgrade2 desk and security\TrumpCL\bin\Debug\zxing.pdb
+E:\Working Project\VMS CO Upgrade2 desk and security\TrumpCL\bin\Debug\zxing.xml
+E:\Working Project\VMS CO Upgrade2 desk and security\TrumpCL\bin\Debug\zxing.presentation.pdb
+E:\Working Project\VMS CO Upgrade2 desk and security\TrumpCL\bin\Debug\zxing.presentation.xml
+E:\Working Project\VMS CO Upgrade2 desk and security\TrumpCL\obj\Debug\TrumpCL.csproj.AssemblyReference.cache
+E:\Working Project\VMS CO Upgrade2 desk and security\TrumpCL\obj\Debug\TrumpCL.csproj.CoreCompileInputs.cache
+E:\Working Project\VMS CO Upgrade2 desk and security\TrumpCL\obj\Debug\TrumpCL.csproj.CopyComplete
+E:\Working Project\VMS CO Upgrade2 desk and security\TrumpCL\obj\Debug\TrumpCL.dll
+E:\Working Project\VMS CO Upgrade2 desk and security\TrumpCL\obj\Debug\TrumpCL.pdb
+D:\Office\Projects\VMS CO Upgrade2 desk and security\TrumpCL\bin\Debug\TrumpCL.dll
+D:\Office\Projects\VMS CO Upgrade2 desk and security\TrumpCL\bin\Debug\TrumpCL.pdb
+D:\Office\Projects\VMS CO Upgrade2 desk and security\TrumpCL\bin\Debug\BouncyCastle.Crypto.dll
+D:\Office\Projects\VMS CO Upgrade2 desk and security\TrumpCL\bin\Debug\itextsharp.dll
+D:\Office\Projects\VMS CO Upgrade2 desk and security\TrumpCL\bin\Debug\Microsoft.Web.Infrastructure.dll
+D:\Office\Projects\VMS CO Upgrade2 desk and security\TrumpCL\bin\Debug\QRCoder.dll
+D:\Office\Projects\VMS CO Upgrade2 desk and security\TrumpCL\bin\Debug\RestSharp.dll
+D:\Office\Projects\VMS CO Upgrade2 desk and security\TrumpCL\bin\Debug\System.Web.Helpers.dll
+D:\Office\Projects\VMS CO Upgrade2 desk and security\TrumpCL\bin\Debug\System.Web.Mvc.dll
+D:\Office\Projects\VMS CO Upgrade2 desk and security\TrumpCL\bin\Debug\System.Web.Razor.dll
+D:\Office\Projects\VMS CO Upgrade2 desk and security\TrumpCL\bin\Debug\System.Web.WebPages.Deployment.dll
+D:\Office\Projects\VMS CO Upgrade2 desk and security\TrumpCL\bin\Debug\System.Web.WebPages.dll
+D:\Office\Projects\VMS CO Upgrade2 desk and security\TrumpCL\bin\Debug\System.Web.WebPages.Razor.dll
+D:\Office\Projects\VMS CO Upgrade2 desk and security\TrumpCL\bin\Debug\zxing.dll
+D:\Office\Projects\VMS CO Upgrade2 desk and security\TrumpCL\bin\Debug\zxing.presentation.dll
+D:\Office\Projects\VMS CO Upgrade2 desk and security\TrumpCL\bin\Debug\itextsharp.xml
+D:\Office\Projects\VMS CO Upgrade2 desk and security\TrumpCL\bin\Debug\RestSharp.xml
+D:\Office\Projects\VMS CO Upgrade2 desk and security\TrumpCL\bin\Debug\System.Web.Helpers.xml
+D:\Office\Projects\VMS CO Upgrade2 desk and security\TrumpCL\bin\Debug\System.Web.Mvc.xml
+D:\Office\Projects\VMS CO Upgrade2 desk and security\TrumpCL\bin\Debug\System.Web.Razor.xml
+D:\Office\Projects\VMS CO Upgrade2 desk and security\TrumpCL\bin\Debug\System.Web.WebPages.xml
+D:\Office\Projects\VMS CO Upgrade2 desk and security\TrumpCL\bin\Debug\System.Web.WebPages.Deployment.xml
+D:\Office\Projects\VMS CO Upgrade2 desk and security\TrumpCL\bin\Debug\System.Web.WebPages.Razor.xml
+D:\Office\Projects\VMS CO Upgrade2 desk and security\TrumpCL\bin\Debug\zxing.pdb
+D:\Office\Projects\VMS CO Upgrade2 desk and security\TrumpCL\bin\Debug\zxing.xml
+D:\Office\Projects\VMS CO Upgrade2 desk and security\TrumpCL\bin\Debug\zxing.presentation.pdb
+D:\Office\Projects\VMS CO Upgrade2 desk and security\TrumpCL\bin\Debug\zxing.presentation.xml
+D:\Office\Projects\VMS CO Upgrade2 desk and security\TrumpCL\obj\Debug\TrumpCL.csproj.AssemblyReference.cache
+D:\Office\Projects\VMS CO Upgrade2 desk and security\TrumpCL\obj\Debug\TrumpCL.csproj.CoreCompileInputs.cache
+D:\Office\Projects\VMS CO Upgrade2 desk and security\TrumpCL\obj\Debug\TrumpCL.csproj.CopyComplete
+D:\Office\Projects\VMS CO Upgrade2 desk and security\TrumpCL\obj\Debug\TrumpCL.dll
+D:\Office\Projects\VMS CO Upgrade2 desk and security\TrumpCL\obj\Debug\TrumpCL.pdb
+D:\Office\AzureCloud\VMS CO Upgrade2 desk and security\TrumpCL\bin\Debug\TrumpCL.dll
+D:\Office\AzureCloud\VMS CO Upgrade2 desk and security\TrumpCL\bin\Debug\TrumpCL.pdb
+D:\Office\AzureCloud\VMS CO Upgrade2 desk and security\TrumpCL\bin\Debug\BouncyCastle.Crypto.dll
+D:\Office\AzureCloud\VMS CO Upgrade2 desk and security\TrumpCL\bin\Debug\itextsharp.dll
+D:\Office\AzureCloud\VMS CO Upgrade2 desk and security\TrumpCL\bin\Debug\Microsoft.Web.Infrastructure.dll
+D:\Office\AzureCloud\VMS CO Upgrade2 desk and security\TrumpCL\bin\Debug\QRCoder.dll
+D:\Office\AzureCloud\VMS CO Upgrade2 desk and security\TrumpCL\bin\Debug\RestSharp.dll
+D:\Office\AzureCloud\VMS CO Upgrade2 desk and security\TrumpCL\bin\Debug\System.Web.Helpers.dll
+D:\Office\AzureCloud\VMS CO Upgrade2 desk and security\TrumpCL\bin\Debug\System.Web.Mvc.dll
+D:\Office\AzureCloud\VMS CO Upgrade2 desk and security\TrumpCL\bin\Debug\System.Web.Razor.dll
+D:\Office\AzureCloud\VMS CO Upgrade2 desk and security\TrumpCL\bin\Debug\System.Web.WebPages.Deployment.dll
+D:\Office\AzureCloud\VMS CO Upgrade2 desk and security\TrumpCL\bin\Debug\System.Web.WebPages.dll
+D:\Office\AzureCloud\VMS CO Upgrade2 desk and security\TrumpCL\bin\Debug\System.Web.WebPages.Razor.dll
+D:\Office\AzureCloud\VMS CO Upgrade2 desk and security\TrumpCL\bin\Debug\zxing.dll
+D:\Office\AzureCloud\VMS CO Upgrade2 desk and security\TrumpCL\bin\Debug\zxing.presentation.dll
+D:\Office\AzureCloud\VMS CO Upgrade2 desk and security\TrumpCL\bin\Debug\itextsharp.xml
+D:\Office\AzureCloud\VMS CO Upgrade2 desk and security\TrumpCL\bin\Debug\RestSharp.xml
+D:\Office\AzureCloud\VMS CO Upgrade2 desk and security\TrumpCL\bin\Debug\System.Web.Helpers.xml
+D:\Office\AzureCloud\VMS CO Upgrade2 desk and security\TrumpCL\bin\Debug\System.Web.Mvc.xml
+D:\Office\AzureCloud\VMS CO Upgrade2 desk and security\TrumpCL\bin\Debug\System.Web.Razor.xml
+D:\Office\AzureCloud\VMS CO Upgrade2 desk and security\TrumpCL\bin\Debug\System.Web.WebPages.xml
+D:\Office\AzureCloud\VMS CO Upgrade2 desk and security\TrumpCL\bin\Debug\System.Web.WebPages.Deployment.xml
+D:\Office\AzureCloud\VMS CO Upgrade2 desk and security\TrumpCL\bin\Debug\System.Web.WebPages.Razor.xml
+D:\Office\AzureCloud\VMS CO Upgrade2 desk and security\TrumpCL\bin\Debug\zxing.pdb
+D:\Office\AzureCloud\VMS CO Upgrade2 desk and security\TrumpCL\bin\Debug\zxing.xml
+D:\Office\AzureCloud\VMS CO Upgrade2 desk and security\TrumpCL\bin\Debug\zxing.presentation.pdb
+D:\Office\AzureCloud\VMS CO Upgrade2 desk and security\TrumpCL\bin\Debug\zxing.presentation.xml
+D:\Office\AzureCloud\VMS CO Upgrade2 desk and security\TrumpCL\obj\Debug\TrumpCL.csproj.AssemblyReference.cache
+D:\Office\AzureCloud\VMS CO Upgrade2 desk and security\TrumpCL\obj\Debug\TrumpCL.csproj.CoreCompileInputs.cache
+D:\Office\AzureCloud\VMS CO Upgrade2 desk and security\TrumpCL\obj\Debug\TrumpCL.csproj.CopyComplete
+D:\Office\AzureCloud\VMS CO Upgrade2 desk and security\TrumpCL\obj\Debug\TrumpCL.dll
+D:\Office\AzureCloud\VMS CO Upgrade2 desk and security\TrumpCL\obj\Debug\TrumpCL.pdb
+E:\Working Project\Vms 09092024\VMS CO Upgrade2 desk and security\TrumpCL\bin\Debug\TrumpCL.dll
+E:\Working Project\Vms 09092024\VMS CO Upgrade2 desk and security\TrumpCL\bin\Debug\TrumpCL.pdb
+E:\Working Project\Vms 09092024\VMS CO Upgrade2 desk and security\TrumpCL\bin\Debug\BouncyCastle.Crypto.dll
+E:\Working Project\Vms 09092024\VMS CO Upgrade2 desk and security\TrumpCL\bin\Debug\itextsharp.dll
+E:\Working Project\Vms 09092024\VMS CO Upgrade2 desk and security\TrumpCL\bin\Debug\Microsoft.Web.Infrastructure.dll
+E:\Working Project\Vms 09092024\VMS CO Upgrade2 desk and security\TrumpCL\bin\Debug\QRCoder.dll
+E:\Working Project\Vms 09092024\VMS CO Upgrade2 desk and security\TrumpCL\bin\Debug\RestSharp.dll
+E:\Working Project\Vms 09092024\VMS CO Upgrade2 desk and security\TrumpCL\bin\Debug\System.Web.Helpers.dll
+E:\Working Project\Vms 09092024\VMS CO Upgrade2 desk and security\TrumpCL\bin\Debug\System.Web.Mvc.dll
+E:\Working Project\Vms 09092024\VMS CO Upgrade2 desk and security\TrumpCL\bin\Debug\System.Web.Razor.dll
+E:\Working Project\Vms 09092024\VMS CO Upgrade2 desk and security\TrumpCL\bin\Debug\System.Web.WebPages.Deployment.dll
+E:\Working Project\Vms 09092024\VMS CO Upgrade2 desk and security\TrumpCL\bin\Debug\System.Web.WebPages.dll
+E:\Working Project\Vms 09092024\VMS CO Upgrade2 desk and security\TrumpCL\bin\Debug\System.Web.WebPages.Razor.dll
+E:\Working Project\Vms 09092024\VMS CO Upgrade2 desk and security\TrumpCL\bin\Debug\zxing.dll
+E:\Working Project\Vms 09092024\VMS CO Upgrade2 desk and security\TrumpCL\bin\Debug\zxing.presentation.dll
+E:\Working Project\Vms 09092024\VMS CO Upgrade2 desk and security\TrumpCL\bin\Debug\itextsharp.xml
+E:\Working Project\Vms 09092024\VMS CO Upgrade2 desk and security\TrumpCL\bin\Debug\RestSharp.xml
+E:\Working Project\Vms 09092024\VMS CO Upgrade2 desk and security\TrumpCL\bin\Debug\System.Web.Helpers.xml
+E:\Working Project\Vms 09092024\VMS CO Upgrade2 desk and security\TrumpCL\bin\Debug\System.Web.Mvc.xml
+E:\Working Project\Vms 09092024\VMS CO Upgrade2 desk and security\TrumpCL\bin\Debug\System.Web.Razor.xml
+E:\Working Project\Vms 09092024\VMS CO Upgrade2 desk and security\TrumpCL\bin\Debug\System.Web.WebPages.xml
+E:\Working Project\Vms 09092024\VMS CO Upgrade2 desk and security\TrumpCL\bin\Debug\System.Web.WebPages.Deployment.xml
+E:\Working Project\Vms 09092024\VMS CO Upgrade2 desk and security\TrumpCL\bin\Debug\System.Web.WebPages.Razor.xml
+E:\Working Project\Vms 09092024\VMS CO Upgrade2 desk and security\TrumpCL\bin\Debug\zxing.pdb
+E:\Working Project\Vms 09092024\VMS CO Upgrade2 desk and security\TrumpCL\bin\Debug\zxing.xml
+E:\Working Project\Vms 09092024\VMS CO Upgrade2 desk and security\TrumpCL\bin\Debug\zxing.presentation.pdb
+E:\Working Project\Vms 09092024\VMS CO Upgrade2 desk and security\TrumpCL\bin\Debug\zxing.presentation.xml
+E:\Working Project\Vms 09092024\VMS CO Upgrade2 desk and security\TrumpCL\obj\Debug\TrumpCL.csproj.AssemblyReference.cache
+E:\Working Project\Vms 09092024\VMS CO Upgrade2 desk and security\TrumpCL\obj\Debug\TrumpCL.csproj.CoreCompileInputs.cache
+E:\Working Project\Vms 09092024\VMS CO Upgrade2 desk and security\TrumpCL\obj\Debug\TrumpCL.csproj.CopyComplete
+E:\Working Project\Vms 09092024\VMS CO Upgrade2 desk and security\TrumpCL\obj\Debug\TrumpCL.dll
+E:\Working Project\Vms 09092024\VMS CO Upgrade2 desk and security\TrumpCL\obj\Debug\TrumpCL.pdb
+D:\Office\Projects\VMSUpdated30-01-25\TrumpCL\bin\Debug\TrumpCL.dll
+D:\Office\Projects\VMSUpdated30-01-25\TrumpCL\bin\Debug\TrumpCL.pdb
+D:\Office\Projects\VMSUpdated30-01-25\TrumpCL\bin\Debug\BouncyCastle.Crypto.dll
+D:\Office\Projects\VMSUpdated30-01-25\TrumpCL\bin\Debug\itextsharp.dll
+D:\Office\Projects\VMSUpdated30-01-25\TrumpCL\bin\Debug\Microsoft.Web.Infrastructure.dll
+D:\Office\Projects\VMSUpdated30-01-25\TrumpCL\bin\Debug\QRCoder.dll
+D:\Office\Projects\VMSUpdated30-01-25\TrumpCL\bin\Debug\RestSharp.dll
+D:\Office\Projects\VMSUpdated30-01-25\TrumpCL\bin\Debug\System.Web.Helpers.dll
+D:\Office\Projects\VMSUpdated30-01-25\TrumpCL\bin\Debug\System.Web.Mvc.dll
+D:\Office\Projects\VMSUpdated30-01-25\TrumpCL\bin\Debug\System.Web.Razor.dll
+D:\Office\Projects\VMSUpdated30-01-25\TrumpCL\bin\Debug\System.Web.WebPages.Deployment.dll
+D:\Office\Projects\VMSUpdated30-01-25\TrumpCL\bin\Debug\System.Web.WebPages.dll
+D:\Office\Projects\VMSUpdated30-01-25\TrumpCL\bin\Debug\System.Web.WebPages.Razor.dll
+D:\Office\Projects\VMSUpdated30-01-25\TrumpCL\bin\Debug\zxing.dll
+D:\Office\Projects\VMSUpdated30-01-25\TrumpCL\bin\Debug\zxing.presentation.dll
+D:\Office\Projects\VMSUpdated30-01-25\TrumpCL\bin\Debug\itextsharp.xml
+D:\Office\Projects\VMSUpdated30-01-25\TrumpCL\bin\Debug\RestSharp.xml
+D:\Office\Projects\VMSUpdated30-01-25\TrumpCL\bin\Debug\System.Web.Helpers.xml
+D:\Office\Projects\VMSUpdated30-01-25\TrumpCL\bin\Debug\System.Web.Mvc.xml
+D:\Office\Projects\VMSUpdated30-01-25\TrumpCL\bin\Debug\System.Web.Razor.xml
+D:\Office\Projects\VMSUpdated30-01-25\TrumpCL\bin\Debug\System.Web.WebPages.xml
+D:\Office\Projects\VMSUpdated30-01-25\TrumpCL\bin\Debug\System.Web.WebPages.Deployment.xml
+D:\Office\Projects\VMSUpdated30-01-25\TrumpCL\bin\Debug\System.Web.WebPages.Razor.xml
+D:\Office\Projects\VMSUpdated30-01-25\TrumpCL\bin\Debug\zxing.pdb
+D:\Office\Projects\VMSUpdated30-01-25\TrumpCL\bin\Debug\zxing.xml
+D:\Office\Projects\VMSUpdated30-01-25\TrumpCL\bin\Debug\zxing.presentation.pdb
+D:\Office\Projects\VMSUpdated30-01-25\TrumpCL\bin\Debug\zxing.presentation.xml
+D:\Office\Projects\VMSUpdated30-01-25\TrumpCL\obj\Debug\TrumpCL.csproj.AssemblyReference.cache
+D:\Office\Projects\VMSUpdated30-01-25\TrumpCL\obj\Debug\TrumpCL.csproj.CoreCompileInputs.cache
+D:\Office\Projects\VMSUpdated30-01-25\TrumpCL\obj\Debug\TrumpCL.csproj.Up2Date
+D:\Office\Projects\VMSUpdated30-01-25\TrumpCL\obj\Debug\TrumpCL.dll
+D:\Office\Projects\VMSUpdated30-01-25\TrumpCL\obj\Debug\TrumpCL.pdb

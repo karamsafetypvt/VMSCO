@@ -1,0 +1,454 @@
+﻿@model Trump.Models.MaterialView
+
+@{
+    ViewBag.Title = "Vendor";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="content" style="font-size:12px;min-height:100%">
+    <div class="content_resize">
+        <div class="mainbar">
+            <div class="article">
+                <div id="divNewInward" style="">
+                    <form action="/Material/AddSuppliear" enctype="multipart/form-data" method="post">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="widget stacked">
+                                        <div class="widget-header">
+                                            <i class="fa fa-check-circle"></i>
+                                            <h3>
+                                                Outward
+                                            </h3>
+                                        </div>
+                                        <div class="widget-content">
+                                            <div class="row">
+                                                <div class="col-md-4">
+                                                    <fieldset>
+                                                        <legend>Pass Detail</legend>
+                                                        <div class="form-group">
+                                                            <label for="name" class="col-md-8">Material Type</label>
+                                                            <div class="col-md-10">
+                                                                <input type="text" name="M_Type" class="form-control" value="@Model.RGP.M_Type" readonly />
+
+                                                            </div>
+                                                            <div class="col-md-2">
+
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group" id="divDate">
+                                                            <label for="name" class="col-md-8">Date</label>
+                                                            <div class="col-md-10">
+                                                                <input class="form-control" id="InwardDateString" name="RaiseDate" value="@Model.RGP.RaiseDate" readonly type="text">
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                            </div>
+                                                        </div>
+                                                        <div id="HidePODetail">
+                                                            <div class="form-group">
+                                                                <label for="name" class="col-md-8">Challan No</label>
+                                                                <div class="col-md-10">
+                                                                    <input class="form-control" value="@Model.RGP.ChallanNmbr" id="chOutward" name="chOutward" readonly="readonly" type="text">
+                                                                </div>
+                                                                <div class="col-md-2">
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label for="name" class="col-md-8">Request by</label>
+                                                                <div class="col-md-10">
+                                                                    <input class="form-control" name="Requestor" value="@ViewBag.Name" readonly type="text">
+                                                                </div>
+                                                                <div class="col-md-2">
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label for="name" class="col-md-8">Department</label>
+                                                                <div class="col-md-10">
+                                                                    <input class="form-control" name="Dept" value="@ViewBag.DeptName"  readonly type="text">
+                                                                </div>
+                                                                <div class="col-md-2">
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label for="name" class="col-md-8">Mobile/Extension</label>
+                                                                <div class="col-md-10">
+                                                                    <input class="form-control" id="CreatedByName" value="@ViewBag.MBL" readonly type="text">
+
+                                                                </div>
+                                                                <div class="col-md-2">
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label for="name" class="col-md-8">Out From</label>
+                                                                <div class="col-md-10">
+                                                                    <input class="form-control" value="@Model.RGP.OutFrom" readonly type="text">
+
+                                                                </div>
+                                                                <div class="col-md-2">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </fieldset>
+                                                </div>
+                                                <div class="col-md-4" id="SupplierDetail">
+                                                    <fieldset>
+                                                        <legend>Supplier Detail</legend>
+
+                                                        <div class="form-group">
+                                                            <label for="name" class="col-md-8">Movement Type</label>
+                                                            <div class="col-md-10">
+                                                                <input type="text" name="S_Type" value="@Model.RGP.S_Type" readonly="readonly" class="form-control" />
+                                                            </div>
+                                                            <div class="col-md-2">
+
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group" id="divVisitors">
+                                                            <label for="name" class="col-md-8">Name</label>
+                                                            <div class="col-md-10">
+                                                                <input class="form-control clsVisitorIDAutotext" id="NameV" required name="VisitorName" value="" type="text">
+                                                                <input type="hidden" name="SupplierID" id="SupplierID" value="" />
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <i class="fa fa-asterisk required" style="margin-left: -25px;"></i>
+                                                                <a class="VendorQuickAdd"><i class="fa fa-plus-circle"></i></a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group" id="divVisitors">
+                                                            <label for="name" class="col-md-8">Address</label>
+                                                            <div class="col-md-10">
+                                                                <textarea required class="form-control clsVisitorIDAutotext" style="height:50%" cols="5" id="VndorAdd" name="VndorAdd"></textarea>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <i class="fa fa-asterisk required" style="margin-left: -25px;"></i>
+                                                                <a style="display: none;" id="VisitorQuickAdd"><i class="fa fa-plus-circle"></i></a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group" id="divUsers">
+                                                            <label for="name" class="col-md-8">GST No.</label>
+                                                            <div class="col-md-10">
+                                                                <input autocomplete="off" class="form-control clsUserIDAutotext ui-autocomplete-input" id="GST" name="UserName" value="" type="text">
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <i class="fa fa-asterisk required" style="margin-left: -25px;"></i>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group" id="divContractor">
+                                                            <label for="name" class="col-md-8">Contact Person</label>
+                                                            <div class="col-md-10">
+
+                                                                <input class="form-control clsContractorIDAutotext" id="ContractorName" name="ContactPerson" value="" type="text">
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <i class="fa fa-asterisk required" style="margin-left: -25px;"></i>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="name" class="col-md-8">Remark</label>
+                                                            <div class="col-md-10">
+                                                                <textarea class="form-control" name="Remark"></textarea>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="name" class="col-md-8">MRS/PRS</label>
+                                                            <div class="col-md-10">
+                                                                <input type="text" name="MRS" value="@Model.RGP.MRS" class="form-control" />
+                                                            </div>
+                                                        </div>
+                                                    </fieldset>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <fieldset>
+                                                        <legend>Transport Detail</legend>
+                                                        <div class="form-group">
+                                                            <label for="name" class="col-md-8">Mode Of Transport</label>
+                                                            <div class="col-md-10">
+                                                                <select class="form-control" data-val="true" name="ModeOfTrans" id="CreateCarriedByTypeID" required>
+                                                                    <option selected disabled>--Please Select--</option>
+                                                                    <option value="SELF">User(Self)</option>
+                                                                    <option value="WORKER">Worker</option>
+                                                                    <option value="TRANSPORT">Transport</option>
+                                                                    <option value="VISITOR">Visitor</option>
+                                                                </select>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <i class="fa fa-asterisk required" style="margin-left: -25px;"></i>
+                                                            </div>
+                                                        </div>
+
+                                                        @if (Model.RGP.ModeOfTrans == "VISITOR")
+                                                        {
+                                                            <div>
+
+                                                                <div class="form-group">
+                                                                    <label for="name" class="col-md-8">
+                                                                        Mobile Number
+                                                                    </label>
+                                                                    <div class="col-md-10">
+                                                                        <input class="form-control" value="@ViewBag.V_MBL" type="text" readonly>
+                                                                    </div>
+                                                                    <div class="col-md-2">
+                                                                    </div>
+                                                                </div>                           <div class="form-group">
+                                                                    <label for="name" class="col-md-8">Visitor Company</label>
+                                                                    <div class="col-md-10">
+                                                                        <input type="text" class="form-control" value="@ViewBag.V_CName" readonly />
+                                                                    </div>
+                                                                    <div class="col-md-2">
+                                                                        <i class="fa fa-asterisk required" style="margin-left: -25px;"></i>
+
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label for="name" class="col-md-8">Visitor Name</label>
+                                                                    <div class="col-md-10">
+                                                                        <input type="text" name="name" class="form-control" value="@ViewBag.V_Name" readonly />
+                                                                    </div>
+                                                                    <div class="col-md-2">
+                                                                        <i class="fa fa-asterisk required" style="margin-left: -25px;"></i>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        }
+
+
+                                                        <div id="OptionWorker" style="display:none;">
+                                                            <div class="form-group" id="divVisitors">
+                                                                <label for="name" class="col-md-8">Name</label>
+                                                                <div class="col-md-10">
+                                                                    <input class="form-control clsVisitorIDAutotext" name="PersoneName" type="text" onkeypress="return isAlphabt(event)">
+                                                                </div>
+                                                                <div class="col-md-2">
+                                                                    <i class="fa fa-asterisk required" style="margin-left: -25px;"></i>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div id="OptionTransport" style="display:none;">
+                                                            <div class="form-group" id="divVisitors">
+                                                                <label for="name" class="col-md-8">Transport Name</label>
+                                                                <div class="col-md-10">
+                                                                    <input class="form-control clsVisitorIDAutotext" id="VisitorName" name="DriverName" value="" type="text" onkeypress="return isAlphabt(event)">
+
+                                                                </div>
+                                                                <label for="name" class="col-md-8">Driver Name/Vehicle No</label>
+                                                                <div class="col-md-10">
+                                                                    <input class="form-control clsVisitorIDAutotext" name="Veh_No" type="text">
+                                                                </div>
+                                                                <div class="col-md-2">
+                                                                    <i class="fa fa-asterisk required" style="margin-left: -25px;"></i>
+                                                                </div>
+                                                                <div class="col-md-2">
+                                                                    <i class="fa fa-asterisk required" style="margin-left: -25px;"></i>
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+                                                        <div id="OptionVisitor11" style="display:none;">                                                             
+                                                        </div>
+
+                                                    </fieldset>
+                                                </div>
+                                            </div>
+                                            <hr>
+                                            <div>
+                                                <div style="padding: 5px">
+                                                    <div id="divTable">
+                                                        <table id="tbl_posts " class="bordered table table-responsive" style="width: 100%;overflow-x:auto;">
+                                                            <thead>
+                                                                <tr>
+                                                                <th style="display:none">
+                                                                    ID
+                                                                </th>
+                                                                    <th style="width: 5%;">
+                                                                        Item Code
+                                                                    </th>
+                                                                    <th style="width: 15%;">
+                                                                        Description
+                                                                    </th>
+                                                                    <th style="width: 5%;">
+                                                                        UOM
+                                                                    </th>
+
+                                                                    <th style="width: 5%;">
+                                                                        Qty
+                                                                    </th>
+
+                                                                    <th style="width: 5%;">
+                                                                        Approx Value
+                                                                    </th>                                                                </tr>
+                                                            </thead>
+                                                            <tbody id="tbl_posts_body">
+                                                                @foreach (var item in Model.Item)
+                                                                {
+                                                                <tr id="rec-1">
+                                                                    <td style="display:none"><input type="hidden" name="IT_M" value="@item.IT_M" /></td>
+                                                                    <td>
+                                                                        <input class="form-control" readonly style="width:100%" type="text" value="@item.Item">
+                                                                    </td>
+                                                                    <td>
+                                                                        <input class="form-control" style="width:100%" name="Descriptn" type="text" value="@item.Descriptn">
+                                                                    </td>
+                                                                    <td>
+                                                                        <input class="form-control" readonly style="width:100%" type="text" value="@item.UOM">
+                                                                    </td>
+                                                                    <td>
+                                                                        <input class="form-control" readonly style="width:100%" type="text" value="@item.Qty">
+                                                                    <td>
+                                                                        <input class="form-control" name="ApproxValue" style="width:100%" type="text" value="@item.ApproxValue">
+                                                                    </td>
+                                                                </tr>
+                                                                }
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <hr>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div id="divSavePanel">
+                                                        <input id="btnSave" name="btnSave" class="btn btn-primary pull-right" value="Submit" type="submit">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="clr">
+        </div>
+        <div class="clr">
+        </div>
+    </div>
+</div>
+<div aria-labelledby="ui-id-1" aria-describedby="dialog-formVendor" role="dialog" tabindex="-1" style="display: none; position: absolute;" class="ui-dialog ui-widget ui-widget-content ui-corner-all ui-front ui-dialog-buttons ui-draggable ui-resizable" ng-controller="AppointmentController">
+    <div class="ui-dialog-titlebar ui-widget-header ui-corner-all ui-helper-clearfix">
+        <span class="ui-dialog-title" id="ui-id-1">New Vendor</span>
+        <button class="ui-dialog-titlebar-close"></button>
+    </div>
+    <form method="post">
+        <div title="New Vendor" class="ui-front ui-dialog-content ui-widget-content dialog-form" style="overflow: auto; z-index: 2147483647; width: auto; height: auto;">
+            <div class="form-horizontal col-md-12">
+                <div class="main">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="widget-content">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <fieldset>
+                                                <div class="form-group">
+                                                    <label for="name" class="col-md-10">Party Name</label>
+                                                    <div class="col-md-10">
+                                                        <input class="form-control" data-val="true" name="PartyName" ng-model="Company.CName" value="" type="text">
+                                                        <span id="ValidationForVisitorCompanyNamed" style="color: Red; display: none" class="field-validation-error">
+                                                        </span>
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        <i class="fa fa-asterisk required" style="margin-left: -25px;"></i>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="name" class="col-md-10">Company Address</label>
+                                                    <div class="col-md-10">
+                                                        <textarea class="form-control" cols="20" id="fAddress" rows="2" ng-model="Company.Addres"></textarea>
+                                                        <span id="ValidationForAddress1" class="field-validation-error" style="display: none">
+                                                        </span>
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="name" class="col-md-10">GST Number</label>
+                                                    <div class="col-md-10">
+                                                        <input class="form-control" name="GST" type="text" ng-model="Company.GST"><br>
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                    </div>
+                                                </div>
+
+                                            </fieldset>
+                                        </div>
+
+                                        <input type="button" ng-click="VendorAdd()" value="Save" class="btn btn-primary" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $("#NameV").autocomplete({
+            source: function (request, response) {
+                    $.ajax({
+                        url: '@Url.Action("GetVendor", "Material")',
+                        type: "GET",
+                        dataType: "json",
+                        data: { Prefix: request.term },
+                        success: function (data) {
+                            response(data);
+                        }
+                    })
+            },
+            select: function (e, i) {
+                debugger
+                $("#GST").val(i.item.VGST);
+                $("#VndorAdd").val(i.item.Add);
+                $("#NameV").val(i.item.label)
+                $("#SupplierID").val(i.item.VID)
+            }
+        });
+
+        $(".dialog-formVendor").dialog({
+                autoOpen: false,
+                height: 360,
+                width: 700,
+                modal: true,
+        });
+        $(".VendorQuickAdd").click(function () {
+            $(".dialog-form").dialog("open");
+        })
+
+        $("#CreateCarriedByTypeID").change(function () {
+            var d = $(this).val();
+            if (d == "SELF") {
+                $("#OptionWorker").hide();
+                $("#OptionVisitor").hide();
+                $("#OptionTransport").hide();
+                $("#OptionVisitor11").hide();
+            }
+            else if (d == "WORKER") {
+                $("#OptionWorker").show();
+                $("#OptionVisitor").hide();
+                $("#OptionTransport").hide();
+                $("#OptionVisitor11").hide();
+            }
+            else if (d == "TRANSPORT") {
+                $("#OptionWorker").hide();
+                $("#OptionVisitor").hide();
+                $("#OptionTransport").show();
+                $("#OptionVisitor11").hide();
+            }
+            else if (d == "VISITOR") {
+                $("#OptionWorker").hide();
+                $("#OptionVisitor").hide();
+                $("#OptionTransport").hide();
+                $("#OptionVisitor11").show();                
+            }
+        })
+    })
+</script>

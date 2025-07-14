@@ -1,0 +1,197 @@
+﻿@model Trump.Models.tblApproval
+@{
+    ViewBag.Title = "EditApprover";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="content" style="font-size:12px;min-height:100%">
+    <div class="content_resize">
+        <div class="mainbar">
+            <div class="article">
+                <div class="main">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="widget stacked">
+                                    <div class="widget-header">
+                                        <i class="icon-ok"></i>
+                                        <h3>
+                                            Edit Approver
+                                        </h3>
+                                    </div>
+                                    <form action="../Master/Edit_Approver" method="post" enctype="multipart/form-data">
+                                        <input type="hidden" value="@Model.App_ID" name="App_ID" />
+                                        <div class="widget-content">
+                                            <div class="row">
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label for="name" class="col-md-8">
+                                                            Name
+                                                        </label>
+                                                        <div class="col-md-10">
+                                                            <input type="text" name="Name_" maxlength="40" id="Name_" class="form-control" value="@Model.Name_" />
+                                                        </div>
+                                                        <div class="col-md-2">
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label for="name" class="col-md-8">
+                                                            Email
+                                                        </label>
+                                                        <div class="col-md-10">
+                                                            <input class="form-control" data-val="true" maxlength="40" id="Email" name="Email" value="@Model.Email" type="text">
+                                                        </div>
+                                                        <div class="col-md-2">
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label for="name" class="col-md-12">Status</label>
+                                                        <div class="col-md-10">
+                                                            <select tabindex="-1" class="form-control select2_group ddlIDType" id="AppStatus" data-val="true" name="AppStatus">
+                                                                <option selected disabled>@Model.AppStatus</option>
+                                                                <option>Active</option>
+                                                                <option>Inactive</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="col-md-2">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <hr>
+
+                                            <div class="row">
+                                                <div class="container">
+                                                    <input class="btn btn-primary btnSave" id="btnSave2" value="Update" type="submit">                                                          <input class="btn btn-primary" value="Back" type="button" onclick="goBack()">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="clr">
+        </div>
+    </div>
+</div>
+
+
+
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script>
+    function goBack() {
+        /*  window.history.back();*/
+        window.location.href = "../Master/Approver";
+
+    }
+</script>
+
+<script>
+
+    $("#btnSave2").click(function () {
+
+
+        var Name = $("#Name_").val().trim();
+        var Email = $("#Email").val().trim();
+
+        var AppStatus = $('#AppStatus option:selected').text();
+        alert(AppStatus);
+        if (Name == "") {
+
+            alert("please enter Name");
+            return false;
+
+        }
+
+        else if (Email == "") {
+
+            alert("please enter Email");
+            return false;
+
+        }
+
+        else if (AppStatus == "") {
+
+            alert("please enter Status");
+            return false;
+
+        }
+    });
+
+
+</script>
+
+
+
+
+<script>
+
+    $("#Email").change(function () {
+        //alert(IsEmail(email));
+        //if (IsEmail(email) == false) {
+        //  alert('Please Enter corect email')
+        //    return false;
+        //}
+        var atSymbol = $("#Email").val().indexOf("@@");
+
+        //Check minimum valid length of an Email.
+        if ($("#Email").val().length <= 2) {
+            alert('please enter correct email');
+            $("#Email").val('');
+            return false;
+        }
+        //If whether email has  character.
+        if ($("#Email").val().indexOf("@@") == -1) {
+            alert('please enter correct email');
+            $("#Email").val('');
+            return false;
+        }
+
+
+        var parts = $("#Email").val().split("@@");
+        var dot = parts[1].indexOf(".");
+        var len = parts[1].length;
+        var dotSplits = parts[1].split(".");
+        var dotCount = dotSplits.length - 1;
+
+
+        //Check whether Dot is present, and that too minimum 1 character after
+        if (dot == -1 || dot < 2 || dotCount > 2) {
+            $("#Email").val('');
+            alert('please enter correct email');
+            return false;
+        }
+
+        //Check whether Dot is not the last character and dots are not repeated.
+        for (var i = 0; i < dotSplits.length; i++) {
+            if (dotSplits[i].length == 0) {
+                $("#Email").val('');
+                alert('please enter correct email');
+
+                return false;
+            }
+        }
+
+
+        return true;
+
+
+
+
+        //alert('Please Enter corect email')
+        //$("#fvVisitorEmail").val('');
+        //return false;
+    });
+
+
+</script>
+
+

@@ -1,0 +1,955 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="TrumpModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="ApprovalHOD">
+          <Key>
+            <PropertyRef Name="AH" />
+          </Key>
+          <Property Name="AH" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Department" Type="nvarchar" MaxLength="100" />
+          <Property Name="PNICode" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="ExceptionLogger">
+          <Key>
+            <PropertyRef Name="EXID" />
+          </Key>
+          <Property Name="EXID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ExceptionMessage" Type="nvarchar(max)" />
+          <Property Name="ExceptionStackTrace" Type="nvarchar(max)" />
+          <Property Name="ControllerName" Type="nvarchar(max)" />
+          <Property Name="LogTime" Type="datetime" />
+          <Property Name="IPAddress" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Item_Material">
+          <Key>
+            <PropertyRef Name="IT_M" />
+          </Key>
+          <Property Name="IT_M" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID" Type="bigint" />
+          <Property Name="Item" Type="nvarchar" MaxLength="250" />
+          <Property Name="Descriptn" Type="nvarchar(max)" />
+          <Property Name="UOM" Type="nvarchar" MaxLength="50" />
+          <Property Name="Qty" Type="int" />
+          <Property Name="RecQty" Type="int" />
+          <Property Name="M_Status" Type="nvarchar" MaxLength="50" />
+          <Property Name="ApproxValue" Type="nvarchar" MaxLength="50" />
+          <Property Name="CurrRec" Type="bigint" />
+          <Property Name="CloseDate" Type="datetime" />
+          <Property Name="Reason" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Msgtemplate">
+          <Key>
+            <PropertyRef Name="M_ID" />
+          </Key>
+          <Property Name="M_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Template" Type="nvarchar(max)" />
+          <Property Name="Action" Type="nvarchar" MaxLength="50" />
+          <Property Name="Region" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tblAppoinment">
+          <Key>
+            <PropertyRef Name="A_ID" />
+          </Key>
+          <Property Name="A_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GPID" Type="nvarchar" MaxLength="50" />
+          <Property Name="Requestor" Type="nvarchar" MaxLength="50" />
+          <Property Name="Deptment" Type="int" />
+          <Property Name="ComanyID" Type="int" />
+          <Property Name="VisitorID" Type="int" />
+          <Property Name="Visitor_Type" Type="nvarchar" MaxLength="50" />
+          <Property Name="V_DateFrom" Type="datetime" />
+          <Property Name="A_Time" Type="nvarchar" MaxLength="50" />
+          <Property Name="V_DateTo" Type="datetime" />
+          <Property Name="Duration" Type="nvarchar" MaxLength="50" />
+          <Property Name="V_Location" Type="nvarchar" MaxLength="50" />
+          <Property Name="Remark" Type="nvarchar(max)" />
+          <Property Name="Valid_at" Type="nvarchar" MaxLength="50" />
+          <Property Name="V_Allowed" Type="nvarchar" MaxLength="10" />
+          <Property Name="A_Type" Type="nvarchar" MaxLength="10" />
+          <Property Name="RaiseDate" Type="datetime" />
+          <Property Name="V_InDate" Type="datetime" />
+          <Property Name="V_OutDate" Type="datetime" />
+          <Property Name="Location" Type="nvarchar" MaxLength="25" />
+          <Property Name="V_Status" Type="nvarchar" MaxLength="50" />
+          <Property Name="EntryType" Type="varchar" MaxLength="50" />
+          <Property Name="Flag" Type="nvarchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="tblApproval">
+          <Key>
+            <PropertyRef Name="App_ID" />
+          </Key>
+          <Property Name="App_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AppName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Email" Type="nvarchar" MaxLength="100" />
+          <Property Name="AppType" Type="nvarchar" MaxLength="50" />
+          <Property Name="AppStatus" Type="nvarchar" MaxLength="50" />
+          <Property Name="Name_" Type="nvarchar" MaxLength="50" />
+          <Property Name="Region" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tblCompany">
+          <Key>
+            <PropertyRef Name="C_ID" />
+          </Key>
+          <Property Name="C_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CName" Type="nvarchar" MaxLength="100" />
+          <Property Name="Addres" Type="nvarchar" MaxLength="250" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="20" />
+          <Property Name="GST" Type="nvarchar" MaxLength="50" />
+          <Property Name="City" Type="nvarchar" MaxLength="50" />
+          <Property Name="CState" Type="nvarchar" MaxLength="50" />
+          <Property Name="C_Status" Type="nvarchar" MaxLength="10" />
+          <Property Name="PinCode" Type="nvarchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="tblIN_Out">
+          <Key>
+            <PropertyRef Name="M_ID" />
+          </Key>
+          <Property Name="M_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ChallanNmbr" Type="nvarchar" MaxLength="50" />
+          <Property Name="Requestor" Type="nvarchar" MaxLength="50" />
+          <Property Name="Dept" Type="int" />
+          <Property Name="RaiseDate" Type="date" />
+          <Property Name="M_Type" Type="nvarchar" MaxLength="50" />
+          <Property Name="S_Type" Type="nvarchar" MaxLength="50" />
+          <Property Name="M_Location" Type="nvarchar" MaxLength="50" />
+          <Property Name="OutFrom" Type="nvarchar" MaxLength="50" />
+          <Property Name="ModeOfTrans" Type="nvarchar" MaxLength="50" />
+          <Property Name="PersoneName" Type="nvarchar" MaxLength="50" />
+          <Property Name="SecApproveTime" Type="datetime" />
+          <Property Name="SecINTime" Type="datetime" />
+          <Property Name="HODTime" Type="datetime" />
+          <Property Name="SupplierID" Type="int" />
+          <Property Name="V_Type" Type="nvarchar" MaxLength="50" />
+          <Property Name="Veh_No" Type="nvarchar" MaxLength="50" />
+          <Property Name="Remark" Type="nvarchar(max)" />
+          <Property Name="Descriptn" Type="nvarchar" MaxLength="100" />
+          <Property Name="M_Status" Type="nvarchar" MaxLength="50" />
+          <Property Name="Delay" Type="nvarchar" MaxLength="10" />
+          <Property Name="DelayReason" Type="nvarchar(max)" />
+          <Property Name="ApprovingHOD" Type="nvarchar" MaxLength="50" />
+          <Property Name="ContactPerson" Type="nvarchar" MaxLength="100" />
+          <Property Name="Flag" Type="nvarchar" MaxLength="10" />
+          <Property Name="SecurityOutFrom" Type="datetime" />
+          <Property Name="SecurityOutRcv" Type="datetime" />
+          <Property Name="MRS" Type="nvarchar" MaxLength="15" />
+        </EntityType>
+        <EntityType Name="tblMaterial">
+          <Key>
+            <PropertyRef Name="M_ID" />
+          </Key>
+          <Property Name="M_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="M_Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Serial_No" Type="nvarchar" MaxLength="50" />
+          <Property Name="App_ID" Type="int" />
+        </EntityType>
+        <EntityType Name="tblMaterialInward">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PO" Type="varchar(max)" />
+          <Property Name="ITEM" Type="varchar(max)" />
+          <Property Name="DESCRIPTION" Type="varchar(max)" />
+          <Property Name="CREATION_DATE" Type="varchar(max)" />
+          <Property Name="QUANTITY" Type="varchar(max)" />
+          <Property Name="UNIT_PRICE" Type="varchar(max)" />
+          <Property Name="UOM" Type="varchar(max)" />
+          <Property Name="VENDOR_NAME" Type="varchar(max)" />
+          <Property Name="GST" Type="varchar(max)" />
+          <Property Name="CONTACT_NUM" Type="varchar(max)" />
+          <Property Name="EMAIL_ADDRESS" Type="varchar(max)" />
+          <Property Name="CONTACT_PERSON" Type="varchar(max)" />
+          <Property Name="ADDRESS" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="tblPO">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PODate" Type="datetime" />
+          <Property Name="PONum" Type="bigint" />
+          <Property Name="SupplierName" Type="varchar(max)" />
+          <Property Name="SupplierAddress" Type="varchar(max)" />
+          <Property Name="GST_No" Type="varchar" MaxLength="50" />
+          <Property Name="Contact_Person" Type="varchar" MaxLength="100" />
+          <Property Name="Contact_Num" Type="varchar" MaxLength="50" />
+          <Property Name="Mode_Of_Transport" Type="varchar" MaxLength="50" />
+          <Property Name="validID" Type="varchar" MaxLength="50" />
+          <Property Name="Vehicle_Type" Type="varchar" MaxLength="50" />
+          <Property Name="Vehicle_No" Type="varchar" MaxLength="50" />
+          <Property Name="Driver_Name" Type="varchar" MaxLength="50" />
+          <Property Name="Visitor_Name" Type="varchar" MaxLength="50" />
+          <Property Name="Visitor_Number" Type="varchar" MaxLength="15" />
+          <Property Name="Visitor_Company" Type="varchar" MaxLength="100" />
+          <Property Name="Flag" Type="nvarchar" MaxLength="10" />
+          <Property Name="Region" Type="nvarchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="tblPOItem">
+          <Key>
+            <PropertyRef Name="POID" />
+          </Key>
+          <Property Name="POID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PONmbr" Type="int" />
+          <Property Name="Item" Type="nvarchar" MaxLength="100" />
+          <Property Name="Descriptn" Type="nvarchar(max)" />
+          <Property Name="UOM" Type="nvarchar(max)" />
+          <Property Name="Qty" Type="nvarchar" MaxLength="50" />
+          <Property Name="RecQty" Type="nvarchar" MaxLength="50" />
+          <Property Name="CloseDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="tblQuestion">
+          <Key>
+            <PropertyRef Name="Q_ID" />
+          </Key>
+          <Property Name="Q_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GP_ID" Type="int" />
+          <Property Name="Q1" Type="nvarchar" MaxLength="50" />
+          <Property Name="Q2" Type="nvarchar" MaxLength="50" />
+          <Property Name="Q3" Type="nvarchar" MaxLength="50" />
+          <Property Name="Q4" Type="nvarchar" MaxLength="50" />
+          <Property Name="SessionTime" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Trump.dbo.tblSite' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="tblSite">
+          <Key>
+            <PropertyRef Name="S_ID" />
+          </Key>
+          <Property Name="S_ID" Type="int" Nullable="false" />
+          <Property Name="L_name" Type="nvarchar" MaxLength="50" />
+          <Property Name="DeviceNameWrkr" Type="nvarchar" MaxLength="50" />
+          <Property Name="DeviceNameExe" Type="nvarchar" MaxLength="50" />
+          <Property Name="Region" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tblSiteDistance">
+          <Key>
+            <PropertyRef Name="SD_ID" />
+          </Key>
+          <Property Name="SD_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FromSite" Type="nvarchar" MaxLength="50" />
+          <Property Name="ToSite" Type="nvarchar" MaxLength="50" />
+          <Property Name="Distance" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tblVisitor">
+          <Key>
+            <PropertyRef Name="V_ID" />
+          </Key>
+          <Property Name="V_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="V_Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="V_Phone" Type="nvarchar" MaxLength="25" />
+          <Property Name="V_Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="Visitor_ID" Type="nvarchar" MaxLength="50" />
+          <Property Name="V_IDNumber" Type="nvarchar" MaxLength="50" />
+          <Property Name="V_Pic" Type="nvarchar(max)" />
+          <Property Name="V_Status" Type="nvarchar" MaxLength="50" />
+          <Property Name="C_ID" Type="int" />
+        </EntityType>
+        <EntityType Name="tblVisitorINOUT">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GPID" Type="nvarchar" MaxLength="50" />
+          <Property Name="FDate" Type="datetime" />
+          <Property Name="TDate" Type="datetime" />
+          <Property Name="Location" Type="nvarchar" MaxLength="50" />
+          <Property Name="VL_Status" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="VendorData">
+          <Key>
+            <PropertyRef Name="VNID" />
+          </Key>
+          <Property Name="VNID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PartyName" Type="nvarchar" MaxLength="100" />
+          <Property Name="PartyAddress" Type="nvarchar(max)" />
+          <Property Name="GST" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="VisitorAcceptance">
+          <Key>
+            <PropertyRef Name="VA_ID" />
+          </Key>
+          <Property Name="VA_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="VisitorID" Type="int" />
+          <Property Name="GatePassID" Type="nvarchar" MaxLength="50" />
+          <Property Name="AccptGate" Type="datetime" />
+          <Property Name="Feedback" Type="int" />
+          <Property Name="Flag" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="VisitType">
+          <Key>
+            <PropertyRef Name="V_TY" />
+          </Key>
+          <Property Name="V_TY" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="VstTpe" Type="nvarchar" MaxLength="50" />
+          <Property Name="VStatus" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityContainer Name="TrumpModelStoreContainer">
+          <EntitySet Name="ApprovalHOD" EntityType="Self.ApprovalHOD" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ExceptionLogger" EntityType="Self.ExceptionLogger" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Item_Material" EntityType="Self.Item_Material" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Msgtemplate" EntityType="Self.Msgtemplate" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblAppoinment" EntityType="Self.tblAppoinment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblApproval" EntityType="Self.tblApproval" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblCompany" EntityType="Self.tblCompany" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblIN_Out" EntityType="Self.tblIN_Out" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblMaterial" EntityType="Self.tblMaterial" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblMaterialInward" EntityType="Self.tblMaterialInward" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblPO" EntityType="Self.tblPO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblPOItem" EntityType="Self.tblPOItem" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblQuestion" EntityType="Self.tblQuestion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblSiteDistance" EntityType="Self.tblSiteDistance" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblVisitor" EntityType="Self.tblVisitor" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblVisitorINOUT" EntityType="Self.tblVisitorINOUT" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="VendorData" EntityType="Self.VendorData" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="VisitorAcceptance" EntityType="Self.VisitorAcceptance" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="VisitType" EntityType="Self.VisitType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblSite" EntityType="Self.tblSite" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [tblSite].[S_ID] AS [S_ID], 
+    [tblSite].[L_name] AS [L_name], 
+    [tblSite].[DeviceNameWrkr] AS [DeviceNameWrkr], 
+    [tblSite].[DeviceNameExe] AS [DeviceNameExe], 
+    [tblSite].[Region] AS [Region]
+    FROM [dbo].[tblSite] AS [tblSite]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="TrumpModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="ApprovalHOD">
+          <Key>
+            <PropertyRef Name="AH" />
+          </Key>
+          <Property Name="AH" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Department" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="PNICode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="ExceptionLogger">
+          <Key>
+            <PropertyRef Name="EXID" />
+          </Key>
+          <Property Name="EXID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ExceptionMessage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ExceptionStackTrace" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ControllerName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="LogTime" Type="DateTime" Precision="3" />
+          <Property Name="IPAddress" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Item_Material">
+          <Key>
+            <PropertyRef Name="IT_M" />
+          </Key>
+          <Property Name="IT_M" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID" Type="Int64" />
+          <Property Name="Item" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Descriptn" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="UOM" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Qty" Type="Int32" />
+          <Property Name="RecQty" Type="Int32" />
+          <Property Name="M_Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ApproxValue" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CurrRec" Type="Int64" />
+          <Property Name="CloseDate" Type="DateTime" Precision="3" />
+          <Property Name="Reason" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Msgtemplate">
+          <Key>
+            <PropertyRef Name="M_ID" />
+          </Key>
+          <Property Name="M_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Template" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Action" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Region" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tblAppoinment">
+          <Key>
+            <PropertyRef Name="A_ID" />
+          </Key>
+          <Property Name="A_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GPID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Requestor" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Deptment" Type="Int32" />
+          <Property Name="ComanyID" Type="Int32" />
+          <Property Name="VisitorID" Type="Int32" />
+          <Property Name="Visitor_Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="V_DateFrom" Type="DateTime" Precision="3" />
+          <Property Name="A_Time" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="V_DateTo" Type="DateTime" Precision="3" />
+          <Property Name="Duration" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="V_Location" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Remark" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Valid_at" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="V_Allowed" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="A_Type" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="RaiseDate" Type="DateTime" Precision="3" />
+          <Property Name="V_InDate" Type="DateTime" Precision="3" />
+          <Property Name="V_OutDate" Type="DateTime" Precision="3" />
+          <Property Name="Location" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="V_Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="EntryType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Flag" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tblApproval">
+          <Key>
+            <PropertyRef Name="App_ID" />
+          </Key>
+          <Property Name="App_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AppName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="AppType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AppStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Name_" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Region" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tblCompany">
+          <Key>
+            <PropertyRef Name="C_ID" />
+          </Key>
+          <Property Name="C_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Addres" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="GST" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CState" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="C_Status" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="PinCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tblIN_Out">
+          <Key>
+            <PropertyRef Name="M_ID" />
+          </Key>
+          <Property Name="M_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ChallanNmbr" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Requestor" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Dept" Type="Int32" />
+          <Property Name="RaiseDate" Type="DateTime" Precision="0" />
+          <Property Name="M_Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="S_Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="M_Location" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OutFrom" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ModeOfTrans" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PersoneName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SecApproveTime" Type="DateTime" Precision="3" />
+          <Property Name="SecINTime" Type="DateTime" Precision="3" />
+          <Property Name="HODTime" Type="DateTime" Precision="3" />
+          <Property Name="SupplierID" Type="Int32" />
+          <Property Name="V_Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Veh_No" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Remark" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Descriptn" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="M_Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Delay" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="DelayReason" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ApprovingHOD" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ContactPerson" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Flag" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="SecurityOutFrom" Type="DateTime" Precision="3" />
+          <Property Name="SecurityOutRcv" Type="DateTime" Precision="3" />
+          <Property Name="MRS" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tblMaterial">
+          <Key>
+            <PropertyRef Name="M_ID" />
+          </Key>
+          <Property Name="M_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="M_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Serial_No" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="App_ID" Type="Int32" />
+        </EntityType>
+        <EntityType Name="tblMaterialInward">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PO" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ITEM" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="DESCRIPTION" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="CREATION_DATE" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="QUANTITY" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="UNIT_PRICE" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="UOM" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="VENDOR_NAME" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="GST" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="CONTACT_NUM" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="EMAIL_ADDRESS" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="CONTACT_PERSON" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ADDRESS" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="tblPO">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PODate" Type="DateTime" Precision="3" />
+          <Property Name="PONum" Type="Int64" />
+          <Property Name="SupplierName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="SupplierAddress" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="GST_No" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Contact_Person" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Contact_Num" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Mode_Of_Transport" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="validID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Vehicle_Type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Vehicle_No" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Driver_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Visitor_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Visitor_Number" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="Visitor_Company" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Flag" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Region" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tblPOItem">
+          <Key>
+            <PropertyRef Name="POID" />
+          </Key>
+          <Property Name="POID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PONmbr" Type="Int32" />
+          <Property Name="Item" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Descriptn" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="UOM" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Qty" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="RecQty" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CloseDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="tblQuestion">
+          <Key>
+            <PropertyRef Name="Q_ID" />
+          </Key>
+          <Property Name="Q_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GP_ID" Type="Int32" />
+          <Property Name="Q1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Q2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Q3" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Q4" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SessionTime" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tblSiteDistance">
+          <Key>
+            <PropertyRef Name="SD_ID" />
+          </Key>
+          <Property Name="SD_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FromSite" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ToSite" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Distance" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tblVisitor">
+          <Key>
+            <PropertyRef Name="V_ID" />
+          </Key>
+          <Property Name="V_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="V_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="V_Phone" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="V_Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Visitor_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="V_IDNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="V_Pic" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="V_Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="C_ID" Type="Int32" />
+        </EntityType>
+        <EntityType Name="tblVisitorINOUT">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GPID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FDate" Type="DateTime" Precision="3" />
+          <Property Name="TDate" Type="DateTime" Precision="3" />
+          <Property Name="Location" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="VL_Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="VendorData">
+          <Key>
+            <PropertyRef Name="VNID" />
+          </Key>
+          <Property Name="VNID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PartyName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="PartyAddress" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="GST" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="VisitorAcceptance">
+          <Key>
+            <PropertyRef Name="VA_ID" />
+          </Key>
+          <Property Name="VA_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="VisitorID" Type="Int32" />
+          <Property Name="GatePassID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AccptGate" Type="DateTime" Precision="3" />
+          <Property Name="Feedback" Type="Int32" />
+          <Property Name="Flag" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="VisitType">
+          <Key>
+            <PropertyRef Name="V_TY" />
+          </Key>
+          <Property Name="V_TY" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="VstTpe" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="VStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tblSite">
+          <Key>
+            <PropertyRef Name="S_ID" />
+          </Key>
+          <Property Name="S_ID" Type="Int32" Nullable="false" />
+          <Property Name="L_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DeviceNameWrkr" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DeviceNameExe" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Region" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="TrumpEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ApprovalHODs" EntityType="Self.ApprovalHOD" />
+          <EntitySet Name="ExceptionLoggers" EntityType="Self.ExceptionLogger" />
+          <EntitySet Name="Item_Material" EntityType="Self.Item_Material" />
+          <EntitySet Name="Msgtemplates" EntityType="Self.Msgtemplate" />
+          <EntitySet Name="tblAppoinments" EntityType="Self.tblAppoinment" />
+          <EntitySet Name="tblApprovals" EntityType="Self.tblApproval" />
+          <EntitySet Name="tblCompanies" EntityType="Self.tblCompany" />
+          <EntitySet Name="tblIN_Out" EntityType="Self.tblIN_Out" />
+          <EntitySet Name="tblMaterials" EntityType="Self.tblMaterial" />
+          <EntitySet Name="tblMaterialInwards" EntityType="Self.tblMaterialInward" />
+          <EntitySet Name="tblPOes" EntityType="Self.tblPO" />
+          <EntitySet Name="tblPOItems" EntityType="Self.tblPOItem" />
+          <EntitySet Name="tblQuestions" EntityType="Self.tblQuestion" />
+          <EntitySet Name="tblSiteDistances" EntityType="Self.tblSiteDistance" />
+          <EntitySet Name="tblVisitors" EntityType="Self.tblVisitor" />
+          <EntitySet Name="tblVisitorINOUTs" EntityType="Self.tblVisitorINOUT" />
+          <EntitySet Name="VendorDatas" EntityType="Self.VendorData" />
+          <EntitySet Name="VisitorAcceptances" EntityType="Self.VisitorAcceptance" />
+          <EntitySet Name="VisitTypes" EntityType="Self.VisitType" />
+          <EntitySet Name="tblSites" EntityType="Self.tblSite" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="TrumpModelStoreContainer" CdmEntityContainer="TrumpEntities">
+          <EntitySetMapping Name="ApprovalHODs">
+            <EntityTypeMapping TypeName="TrumpModel.ApprovalHOD">
+              <MappingFragment StoreEntitySet="ApprovalHOD">
+                <ScalarProperty Name="AH" ColumnName="AH" />
+                <ScalarProperty Name="Department" ColumnName="Department" />
+                <ScalarProperty Name="PNICode" ColumnName="PNICode" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ExceptionLoggers">
+            <EntityTypeMapping TypeName="TrumpModel.ExceptionLogger">
+              <MappingFragment StoreEntitySet="ExceptionLogger">
+                <ScalarProperty Name="EXID" ColumnName="EXID" />
+                <ScalarProperty Name="ExceptionMessage" ColumnName="ExceptionMessage" />
+                <ScalarProperty Name="ExceptionStackTrace" ColumnName="ExceptionStackTrace" />
+                <ScalarProperty Name="ControllerName" ColumnName="ControllerName" />
+                <ScalarProperty Name="LogTime" ColumnName="LogTime" />
+                <ScalarProperty Name="IPAddress" ColumnName="IPAddress" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Item_Material">
+            <EntityTypeMapping TypeName="TrumpModel.Item_Material">
+              <MappingFragment StoreEntitySet="Item_Material">
+                <ScalarProperty Name="IT_M" ColumnName="IT_M" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Item" ColumnName="Item" />
+                <ScalarProperty Name="Descriptn" ColumnName="Descriptn" />
+                <ScalarProperty Name="UOM" ColumnName="UOM" />
+                <ScalarProperty Name="Qty" ColumnName="Qty" />
+                <ScalarProperty Name="RecQty" ColumnName="RecQty" />
+                <ScalarProperty Name="M_Status" ColumnName="M_Status" />
+                <ScalarProperty Name="ApproxValue" ColumnName="ApproxValue" />
+                <ScalarProperty Name="CurrRec" ColumnName="CurrRec" />
+                <ScalarProperty Name="CloseDate" ColumnName="CloseDate" />
+                <ScalarProperty Name="Reason" ColumnName="Reason" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Msgtemplates">
+            <EntityTypeMapping TypeName="TrumpModel.Msgtemplate">
+              <MappingFragment StoreEntitySet="Msgtemplate">
+                <ScalarProperty Name="M_ID" ColumnName="M_ID" />
+                <ScalarProperty Name="Template" ColumnName="Template" />
+                <ScalarProperty Name="Action" ColumnName="Action" />
+                <ScalarProperty Name="Region" ColumnName="Region" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblAppoinments">
+            <EntityTypeMapping TypeName="TrumpModel.tblAppoinment">
+              <MappingFragment StoreEntitySet="tblAppoinment">
+                <ScalarProperty Name="A_ID" ColumnName="A_ID" />
+                <ScalarProperty Name="GPID" ColumnName="GPID" />
+                <ScalarProperty Name="Requestor" ColumnName="Requestor" />
+                <ScalarProperty Name="Deptment" ColumnName="Deptment" />
+                <ScalarProperty Name="ComanyID" ColumnName="ComanyID" />
+                <ScalarProperty Name="VisitorID" ColumnName="VisitorID" />
+                <ScalarProperty Name="Visitor_Type" ColumnName="Visitor_Type" />
+                <ScalarProperty Name="V_DateFrom" ColumnName="V_DateFrom" />
+                <ScalarProperty Name="A_Time" ColumnName="A_Time" />
+                <ScalarProperty Name="V_DateTo" ColumnName="V_DateTo" />
+                <ScalarProperty Name="Duration" ColumnName="Duration" />
+                <ScalarProperty Name="V_Location" ColumnName="V_Location" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="Valid_at" ColumnName="Valid_at" />
+                <ScalarProperty Name="V_Allowed" ColumnName="V_Allowed" />
+                <ScalarProperty Name="A_Type" ColumnName="A_Type" />
+                <ScalarProperty Name="RaiseDate" ColumnName="RaiseDate" />
+                <ScalarProperty Name="V_InDate" ColumnName="V_InDate" />
+                <ScalarProperty Name="V_OutDate" ColumnName="V_OutDate" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
+                <ScalarProperty Name="V_Status" ColumnName="V_Status" />
+                <ScalarProperty Name="EntryType" ColumnName="EntryType" />
+                <ScalarProperty Name="Flag" ColumnName="Flag" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblApprovals">
+            <EntityTypeMapping TypeName="TrumpModel.tblApproval">
+              <MappingFragment StoreEntitySet="tblApproval">
+                <ScalarProperty Name="App_ID" ColumnName="App_ID" />
+                <ScalarProperty Name="AppName" ColumnName="AppName" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="AppType" ColumnName="AppType" />
+                <ScalarProperty Name="AppStatus" ColumnName="AppStatus" />
+                <ScalarProperty Name="Name_" ColumnName="Name_" />
+                <ScalarProperty Name="Region" ColumnName="Region" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblCompanies">
+            <EntityTypeMapping TypeName="TrumpModel.tblCompany">
+              <MappingFragment StoreEntitySet="tblCompany">
+                <ScalarProperty Name="C_ID" ColumnName="C_ID" />
+                <ScalarProperty Name="CName" ColumnName="CName" />
+                <ScalarProperty Name="Addres" ColumnName="Addres" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="GST" ColumnName="GST" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="CState" ColumnName="CState" />
+                <ScalarProperty Name="C_Status" ColumnName="C_Status" />
+                <ScalarProperty Name="PinCode" ColumnName="PinCode" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblIN_Out">
+            <EntityTypeMapping TypeName="TrumpModel.tblIN_Out">
+              <MappingFragment StoreEntitySet="tblIN_Out">
+                <ScalarProperty Name="MRS" ColumnName="MRS" />
+                <ScalarProperty Name="M_ID" ColumnName="M_ID" />
+                <ScalarProperty Name="ChallanNmbr" ColumnName="ChallanNmbr" />
+                <ScalarProperty Name="Requestor" ColumnName="Requestor" />
+                <ScalarProperty Name="Dept" ColumnName="Dept" />
+                <ScalarProperty Name="RaiseDate" ColumnName="RaiseDate" />
+                <ScalarProperty Name="M_Type" ColumnName="M_Type" />
+                <ScalarProperty Name="S_Type" ColumnName="S_Type" />
+                <ScalarProperty Name="M_Location" ColumnName="M_Location" />
+                <ScalarProperty Name="OutFrom" ColumnName="OutFrom" />
+                <ScalarProperty Name="ModeOfTrans" ColumnName="ModeOfTrans" />
+                <ScalarProperty Name="PersoneName" ColumnName="PersoneName" />
+                <ScalarProperty Name="SecApproveTime" ColumnName="SecApproveTime" />
+                <ScalarProperty Name="SecINTime" ColumnName="SecINTime" />
+                <ScalarProperty Name="HODTime" ColumnName="HODTime" />
+                <ScalarProperty Name="SupplierID" ColumnName="SupplierID" />
+                <ScalarProperty Name="V_Type" ColumnName="V_Type" />
+                <ScalarProperty Name="Veh_No" ColumnName="Veh_No" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="Descriptn" ColumnName="Descriptn" />
+                <ScalarProperty Name="M_Status" ColumnName="M_Status" />
+                <ScalarProperty Name="Delay" ColumnName="Delay" />
+                <ScalarProperty Name="DelayReason" ColumnName="DelayReason" />
+                <ScalarProperty Name="ApprovingHOD" ColumnName="ApprovingHOD" />
+                <ScalarProperty Name="ContactPerson" ColumnName="ContactPerson" />
+                <ScalarProperty Name="Flag" ColumnName="Flag" />
+                <ScalarProperty Name="SecurityOutFrom" ColumnName="SecurityOutFrom" />
+                <ScalarProperty Name="SecurityOutRcv" ColumnName="SecurityOutRcv" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblMaterials">
+            <EntityTypeMapping TypeName="TrumpModel.tblMaterial">
+              <MappingFragment StoreEntitySet="tblMaterial">
+                <ScalarProperty Name="M_ID" ColumnName="M_ID" />
+                <ScalarProperty Name="M_Name" ColumnName="M_Name" />
+                <ScalarProperty Name="Serial_No" ColumnName="Serial_No" />
+                <ScalarProperty Name="App_ID" ColumnName="App_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblMaterialInwards">
+            <EntityTypeMapping TypeName="TrumpModel.tblMaterialInward">
+              <MappingFragment StoreEntitySet="tblMaterialInward">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="PO" ColumnName="PO" />
+                <ScalarProperty Name="ITEM" ColumnName="ITEM" />
+                <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+                <ScalarProperty Name="CREATION_DATE" ColumnName="CREATION_DATE" />
+                <ScalarProperty Name="QUANTITY" ColumnName="QUANTITY" />
+                <ScalarProperty Name="UNIT_PRICE" ColumnName="UNIT_PRICE" />
+                <ScalarProperty Name="UOM" ColumnName="UOM" />
+                <ScalarProperty Name="VENDOR_NAME" ColumnName="VENDOR_NAME" />
+                <ScalarProperty Name="GST" ColumnName="GST" />
+                <ScalarProperty Name="CONTACT_NUM" ColumnName="CONTACT_NUM" />
+                <ScalarProperty Name="EMAIL_ADDRESS" ColumnName="EMAIL_ADDRESS" />
+                <ScalarProperty Name="CONTACT_PERSON" ColumnName="CONTACT_PERSON" />
+                <ScalarProperty Name="ADDRESS" ColumnName="ADDRESS" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblPOes">
+            <EntityTypeMapping TypeName="TrumpModel.tblPO">
+              <MappingFragment StoreEntitySet="tblPO">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="PODate" ColumnName="PODate" />
+                <ScalarProperty Name="PONum" ColumnName="PONum" />
+                <ScalarProperty Name="SupplierName" ColumnName="SupplierName" />
+                <ScalarProperty Name="SupplierAddress" ColumnName="SupplierAddress" />
+                <ScalarProperty Name="GST_No" ColumnName="GST_No" />
+                <ScalarProperty Name="Contact_Person" ColumnName="Contact_Person" />
+                <ScalarProperty Name="Contact_Num" ColumnName="Contact_Num" />
+                <ScalarProperty Name="Mode_Of_Transport" ColumnName="Mode_Of_Transport" />
+                <ScalarProperty Name="validID" ColumnName="validID" />
+                <ScalarProperty Name="Vehicle_Type" ColumnName="Vehicle_Type" />
+                <ScalarProperty Name="Vehicle_No" ColumnName="Vehicle_No" />
+                <ScalarProperty Name="Driver_Name" ColumnName="Driver_Name" />
+                <ScalarProperty Name="Visitor_Name" ColumnName="Visitor_Name" />
+                <ScalarProperty Name="Visitor_Number" ColumnName="Visitor_Number" />
+                <ScalarProperty Name="Visitor_Company" ColumnName="Visitor_Company" />
+                <ScalarProperty Name="Flag" ColumnName="Flag" />
+                <ScalarProperty Name="Region" ColumnName="Region" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblPOItems">
+            <EntityTypeMapping TypeName="TrumpModel.tblPOItem">
+              <MappingFragment StoreEntitySet="tblPOItem">
+                <ScalarProperty Name="POID" ColumnName="POID" />
+                <ScalarProperty Name="PONmbr" ColumnName="PONmbr" />
+                <ScalarProperty Name="Item" ColumnName="Item" />
+                <ScalarProperty Name="Descriptn" ColumnName="Descriptn" />
+                <ScalarProperty Name="UOM" ColumnName="UOM" />
+                <ScalarProperty Name="Qty" ColumnName="Qty" />
+                <ScalarProperty Name="RecQty" ColumnName="RecQty" />
+                <ScalarProperty Name="CloseDate" ColumnName="CloseDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblQuestions">
+            <EntityTypeMapping TypeName="TrumpModel.tblQuestion">
+              <MappingFragment StoreEntitySet="tblQuestion">
+                <ScalarProperty Name="Q_ID" ColumnName="Q_ID" />
+                <ScalarProperty Name="GP_ID" ColumnName="GP_ID" />
+                <ScalarProperty Name="Q1" ColumnName="Q1" />
+                <ScalarProperty Name="Q2" ColumnName="Q2" />
+                <ScalarProperty Name="Q3" ColumnName="Q3" />
+                <ScalarProperty Name="Q4" ColumnName="Q4" />
+                <ScalarProperty Name="SessionTime" ColumnName="SessionTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblSiteDistances">
+            <EntityTypeMapping TypeName="TrumpModel.tblSiteDistance">
+              <MappingFragment StoreEntitySet="tblSiteDistance">
+                <ScalarProperty Name="SD_ID" ColumnName="SD_ID" />
+                <ScalarProperty Name="FromSite" ColumnName="FromSite" />
+                <ScalarProperty Name="ToSite" ColumnName="ToSite" />
+                <ScalarProperty Name="Distance" ColumnName="Distance" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblVisitors">
+            <EntityTypeMapping TypeName="TrumpModel.tblVisitor">
+              <MappingFragment StoreEntitySet="tblVisitor">
+                <ScalarProperty Name="V_ID" ColumnName="V_ID" />
+                <ScalarProperty Name="V_Name" ColumnName="V_Name" />
+                <ScalarProperty Name="V_Phone" ColumnName="V_Phone" />
+                <ScalarProperty Name="V_Email" ColumnName="V_Email" />
+                <ScalarProperty Name="Visitor_ID" ColumnName="Visitor_ID" />
+                <ScalarProperty Name="V_IDNumber" ColumnName="V_IDNumber" />
+                <ScalarProperty Name="V_Pic" ColumnName="V_Pic" />
+                <ScalarProperty Name="V_Status" ColumnName="V_Status" />
+                <ScalarProperty Name="C_ID" ColumnName="C_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblVisitorINOUTs">
+            <EntityTypeMapping TypeName="TrumpModel.tblVisitorINOUT">
+              <MappingFragment StoreEntitySet="tblVisitorINOUT">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="GPID" ColumnName="GPID" />
+                <ScalarProperty Name="FDate" ColumnName="FDate" />
+                <ScalarProperty Name="TDate" ColumnName="TDate" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
+                <ScalarProperty Name="VL_Status" ColumnName="VL_Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VendorDatas">
+            <EntityTypeMapping TypeName="TrumpModel.VendorData">
+              <MappingFragment StoreEntitySet="VendorData">
+                <ScalarProperty Name="VNID" ColumnName="VNID" />
+                <ScalarProperty Name="PartyName" ColumnName="PartyName" />
+                <ScalarProperty Name="PartyAddress" ColumnName="PartyAddress" />
+                <ScalarProperty Name="GST" ColumnName="GST" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VisitorAcceptances">
+            <EntityTypeMapping TypeName="TrumpModel.VisitorAcceptance">
+              <MappingFragment StoreEntitySet="VisitorAcceptance">
+                <ScalarProperty Name="VA_ID" ColumnName="VA_ID" />
+                <ScalarProperty Name="VisitorID" ColumnName="VisitorID" />
+                <ScalarProperty Name="GatePassID" ColumnName="GatePassID" />
+                <ScalarProperty Name="AccptGate" ColumnName="AccptGate" />
+                <ScalarProperty Name="Feedback" ColumnName="Feedback" />
+                <ScalarProperty Name="Flag" ColumnName="Flag" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VisitTypes">
+            <EntityTypeMapping TypeName="TrumpModel.VisitType">
+              <MappingFragment StoreEntitySet="VisitType">
+                <ScalarProperty Name="V_TY" ColumnName="V_TY" />
+                <ScalarProperty Name="VstTpe" ColumnName="VstTpe" />
+                <ScalarProperty Name="VStatus" ColumnName="VStatus" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblSites">
+            <EntityTypeMapping TypeName="TrumpModel.tblSite">
+              <MappingFragment StoreEntitySet="tblSite">
+                <ScalarProperty Name="S_ID" ColumnName="S_ID" />
+                <ScalarProperty Name="L_name" ColumnName="L_name" />
+                <ScalarProperty Name="DeviceNameWrkr" ColumnName="DeviceNameWrkr" />
+                <ScalarProperty Name="DeviceNameExe" ColumnName="DeviceNameExe" />
+                <ScalarProperty Name="Region" ColumnName="Region" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

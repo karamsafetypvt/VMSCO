@@ -1,0 +1,84 @@
+﻿@*@model IEnumerable<Trump.Models.sp_AppUpcoming_Result>*@
+@model IEnumerable<TrumpCL.DataFieldAdmin>
+
+
+@{
+    ViewBag.Title = "AppUpcoming";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@*<link href="~/Layout/Content/style.css" rel="stylesheet" />*@
+
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<link href="~/Content/jquery-ui.css" rel="stylesheet" />
+<link href="~/Content/Gridmvc.css" rel="stylesheet" />
+<script src="~/Scripts/gridmvc.min.js"></script>
+
+
+@helper CustomPostionOfItam(TrumpCL.DataFieldAdmin item)
+{
+    if (item.V_Status == "Pre")
+    {
+        @*<span>Pre-Appointment</span>*@
+        <span>Appointment</span>
+    }
+    else if (item.V_Status == "Reject")
+    {
+        <span>Rejected</span>
+    }
+    else if (item.V_Status == "Arrived" || item.V_Status == "Request")
+    {
+        <span>Visitor IN</span>
+    }
+    else if (item.V_Status == "Close" || item.V_Status == "OUT")
+    {
+        <span>Closed</span>
+    }
+}
+
+
+
+
+
+
+
+<div class="content" style="font-size:12px;min-height:100%">
+    <div class="content_resize">
+        <div class="mainbar">
+            <div class="article">
+                <div id="accordion">
+                    <h4 class="clsAccordion">
+                        TOTAL  UPCOMING APPOINTMENTS
+                    </h4>
+                </div>
+                <br />
+
+                <div id="AppointementTableContainer" class="table table-responsive" style="overflow-x:auto;overflow-y:auto;">
+                    <div class="jtable-main-container">
+                        <div class="jtable" id="jtable">
+                            <div class="table table-bordered table-responsive" id="table2">
+                                @using GridMvc.Html
+                                @{
+                                    <div style="width:auto;">
+                                        @Html.Grid(Model).Columns(columns =>
+                                   {
+                                       columns.Add(c => c.GPID).Titled("Appointment ID").Css("ContentTitle").Filterable(true).Sortable(true);
+                                       columns.Add(c => c.V_DateFrom).Titled("Date").Format("{0:dd/MMM/yyyy}").Css("ContentTitle").Sortable(true).Filterable(true);
+                                       columns.Add(c => c.A_Time).Titled("Time").Css("ContentTitle").Filterable(true).Sortable(true);
+                                       columns.Add(c => c.Duration).Titled("Duration").Css("ContentTitle").Sortable(true).Filterable(true);
+                                       columns.Add(c => c.CName).Titled("Company").Css("ContentTitle").Sortable(true).Filterable(true);
+                                       columns.Add(c => c.NAME).Titled("Visitor").Css("ContentTitle").Sortable(true).Filterable(true);
+                                       columns.Add(c => c.Visitor_Type).Titled("Visit Type").Css("ContentTitle").Sortable(true).Filterable(true);
+                                       columns.Add(c => c.V_Status).Titled("Status").Css("ContentTitle").Sortable(true).Encoded(false).Sanitized(false).RenderValueAs(o => CustomPostionOfItam(o)).Filterable(true);
+                                       columns.Add(c => c.Region).Titled("Region").Css("ContentTitle").Sortable(true).Filterable(true);
+                                       //columns.Add(c => c.V_Status).Titled("Status").Css("ContentTitle").Sortable(true).Encoded(false).Sanitized(false).Filterable(true);
+                                   }).WithPaging(10).Sortable(true)
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

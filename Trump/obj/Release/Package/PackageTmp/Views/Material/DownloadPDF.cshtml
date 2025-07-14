@@ -1,0 +1,362 @@
+﻿@model Trump.Models.MaterialView
+@{
+    Layout = null;
+}
+<style>
+    tr.border_ td {
+        border: 1px solid black;
+        font-size: 12px;
+    }
+
+    p {
+        font: 12px arial;
+    }
+
+    .border_ tr.bb td {
+        font-size: 9px;
+    }
+
+    tr.border {
+        outline: thin solid;
+    }
+</style>
+<span style="float:left"><img src="@Url.Content("~/Content/logo.png")" height="25px" width="50px" /></span>
+<span style="float:right;font-size:8px;margin-top:0%">QF/ADM/19<br />Issue Date - 01/04/2017<br />Rev. 02 Dt. 18/05/2018</span>
+<table class="table" style="width:100%;margin-top:0%">
+    <tr>
+        <td style="text-align:center">
+            <span style="font-size:12px;font-weight:bold">@Model.RGP.M_Type CUM DELIVERY CHALLAN</span>
+            @if (Model.RGP.OutFrom == "UNIT 4")
+            {
+                <p style="font-size:10px ;text-align:center">
+                    PN SAFETECH PRIVATE LIMITED<br />
+                    C-18 & 19, AMOUSI INDUSTRIAL AREA NADARGANJ,<br />
+                    LUCKNOW – 226008<br />
+                    GSTIN - 09AABCP4411C1ZX<br />
+                </p>
+            }
+            else
+            {
+                <p style="font-size:10px ;text-align:center">
+                    PN INTERNATIONAL PVT. LTD (100% E.O.U.)<br />
+                    PLOT NO. C-12, 13, 14, 15 & B-24, 25, 26 & C-40, AMAUSI INDUSTRIAL AREA,<br />
+                    NADARGANJ, LUCKNOW.<br />
+                    PH.: 91-522-2434801, FAX : 522-2434896<br />
+                    GST NO. 09AALCP1503H1ZI<br />
+                </p>
+            }
+        </td>
+        <td>
+            <span style="float:left">
+                <img src="data:image/gif;base64,@ViewBag.a" />
+            </span>
+        </td>
+    </tr>
+</table>
+<span style="float:left;font-size:12px">DELIVERY CHALLAN NO.</span>
+<span style="font-weight:bold;font-size:12px">@Model.RGP.ChallanNmbr</span>
+<span style="float:right;font-size:12px">
+    Second-Copy<br />@Model.RGP.RaiseDate.Value.ToString("dd/MMM/yyyy")
+</span>
+<table class="table" style="width:100%;margin-top:0%">
+    <tr class="border_">
+        <td>Name Of Customer</td>
+        @if (Model.RGP.S_Type == "INTER")
+        {
+            <td>
+                @Model.RGP.M_Location
+            </td>
+        }
+        else
+        {
+            <td>@ViewBag.SName</td>
+        }
+    </tr>
+    <tr class="border_">
+        <td>Address</td>
+        @if (Model.RGP.S_Type == "INTER")
+        {
+            <td>@Model.RGP.M_Location</td>
+        }
+        else
+        {
+            <td>@ViewBag.SAdd</td>
+        }
+    </tr>
+    <tr class="border_">
+        <td>GST NO.</td>
+        @if (Model.RGP.S_Type == "INTER")
+        {
+            <td>09AAGFP4825J1ZX</td>
+        }
+        else
+        {
+            <td>@ViewBag.SGST</td>
+        }
+    </tr>
+    <tr class="border_">
+        <td>Description :</td>
+        <td>@Model.RGP.Descriptn</td>
+    </tr>
+</table>
+<br />
+<table class="table" style="width:100%;margin-top:0%">
+    <tr class="border_" style="background-color:#CCCCCC">
+        <td style="text-align:center;color:white">Item Name</td>
+        <td style="text-align:center;color:white">Description of Goods</td>
+        <td style="text-align:center;color:white">UOM</td>
+        <td style="text-align:center;color:white">Qty</td>
+    </tr>
+    @foreach (var ss in Model.Item)
+    {
+        <tr class="border_">
+            <td style="text-align:center">
+                @ss.Item
+            </td>
+            <td style="text-align:center">
+                @ss.Descriptn
+            </td>
+            <td style="text-align:center">@ss.Qty</td>
+            <td style="text-align:center">@ss.UOM</td>
+        </tr>
+    }
+</table>
+<br />
+<table class="table" style="width:100%;margin-top:0%">
+    <tr class="border_">
+        <td>
+            Requester
+        </td>
+        <td>
+            @Model.requestor.NAME
+        </td>
+    </tr>
+    <tr class="border_">
+        <td>
+            Department
+        </td>
+        <td>
+            @ViewBag.DeptName
+        </td>
+    </tr>
+    <tr class="border_">
+        <td>
+            Personal Carrying Out (Name)
+        </td>
+        <td>
+            @if (Model.RGP.ModeOfTrans == "VISITOR")
+            {
+                @ViewBag.V_Name
+            }
+            else
+            {
+                @Model.RGP.PersoneName
+            }
+        </td>
+    </tr>
+    <tr class="border_">
+        <td>
+            Approved By
+        </td>
+        <td></td>
+    </tr>
+    <tr class="border_">
+        <td>
+            Date of Issue
+        </td>
+        <td></td>
+    </tr>
+    <tr class="border_">
+        <td>
+            Time of Issue(Security)
+        </td>
+        <td>
+            @Model.RGP.SecApproveTime
+        </td>
+    </tr>
+    <tr class="border_">
+        <td>Mode Of Transport</td>
+        <td>@Model.RGP.ModeOfTrans</td>
+    </tr>
+    <tr class="border_"><td>Approx. Value of Material</td><td>@ViewBag.Approx</td></tr>
+</table>
+<span style="float:left;font-size:8px;margin-top:0%">Subject to Lucknow - Jurisdiction<br />E. & O.E.</span>
+@if (Model.RGP.OutFrom == "UNIT 4")
+{
+    <span style="float:right;font-size:8px;margin-top:0%">for PN SAFETECH PRIVATE LIMITED</span>
+}
+else
+{
+    <span style="float:right;font-size:8px;margin-top:0%">for PN International Pvt Ltd</span>
+}
+<span style="font-size:8px;margin-top:0%;color:red;margin-left:20%">*This is a System generated Gate Pass.No Signature is required.</span>
+<br />
+<hr />
+<br />
+<span style="float:left"><img src="@Url.Content("~/Content/logo.png")" height="25px" width="50px" /></span>
+<span style="float:right;font-size:8px;margin-top:0%">QF/ADM/19<br />Issue Date - 01/04/2017<br />Rev. 02 Dt. 18/05/2018</span>
+<table class="table" style="width:100%;margin-top:0%">
+    <tr>
+        <td style="text-align:center">
+            <span style="font-size:12px;font-weight:bold">@Model.RGP.M_Type CUM DELIVERY CHALLAN</span>
+            @if (Model.RGP.OutFrom == "UNIT 4")
+            {
+                <p style="font-size:10px ;text-align:center">
+                    PN SAFETECH PRIVATE LIMITED<br />
+                    C-18 & 19, AMOUSI INDUSTRIAL AREA NADARGANJ,<br />
+                    LUCKNOW – 226008<br />
+                    GSTIN - 09AABCP4411C1ZX<br />
+                </p>
+            }
+            else
+            {
+                <p style="font-size:10px ;text-align:center">
+                    PN INTERNATIONAL PVT. LTD. (100% E.O.U.)<br />
+                    PLOT NO. C-12, 13, 14, 15 & B-24, 25, 26 & C-40, AMAUSI INDUSTRIAL AREA,<br />
+                    NADARGANJ, LUCKNOW.<br />
+                    PH.: 91-522-2434801, FAX : 522-2434896<br />
+                    GST NO. 09AALCP1503H1ZI<br />
+                </p>
+            }
+        </td>
+        <td>
+            <span style="float:left">
+                <img src="data:image/gif;base64,@ViewBag.a" />
+            </span>
+        </td>
+    </tr>
+</table>
+<span style="float:left;font-size:12px">DELIVERY CHALLAN NO.</span><span style="font-weight:bold;font-size:12px">@Model.RGP.ChallanNmbr</span>
+<span style="float:right;font-size:12px">
+    Office-Copy<br />@Model.RGP.RaiseDate.Value.ToString("dd/MMM/yyyy")
+</span>
+<table class="table" style="width:100%;margin-top:0%">
+    <tr class="border_">
+        <td>Name Of Customer</td>
+        @if (Model.RGP.S_Type == "INTER")
+        {
+            <td>@Model.RGP.M_Location</td>
+        }
+        else
+        {
+            <td>@ViewBag.SName</td>
+        }
+    </tr>
+    <tr class="border_">
+        <td>Address</td>
+        @if (Model.RGP.S_Type == "INTER")
+        {
+            <td>@Model.RGP.M_Location</td>
+        }
+        else
+        {
+            <td>@ViewBag.SAdd</td>
+        }
+    </tr>
+    <tr class="border_">
+        <td>GST NO.</td>
+        @if (Model.RGP.S_Type == "INTER")
+        {
+            <td>09AAGFP4825J1ZX</td>
+        }
+        else
+        {
+            <td>@ViewBag.SGST</td>
+        }
+    </tr>
+    <tr class="border_">
+        <td>Description :</td>
+        <td>@Model.RGP.Descriptn</td>
+    </tr>
+</table>
+<br />
+<table class="table" style="width:100%;margin-top:0%">
+    <tr class="border_" style="background-color:#CCCCCC">
+        <td style="text-align:center;color:white">Item Name</td>
+        <td style="text-align:center;color:white">Description of Goods</td>
+        <td style="text-align:center;color:white">UOM</td>
+        <td style="text-align:center;color:white">Qty</td>
+    </tr>
+    @foreach (var ss in Model.Item)
+    {
+        <tr class="border_">
+            <td style="text-align:center">
+                @ss.Item
+            </td>
+            <td style="text-align:center">
+                @ss.Descriptn
+            </td>
+            <td style="text-align:center">@ss.Qty</td>
+            <td style="text-align:center">@ss.UOM</td>
+        </tr>
+    }
+</table>
+<br />
+<table class="table" style="width:100%;margin-top:0%">
+    <tr class="border_">
+        <td>
+            Requester
+        </td>
+        <td>
+            @Model.requestor.NAME
+        </td>
+    </tr>
+    <tr class="border_">
+        <td>
+            Department
+        </td>
+        <td>
+            @ViewBag.DeptName
+        </td>
+    </tr>
+    <tr class="border_">
+        <td>
+            Personal Carrying Out (Name)
+        </td>
+        <td>
+            @if (Model.RGP.ModeOfTrans == "VISITOR")
+            {
+                @ViewBag.V_Name
+            }
+            else
+            {
+                @Model.RGP.PersoneName
+            }
+        </td>
+    </tr>
+    <tr class="border_">
+        <td>
+            Approved By
+        </td>
+        <td></td>
+    </tr>
+    <tr class="border_">
+        <td>
+            Date of Issue
+        </td>
+        <td></td>
+    </tr>
+    <tr class="border_">
+        <td>
+            Time of Issue(Security)
+        </td>
+        <td>
+            @Model.RGP.SecApproveTime
+        </td>
+    </tr>
+    <tr class="border_">
+        <td>Mode Of Transport</td>
+        <td>@Model.RGP.ModeOfTrans</td>
+    </tr>
+    <tr class="border_"><td>Approx. Value of Material</td><td>@ViewBag.Approx</td></tr>
+</table>
+<span style="float:left;font-size:8px;margin-top:0%">Subject to Lucknow - Jurisdiction<br />E. & O.E.</span>
+@if (Model.RGP.OutFrom == "UNIT 4")
+{
+    <span style="float:right;font-size:8px;margin-top:0%">for PN SAFETECH PRIVATE LIMITED</span>
+}
+else
+{
+    <span style="float:right;font-size:8px;margin-top:0%">for PN International Pvt Ltd</span>
+}
+<span style="font-size:8px;margin-top:0%;color:red;margin-left:20%">*This is a System generated Gate Pass.No Signature is required.</span>  

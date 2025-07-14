@@ -1,0 +1,325 @@
+﻿@*@model Trump.Models.DataFieldCourierCompany*@
+@*@model TrumpCL.ReportFieldRegion*@
+@model IEnumerable<TrumpCL.ReportFieldRegion>
+@{
+    ViewBag.Title = "EditVisitor";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="content" style="font-size:12px;min-height:100%">
+    @*ng-controller="AppointmentController"*@
+
+
+    <div class="content_resize">
+        <div class="mainbar">
+            <div class="article">
+                <div class="main">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="widget stacked">
+                                    <div class="widget-header">
+                                        <i class="icon-ok"></i>
+                                        <h3>
+                                         Update  Department
+                                        </h3>
+                                    </div>
+                                    <form action="../Master/UpdateRegionDepartment" method="post" enctype="multipart/form-data">
+                                     
+                                        <div class="widget-content">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="name" class="col-md-8">
+                                                            Department
+                                                        </label>
+                                                        <div class="col-md-10">
+
+
+                                                            <input class="form-control" id="txtRegionId" name="txtRegionId" value="@Model.Select(z => z.RegionId).FirstOrDefault() " type="text" style="display:none;">
+                                                            <input type="text" name="txtDepartment" id="txtDepartment" required  class="form-control" value="@Model.Select(z => z.Status).FirstOrDefault()" />
+                                                        </div>
+                                                        <div class="col-md-2">
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div class="form-group">
+                                                        <label for="name" class="col-md-8">
+                                                            Region
+                                                        </label>
+                                                        <div class="col-md-10">
+
+
+                                                            <input class="form-control" id="txtRegion" name="txtRegion" value="@Model.Select(z => z.Region).FirstOrDefault()" style="width:300px;display:none;" type="text" />
+                                                            <select tabindex="-1" class="form-control select2_group clregion"  required name="ddlRegion" id="ddlRegion"></select>
+                                                        </div>
+                                                        <div class="col-md-2">
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+
+
+
+                                                    @*<div class="col-md-3">
+                <div class="form-group" id="divRegionId">
+                    <label for="name" class="col-md-8">Region</label>
+                    <div class="col-md-12">
+                        <input class="form-control" id="txtRegion" name="txtRegion" value="@Model.Select(z => z.Region).FirstOrDefault()" style="width:300px;display:none;" type="text" />
+                        <select tabindex="-1" class="form-control select2_group clregion" style="width:300px;" required name="ddlRegion" id="ddlRegion">
+                        </select>
+
+
+
+                    </div>
+                </div>
+            </div>*@
+                                                </div>
+                                            </div>
+                                            <hr>
+
+                                            <div class="row">
+                                                <div class="container">
+                                                    <input class="btn btn-primary btnSave" id="btnMSave" value="Update" type="submit">                                                          <input class="btn btn-primary" value="Back" type="button" onclick="goBack()">
+                                                </div>
+                                            </div>
+                                        
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="clr">
+        </div>
+    </div>
+
+</div>
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script>
+    function goBack() {
+        /*  window.history.back();*/
+        window.location.href = "../Master/RegionDepartment";
+
+    }
+</script>
+
+
+
+
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+@*<script>
+    $(document).ready(function () {
+
+        let text;
+        var txtstatus = $("#txtstatus").val().trim();
+
+        if (txtstatus == "Y") {
+            text = "Active";
+        }
+        else {
+            text = "Inactive";
+        }
+        $("select option").filter(function () {
+            //may want to use $.trim in here
+            return $(this).text() == text;
+        }).attr('selected', true);
+
+        //-----------
+        $("#ddlstatus").change(function () {
+            var ddlstatusval = $('#ddlstatus option:selected').val();
+            var ddlstatustxt = $('#ddlstatus option:selected').text();
+            $("#txtstatus").val(ddlstatusval);
+        });
+
+        $("#btnMSave").click(function () {
+            var CourierCompany = $("#CourierCompany").val();
+            if (CourierCompany == "") {
+                alert("Please Enter Company");
+                return false;
+            }
+        });
+
+        //-------------
+
+
+
+    })
+
+
+
+
+</script>*@
+
+<script>
+
+    $(document).ready(function () {
+
+       
+                 var funddlRegionFill = (function () {
+                    //debugger;
+
+                    var ddlRegion = "aaa";
+
+                    $.ajax({
+
+
+                        url: '@Url.Action("GetRegionList", "Master")',
+                        type: 'Get',
+                        contenType: 'application/json charset utf-8',
+
+
+                        dataType: 'json',
+                        data: { Region: ddlRegion },
+                        success: function (data) {
+
+                            var s;
+                            s = "<option value='--Please Select--'>--Please Select--</option>";
+                            $("#ddlRegion").append(s);
+                            for (var i = 0; i < data.length; i++) {
+
+                                s = "<option value='" + data[i].RegionId + "'>" + data[i].Region + "</option>";
+
+                                $("#ddlRegion").append(s);
+
+
+                            }
+
+                            funregionselect();
+                            //---------
+
+                        }
+                    });
+
+
+
+        });
+
+
+
+        var funregionselect = (function () {
+
+            let textyy;
+            //textyy = parseInt($("#txtRegionId").val());
+            ////alert(textyy);
+            //textyy = parseInt(53);
+            textyy = $("#txtRegion").val();
+           // alert(textyy);
+            $(".clregion option").filter(function () {
+                //alert('tt');
+                //may want to use $.trim in here
+                /*  alert($(this).text());*/
+          /*      return $(this).val() == textyy;*/
+                /*  return $(this).text() == 'Retail Sales-Patiala';*/
+                return $(this).text() == textyy;
+            }).attr('selected', true);
+
+
+
+
+
+
+        });
+
+
+        funddlRegionFill();
+
+
+
+
+        //$("#ddlRegion").change(function () {
+        //    var ddlRegion = $('#ddlRegion option:selected').text();
+        //    $("#txtRegion").val(ddlRegion)
+        //});
+
+
+        $("#ddlRegion").change(function () {
+
+
+
+
+           /* alert('hi');*/
+            var ddlRegionId = $('#ddlRegion option:selected').text();
+            $("#txtRegion").val(ddlRegion)
+
+            /* var Email_ID = $(this).val();*/
+            var txtDepartment = $("#txtDepartment").val();
+            var Did = $("#txtRegionId").val();
+            //alert(Did);
+            //alert(txtDepartment);
+
+            $.ajax({
+
+         
+
+                url: '../Master/DepartmentExists?Dept=' + txtDepartment + '&Region=' + ddlRegionId + ' &Did=' + Did,
+
+       
+                datatype: "JSON",
+                type: "Get",
+                success: function (data) {
+                    if (data != null) {
+
+                        if (data == 1) {
+
+                            // $("#txtEmail").val('');
+                            swal({
+                                title: "warning",
+                                text: "Department  Already Exists in this Region",
+                                icon: "warning",
+                                type: "warning"
+                            }, function () {
+
+                            });
+                            $(':input[type="submit"]').prop('disabled', true);
+                        }
+                        else {
+
+                            $(':input[type="submit"]').prop('disabled', false);
+                        }
+
+
+                    }
+                    else {
+                        Location.href = "../Home/Login";
+                    }
+                }
+            });
+
+
+
+
+
+        });
+
+
+
+
+
+    });
+
+
+    $("#btnMSave").click(function () {
+
+
+
+
+        var ddlRegion = $('#ddlRegion option:selected').text()
+
+
+        if (ddlRegion == "--Please Select--") {
+            alert("Please Select RegionId");
+            return false;
+        }
+
+    });
+
+
+</script>
+
+
+

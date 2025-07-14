@@ -1,0 +1,112 @@
+﻿@{
+    ViewBag.Title = "Safety Guidelines";
+    Layout = null;
+}
+<div class="container">
+    <div class="jumbotron" style="background-color:#ade793;">
+        <div style="text-align:center;font-weight:bold;font-size:14px;color:red;text-transform:uppercase;">
+            karam Safety Guidelines
+        </div>
+        <br />
+        <ol>
+            <li>
+                <b>
+                    No person shall be enter the premises under the influence of alcohol or drugs
+                    or abuse.<br />
+                </b>
+                कोई भी व्यक्ति शराब या ड्रग्स या दुरुपयोग के प्रभाव में परिसर में प्रवेश नहीं करेगा।
+            </li>
+            <li>
+                <b> Do not override & interfere with any safety features/devices.</b>
+                <br />
+                किसी भी सुरक्षा सुविधाओं / उपकरणों के साथ ओवरराइड और हस्तक्षेप न करें।
+            </li>
+            <li>
+                <b>
+                    Keep safe distance from all machines & material. Walk between the
+                    walkways marked with yellow lines inside the workshops.
+                </b>
+                <br />
+                सभी मशीनों और सामग्री से सुरक्षित दूरी बनाए रखें। कार्यशालाओं के अंदर पीली लाइनों के साथ चिह्नित वॉकवे के बीच चलें।
+            </li>
+            <li>
+                <b>
+                    Personal Protective Equipment’s (PPE) must be worn in many areas of your
+                    site. For your own safety you must wear the appropriate PPE when entering
+                    these areas.
+                </b>
+                <br />
+                व्यक्तिगत सुरक्षा उपकरण (PPE) को आपकी साइट के कई क्षेत्रों में पहना जाना चाहिए। अपनी सुरक्षा के लिए आपको इन क्षेत्रों में प्रवेश करते समय उपयुक्त पीपीई पहनना होगा।
+            </li>
+            <li>
+                <b>In case of any emergency follow the exit plan.</b>
+                <br />
+                किसी भी आपात स्थिति के मामले में निकास योजना का पालन करें।
+            </li>
+            <li>
+                <b>
+                    Obey alarm signals & follow the instructions of Fire Safety Team.
+                    Immediately evacuate the premises after hearing fire alarm sirens.
+                </b>
+                <br />
+                अलार्म सिगनलो का पालन करें और फायर सेफ्टी टीम के निर्देशों का पालन करें।
+                फायर अलार्म सायरन सुनकर तुरंत परिसर खाली करें।
+            </li>
+            <li>
+                <b>
+                    In an emergency leave the building via the Emergency Exit & Escape routes.
+                    Do not use any lifts & closed doors behind you. Follow all instructions from
+                    emergency & Fire Safety personnel.
+                </b>
+                <br />
+                आपात स्थिति में इमरजेंसी एग्जिट और एस्केप मार्गों के माध्यम से इमारत को छोड़ दें। अपने पीछे किसी भी लिफ्ट और बंद दरवाजे का उपयोग न करें। आपातकालीन और अग्नि सुरक्षा कर्मियों के सभी निर्देशों का पालन करें।
+            </li>
+            <li>
+                <b>
+                    Make your way to one of the designated assembly points and await further
+                    instructions. Report any missing colleague to PNI Personnel at the Assembly
+                    points.
+                </b>
+                <br />
+                निर्दिष्ट विधानसभा बिंदुओं में से एक के लिए अपना रास्ता बनाएं और आगे के निर्देशों का इंतजार करें। असेंबली पॉइंट्स पर किसी गुमशुदा सहकर्मी की PNI कार्मिक को रिपोर्ट करें।
+            </li>
+            <li>
+                <b>
+                    First aid boxes are available for treating minor injuries and qualified first
+                    aiders are on hand during working hours.
+                </b>
+                <br />
+                मामूली चोटों के इलाज के लिए प्राथमिक चिकित्सा बॉक्स उपलब्ध हैं और काम के घंटों के दौरान योग्य प्राथमिक उपचारकर्ता हैं।
+            </li>
+        </ol>
+        <div class="acceptline">
+            <form id="contact" action="~/Home/ImageDownload" method="post">
+                <label id="errormsg" style="color:red;"></label><br />
+                <input type="hidden" name="GatePassID" value="@ViewBag.GatePassID" />
+                <input type="checkbox" id="accecptchk" name="accecptchk" required />
+                <button type="submit" id="btnsubmit" class="btn btn-success">ACCEPT</button>
+            </form>
+        </div>
+    </div>
+</div>
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<link href="~/bootstrap-sweetalert-master/dist/sweetalert.css" rel="stylesheet" />
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script src="~/bootstrap-sweetalert-master/dist/sweetalert.min.js"></script>
+
+@if (TempData["AlrdyAccpted"] != null)
+{
+    <script>
+        $(document).ready(function () {
+            swal({
+                title: "Alert",
+                text: "You already accepted Guidelines",
+                icon: "success",
+                type: "success"
+            }, function () {
+                window.location.href = "http://www.karam.in/";
+
+            });
+        })
+    </script>
+}

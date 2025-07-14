@@ -1,0 +1,474 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="TrumpModel1StoreContainer" CdmEntityContainer="TrumpEntities1">
+    <EntitySetMapping Name="ApprovalHODs">
+      <EntityTypeMapping TypeName="TrumpModel1.ApprovalHOD">
+        <MappingFragment StoreEntitySet="ApprovalHOD">
+          <ScalarProperty Name="AH" ColumnName="AH" />
+          <ScalarProperty Name="Department" ColumnName="Department" />
+          <ScalarProperty Name="PNICode" ColumnName="PNICode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DemoFeedbacks">
+      <EntityTypeMapping TypeName="TrumpModel1.DemoFeedback">
+        <MappingFragment StoreEntitySet="DemoFeedback">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="SessionID" ColumnName="SessionID" />
+          <ScalarProperty Name="Question1" ColumnName="Question1" />
+          <ScalarProperty Name="txtQuestion1" ColumnName="txtQuestion1" />
+          <ScalarProperty Name="Question2" ColumnName="Question2" />
+          <ScalarProperty Name="txtQuestion2" ColumnName="txtQuestion2" />
+          <ScalarProperty Name="Question3" ColumnName="Question3" />
+          <ScalarProperty Name="txtQuestion3" ColumnName="txtQuestion3" />
+          <ScalarProperty Name="Question4" ColumnName="Question4" />
+          <ScalarProperty Name="txtQuestion4" ColumnName="txtQuestion4" />
+          <ScalarProperty Name="Question5" ColumnName="Question5" />
+          <ScalarProperty Name="txtQuestion5" ColumnName="txtQuestion5" />
+          <ScalarProperty Name="OverAll" ColumnName="OverAll" />
+          <ScalarProperty Name="SpecialFeedback" ColumnName="SpecialFeedback" />
+          <ScalarProperty Name="ActionDate" ColumnName="ActionDate" />
+          <ScalarProperty Name="SoftwareName" ColumnName="SoftwareName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ExceptionLoggers">
+      <EntityTypeMapping TypeName="TrumpModel1.ExceptionLogger">
+        <MappingFragment StoreEntitySet="ExceptionLogger">
+          <ScalarProperty Name="EXID" ColumnName="EXID" />
+          <ScalarProperty Name="ExceptionMessage" ColumnName="ExceptionMessage" />
+          <ScalarProperty Name="ExceptionStackTrace" ColumnName="ExceptionStackTrace" />
+          <ScalarProperty Name="ControllerName" ColumnName="ControllerName" />
+          <ScalarProperty Name="LogTime" ColumnName="LogTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Item_Material">
+      <EntityTypeMapping TypeName="TrumpModel1.Item_Material">
+        <MappingFragment StoreEntitySet="Item_Material">
+          <ScalarProperty Name="IT_M" ColumnName="IT_M" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Item" ColumnName="Item" />
+          <ScalarProperty Name="Descriptn" ColumnName="Descriptn" />
+          <ScalarProperty Name="UOM" ColumnName="UOM" />
+          <ScalarProperty Name="Qty" ColumnName="Qty" />
+          <ScalarProperty Name="RecQty" ColumnName="RecQty" />
+          <ScalarProperty Name="M_Status" ColumnName="M_Status" />
+          <ScalarProperty Name="ApproxValue" ColumnName="ApproxValue" />
+          <ScalarProperty Name="CurrRec" ColumnName="CurrRec" />
+          <ScalarProperty Name="CloseDate" ColumnName="CloseDate" />
+          <ScalarProperty Name="Reason" ColumnName="Reason" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Msgtemplates">
+      <EntityTypeMapping TypeName="TrumpModel1.Msgtemplate">
+        <MappingFragment StoreEntitySet="Msgtemplate">
+          <ScalarProperty Name="M_ID" ColumnName="M_ID" />
+          <ScalarProperty Name="Template" ColumnName="Template" />
+          <ScalarProperty Name="Action" ColumnName="Action" />
+          <ScalarProperty Name="Region" ColumnName="Region" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblAppoinments">
+      <EntityTypeMapping TypeName="TrumpModel1.tblAppoinment">
+        <MappingFragment StoreEntitySet="tblAppoinment">
+          <ScalarProperty Name="A_ID" ColumnName="A_ID" />
+          <ScalarProperty Name="GPID" ColumnName="GPID" />
+          <ScalarProperty Name="Requestor" ColumnName="Requestor" />
+          <ScalarProperty Name="Deptment" ColumnName="Deptment" />
+          <ScalarProperty Name="ComanyID" ColumnName="ComanyID" />
+          <ScalarProperty Name="VisitorID" ColumnName="VisitorID" />
+          <ScalarProperty Name="Visitor_Type" ColumnName="Visitor_Type" />
+          <ScalarProperty Name="V_DateFrom" ColumnName="V_DateFrom" />
+          <ScalarProperty Name="A_Time" ColumnName="A_Time" />
+          <ScalarProperty Name="V_DateTo" ColumnName="V_DateTo" />
+          <ScalarProperty Name="Duration" ColumnName="Duration" />
+          <ScalarProperty Name="V_Location" ColumnName="V_Location" />
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="Valid_at" ColumnName="Valid_at" />
+          <ScalarProperty Name="V_Allowed" ColumnName="V_Allowed" />
+          <ScalarProperty Name="A_Type" ColumnName="A_Type" />
+          <ScalarProperty Name="RaiseDate" ColumnName="RaiseDate" />
+          <ScalarProperty Name="V_InDate" ColumnName="V_InDate" />
+          <ScalarProperty Name="V_OutDate" ColumnName="V_OutDate" />
+          <ScalarProperty Name="Location" ColumnName="Location" />
+          <ScalarProperty Name="V_Status" ColumnName="V_Status" />
+          <ScalarProperty Name="EntryType" ColumnName="EntryType" />
+          <ScalarProperty Name="Flag" ColumnName="Flag" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblApprovals">
+      <EntityTypeMapping TypeName="TrumpModel1.tblApproval">
+        <MappingFragment StoreEntitySet="tblApproval">
+          <ScalarProperty Name="App_ID" ColumnName="App_ID" />
+          <ScalarProperty Name="AppName" ColumnName="AppName" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="AppType" ColumnName="AppType" />
+          <ScalarProperty Name="AppStatus" ColumnName="AppStatus" />
+          <ScalarProperty Name="Name_" ColumnName="Name_" />
+          <ScalarProperty Name="Region" ColumnName="Region" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblCompanies">
+      <EntityTypeMapping TypeName="TrumpModel1.tblCompany">
+        <MappingFragment StoreEntitySet="tblCompany">
+          <ScalarProperty Name="C_ID" ColumnName="C_ID" />
+          <ScalarProperty Name="CName" ColumnName="CName" />
+          <ScalarProperty Name="Addres" ColumnName="Addres" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="GST" ColumnName="GST" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="CState" ColumnName="CState" />
+          <ScalarProperty Name="C_Status" ColumnName="C_Status" />
+          <ScalarProperty Name="PinCode" ColumnName="PinCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblIN_Out">
+      <EntityTypeMapping TypeName="TrumpModel1.tblIN_Out">
+        <MappingFragment StoreEntitySet="tblIN_Out">
+          <ScalarProperty Name="M_ID" ColumnName="M_ID" />
+          <ScalarProperty Name="ChallanNmbr" ColumnName="ChallanNmbr" />
+          <ScalarProperty Name="Requestor" ColumnName="Requestor" />
+          <ScalarProperty Name="Dept" ColumnName="Dept" />
+          <ScalarProperty Name="RaiseDate" ColumnName="RaiseDate" />
+          <ScalarProperty Name="M_Type" ColumnName="M_Type" />
+          <ScalarProperty Name="S_Type" ColumnName="S_Type" />
+          <ScalarProperty Name="M_Location" ColumnName="M_Location" />
+          <ScalarProperty Name="OutFrom" ColumnName="OutFrom" />
+          <ScalarProperty Name="ModeOfTrans" ColumnName="ModeOfTrans" />
+          <ScalarProperty Name="PersoneName" ColumnName="PersoneName" />
+          <ScalarProperty Name="SecApproveTime" ColumnName="SecApproveTime" />
+          <ScalarProperty Name="SecINTime" ColumnName="SecINTime" />
+          <ScalarProperty Name="HODTime" ColumnName="HODTime" />
+          <ScalarProperty Name="SupplierID" ColumnName="SupplierID" />
+          <ScalarProperty Name="V_Type" ColumnName="V_Type" />
+          <ScalarProperty Name="Veh_No" ColumnName="Veh_No" />
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="Descriptn" ColumnName="Descriptn" />
+          <ScalarProperty Name="M_Status" ColumnName="M_Status" />
+          <ScalarProperty Name="Delay" ColumnName="Delay" />
+          <ScalarProperty Name="DelayReason" ColumnName="DelayReason" />
+          <ScalarProperty Name="ApprovingHOD" ColumnName="ApprovingHOD" />
+          <ScalarProperty Name="ContactPerson" ColumnName="ContactPerson" />
+          <ScalarProperty Name="Flag" ColumnName="Flag" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblMaterials">
+      <EntityTypeMapping TypeName="TrumpModel1.tblMaterial">
+        <MappingFragment StoreEntitySet="tblMaterial">
+          <ScalarProperty Name="M_ID" ColumnName="M_ID" />
+          <ScalarProperty Name="M_Name" ColumnName="M_Name" />
+          <ScalarProperty Name="Serial_No" ColumnName="Serial_No" />
+          <ScalarProperty Name="App_ID" ColumnName="App_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblMaterialInwards">
+      <EntityTypeMapping TypeName="TrumpModel1.tblMaterialInward">
+        <MappingFragment StoreEntitySet="tblMaterialInward">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="PO" ColumnName="PO" />
+          <ScalarProperty Name="ITEM" ColumnName="ITEM" />
+          <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+          <ScalarProperty Name="CREATION_DATE" ColumnName="CREATION_DATE" />
+          <ScalarProperty Name="QUANTITY" ColumnName="QUANTITY" />
+          <ScalarProperty Name="UNIT_PRICE" ColumnName="UNIT_PRICE" />
+          <ScalarProperty Name="UOM" ColumnName="UOM" />
+          <ScalarProperty Name="VENDOR_NAME" ColumnName="VENDOR_NAME" />
+          <ScalarProperty Name="GST" ColumnName="GST" />
+          <ScalarProperty Name="CONTACT_NUM" ColumnName="CONTACT_NUM" />
+          <ScalarProperty Name="EMAIL_ADDRESS" ColumnName="EMAIL_ADDRESS" />
+          <ScalarProperty Name="CONTACT_PERSON" ColumnName="CONTACT_PERSON" />
+          <ScalarProperty Name="ADDRESS" ColumnName="ADDRESS" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblPOes">
+      <EntityTypeMapping TypeName="TrumpModel1.tblPO">
+        <MappingFragment StoreEntitySet="tblPO">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="PODate" ColumnName="PODate" />
+          <ScalarProperty Name="PONum" ColumnName="PONum" />
+          <ScalarProperty Name="SupplierName" ColumnName="SupplierName" />
+          <ScalarProperty Name="SupplierAddress" ColumnName="SupplierAddress" />
+          <ScalarProperty Name="GST_No" ColumnName="GST_No" />
+          <ScalarProperty Name="Contact_Person" ColumnName="Contact_Person" />
+          <ScalarProperty Name="Contact_Num" ColumnName="Contact_Num" />
+          <ScalarProperty Name="Mode_Of_Transport" ColumnName="Mode_Of_Transport" />
+          <ScalarProperty Name="validID" ColumnName="validID" />
+          <ScalarProperty Name="Vehicle_Type" ColumnName="Vehicle_Type" />
+          <ScalarProperty Name="Vehicle_No" ColumnName="Vehicle_No" />
+          <ScalarProperty Name="Driver_Name" ColumnName="Driver_Name" />
+          <ScalarProperty Name="Visitor_Name" ColumnName="Visitor_Name" />
+          <ScalarProperty Name="Visitor_Number" ColumnName="Visitor_Number" />
+          <ScalarProperty Name="Visitor_Company" ColumnName="Visitor_Company" />
+          <ScalarProperty Name="Flag" ColumnName="Flag" />
+          <ScalarProperty Name="Region" ColumnName="Region" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblQuestions">
+      <EntityTypeMapping TypeName="TrumpModel1.tblQuestion">
+        <MappingFragment StoreEntitySet="tblQuestion">
+          <ScalarProperty Name="Q_ID" ColumnName="Q_ID" />
+          <ScalarProperty Name="GP_ID" ColumnName="GP_ID" />
+          <ScalarProperty Name="Q1" ColumnName="Q1" />
+          <ScalarProperty Name="Q2" ColumnName="Q2" />
+          <ScalarProperty Name="Q3" ColumnName="Q3" />
+          <ScalarProperty Name="Q4" ColumnName="Q4" />
+          <ScalarProperty Name="SessionTime" ColumnName="SessionTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblSiteDistances">
+      <EntityTypeMapping TypeName="TrumpModel1.tblSiteDistance">
+        <MappingFragment StoreEntitySet="tblSiteDistance">
+          <ScalarProperty Name="SD_ID" ColumnName="SD_ID" />
+          <ScalarProperty Name="FromSite" ColumnName="FromSite" />
+          <ScalarProperty Name="ToSite" ColumnName="ToSite" />
+          <ScalarProperty Name="Distance" ColumnName="Distance" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblUOMs">
+      <EntityTypeMapping TypeName="TrumpModel1.tblUOM">
+        <MappingFragment StoreEntitySet="tblUOM">
+          <ScalarProperty Name="U_ID" ColumnName="U_ID" />
+          <ScalarProperty Name="UOM" ColumnName="UOM" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblVisitors">
+      <EntityTypeMapping TypeName="TrumpModel1.tblVisitor">
+        <MappingFragment StoreEntitySet="tblVisitor">
+          <ScalarProperty Name="V_ID" ColumnName="V_ID" />
+          <ScalarProperty Name="V_Name" ColumnName="V_Name" />
+          <ScalarProperty Name="V_Phone" ColumnName="V_Phone" />
+          <ScalarProperty Name="V_Email" ColumnName="V_Email" />
+          <ScalarProperty Name="Visitor_ID" ColumnName="Visitor_ID" />
+          <ScalarProperty Name="V_IDNumber" ColumnName="V_IDNumber" />
+          <ScalarProperty Name="V_Pic" ColumnName="V_Pic" />
+          <ScalarProperty Name="V_Status" ColumnName="V_Status" />
+          <ScalarProperty Name="C_ID" ColumnName="C_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblVisitorINOUTs">
+      <EntityTypeMapping TypeName="TrumpModel1.tblVisitorINOUT">
+        <MappingFragment StoreEntitySet="tblVisitorINOUT">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="GPID" ColumnName="GPID" />
+          <ScalarProperty Name="FDate" ColumnName="FDate" />
+          <ScalarProperty Name="TDate" ColumnName="TDate" />
+          <ScalarProperty Name="Location" ColumnName="Location" />
+          <ScalarProperty Name="VL_Status" ColumnName="VL_Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VendorDatas">
+      <EntityTypeMapping TypeName="TrumpModel1.VendorData">
+        <MappingFragment StoreEntitySet="VendorData">
+          <ScalarProperty Name="VNID" ColumnName="VNID" />
+          <ScalarProperty Name="PartyName" ColumnName="PartyName" />
+          <ScalarProperty Name="PartyAddress" ColumnName="PartyAddress" />
+          <ScalarProperty Name="GST" ColumnName="GST" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VisitorAcceptances">
+      <EntityTypeMapping TypeName="TrumpModel1.VisitorAcceptance">
+        <MappingFragment StoreEntitySet="VisitorAcceptance">
+          <ScalarProperty Name="VA_ID" ColumnName="VA_ID" />
+          <ScalarProperty Name="VisitorID" ColumnName="VisitorID" />
+          <ScalarProperty Name="GatePassID" ColumnName="GatePassID" />
+          <ScalarProperty Name="AccptGate" ColumnName="AccptGate" />
+          <ScalarProperty Name="Feedback" ColumnName="Feedback" />
+          <ScalarProperty Name="Flag" ColumnName="Flag" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VisitTypes">
+      <EntityTypeMapping TypeName="TrumpModel1.VisitType">
+        <MappingFragment StoreEntitySet="VisitType">
+          <ScalarProperty Name="V_TY" ColumnName="V_TY" />
+          <ScalarProperty Name="VstTpe" ColumnName="VstTpe" />
+          <ScalarProperty Name="VStatus" ColumnName="VStatus" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WorkingLogins">
+      <EntityTypeMapping TypeName="TrumpModel1.WorkingLogin">
+        <MappingFragment StoreEntitySet="WorkingLogin">
+          <ScalarProperty Name="W_ID" ColumnName="W_ID" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="UPassword" ColumnName="UPassword" />
+          <ScalarProperty Name="S_Location" ColumnName="S_Location" />
+          <ScalarProperty Name="WStatus" ColumnName="WStatus" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblSites">
+      <EntityTypeMapping TypeName="TrumpModel1.tblSite">
+        <MappingFragment StoreEntitySet="tblSite">
+          <ScalarProperty Name="S_ID" ColumnName="S_ID" />
+          <ScalarProperty Name="L_name" ColumnName="L_name" />
+          <ScalarProperty Name="DeviceNameWrkr" ColumnName="DeviceNameWrkr" />
+          <ScalarProperty Name="DeviceNameExe" ColumnName="DeviceNameExe" />
+          <ScalarProperty Name="Region" ColumnName="Region" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="GetAppointmentDetails" FunctionName="TrumpModel1.Store.GetAppointmentDetails">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TrumpModel1.GetAppointmentDetails_Result">
+          <ScalarProperty Name="GPID" ColumnName="GPID" />
+          <ScalarProperty Name="Deptment" ColumnName="Deptment" />
+          <ScalarProperty Name="CName" ColumnName="CName" />
+          <ScalarProperty Name="V_Name" ColumnName="V_Name" />
+          <ScalarProperty Name="Visitor_Type" ColumnName="Visitor_Type" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_AppToday" FunctionName="TrumpModel1.Store.sp_AppToday">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TrumpModel1.sp_AppToday_Result">
+          <ScalarProperty Name="A_ID" ColumnName="A_ID" />
+          <ScalarProperty Name="GPID" ColumnName="GPID" />
+          <ScalarProperty Name="V_Name" ColumnName="V_Name" />
+          <ScalarProperty Name="CName" ColumnName="CName" />
+          <ScalarProperty Name="V_Phone" ColumnName="V_Phone" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="EMPLOYEE_ID" ColumnName="EMPLOYEE_ID" />
+          <ScalarProperty Name="V_DateFrom" ColumnName="V_DateFrom" />
+          <ScalarProperty Name="A_Time" ColumnName="A_Time" />
+          <ScalarProperty Name="Duration" ColumnName="Duration" />
+          <ScalarProperty Name="V_Status" ColumnName="V_Status" />
+          <ScalarProperty Name="Visitor_Type" ColumnName="Visitor_Type" />
+          <ScalarProperty Name="Location" ColumnName="Location" />
+          <ScalarProperty Name="Valid_at" ColumnName="Valid_at" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_AppUpcoming" FunctionName="TrumpModel1.Store.sp_AppUpcoming">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TrumpModel1.sp_AppUpcoming_Result">
+          <ScalarProperty Name="GPID" ColumnName="GPID" />
+          <ScalarProperty Name="V_Name" ColumnName="V_Name" />
+          <ScalarProperty Name="CName" ColumnName="CName" />
+          <ScalarProperty Name="V_Phone" ColumnName="V_Phone" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="EMPLOYEE_ID" ColumnName="EMPLOYEE_ID" />
+          <ScalarProperty Name="V_DateFrom" ColumnName="V_DateFrom" />
+          <ScalarProperty Name="A_Time" ColumnName="A_Time" />
+          <ScalarProperty Name="Duration" ColumnName="Duration" />
+          <ScalarProperty Name="V_Status" ColumnName="V_Status" />
+          <ScalarProperty Name="Visitor_Type" ColumnName="Visitor_Type" />
+          <ScalarProperty Name="Location" ColumnName="Location" />
+          <ScalarProperty Name="Valid_at" ColumnName="Valid_at" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_Company" FunctionName="TrumpModel1.Store.sp_Company" />
+    <FunctionImportMapping FunctionImportName="sp_DateReport" FunctionName="TrumpModel1.Store.sp_DateReport">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TrumpModel1.sp_DateReport_Result">
+          <ScalarProperty Name="GPID" ColumnName="GPID" />
+          <ScalarProperty Name="V_Name" ColumnName="V_Name" />
+          <ScalarProperty Name="CName" ColumnName="CName" />
+          <ScalarProperty Name="V_Phone" ColumnName="V_Phone" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="Visitor_Type" ColumnName="Visitor_Type" />
+          <ScalarProperty Name="V_DateFrom" ColumnName="V_DateFrom" />
+          <ScalarProperty Name="A_Time" ColumnName="A_Time" />
+          <ScalarProperty Name="Visitor_Type1" ColumnName="Visitor_Type1" />
+          <ScalarProperty Name="Location" ColumnName="Location" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_DownloadePass" FunctionName="TrumpModel1.Store.sp_DownloadePass">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TrumpModel1.sp_DownloadePass_Result">
+          <ScalarProperty Name="GPID" ColumnName="GPID" />
+          <ScalarProperty Name="V_Name" ColumnName="V_Name" />
+          <ScalarProperty Name="CName" ColumnName="CName" />
+          <ScalarProperty Name="V_Phone" ColumnName="V_Phone" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="V_DateFrom" ColumnName="V_DateFrom" />
+          <ScalarProperty Name="A_Time" ColumnName="A_Time" />
+          <ScalarProperty Name="V_DateTo" ColumnName="V_DateTo" />
+          <ScalarProperty Name="Visitor_Type" ColumnName="Visitor_Type" />
+          <ScalarProperty Name="Location" ColumnName="Location" />
+          <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_ExceptionLogger" FunctionName="TrumpModel1.Store.sp_ExceptionLogger" />
+    <FunctionImportMapping FunctionImportName="sp_HCV" FunctionName="TrumpModel1.Store.sp_HCV">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TrumpModel1.sp_HCV_Result">
+          <ScalarProperty Name="GPID" ColumnName="GPID" />
+          <ScalarProperty Name="Visitor" ColumnName="Visitor" />
+          <ScalarProperty Name="Company" ColumnName="Company" />
+          <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+          <ScalarProperty Name="Visitor_Type" ColumnName="Visitor_Type" />
+          <ScalarProperty Name="Card_Type" ColumnName="Card_Type" />
+          <ScalarProperty Name="Host" ColumnName="Host" />
+          <ScalarProperty Name="DESIGNATION" ColumnName="DESIGNATION" />
+          <ScalarProperty Name="DepartmentName" ColumnName="DepartmentName" />
+          <ScalarProperty Name="V_InDate" ColumnName="V_InDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_HCVALL" FunctionName="TrumpModel1.Store.sp_HCVALL">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TrumpModel1.sp_HCVALL_Result">
+          <ScalarProperty Name="GPID" ColumnName="GPID" />
+          <ScalarProperty Name="Visitor" ColumnName="Visitor" />
+          <ScalarProperty Name="Company" ColumnName="Company" />
+          <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+          <ScalarProperty Name="Visitor_Type" ColumnName="Visitor_Type" />
+          <ScalarProperty Name="Card_Type" ColumnName="Card_Type" />
+          <ScalarProperty Name="Host" ColumnName="Host" />
+          <ScalarProperty Name="DESIGNATION" ColumnName="DESIGNATION" />
+          <ScalarProperty Name="DepartmentName" ColumnName="DepartmentName" />
+          <ScalarProperty Name="V_InDate" ColumnName="V_InDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_InsertAppointment" FunctionName="TrumpModel1.Store.sp_InsertAppointment" />
+    <FunctionImportMapping FunctionImportName="sp_MaterialInward" FunctionName="TrumpModel1.Store.sp_MaterialInward" />
+    <FunctionImportMapping FunctionImportName="sp_PurchaseVendor" FunctionName="TrumpModel1.Store.sp_PurchaseVendor" />
+    <FunctionImportMapping FunctionImportName="sp_ViewApp" FunctionName="TrumpModel1.Store.sp_ViewApp">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TrumpModel1.sp_ViewApp_Result">
+          <ScalarProperty Name="V_Location" ColumnName="V_Location" />
+          <ScalarProperty Name="EMPLOYEE_ID" ColumnName="EMPLOYEE_ID" />
+          <ScalarProperty Name="DEPARTMENT" ColumnName="DEPARTMENT" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="DESIGNATION" ColumnName="DESIGNATION" />
+          <ScalarProperty Name="MOBILE_NUMBER" ColumnName="MOBILE NUMBER" />
+          <ScalarProperty Name="Email_ID" ColumnName="Email ID" />
+          <ScalarProperty Name="V_Name" ColumnName="V_Name" />
+          <ScalarProperty Name="V_Phone" ColumnName="V_Phone" />
+          <ScalarProperty Name="CName" ColumnName="CName" />
+          <ScalarProperty Name="Visitor_ID" ColumnName="Visitor_ID" />
+          <ScalarProperty Name="V_IDNumber" ColumnName="V_IDNumber" />
+          <ScalarProperty Name="Visitor_Type" ColumnName="Visitor_Type" />
+          <ScalarProperty Name="Duration" ColumnName="Duration" />
+          <ScalarProperty Name="Location" ColumnName="Location" />
+          <ScalarProperty Name="V_DateFrom" ColumnName="V_DateFrom" />
+          <ScalarProperty Name="A_Time" ColumnName="A_Time" />
+          <ScalarProperty Name="V_Pic" ColumnName="V_Pic" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_visitor" FunctionName="TrumpModel1.Store.sp_visitor" />
+  </EntityContainerMapping>
+</Mapping>

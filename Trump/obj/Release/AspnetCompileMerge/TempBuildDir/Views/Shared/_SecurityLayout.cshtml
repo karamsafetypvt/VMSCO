@@ -1,0 +1,359 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trump</title>
+    @Scripts.Render("~/bundles/modernizr")
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Layout/Css/bootstrap-responsive.min.css" rel="stylesheet" />
+    <link href="~/Content/font-awesome.css" rel="stylesheet" />
+    <link href="~/Content/jquery-ui.css" rel="stylesheet" />
+    <link href="~/Content/sweetalert.css" rel="stylesheet" />
+    <link href="~/datepair/bootstrap-datepicker.css" rel="stylesheet" />
+    <link href="~/datepair/jquery.timepicker.css" rel="stylesheet" />
+    <link href="~/Layout/Css/base-admin-3.css" rel="stylesheet" />
+    <link href="~/Layout/Css/base-admin.css" rel="stylesheet" />
+    <link href="~/Layout/Css/base-admin-3-responsive.css" rel="stylesheet" />
+    @*<link href="~/Content/css/select2.min.css" rel="stylesheet" />*@
+    <link href="~/Content/select2.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Layout/Css/custom-dashboard.css" rel="stylesheet" />
+    <link href="~/Layout/Content/fullcalendar.css" rel="stylesheet" />
+    <link href="~/Layout/Css/pages/dashboard.css" rel="stylesheet" />
+    <link href="~/Layout/Css/custom.css" rel="stylesheet" />
+    <link href="~/Layout/JS/plugins/msgbox/jquery.msgbox.css" rel="stylesheet" />
+    <link href="~/Layout/Content/menu.css" rel="stylesheet" />
+    <link href="~/Layout/Css/OutwardInwardTable.css" rel="stylesheet" />
+    <script src="~/Scripts/angular.min.js"></script>
+    <script src="~/Scripts/angular-route.js"></script>
+    <script src="~/Scripts/AngularController.js"></script>
+    
+</head>
+<body>
+    <div class="main" dir="ltr" style="font-size:12px;">
+        <div class="header">
+            <div class="header_resize">
+                <nav class="navbar navbar-inverse" role="navigation">
+                    <div class="container">
+                        <!-- Brand and toggle get grouped for better mobile display -->
+
+                    </div>
+                    <div id="logindisplay">
+                        <input id="AuthorizationRequestTimeOut" name="AuthorizationRequestTimeOut" value="30" type="hidden">
+
+                        <div class="col-md-12" style="margin: 0px; padding: 0px">
+                            <div class="col-md-8" style="margin-left: 0%; padding: 0px;">
+                                <div class="nav navbar-nav navbar-left">
+                                    <img id="imgCompanyLogo" src="~/Layout/Images/karam-LOGO-1.png" alt="" style="margin: 4px" height="60" />
+                                    <div style="float: right; color: black; font-size: 24px; margin-top: 0px; margin-left: 5px;font-weight:bold;">PN INTERNATIONAL PVT LTD.</div>
+                                </div>
+                            </div>
+                            <div class="col-md-3" style="margin-left: 0%; padding-right: 0%;">
+                                <div class="nav navbar-nav navbar-right" style="margin-top: 10px;">
+                                    <div id="UsernameDisplay" style="float: right; color: #FFFFFF; clear: both; margin-right: 15px;">
+                                        <a href="#"></a>
+                                        <a href="/UserPreference">Welcome, @Session["NAME"].ToString() </a>
+                                    </div>
+                                    <div style="clear: both; float: right; color: #FFFFFF; margin-right: 15px; font-size: 15px;">
+                                        <span style="color:#3c8dbc;">@Session["LOCATION"]</span>
+                                        <a href="javascript:;" style="color: #FFFFFF;"></a><a href="/Home/Logout">Logout</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-1" style="margin-left: 0%; padding-left: 0px; margin-top: 0.4%;">
+                                <a href="/UserPreference">
+                                    <img style="border-radius: 50%;" src="~/Layout/Images/Capture.JPG" />
+                                </a>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </nav>
+            </div>
+            <div>
+                <div class="subnavbar">
+                    <div class="subnavbar-inner">
+                        <div class="">
+                            <a href="javascript:;" class="subnav-toggle" data-toggle="collapse" data-target=".subnav-collapse">
+                                <span class="sr-only">Toggle navigation</span> <i class="icon-reorder"></i>
+                            </a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br />
+        </div>
+    </div>
+    <div>
+        @RenderBody()
+        <hr />
+    </div>
+
+    
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+
+    @*<link href="~/select2-develop/dist/css/select2.min.css" rel="stylesheet" />
+        <script src="~/select2-develop/dist/js/select2.min.js"></script>*@
+    <script src="~/Scripts/jquery-ui.js"></script>
+    <script src="~/datepair/bootstrap-datepicker.js"></script>
+    <script src="~/datepair/jquery.timepicker.js"></script>
+    <script src="~/Scripts/select2.js"></script>
+    <script src="~/Scripts/sweetalert.js"></script>
+    <script>
+        $(document).ready(function () {
+            $(".dialog-formVisitorAdd").dialog({
+                autoOpen: false,
+                height: 500,
+                width: 800,
+                modal: true,
+            });
+            $(".VisitorQuickAdd").click(function () {
+                debugger
+                var com = $('#divCam option:selected').text();
+                var comV = $('#divCam option:selected').val();
+                $('#fvVisitorCompanyID').val(com);
+                $('#HVisitorCompanyID').val(comV);
+                $(".dialog-formVisitorAdd").dialog("open");
+            })
+            $("#divCam").change(function () {
+                $('#divVis').empty();
+                var d = $("#divCam").val()
+                $.ajax({
+                    type: "GET",
+                    url: '@Url.Action("GetVisitorData", "Home")',
+                    data: { ID: d },
+                    dataType: "JSON",
+                    success: function (data) {
+                        $(data).each(function () {
+                        $('#divVis').append(
+                            $('<option/>', {
+                                value: this.V_ID
+                            }).html(this.V_Name)
+                        );
+                });
+                    }
+                })
+            })
+        })
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            $(".dialog-form").dialog({
+                autoOpen: false,
+                height: 360,
+                width: 700,
+                modal: true,
+            });
+            $(".VisitorCompanyQuickAdd").click(function () {
+                debugger
+                $(".dialog-form").dialog("open");
+            })
+        })
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            $(".divQuestionnaire").dialog({
+                autoOpen: false,
+                title: " Questionnaire",
+                modal: true,
+                width: 600,
+            });
+            $(".btnShowQuestionnaire").click(function () {
+                debugger
+                $(".divQuestionnaire").dialog("open");
+            })
+        })
+    </script>
+    <script>
+        $(document).ready(function () {
+            $(".dialog-formMeetingLocation").dialog({
+                autoOpen: false,
+                height: 200,
+                width: 300,
+                modal: true,
+            });
+            $(".MeetingLocationQuickAdd").click(function () {
+                debugger
+                $(".dialog-formMeetingLocation").dialog("open");
+            })
+        })
+    </script>
+    <script>
+        $(document).ready(function () {
+            $(".dialog-formVisitType").dialog({
+                autoOpen: false,
+                height: 200,
+                width: 300,
+                modal: true,
+            });
+            $(".VisitTypeQuickAdd").click(function () {
+                debugger
+                $(".dialog-formVisitType").dialog("open");
+            })
+        })
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            $(".dialog-formMaterial").dialog({
+                autoOpen: false,
+                height: 200,
+                width: 300,
+                modal: true,
+            });
+            $(".MaterialQuickAdd").click(function () {
+                debugger
+                $(".dialog-formMaterial").dialog("open");
+            })
+        })
+    </script>
+    <script src="~/Scripts/webcam.min.js"></script>
+
+
+    <script src="~/wwwroot/js/qrCodeScanner.js"></script>
+    <!--scan-->
+    <script type="text/javascript">
+        function txtEntryCodeChange() {
+            debugger
+            var GPval = $('#txtEntryCode').val();
+            if (GPval != undefined) {
+                if (GPval.split('-')[0].toString().toLowerCase() == ("Apt").toLowerCase()) {
+                    $('.modal-dialog').css('width', '70%');
+                }
+                else {
+                    $('.modal-dialog').css('width', '30%');
+                }
+            }
+            var d = $("#txtEntryCode").val();
+            window.location = "../Home/ScanView?scanText=" + d;
+        }
+
+        $('#aboutbtn').click(function () {
+            var position = $('#about').css('right');
+            if (position == "-292px") {
+                $('#about').css('right', "0px");
+                $('#txtEntryCode').css("display", "inline-block");
+                $('#txtEntryCode').focus();
+                $('#txtEntryCode').val("");
+            }
+            else {
+                $('#about').css('right', "-292px");
+                $('#txtEntryCode').focus();
+                $('#txtEntryCode').val("");
+                $('#txtEntryCode').css("display", "none");
+            }
+        });
+
+
+
+
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function ($) {
+            if ('True' == 'True') {
+                $("#mySidenav").css("display", "block");
+            }
+            else {
+                $("#mySidenav").css("display", "none");
+            }
+            if ('true' == 'true') {
+                $('#txtEntryCode').css('-ms-user-select', 'element');
+                $('#txtEntryCode').css('-webkit-user-select', 'text');
+                $('#txtEntryCode').css('font-family', 'Verdana');
+            }
+            else {
+                $('#txtEntryCode').bind('cut', function (e) {
+                    e.preventDefault();
+                });
+
+                $('#txtEntryCode').bind('copy', function (e) {
+                    e.preventDefault();
+                });
+
+                $('#txtEntryCode').bind('paste', function (e) {
+                    e.preventDefault();
+                });
+
+                $('#txtEntryCode').css('-ms-user-select', 'none');
+                $('#txtEntryCode').css('-webkit-user-select', 'none');
+                $('#txtEntryCode').css('font-family', 'IDAutomationHC39M');
+            }
+            $('#txtEntryCode').keypress(function (e) {
+                if (e.keyCode == 13) {
+                    txtEntryCodeChange();; // $(this).trigger("enterKey");
+                }
+            });
+            $('txtEntryCode').bind("enterKey", function (e) {
+                txtEntryCodeChange();
+            });
+            $('#mega-menu-tut').dcMegaMenu({
+                rowItems: '3',
+                speed: 'fast'
+            });
+
+        });
+    </script>
+    <script>
+        $(document).ready(function () {
+            $("#btnScanGO").click(function () {
+                var d = $("#txtEntryCode").val();
+                window.location = "../Home/ScanView?scanText=" + d;
+            })
+            $("#ques_GATEID").click(function () {
+                var ID = $("#ques_GATEID").attr('data-qus')
+                $("#GP_ID_Question").val(ID);
+            })
+            $("#btnQuestion").click(function () {
+                var isChecked1 = $("#clscheckbox-2Q").is(":checked");
+                var isChecked2 = $("#clscheckbox-3Q").is(":checked");
+                var isChecked3 = $("#clscheckbox-4Q").is(":checked");
+                if (isChecked1 && isChecked3 && isChecked2) {
+                    var ID = $("#GP_ID_Question").val();
+                        $.ajax({
+                            url: '@Url.Action("Question", "Home")',
+                            type: 'POST',
+                            contenType: 'application/json charset utf-8',
+                            dataType: 'json',
+                            data: { ID: ID },
+                            success: function (data) {
+                                alert('done')
+                                $("#divQuestionnaire").dialog("close");
+                            }
+                        })
+                } else {
+                    alert("CheckBox not checked.");
+                }
+            })
+            $("#Req_sec").autocomplete({
+                source: function (request, response) {
+                    $.ajax({
+                        url: '@Url.Action("GetExecutiveData", "Home")',
+                        type: "GET",
+                        dataType: "json",
+                        data: { Prefix: request.term },
+                        success: function (data) {
+                            response(data);
+                        }
+                    })
+                }
+            })
+            $("#Req_sec").blur(function () {
+                var txtVal = $(this).val();
+                var Code = txtVal.split('_')[0]; var ReqCode = txtVal.split('_')[2];
+                var Desc = txtVal.split('_')[1]; var Mbl = txtVal.split('_')[3];
+                var email = txtVal.split('_')[4];var Descg = txtVal.split('_')[4];
+                $('#Req_sec').val(Code); $('#secmbl').val(Mbl);
+                $('#secDept').val(Desc); $('#EmpSec').val(ReqCode);
+                $('#SecEmailId').val(email); $('#secDesc').val(Descg)
+            })
+        })
+    </script>
+</body>
+</html>

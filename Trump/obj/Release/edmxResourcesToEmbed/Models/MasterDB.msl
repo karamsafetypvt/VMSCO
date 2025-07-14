@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="MasterDatabaseModelStoreContainer" CdmEntityContainer="MasterDatabaseEntities">
+    <EntitySetMapping Name="Departments">
+      <EntityTypeMapping TypeName="MasterDatabaseModel.Department">
+        <MappingFragment StoreEntitySet="Department">
+          <ScalarProperty Name="D_ID" ColumnName="D_ID" />
+          <ScalarProperty Name="DepartmentName" ColumnName="DepartmentName" />
+          <ScalarProperty Name="Region" ColumnName="Region" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Master_Requestor">
+      <EntityTypeMapping TypeName="MasterDatabaseModel.Master_Requestor">
+        <MappingFragment StoreEntitySet="Master_Requestor">
+          <ScalarProperty Name="RegionId" ColumnName="RegionId" />
+          <ScalarProperty Name="Sr_No" ColumnName="Sr#No" />
+          <ScalarProperty Name="EMPLOYEE_ID" ColumnName="EMPLOYEE_ID" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="KSS_Department" ColumnName="KSS Department" />
+          <ScalarProperty Name="requestor_key" ColumnName="requestor_key" />
+          <ScalarProperty Name="DESIGNATION" ColumnName="DESIGNATION" />
+          <ScalarProperty Name="DEPARTMENT" ColumnName="DEPARTMENT" />
+          <ScalarProperty Name="DepartmentID" ColumnName="DepartmentID" />
+          <ScalarProperty Name="Immediate_Supervisor" ColumnName="Immediate_Supervisor" />
+          <ScalarProperty Name="Immediate_Supervisor_EMP_ID" ColumnName="Immediate_Supervisor_EMP_ID" />
+          <ScalarProperty Name="HOD" ColumnName="HOD" />
+          <ScalarProperty Name="HOD_EMP_ID" ColumnName="HOD_EMP_ID" />
+          <ScalarProperty Name="MOBILE_NUMBER" ColumnName="MOBILE NUMBER" />
+          <ScalarProperty Name="DATE_OF_BIRTH" ColumnName="DATE OF BIRTH" />
+          <ScalarProperty Name="PAYROLL" ColumnName="PAYROLL" />
+          <ScalarProperty Name="DATE_OF_JOINING" ColumnName="DATE OF JOINING" />
+          <ScalarProperty Name="Email_ID" ColumnName="Email ID" />
+          <ScalarProperty Name="VPF" ColumnName="VPF" />
+          <ScalarProperty Name="EPF" ColumnName="EPF" />
+          <ScalarProperty Name="PAN_NO_" ColumnName="PAN NO#" />
+          <ScalarProperty Name="Total_deductions_" ColumnName="Total deductions " />
+          <ScalarProperty Name="Yearly_VPF" ColumnName="Yearly VPF" />
+          <ScalarProperty Name="Yearly_EPF" ColumnName="Yearly EPF" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="UserType" ColumnName="UserType" />
+          <ScalarProperty Name="InvestmentDeclarationStatus" ColumnName="InvestmentDeclarationStatus" />
+          <ScalarProperty Name="Investment_Declaration_Password" ColumnName="Investment_Declaration_Password" />
+          <ScalarProperty Name="HRMSPassword" ColumnName="HRMSPassword" />
+          <ScalarProperty Name="TrumpPassword" ColumnName="TrumpPassword" />
+          <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+          <ScalarProperty Name="Region" ColumnName="Region" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MasterCompanies">
+      <EntityTypeMapping TypeName="MasterDatabaseModel.MasterCompany">
+        <MappingFragment StoreEntitySet="MasterCompany">
+          <ScalarProperty Name="MC_ID" ColumnName="MC_ID" />
+          <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+          <ScalarProperty Name="C_Status" ColumnName="C_Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Logs">
+      <EntityTypeMapping TypeName="MasterDatabaseModel.Log">
+        <MappingFragment StoreEntitySet="Logs">
+          <ScalarProperty Name="EmployeeCode" ColumnName="EmployeeCode" />
+          <ScalarProperty Name="LogDateTime" ColumnName="LogDateTime" />
+          <ScalarProperty Name="LogDate" ColumnName="LogDate" />
+          <ScalarProperty Name="LogTime" ColumnName="LogTime" />
+          <ScalarProperty Name="Direction" ColumnName="Direction" />
+          <ScalarProperty Name="DeviceShortName" ColumnName="DeviceShortName" />
+          <ScalarProperty Name="SerialNumber" ColumnName="SerialNumber" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Logs2">
+      <EntityTypeMapping TypeName="MasterDatabaseModel.Logs2">
+        <MappingFragment StoreEntitySet="Logs2">
+          <ScalarProperty Name="EmployeeCode" ColumnName="EmployeeCode" />
+          <ScalarProperty Name="LogDateTime" ColumnName="LogDateTime" />
+          <ScalarProperty Name="LogDate" ColumnName="LogDate" />
+          <ScalarProperty Name="LogTime" ColumnName="LogTime" />
+          <ScalarProperty Name="Direction" ColumnName="Direction" />
+          <ScalarProperty Name="SerialNumber" ColumnName="SerialNumber" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="sp_HCE" FunctionName="MasterDatabaseModel.Store.sp_HCE">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MasterDatabaseModel.sp_HCE_Result">
+          <ScalarProperty Name="EmployeeCode" ColumnName="EmployeeCode" />
+          <ScalarProperty Name="PNI_code" ColumnName="PNI_code" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="DEPARTMENT" ColumnName="DEPARTMENT" />
+          <ScalarProperty Name="LogDate" ColumnName="LogDate" />
+          <ScalarProperty Name="LogTime" ColumnName="LogTime" />
+          <ScalarProperty Name="DeviceShortName" ColumnName="DeviceShortName" />
+          <ScalarProperty Name="ROW_NUM" ColumnName="ROW_NUM" />
+          <ScalarProperty Name="TIME_DIFF" ColumnName="TIME_DIFF" />
+          <ScalarProperty Name="status" ColumnName="status" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>

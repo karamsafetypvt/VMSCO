@@ -1,0 +1,93 @@
+﻿@model IEnumerable<Trump.Models.tblApproval>
+@{
+    ViewBag.Title = "Visitors";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/Layout/Css/custom.css" rel="stylesheet" />
+<link href="~/Content/Gridmvc.css" rel="stylesheet" />
+
+@using GridMvc.Html;
+@using GridMvc.DataAnnotations;
+@using GridMvc.Sorting;
+@helper ADDCOLUMN(Trump.Models.tblApproval tb)
+{
+    <a href="../Master/EditApprover?EditID=@tb.App_ID">
+        <img src="~/Layout/Images/51-512.png" width="30" height="30" />
+    </a>
+}
+
+@helper CustomPostionOfItam(Trump.Models.tblApproval item)
+{
+if (item.AppType == "OUTWORD")
+{
+        <span>Visitor Approver</span>
+}
+else if(item.AppType == "PO")
+{
+        <span>PO Approver</span>
+}
+}
+    <link href="~/Layout/Css/jtable_jqueryui.css" rel="stylesheet" />
+    <link href="~/Layout/Css/jquery.dataTables_themeroller.css" rel="stylesheet" />
+    <div class="content" style="font-size:12px;min-height:100%">
+        <div class="content_resize">
+            <div class="mainbar">
+                <div class="article">
+                    <style type="text/css">
+                        #accordion div {
+                            display: none;
+                        }
+                    </style>
+                    <div role="tablist" class="ui-accordion ui-widget ui-helper-reset" id="accordion">
+                        <h3 tabindex="0" aria-selected="false" aria-controls="ui-accordion-accordion-panel-0" id="ui-accordion-accordion-header-0" role="tab" class="clsAccordion ui-accordion-header ui-helper-reset ui-state-default ui-corner-all ui-accordion-icons">
+                            <a id="NewVisitorCompany" style="font-size: 15px; font-weight: 400; color: #555;" href="#" class="VisitorQuickAdd">
+                                <img src="~/Layout/Images/NewRecord.png">&nbsp;New
+                            </a> &nbsp; &nbsp; &nbsp;
+                            <a id="DeleteVisitor" href="#" style="font-size: 15px; font-weight: 400; color: rgb(85, 85, 85);" data-toggle="modal" data-target="#myModal2">
+                                <img src="~/Layout/Images/Erase.png">&nbsp;Delete
+                            </a>
+                        </h3>
+
+                    </div>
+                    <div class="jtable-busy-message"> @TempData["error"]</div>
+                    <div id="VisitorCompanyTableContainer">
+                        <div class="jtable-main-container">
+                            <div class="jtable" id="jtable">
+                                <div class="table table-bordered table-responsive" id="table1">
+                                    @Html.Grid(Model).Columns(columns =>
+                               {
+                                   columns.Add().Encoded(false).Sanitized(false)
+                                   .RenderValueAs(o => Html.CheckBox("checked", false, new { key = o.App_ID, id = "checked" }));
+                                   columns.Add().Encoded(false).Sanitized(false).SetWidth(30).RenderValueAs(z => ADDCOLUMN(z));
+                                   columns.Add(c => c.Name_).Titled("NAME").Filterable(true).Sortable(true);
+
+                                   columns.Add(c => c.Email).Titled("E-MAIL").Filterable(true).Sortable(true);
+                                   columns.Add(c => c.AppType).Titled("Type").Css("ContentTitle").Sortable(true).Encoded(false).Sanitized(false).RenderValueAs(o => CustomPostionOfItam(o)).Filterable(true);
+                                   //columns.Add(c => c.st).Titled("E-MAIL").Filterable(true).Sortable(true);
+                               }).Sortable(true).WithPaging(2)
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="~/Layout/Scripts/jtable.2.3.0/jquery.jtable.js"></script>
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#DeleteVisitor').click(function () {
+                $("#myModal2").show(function () {
+                    var KEY1 = "";
+                    $("#table1 input[type=checkbox]:checked").each(function () {
+                        debugger
+                        var KEY = ($(this).closest("tr").find("td").eq(2).text() + ";");
+                        KEY1 = KEY1 + KEY;
+                        $("#hidden").val(KEY1)
+                    });
+                });
+            })
+        })
+    </script>

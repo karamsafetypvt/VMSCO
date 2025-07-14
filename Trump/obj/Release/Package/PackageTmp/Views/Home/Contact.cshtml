@@ -1,0 +1,100 @@
+﻿@model IEnumerable<Trump.Models.sp_DownloadePass_Result>
+@{
+    Layout = null;
+    var a = ViewBag.a;
+}
+
+<style>
+    body {
+        font-family: Tahoma;
+    }
+
+    .myImage table {
+        width: 100%;
+        border: 1px solid black;
+        outline: 2px solid red;
+        outline-offset: 2px;
+    }
+
+    table th {
+        text-align: left;
+    }
+</style>
+<body>
+    @foreach (var i in Model)
+    {
+        <div class="myImage">
+            <table class="table">
+                <tr>
+                    <td width="10">
+                        <img src="~/Layout/Images/karam-LOGO-1.png" width="100" />
+                    </td>
+                    <td style="text-transform:uppercase;text-align:left;color:red">
+                        <h4>@i.CompanyName</h4>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="text-align:center;font-weight:bold;">e-Pass</td>
+                </tr>
+                <tr style="">
+                    <td colspan="2" style="text-align:center;">
+                        <img src="@a" />                        
+                    </td>
+                </tr>
+                <tr>
+                    <th>ePass ID</th>
+                    <td>@i.GPID</td>
+                </tr>
+                <tr>
+                    <th>Name</th>
+                    <td>@i.V_Name</td>
+                </tr>
+                <tr>
+                    <th style="vertical-align:top;">Company</th>
+                    <td>@i.CName</td>
+                </tr>
+                <tr>
+                    <th>Mobile</th>
+                    <td>@i.V_Phone</td>
+                </tr>
+                <tr>
+                    <th>Host</th>
+                    <td>@i.NAME</td>
+                </tr>
+
+                <tr>
+                    <th>From Date</th>
+                    <td>
+                        @*@Convert.ToDateTime(i.V_DateFrom.ToString())*@
+                        @Convert.ToDateTime(i.V_DateFrom).ToString("dd/MMM/yyyy")
+
+
+                    </td>
+                </tr>
+                <tr>
+                    <th>Time</th>
+                    <td>@i.A_Time</td>
+                </tr>
+                <tr>
+                    <th>To Date</th>
+                    <td></td>
+                </tr>
+
+                <tr>
+                    <th>Visit Type</th>
+                    <td>@i.Visitor_Type</td>
+                </tr>
+                <tr>
+                    <th>Card Type</th>
+                    <td>@i.Location</td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="font-size:15px;font-style:italic;color:red;">* Security guidelines already accepted</td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="font-size:15px;font-style:italic;color:red;">* Photography is prohibited in office premises.</td>
+                </tr>
+            </table>
+        </div>
+    }
+</body>

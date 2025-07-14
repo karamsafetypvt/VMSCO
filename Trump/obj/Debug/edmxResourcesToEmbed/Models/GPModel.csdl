@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TrumpModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="ExceptionLogger">
+    <Key>
+      <PropertyRef Name="EXID" />
+    </Key>
+    <Property Name="EXID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ExceptionMessage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ExceptionStackTrace" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ControllerName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="LogTime" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="tblCompany">
+    <Key>
+      <PropertyRef Name="C_ID" />
+    </Key>
+    <Property Name="C_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Addres" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Phone" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="GST" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CState" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="C_Status" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="tblMaterial">
+    <Key>
+      <PropertyRef Name="M_ID" />
+    </Key>
+    <Property Name="M_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="M_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Serial_No" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="App_ID" Type="Int32" />
+  </EntityType>
+  <EntityType Name="tblVisitor">
+    <Key>
+      <PropertyRef Name="V_ID" />
+    </Key>
+    <Property Name="V_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="V_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="V_Phone" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="V_Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="V_Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="V_Pic" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="V_Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="C_ID" Type="Int32" />
+  </EntityType>
+  <EntityContainer Name="TrumpEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="ExceptionLoggers" EntityType="Self.ExceptionLogger" />
+    <EntitySet Name="tblCompanies" EntityType="Self.tblCompany" />
+    <EntitySet Name="tblMaterials" EntityType="Self.tblMaterial" />
+    <EntitySet Name="tblVisitors" EntityType="Self.tblVisitor" />
+    <FunctionImport Name="sp_Company">
+      <Parameter Name="Name" Mode="In" Type="String" />
+      <Parameter Name="Addres" Mode="In" Type="String" />
+      <Parameter Name="phone" Mode="In" Type="String" />
+      <Parameter Name="gst" Mode="In" Type="String" />
+      <Parameter Name="city" Mode="In" Type="String" />
+      <Parameter Name="state" Mode="In" Type="String" />
+    </FunctionImport>
+  </EntityContainer>
+</Schema>

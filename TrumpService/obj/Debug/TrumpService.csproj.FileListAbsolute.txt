@@ -1,0 +1,50 @@
+D:\Working Project\TrumpService\bin\Debug\TrumpService.exe.config
+D:\Working Project\TrumpService\bin\Debug\TrumpService.exe
+D:\Working Project\TrumpService\bin\Debug\TrumpService.pdb
+D:\Working Project\TrumpService\bin\Debug\EntityFramework.dll
+D:\Working Project\TrumpService\bin\Debug\EntityFramework.SqlServer.dll
+D:\Working Project\TrumpService\bin\Debug\EntityFramework.xml
+D:\Working Project\TrumpService\bin\Debug\EntityFramework.SqlServer.xml
+D:\Working Project\TrumpService\obj\Debug\TrumpService.csprojAssemblyReference.cache
+D:\Working Project\TrumpService\obj\Debug\TrumpService.csproj.CoreCompileInputs.cache
+D:\Working Project\TrumpService\obj\Debug\TrumpService.csproj.CopyComplete
+D:\Working Project\TrumpService\obj\Debug\TrumpService.exe
+D:\Working Project\TrumpService\obj\Debug\TrumpService.pdb
+D:\Working Project\TrumpService\bin\Debug\Microsoft.Web.Infrastructure.dll
+D:\Working Project\TrumpService\bin\Debug\System.Web.Helpers.dll
+D:\Working Project\TrumpService\bin\Debug\System.Web.Mvc.dll
+D:\Working Project\TrumpService\bin\Debug\System.Web.Razor.dll
+D:\Working Project\TrumpService\bin\Debug\System.Web.WebPages.Deployment.dll
+D:\Working Project\TrumpService\bin\Debug\System.Web.WebPages.dll
+D:\Working Project\TrumpService\bin\Debug\System.Web.WebPages.Razor.dll
+D:\Working Project\TrumpService\bin\Debug\System.Web.Helpers.xml
+D:\Working Project\TrumpService\bin\Debug\System.Web.Mvc.xml
+D:\Working Project\TrumpService\bin\Debug\System.Web.Razor.xml
+D:\Working Project\TrumpService\bin\Debug\System.Web.WebPages.xml
+D:\Working Project\TrumpService\bin\Debug\System.Web.WebPages.Deployment.xml
+D:\Working Project\TrumpService\bin\Debug\System.Web.WebPages.Razor.xml
+D:\Working\TrumpService\bin\Debug\TrumpService.exe.config
+D:\Working\TrumpService\bin\Debug\TrumpService.exe
+D:\Working\TrumpService\bin\Debug\TrumpService.pdb
+D:\Working\TrumpService\bin\Debug\EntityFramework.dll
+D:\Working\TrumpService\bin\Debug\EntityFramework.SqlServer.dll
+D:\Working\TrumpService\bin\Debug\Microsoft.Web.Infrastructure.dll
+D:\Working\TrumpService\bin\Debug\System.Web.Helpers.dll
+D:\Working\TrumpService\bin\Debug\System.Web.Mvc.dll
+D:\Working\TrumpService\bin\Debug\System.Web.Razor.dll
+D:\Working\TrumpService\bin\Debug\System.Web.WebPages.Deployment.dll
+D:\Working\TrumpService\bin\Debug\System.Web.WebPages.dll
+D:\Working\TrumpService\bin\Debug\System.Web.WebPages.Razor.dll
+D:\Working\TrumpService\bin\Debug\EntityFramework.xml
+D:\Working\TrumpService\bin\Debug\EntityFramework.SqlServer.xml
+D:\Working\TrumpService\bin\Debug\System.Web.Helpers.xml
+D:\Working\TrumpService\bin\Debug\System.Web.Mvc.xml
+D:\Working\TrumpService\bin\Debug\System.Web.Razor.xml
+D:\Working\TrumpService\bin\Debug\System.Web.WebPages.xml
+D:\Working\TrumpService\bin\Debug\System.Web.WebPages.Deployment.xml
+D:\Working\TrumpService\bin\Debug\System.Web.WebPages.Razor.xml
+D:\Working\TrumpService\obj\Debug\TrumpService.csproj.AssemblyReference.cache
+D:\Working\TrumpService\obj\Debug\TrumpService.csproj.CoreCompileInputs.cache
+D:\Working\TrumpService\obj\Debug\TrumpService.csproj.CopyComplete
+D:\Working\TrumpService\obj\Debug\TrumpService.exe
+D:\Working\TrumpService\obj\Debug\TrumpService.pdb

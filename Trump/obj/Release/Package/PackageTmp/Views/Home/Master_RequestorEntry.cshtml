@@ -1,0 +1,605 @@
+﻿
+@{
+    ViewBag.Title = "Master_RequestorEntry";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@*<h2>Master_RequestorEntry</h2>*@
+
+
+<div class="content" style="font-size:12px;min-height:100%">
+    <div class="content_resize">
+        <div class="mainbar">
+            <div class="article">
+                <div id="divNewInward" style="">
+                    <form action="/Home/SaveRequestorDetail" enctype="multipart/form-data" method="post">
+                        <input id="AuthoriserString" name="AuthoriserString" value="-1" type="hidden">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="widget stacked">
+                                        <div class="widget-header">
+                                            <i class="fa fa-check-circle"></i>
+                                            <h3>
+
+                                                Master Requestor Entry
+                                                <br />
+                                                <br />
+                                                <br />
+
+                                            </h3>
+                                        </div>
+                                        <div class="widget-content">
+
+
+
+                                            <div class="row">
+
+                                                <div class="col-md-3">
+                                                    <div class="form-group" id="divVisitors">
+                                                        <label for="name" class="col-md-8"> Employee Id <i class="fa fa-asterisk required"></i></label>
+                                                        <div class="col-md-12">
+                                                            <input class="form-control" id="txtEMPLOYEE_ID" required name="txtEMPLOYEE_ID" value="" type="text">
+
+
+                                                        </div>
+
+                                                    </div>
+
+                                                </div>
+
+                                                <div class="col-md-3">
+                                                    <div class="form-group" id="divVisitors">
+                                                        <label for="name" class="col-md-8"> Name <i class="fa fa-asterisk required"></i></label>
+                                                        <div class="col-md-12">
+                                                            <input class="form-control" id="txtNAME" name="txtNAME" value="" type="text">
+
+
+                                                        </div>
+
+                                                    </div>
+
+                                                </div>
+
+
+                                                <div class="col-md-3">
+                                                    <div class="form-group" id="divVisitors">
+                                                        <label for="name" class="col-md-8"> KSS Department <i class="fa fa-asterisk required"></i></label>
+                                                        <div class="col-md-12">
+                                                            <input class="form-control" id="txtKSSDepartment" required name="txtKSSDepartment" value="" type="text">
+
+
+                                                        </div>
+
+                                                    </div>
+
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div class="form-group" id="divVisitors">
+                                                        <label for="name" class="col-md-8"> requestor_key <i class="fa fa-asterisk required"></i></label>
+                                                        <div class="col-md-12">
+                                                            <input class="form-control" id="txtrequestor_key" required name="txtrequestor_key" value="" type="text">
+
+
+                                                        </div>
+
+                                                    </div>
+
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div class="form-group" id="divVisitors">
+                                                        <label for="name" class="col-md-8"> DESIGNATION <i class="fa fa-asterisk required"></i></label>
+                                                        <div class="col-md-12">
+                                                            <input class="form-control" id="txtDESIGNATION" name="txtDESIGNATION" required value="" type="text">
+
+
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-3">
+                                                    <div class="form-group" id="divVisitors">
+                                                        <label for="name" class="col-md-8"> DEPARTMENT <i class="fa fa-asterisk required"></i></label>
+                                                        <div class="col-md-12">
+                                                            <input class="form-control" id="txtDEPARTMENT" name="txtDEPARTMENT" value="" type="text" style="display:none;">
+                                                            @*<input class="form-control clsVisitorIDAutotext" id="txtdept" name="txtdept" value="" type="text" style="display:none;">*@
+                                                            <input class="form-control" id="txtDepartmentID" name="txtDepartmentID" value="" type="text" style="display:none;">
+                                                            <select tabindex="-1" class="form-control select2_group" required name="ddldept" id="ddldept">
+                                                                <option selected disabled>--Please Select--</option>
+                                                            </select>
+
+                                                        </div>
+
+                                                    </div>
+
+                                                </div>
+
+
+                                                <div class="col-md-3">
+                                                    <div class="form-group" id="divVisitors">
+                                                        <label for="name" class="col-md-8"> Immediate_Supervisor <i class="fa fa-asterisk required"></i></label>
+                                                        <div class="col-md-12">
+                                                            <input class="form-control" id="txtImmediate_Supervisor" name="txtImmediate_Supervisor" value="" type="text">
+
+
+                                                        </div>
+
+                                                    </div>
+
+                                                </div>
+
+                                                <div class="col-md-3">
+                                                    <div class="form-group" id="divVisitors">
+                                                        <label for="name" class="col-md-8"> Immediate_Supervisor_EMP_ID <i class="fa fa-asterisk required"></i></label>
+                                                        <div class="col-md-12">
+                                                            <input class="form-control" id="txtImmediate_Supervisor_EMP_ID" name="txtImmediate_Supervisor_EMP_ID" value="" type="text">
+
+
+                                                        </div>
+
+                                                    </div>
+
+                                                </div>
+
+                                                <div class="col-md-3">
+                                                    <div class="form-group" id="divVisitors">
+                                                        <label for="name" class="col-md-8"> HOD <i class="fa fa-asterisk required"></i></label>
+                                                        <div class="col-md-12">
+                                                            <input class="form-control" id="txtHOD" required name="txtHOD" value="" type="text">
+
+
+                                                        </div>
+
+                                                    </div>
+
+                                                </div>
+
+                                                <div class="col-md-3">
+                                                    <div class="form-group" id="divVisitors">
+                                                        <label for="name" class="col-md-8"> HOD_EMP_ID <i class="fa fa-asterisk required"></i></label>
+                                                        <div class="col-md-12">
+                                                            <input class="form-control" id="txtHOD_EMP_ID" required name="txtHOD_EMP_ID" value="" type="text">
+
+
+                                                        </div>
+
+                                                    </div>
+
+                                                </div>
+
+                                                <div class="col-md-3">
+                                                    <div class="form-group" id="divVisitors">
+                                                        <label for="name" class="col-md-8"> MOBILE NUMBER <i class="fa fa-asterisk required"></i></label>
+                                                        <div class="col-md-12">
+                                                            <input class="form-control" id="txtMOBILE" required name="txtMOBILE" value="" type="text">
+
+
+                                                        </div>
+
+                                                    </div>
+
+                                                </div>
+
+
+                                                <div class="col-md-3">
+                                                    <div class="form-group" id="divVisitors">
+                                                        <label for="name" class="col-md-8"> DATE OF BIRTH <i class="fa fa-asterisk required"></i></label>
+                                                        <div class="col-md-12">
+
+                                                            <input tabindex="6" class="form-control hasDatepicker" required autocomplete="off" data-val="true" id="DobDateString" name="V_Dob" value="@ViewBag.Cdate" onkeypress="return CheckPhone(event)" type="text">
+
+                                                        </div>
+
+                                                    </div>
+
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div class="form-group" id="divVisitors">
+                                                        <label for="name" class="col-md-8"> PAYROLL <i class="fa fa-asterisk required"></i></label>
+                                                        <div class="col-md-12">
+                                                            <input class="form-control" id="txtPAYROLL" name="txtPAYROLL" required value="" type="text">
+
+
+                                                        </div>
+
+                                                    </div>
+
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div class="form-group" id="divVisitors">
+                                                        <label for="name" class="col-md-8">DATE OF JOINING <i class="fa fa-asterisk required"></i></label>
+                                                        <div class="col-md-12">
+                                                            @*<input class="form-control" id="txdoj" name="txdoj" value="" type="text">*@
+
+                                                            <input tabindex="6" class="form-control hasDatepicker" autocomplete="off" data-val="true" id="DojDateString" name="V_Doj" value="@ViewBag.Cdate" onkeypress="return CheckPhone(event)" type="text">
+                                                        </div>
+
+                                                    </div>
+
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div class="form-group" id="divVisitors">
+                                                        <label for="name" class="col-md-8"> Email <i class="fa fa-asterisk required"></i></label>
+                                                        <div class="col-md-12">
+                                                            <input class="form-control" id="txtEmail" name="txtEmail" value="" type="text">
+
+
+                                                        </div>
+
+                                                    </div>
+
+                                                </div>
+
+
+                                                <div class="col-md-3">
+                                                    <div class="form-group" id="divVisitors">
+                                                        <label for="name" class="col-md-8"> VPF <i class="fa fa-asterisk required"></i></label>
+                                                        <div class="col-md-12">
+                                                            <input class="form-control" id="txtVPF" name="txtVPF" value="" type="text">
+
+
+                                                        </div>
+
+                                                    </div>
+
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div class="form-group" id="divVisitors">
+                                                        <label for="name" class="col-md-8"> EPF <i class="fa fa-asterisk required"></i></label>
+                                                        <div class="col-md-12">
+                                                            <input class="form-control" id="txtEPF" name="txtEPF" value="" type="text">
+
+
+                                                        </div>
+
+                                                    </div>
+
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div class="form-group" id="divVisitors">
+                                                        <label for="name" class="col-md-8"> Pan No <i class="fa fa-asterisk required"></i></label>
+                                                        <div class="col-md-12">
+                                                            <input class="form-control" id="txtPanNo" name="txtPanNo" value="" type="text">
+
+
+                                                        </div>
+
+                                                    </div>
+
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div class="form-group" id="divVisitors">
+                                                        <label for="name" class="col-md-8"> Total deductions <i class="fa fa-asterisk required"></i></label>
+                                                        <div class="col-md-12">
+                                                            <input class="form-control" id="txtDeduction" name="txtDeduction" value="" type="text">
+
+
+                                                        </div>
+
+                                                    </div>
+
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div class="form-group" id="divVisitors">
+                                                        <label for="name" class="col-md-8"> Yearly VPF <i class="fa fa-asterisk required"></i></label>
+                                                        <div class="col-md-12">
+                                                            <input class="form-control" id="txtYVPF" name="txtYVPF" required value="" type="text">
+
+
+                                                        </div>
+
+                                                    </div>
+
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div class="form-group" id="divVisitors">
+                                                        <label for="name" class="col-md-8"> Yearly EPF <i class="fa fa-asterisk required"></i></label>
+                                                        <div class="col-md-12">
+                                                            <input class="form-control" id="txtYEPF" name="txtYEPF" required value="" type="text">
+
+
+                                                        </div>
+
+                                                    </div>
+
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div class="form-group" id="divVisitors">
+                                                        <label for="name" class="col-md-8"> Password <i class="fa fa-asterisk required"></i></label>
+                                                        <div class="col-md-12">
+                                                            <input class="form-control" id="txtPassword" required name="txtPassword" value="" type="text">
+
+
+                                                        </div>
+
+                                                    </div>
+
+                                                </div>
+
+                                                <div class="col-md-3">
+                                                    <div class="form-group" id="divVisitors">
+                                                        <label for="name" class="col-md-8"> Status <i class="fa fa-asterisk required"></i></label>
+                                                        <div class="col-md-12">
+                                                            <input class="form-control" id="txtYEPF" required name="txtStatus" value="" type="text">
+
+
+                                                        </div>
+
+                                                    </div>
+
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div class="form-group" id="divVisitors">
+                                                        <label for="name" class="col-md-8"> UserType <i class="fa fa-asterisk required"></i></label>
+                                                        <div class="col-md-12">
+                                                            <input class="form-control" id="txtUserType" name="txtUserType" required value="" type="text">
+
+
+                                                        </div>
+
+                                                    </div>
+
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div class="form-group" id="divVisitors">
+                                                        <label for="name" class="col-md-8">InvestmentDeclarationStatus <i class="fa fa-asterisk required"></i></label>
+                                                        <div class="col-md-12">
+                                                            <input class="form-control" id="txtInvestmentDeclarationStatus" required name="txtInvestmentDeclarationStatus" value="" type="text">
+
+
+                                                        </div>
+
+                                                    </div>
+
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div class="form-group" id="divVisitors">
+                                                        <label for="name" class="col-md-8">Investment_Declaration_Password <i class="fa fa-asterisk required"></i></label>
+                                                        <div class="col-md-12">
+                                                            <input class="form-control" id="txtInvestment_Declaration_Password" required name="txtInvestment_Declaration_Password" value="" type="text">
+
+
+                                                        </div>
+
+                                                    </div>
+
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div class="form-group" id="divVisitors">
+                                                        <label for="name" class="col-md-8">HRMSPasswor <i class="fa fa-asterisk required"></i></label>
+                                                        <div class="col-md-12">
+                                                            <input class="form-control" id="txtHRMSPassword" required name="txtHRMSPassword" value="" type="text">
+
+
+                                                        </div>
+
+                                                    </div>
+
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div class="form-group" id="divVisitors">
+                                                        <label for="name" class="col-md-8">TrumpPassword <i class="fa fa-asterisk required"></i></label>
+                                                        <div class="col-md-12">
+                                                            <input class="form-control" id="txtTrumpPassword" required name="txtTrumpPassword" value="" type="text">
+
+
+                                                        </div>
+
+                                                    </div>
+
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div class="form-group" id="divVisitors">
+                                                        <label for="name" class="col-md-8">CompanyID <i class="fa fa-asterisk required"></i></label>
+                                                        <div class="col-md-12">
+                                                            <input class="form-control" id="txtCompanyID" required name="txtCompanyID" value="" type="text">
+
+
+                                                        </div>
+
+                                                    </div>
+
+                                                </div>
+
+                                                <div class="col-md-3">
+                                                    <div class="form-group" id="divVisitors">
+                                                        <label for="name" class="col-md-8">Region <i class="fa fa-asterisk required"></i></label>
+                                                        <div class="col-md-12">
+
+
+                                                            <select tabindex="-1" class="form-control select2_group" name="ddlRegion" id="ddlRegion">
+                                                                <option selected disabled>--Please Select--</option>
+                                                                @*<option value='--Please Select--'>--Please Select--</option>*@
+                                                                <option value="PNI">PNI</option>
+                                                                <option value="KNI">KNI</option>
+                                                            </select>
+                                                        </div>
+
+                                                    </div>
+
+                                                </div>
+
+
+                                                @*</div>*@
+
+
+                                                <div class="col-md-6">
+                                                    <br /> <br /> <br />
+                                                    <input type="submit"
+                                                           name="btnSave" id="btnSave" value="Submit" class="btn btn-primary" />
+
+                                                </div>
+
+
+
+
+
+
+
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+@*<script src="~/Scripts/select2.js"></script>
+<link href="~/bootstrap-sweetalert-master/dist/sweetalert.css" rel="stylesheet" />
+<script src="~/bootstrap-sweetalert-master/dist/sweetalert.js"></script>*@
+@if (TempData["RequestorEntry"] != null)
+{
+    <script>
+        $(document).ready(function () {
+            swal({
+                title: "Alert",
+                text: "RequestorEntry   Detail Saved ",
+                icon: "success",
+                type: "success"
+            }, function () {
+                window.location.href = "../Home/RequestorEntry";
+
+            })
+    </script>
+}
+
+
+
+<script>
+
+    $(document).ready(function () {
+
+        //funddldeptfill();
+
+        $("#AppointmentDateString").datepicker({
+            'autoclose': true,
+            /* 'startDate': '-0m'*/
+        });
+
+
+
+
+
+    });
+    $(document).ready(function () {
+        $("#DobDateString").datepicker({
+            'autoclose': true,
+            /* 'startDate': '-0m'*/
+        });
+
+
+
+
+
+    });
+
+    $(document).ready(function () {
+        $("#DojDateString").datepicker({
+            'autoclose': true,
+            /* 'startDate': '-0m'*/
+        });
+
+
+
+
+
+    });
+
+
+
+
+
+
+
+    $("#btnSave").click(function () {
+
+      
+
+    });
+
+
+</script>
+
+<script>
+
+
+            $(document).ready(function () {
+
+
+
+    $("#ddlRegion").change(function () {
+
+        debugger;
+        funddldeptfill();
+
+    });
+
+
+    $("#ddldept").change(function () {
+
+        var deptval = $('#ddldept option:selected').val();
+        var depttxt = $('#ddldept option:selected').text();
+
+        $("#txtDepartmentID").val(deptval);
+        $("#txtDEPARTMENT").val(depttxt);
+
+    });
+
+
+
+
+        var funddldeptfill = (function () {
+            debugger;
+        var ddlRegion = $('#ddlRegion option:selected').text();
+
+
+     $.ajax({
+
+
+           url: '@Url.Action("GetDepartmenByRegiontList", "Home")',
+            type: 'Get',
+         contenType: 'application/json charset utf-8',
+
+
+         dataType: 'json',
+         data: { Region: ddlRegion },
+     success: function (data) {
+
+         $("#ddldept").empty()
+         var s;
+
+         s = "<option value='--Please Select--'>--Please Select--</option>";
+         $("#ddldept").append(s);
+        for (var i = 0; i < data.length; i++) {
+
+            s = "<option value='" + data[i].DepartmentId + "'>" + data[i].DEPARTMENT + "</option>";
+
+            $("#ddldept").append(s);
+
+         }
+         //---------
+
+
+
+
+
+    }
+});
+
+
+
+    });
+
+
+
+            });
+
+
+</script>
+
+

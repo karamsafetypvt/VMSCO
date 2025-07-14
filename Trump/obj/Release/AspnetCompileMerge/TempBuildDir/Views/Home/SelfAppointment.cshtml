@@ -1,0 +1,713 @@
+﻿@{
+    ViewBag.Title = "SingleDayPass";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    .ui-autocomplete li.ui-menu-item a {
+        background-image: none;
+    }
+
+    .focus {
+        border: 2px solid #AA88FF;
+        background-color: #FFEEAA;
+    }
+
+    .select2-container--default .select2-selection--single {
+        border-radius: 4px;
+    }
+
+    .select2-container {
+        width: 100% !important;
+    }
+</style>
+<div class="main" ng-controller="AppointmentController">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="widget stacked">
+                    <div class="widget-header">
+                        <i class="fa fa-check"></i>
+                        <h3>
+                            Visitor Entry
+                        </h3>
+                    </div>
+                    <form action="/Home/SelfAppointment" class="form-horizontal col-md-12" enctype="multipart/form-data" method="post">
+                        <div class="widget-content">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <fieldset>
+                                        <legend style="text-align:center;">Invitee Details</legend>
+                                        <div class="form-group">
+                                            <label for="name" class="col-md-8">
+                                                Site/Location
+                                            </label>
+                                            <div class="col-md-10">
+                                                <input type="text" name="V_Location" class="form-control" readonly value="@Session["SITE"].ToString()" />
+                                            </div>
+                                            <div class="col-md-2">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="name" class="col-md-8">
+                                                Host/Invitee <i class="fa fa-asterisk required"></i>
+                                            </label>
+                                            <div class="col-md-10">
+                                                <select required class="form-control" id="selfAReq" name="host">
+                                                    <option selected disabled>Select One</option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="name" class="col-md-8">
+                                                Emp Code  
+                                            </label>
+                                            <div class="col-md-10">
+                                                <input class="form-control" data-val="true" name="Requestor" type="text" readonly id="selfAPNI">
+                                            </div>
+                                            <div class="col-md-2">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="name" class="col-md-8">Department</label>
+                                            <div class="col-md-10">
+                                                <input type="text" name="Deptment" class="form-control" id="secDept" readonly />
+                                            </div>
+                                            <div class="col-md-2">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="name" class="col-md-8">
+                                                Designation 
+                                            </label>
+                                            <div class="col-md-10">
+                                                <input class="form-control" data-val="true" id="secDesc" readonly type="text"  >
+                                            </div>
+                                            <div class="col-md-2">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="name" class="col-md-8">
+                                                Mobile/Extension
+                                            </label>
+                                            <div class="col-md-10">
+                                                <input class="form-control" data-val="true" name="ExtensionNumber" readonly id="secmbl" type="text">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="name" class="col-md-8">
+                                                Email-ID
+                                            </label>
+                                            <div class="col-md-10">
+                                                <input class="form-control" data-val="true" readonly id="SecEmailId" name="EmailId" type="text">
+                                            </div>
+                                            <div class="col-md-2">
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <fieldset>
+                                        <legend style="text-align:center;">Visitor Details</legend>
+                                        <div class="form-group">
+                                            <label for="name" class="col-md-8">
+                                                Mobile Number<i class="fa fa-asterisk required"></i> <a style="display: inline;" class="VisitorQuickAdd"></a>
+                                            </label>
+                                            <div class="col-md-10">
+                                                <input class="form-control" maxlength="10" value="0000000000" readonly id="SecMblNumber" onkeypress="return CheckPhone(event)" name="IDNumber" type="text">
+                                            </div>
+                                            <div class="col-md-2">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="name" class="col-md-12">
+                                                Visitor Company<i class="fa fa-asterisk required"></i>
+                                            </label>
+                                            <div class="col-md-10">
+                                                <select tabindex="-1" class="form-control select2_group" name="ComanyID">
+                                                    <option value="4962" selected>GUEST</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-md-2">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="name" class="col-md-8">
+                                                Visitor Name <i class="fa fa-asterisk required"></i>
+                                            </label>
+                                            <div class="col-md-10">
+                                                <select class="form-control" name="VisitorID" required>
+                                                    <option value="8309" selected>GUEST</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-md-2">
+
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="name" class="col-md-12">ID Type</label>
+                                            <div class="col-md-10">
+                                                <select tabindex="-1" class="form-control select2_group" required id="IDProofType" name="Visitor_ID">
+                                                    <option selected>Aadhar</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="name" class="col-md-12">ID Number <i class="fa fa-asterisk required"></i></label>
+                                            <div class="col-md-10">
+                                                <input class="form-control" name="V_IDNumber" id="V_IDNumber" value="000000" type="text">
+                                                <span id="ValidationForIDNumber" class="field-validation-error" style="display: none">
+                                                </span><span id="Validationmsg" style="color: red;"></span>
+                                            </div>
+                                            <div class="col-md-2">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="name" class="col-md-8">
+                                                Remarks
+                                            </label>
+                                            <div class="col-md-10">
+                                                <textarea class="form-control textarea" cols="20" required id="Remarks" name="Remark" rows="4">Guest</textarea>
+                                                <span id="ValidationForRemarks" class="field-validation-error" style="display: none">
+                                                </span>
+                                            </div>
+                                            <div class="col-md-2">
+                                            </div>
+                                        </div>
+
+                                        <input name="authorization" style="visibility: hidden" value="popup" checked="checked" type="radio">
+                                    </fieldset>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <fieldset>
+                                        <legend>Visit Specific Detail</legend>
+                                        <div class="form-group">
+                                            <label for="name" class="col-md-8">
+                                                Visit Type
+                                            </label>
+                                            <div class="col-md-10">
+                                                <select tabindex="-1" class="form-control select2_group" name="Visitor_Type" id="Visitor_Type">
+                                                    <option selected disabled>--Please Select--</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="name" class="col-md-8">Time  <i class="fa fa-asterisk required"></i></label>
+                                            <div class="col-md-10">
+                                                <input required tabindex="7" autocomplete="OFF" class="form-control" data-val="true" data-val-required="The AppointmentTimeString field is required." id="AppointmentTimeString" name="A_Time" type="text">
+                                                <div style="display:none;" id="invalidtime" class="field-validation-error">
+                                                    Time is invalid
+                                                </div>
+                                                <span id="ValidationForTime" class="field-validation-error" style="display: none">
+                                                </span>
+                                            </div>
+                                            <div class="col-md-2">
+                                                @*<i class="fa fa-asterisk required" style="margin-left: -25px;"></i>*@
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="name" class="col-md-12">
+                                                Expected Duration
+                                            </label>
+                                            <div class="col-md-10">
+                                                <select tabindex="-1" class="form-control select2_group" name="Duration" required="">
+                                                    <option selected value="0-2(Hrs)">0-2 (hrs)</option>
+                                                    <option value="2-4(Hrs)">2-4 (hrs)</option>
+                                                    <option value=">4(Hrs)"> > 4(hrs)</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-md-2">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="name" class="col-md-8">
+                                                Card Type <i class="fa fa-asterisk required"></i>
+                                            </label>
+                                            <div class="col-md-10">
+                                                <select tabindex="-1" class="form-control select2_group" data-val="true" name="Location" required="">
+                                                    <option selected value="Green">Green(Admin Area)</option>
+                                                    <option value="Red">Red(Production Area)</option>
+                                                    <option value="Yellow">Yellow(All Area)</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-md-1">
+                                            </div>
+                                            <div class="col-md-1">
+                                            </div>
+                                        </div>
+
+                                    </fieldset>
+                                </div>
+                                <div class="col-md-3">
+
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <fieldset>
+                                                <legend>User Defined Feilds</legend>
+                                                <div class="form-group">
+                                                    <div class="col-md-12">
+                                                        <div style="border: 1px solid; height: 132px; padding: 5px; width: 100%; overflow: auto;
+                                                        border-color: #d3d3d3;">
+                                                            <table id="tblMaterialData" width="100%">
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td>
+                                                                            Name
+                                                                        </td>
+                                                                        <td>
+                                                                            Serial No
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td style="width: 50%">
+                                                                            <input name="chkselectedmaterial_L" type="checkbox">
+                                                                            Laptop
+                                                                        </td>
+                                                                        <td>
+                                                                            <input name="Serial_No_L" class="form-control" type="text">
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td style="width: 50%">
+                                                                            <input name="chkselectedmaterial_T" type="checkbox">
+                                                                            Tool Box
+                                                                        </td>
+                                                                        <td>
+                                                                            <input name="Serial_No_T" class="form-control" type="text">
+                                                                        </td>
+                                                                    </tr>
+
+                                                                    <tr>
+                                                                        <td style="width: 50%">
+                                                                            <input name="chkselectedmaterial_MD" type="checkbox">
+                                                                            Media Device
+                                                                        </td>
+                                                                        <td>
+                                                                            <input name="Serial_No_MD" class="form-control" type="text">
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td style="width: 50%">
+                                                                            <input name="chkselectedmaterial_SD" type="checkbox">
+                                                                            Storage Device
+                                                                        </td>
+                                                                        <td>
+                                                                            <input name="Serial_No_SD" id="txtmaterial" class="form-control" type="text">
+                                                                        </td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </fieldset>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <br />
+                            <div class="row">
+                                <div style="padding-left: 20px" class="col-md-offset-8">
+                                    <div style="float: left;">
+                                        <i class="fa fa-asterisk required">
+                                        </i>
+                                        <input class="btn btn-primary" name="btnShowQuestionnaire" value="COVID-19  Questionnaire" type="button" id="CovidQues">
+                                    </div>
+                                    <div id="divSavePanel" style="float: left;padding-left: 4px;">
+                                        <input id="btnSave" name="btnSave" class="btn btn-primary" value="Submit" onclick="return validateEmpty()" type="submit">
+                                    </div>
+                                    <div style="float: left;padding-left: 4px; ">
+                                        <input id="btnCancel" name="btnCancel" class="btn btn-primary" value="Clear" type="button">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="Covid_Dialog" class="ui-front" style="z-index: 2147483647; width: auto;
+        height: auto; display: none; padding-bottom: 60px;">
+    <form enctype="multipart/form-data" id="FormQuickAddVisitor" method="post">
+        <table id="tblQuestionnaire" class="table" border="0" cellspacing="0">
+            <tbody>
+                <tr>
+                    <td>
+                        1.
+                    </td>
+                    <td style="padding-right: 10px">
+                        <b>What is your current body temperature?</b>
+                    </td>
+                    <td>
+                        <input name="Q1" id="txtLabelQuestionQ" required class="clsoptiontext form-control" style="border-radius: 4px; border-style: solid; border-color: rgb(204, 204, 204);border-width: 1px;" type="text" onkeypress="return CheckPhone(event)">
+                        <input type="hidden" id="GP_ID_Question" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="vertical-align:top;">
+                        2.
+                        <input value="2" class="hdclsSeqno" type="hidden">
+                    </td>
+                    <td style="padding-right: 10px">
+                        <b>Have you traveled anywhere in country or outside the country in past 20 days?</b>
+                    </td>
+                    <td>
+                        <label>Yes</label>
+                        <input name="Q2" required style="margin-left:
+                            10px;" class="clsoptiontext" id="clscheckbox-2Q" type="radio" value="Yes">
+                        <label>No</label>
+                        <input name="Q2" required style="margin-left:
+                            10px;" class="clsoptiontext" id="clscheckbox-2Q" type="radio" value="No" checked>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="vertical-align:top;">
+                        3.
+                        <input value="3" class="hdclsSeqno" type="hidden">
+                    </td>
+                    <td style="padding-right: 10px">
+                        <b>Have you installed &amp; configured Arogya Setu application in your phone?</b>
+                    </td>
+                    <td>
+                        <label>Yes</label>
+                        <input style="margin-left:
+                            10px;" name="Q3" class="clsoptiontext" id="clscheckbox-3Q" type="radio" value="Yes" required checked>
+                        <label>No</label>
+                        <input style="margin-left:
+                            10px;" name="Q3" class="clsoptiontext" id="clscheckbox-3Q" type="radio" value="No" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="vertical-align:top;">
+                        4.
+                        <input value="4" class="hdclsSeqno" type="hidden">
+                    </td>
+                    <td style="padding-right: 10px">
+                        <b>Are you suffering from High Temperature/Cough/Cold?</b>
+                    </td>
+                    <td>
+                        <label>Yes</label>
+                        <input name="Q4" style="margin-left:
+                            10px;" class="clsoptiontext" id="clscheckbox-4Q" type="radio" required value="Yes">
+                        <label>No</label>
+                        <input name="Q4" style="margin-left:
+                            10px;" class="clsoptiontext" id="clscheckbox-4Q" type="radio" required value="No" checked>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="ui-dialog-buttonpane ui-widget-content ui-helper-clearfix">
+            <div class="ui-dialog-buttonset">
+                <input class="btn btn-primary" type="button" id="btnCovid" value="Save" />
+            </div>
+        </div>
+    </form>
+</div>
+
+
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $("#dialog-formVisitorMobileSearch").dialog({
+            autoOpen: false,
+            height: 300,
+            width: 400,
+            modal: true
+        });
+        $("#VisitorMobileSearch").click(function () {
+            debugger
+            $("#dialog-formVisitorMobileSearch").dialog("open");
+        })
+        $('#MeetingLocationID').select2();
+    })
+</script>
+<script>
+    $(document).ready(function () {
+        $("#dialog-formIDProof").dialog({
+            autoOpen: false,
+            height: 300,
+            width: 400,
+            modal: true
+        });
+        $("#IdProofQuickAdd").click(function () {
+            debugger
+            $("#dialog-formIDProof").dialog("open");
+        })
+    })
+</script>
+
+<script>
+    $(document).ready(function () {
+        $("#dialog-formCity").dialog({
+            autoOpen: false,
+            height: 200,
+            width: 300,
+            modal: true,
+        });
+        $("#CityQuickAdd").click(function () {
+            debugger
+            $("#dialog-formCity").dialog("open");
+        })
+    })
+</script>
+<script>
+    $(document).ready(function () {
+        $("#dialog-formState").dialog({
+            autoOpen: false,
+            height: 200,
+            width: 300,
+            modal: true,
+        });
+        $("#StateQuickAdd").click(function () {
+            debugger
+            $("#dialog-formState").dialog("open");
+        })
+    })
+</script>
+
+<script>
+    $(document).ready(function () {
+        $("#dialog-formCountry").dialog({
+            autoOpen: false,
+            height: 200,
+            width: 300,
+            modal: true,
+        });
+        $("#CountryQuickAdd").click(function () {
+            debugger
+            $("#dialog-formCountry").dialog("open");
+        })
+
+        $.ajax({
+            url: '@Url.Action("GetSiteData", "Home")',
+            type: 'Get',
+            contenType: 'application/json charset utf-8',
+            dataType: 'json',
+            success: function (SaleOrder) {
+                    debugger
+                for (var i = 0; i < SaleOrder.length; i++) {
+                        var s = "<option value='" + SaleOrder[i].C_ID + "'>" + SaleOrder[i].CName + "</option>";
+                        $("#DivVC").append(s);
+                    }
+            }
+        })
+
+        $("#SecMblNumber").autocomplete({
+            source: function (request, response) {
+                $.ajax({
+                        url: '@Url.Action("GetVendorMbl", "Home")',
+                        type: "POST",
+                        dataType: "json",
+                        data: { Prefix: request.term },
+                        success: function (data) {
+                            if (data.length == 0) {
+                                setTimeout(function () { $(".dialog-formVisitorAdd").dialog("open"); }, 3000);
+                            }
+                            else {
+                                response(data);
+                            }
+                        }
+                    })
+            },
+            select: function (e, i) {
+                debugger
+                $.ajax({
+                url: '@Url.Action("GetVendorData", "Home")',
+                    datatype: "JSON",
+                    data: { Prefix: i.item.label },
+                    type: "Get",
+                    success: function (data) {
+                        debugger
+                        var s = "<option selected value='" + data.ID + "'>" + data.Name + "</option>";
+                        $("#divVisS").append(s);
+                        $("#GP_ID_Question").val(data.ID);
+                        var c = "<option selected value='" + data.CID + "'>" + data.CName + "</option>";
+                        $("#DivVC").append(c);
+                        $("#V_IDNumber").val(data.IDNumber);
+                        var VID = "<option selected value='" + data.IDType + "'>" + data.IDType + "</option>";
+                        $("#IDProofType").append(VID);
+                        if (data.Pic != null) {
+                        $("#divAlt").css("display", "none");
+                        $("#imgVisitorPhoto1").css("display", "inline");
+                        $('#imgVisitorPhoto1').attr('src', "../Content/ProfilPic/" + data.Pic);
+                    }
+                    else {
+                         $("#divAlt").css("display", "none");
+                         $("#imgVisitorPhoto1").css("display", "none");
+                    }
+                    }
+                });
+            }
+        });
+
+         // Security visitor change
+        $("#divVisS").change(function () {
+            var da = $("#divVisS").val();
+            $.ajax({
+                url: '@Url.Action("GetVendorMbl","Home")',
+                datatype: "JSON",
+                data: { ID: da },
+                type: "Get",
+                success: function (data) {
+                    debugger
+                    $("#SecMblNumber").val(data.V_Phone);
+                    $("#V_IDNumber").val(data.V_IDNumber);
+                    var s = "<option selected value='" + data.Visitor_ID + "'>" + data.Visitor_ID + "</option>";
+                    if (data.Visitor_ID != null) {
+                        $("#IDProofType").append(s);
+                    }
+                    if (data.V_Pic != null) {
+                        $("#divAlt").css("display", "none");
+                        $("#imgVisitorPhoto1").css("display", "inline");
+                        $('#imgVisitorPhoto1').attr('src', "../Content/ProfilPic/" + data.V_Pic);
+                    }
+                    else {
+                         $("#divAlt").css("display", "none");
+                         $("#imgVisitorPhoto1").css("display", "none");
+                    }
+                }
+            })
+        })
+    })
+</script>
+
+<script>
+    $(document).ready(function () {
+        $("#MeetingTypeID").change(function () {
+            debugger
+            var d = $(this).val();
+            if (d == '1') {
+                $("#panelRecurring").hide();
+            }
+            else {
+                $("#panelRecurring").show();
+            }
+        })
+    })
+</script>
+
+<script type="text/javascript">
+    function OpenPopupWindowPhoto(url, title, w, h) {
+        var a = ITX3ResolveUrl(url);
+        var left = (screen.width / 2) - (w / 2);
+        var top = (screen.height / 2) - (h / 2);
+        return window.open(a, title, 'toolbar=no,address=no, location=yes, directories=no, status=no, menubar=no, scrollbars=no, resizable=no, copyhistory=no, width=' + w + ', height=' + h + ', top=' + top + ', left=' + left);
+    }
+</script>
+<script>
+    $(document).ready(function () {
+        $("#AppointmentTimeString").timepicker({
+            'showDuration': true,
+            'timeFormat': 'g:ia',
+            'minTime': '09',
+            'maxTime': '6:00pm',
+        });
+    })
+</script>
+
+<script>
+    $(document).ready(function () {
+        $("#Covid_Dialog").dialog({
+            autoOpen: false,
+            title: " Questionnaire",
+            modal: true,
+            width: 600,
+        });
+        $("#CovidQues").click(function () {
+            debugger
+            $("#Covid_Dialog").dialog("open");
+        })
+    })
+</script>
+<script>
+    $(document).ready(function () {
+        $("#divSavePanel").hide();
+        $("#btnCovid").click(function () {
+                var q1 = parseFloat($("#txtLabelQuestionQ").val());
+                var q2 = $("input[name='Q2']:checked").val();
+                var q3 = $("input[name='Q3']:checked").val();
+                var q4 = $("input[name='Q4']:checked").val();
+                $.ajax({
+                    url: '@Url.Action("SingleDayQuestion", "Home")',
+                    datatype: "JSON",
+                    data: {q1:q1,q2:q2,q3:q3,q4:q4 },
+                    type: "POST",
+                    success: function (data) {
+                        debugger
+                        if (data == "Exception") {
+                            $("#btnSave").val('Exceptionally IN');
+                            $("#btnSave").css('background-color','red');
+                            $("#divSavePanel").show();
+                            $("#Covid_Dialog").dialog("close");
+                        }
+                        else {
+                            $("#btnSave").css('background-color','green');
+                            $("#btnSave").val('IN');
+                            $("#Covid_Dialog").dialog("close");
+                            $("#divSavePanel").show();
+                        }
+                    }
+
+                })
+        })
+
+        $('input[name=Valid_at]').prop('required', true)
+        $('input[name=Valid_at]').click(function () {
+            if ($(this).prop("checked") == true) {
+                $('input[name=Valid_at]').prop('required', false)
+            }
+            else if ($(this).prop("checked") == false) {
+                $('input[name=Valid_at]').prop('required', true)
+            }
+        });
+
+        $.ajax({
+            url: '@Url.Action("GuestRequestor", "Home")',
+            type: 'Get',
+            contenType: 'application/json charset utf-8',
+            dataType: 'json',
+            success: function (SaleOrder) {
+                for (var i = 0; i < SaleOrder.length; i++) {
+                        var s = "<option value='" + SaleOrder[i].ID + "'>" + SaleOrder[i].Name + "</option>";
+                        $("#selfAReq").append(s);
+                    }
+            }
+        })
+
+        $("#selfAReq").change(function () {
+            var pni = $("#selfAReq").val();
+            $.ajax({
+                url: '@Url.Action("GuestRequestorData","Home")',
+                contenType: 'application/json charset utf-8',
+                type: 'Get',
+                data: { pni: pni },
+                dataType: 'json',
+                success: function (data) {
+                    debugger
+                    $('#SecEmailId').val(data.Email)
+                    $('#secmbl').val(data.MBL)
+                    $('#secDesc').val(data.Designtn)
+                    $('#secDesc').val(data.Designtn) 
+                    $('#secDept').val(data.Dept)
+                    $('#selfAPNI ').val(data.ID)
+                }
+            })
+        })
+    })
+</script>
+

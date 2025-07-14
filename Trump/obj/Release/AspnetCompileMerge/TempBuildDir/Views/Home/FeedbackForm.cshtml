@@ -1,0 +1,465 @@
+﻿
+@{
+    ViewBag.Title = "ForgetPassword";
+    Layout = null;
+}
+
+<html idmmzcc-ext-docid="376344576">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>eNX Feedback</title>
+    @*@Styles.Render("~/Content/css")*@
+    @Scripts.Render("~/bundles/modernizr")
+    <link rel="icon" href="~/Layout/Images/favicon.png" type="image/x-icon">
+    <link href="~/Layout/Css/bootstrap.min.css" rel="stylesheet" />
+    @*<link href="~/Content/bootstrap.min.css" rel="stylesheet" />*@
+    <link href="~/Layout/Css/bootstrap-responsive.min.css" rel="stylesheet" />
+    <link href="~/Content/font-awesome.css" rel="stylesheet" />
+    <link href="~/Layout/Css/base-admin-3.css" rel="stylesheet" />
+    <link href="~/Layout/Css/base-admin.css" rel="stylesheet" />
+    <link href="~/Layout/Css/base-admin-3-responsive.css" rel="stylesheet" />
+    <link href="~/Layout/Css/custom.css" rel="stylesheet" />
+    <style>
+
+        h1,
+        p {
+            margin: 0;
+            padding: 0;
+            line-height: 1.5;
+        }
+
+        .app {
+            width: 90%;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .item {
+            width: 90px;
+            /*height: 90px;*/
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            user-select: none;
+        }
+
+        .radio {
+            display: none;
+        }
+
+            .radio ~ span {
+                font-size: 3rem;
+                filter: grayscale(100);
+                cursor: pointer;
+                transition: 0.3s;
+            }
+
+            .radio:checked ~ span {
+                filter: grayscale(0);
+                font-size: 4rem;
+            }
+    </style>
+
+</head>
+<body>
+    <div class="main" dir="ltr" style="font-size:12px;">
+        <div class="header">
+            <div class="header_resize">
+                <nav class="navbar navbar-inverse" role="navigation">
+                    <div id="logindisplay">
+                        <input id="AuthorizationRequestTimeOut" name="AuthorizationRequestTimeOut" value="30" type="hidden">
+
+                        <div class="col-md-12" style="margin: 0px; padding: 0px">
+                            <div class="col-md-8" style="margin-left: 0%; padding: 0px;">
+                                <div class="nav navbar-nav navbar-left">
+                                    <img id="imgCompanyLogo" src="~/Layout/Images/karam-LOGO-1.png" alt="" />
+                                    <div style="float: right; color: black; font-size: 24px; margin-top: 18px; margin-left: 5px;font-weight:bold;">PN INTERNATIONAL PVT LTD.</div>
+                                </div>
+                            </div>
+                            <br />
+                        </div>
+                    </div>
+                </nav>
+            </div>
+            <br />
+        </div>
+    </div>
+    <div class="content">
+        <form action="~/Home/FeedbackForm" method="post">
+            <div class="form-horizontal col-md-12">
+                <div class="main">
+                    <div class="container">
+                        <div class="col-md-12">
+                            <div class="widget">
+                                <div class="widget-header">
+                                    <i class="icon-ok"></i>
+                                    <span style="font-size:20px;font-weight:bold;">Please rate eXN on following parameters</span>
+                                </div>
+                                <div class="widget-content" style="background-color:#EEEAE9;">
+                                    <div class="">
+                                        <div class="container">
+                                            <div class="form-group">
+                                                <div class="col-md-4 col-sm-2 col-xs-3">
+                                                </div>
+                                                <div class="col-md-2 col-sm-2 col-xs-3" style="text-align: center;">
+                                                    <label style="text-align:center;">
+                                                        Requires Improvement
+                                                    </label>
+                                                </div>
+                                                <div class="col-md-2 col-sm-2 col-xs-3" style="text-align: center;">
+                                                    <label style="text-align:center;">
+                                                        Meets Expections
+                                                    </label>
+                                                </div>
+                                                <div class="col-md-2 col-sm-2 col-xs-3" style="text-align: center;">
+                                                    <label style="text-align:center;">
+                                                        Exceed Expections
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="">
+                                        <div class="container">
+                                            <div class="form-group">
+                                                <div class="col-md-4  col-sm-2 col-xs-3">
+                                                    <h4 for="name" style="text-align:left;">
+                                                        Thought Process<br />
+                                                        (System Design)
+                                                    </h4>
+                                                </div>
+                                                <div class="col-md-2 col-sm-2 col-xs-3">
+                                                    @*<label class="col-md-11" style="text-align:center;">
+                                                            Requires Improvement
+                                                        </label>*@
+                                                    <input class="form-control col-md-1" name="feedback1" type="radio" value="Requires Improvement" required id="feedback1">
+
+                                                </div>
+                                                <div class="col-md-2 col-sm-2 col-xs-3">
+                                                    @*<label class="col-md-11" style="text-align:center;">
+                                                            Meets Expections
+                                                        </label>*@
+                                                    <input class="form-control col-md-1" name="feedback1" type="radio" required value="Meets Expections" id="feedback2">
+
+                                                </div>
+                                                <div class="col-md-2 col-sm-2 col-xs-3">
+                                                    @*<label class="col-md-11" style="text-align:center;">
+                                                            Exceed Expections
+                                                        </label>*@
+                                                    <input class="form-control col-md-1" name="feedback1" type="radio" required value="Exceed Expections" id="feedback3">
+                                                </div>
+                                                <div class="col-md-2 col-sm-2 col-xs-3" style="display:none;" id="feedback04">
+                                                    <textarea class="form-control" name="txtfeedback1" id="txtfeedback1" placeholder="What Improvement...." style="height:50px;"></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <br />
+                                    <div class="">
+                                        <div class="container">
+                                            <div class="form-group">
+                                                <div class="col-md-4 col-sm-2 col-xs-3">
+                                                    <h4 for="name" style="text-align:left;">
+                                                        User interface<br /> (Cleanliness / Ease of use)
+                                                    </h4>
+                                                </div>
+                                                <div class="col-md-2 col-sm-2 col-xs-3">
+                                                    @*<label class="col-md-11" style="text-align:center;">
+                                                            Required Improvement
+                                                        </label>*@
+                                                    <input class="form-control col-md-1" name="feedback2" type="radio" value="Requires Improvement" required id="feedback11">
+
+                                                </div>
+                                                <div class="col-md-2 col-sm-2 col-xs-3">
+                                                    @*<label class="col-md-11" style="text-align:center;">
+                                                            Meets Expections
+                                                        </label>*@
+                                                    <input class="form-control col-md-1" name="feedback2" type="radio" required value="Meets Expections" id="feedback2">
+
+                                                </div>
+                                                <div class="col-md-2 col-sm-2 col-xs-3">
+                                                    @*<label class="col-md-11" style="text-align:center;">
+                                                            Exceed Expections
+                                                        </label>*@
+                                                    <input class="form-control col-md-1" name="feedback2" type="radio" required value="Exceed Expections" id="feedback13">
+                                                </div>
+                                                <div class="col-md-2 col-sm-2 col-xs-3" style="display:none;" id="feedback14">
+                                                    <textarea class="form-control" name="txtfeedback2" id="txtfeedback2" placeholder="What Improvement...." style="height:50px;"></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <br />
+                                    <div class="">
+                                        <div class="container">
+                                            <div class="form-group">
+                                                <div class="col-md-4 col-sm-2 col-xs-3">
+                                                    <h4 for="name" style="text-align:left;">
+                                                        Automation<br />
+                                                        (Paperless Envoirment / Efficency)
+                                                    </h4>
+                                                </div>
+                                                <div class="col-md-2 col-sm-2 col-xs-3">
+                                                    @*<label class="col-md-11" style="text-align:center;">
+                                                            Required Improvement
+                                                        </label>*@
+                                                    <input class="form-control col-md-1" name="feedback3" type="radio" required value="Requires Improvement" id="feedback21">
+                                                </div>
+                                                <div class="col-md-2 col-sm-2 col-xs-3">
+                                                    @*<label class="col-md-11" style="text-align:center;">
+                                                            Meets Expections
+                                                        </label>*@
+                                                    <input class="form-control col-md-1" name="feedback3" type="radio" required value="Meets Expections" id="feedback22">
+                                                </div>
+                                                <div class="col-md-2 col-sm-2 col-xs-3">
+                                                    @*<label class="col-md-11" style="text-align:center;">
+                                                            Exceed Expections
+                                                        </label>*@
+                                                    <input class="form-control col-md-1" name="feedback3" type="radio" required value="Exceed Expections" id="feedback23">
+                                                </div>
+                                                <div class="col-md-2 col-sm-2 col-xs-3" style="display:none;" id="feedback24">
+                                                    <textarea class="form-control" name="txtfeedback3" id="txtfeedback3" placeholder="What Improvement...." style="height:50px;"></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <br />
+                                    <div class="">
+                                        <div class="container">
+                                            <div class="form-group">
+                                                <div class="col-md-4 col-sm-2 col-xs-3">
+                                                    <h4 for="name" style="text-align:left;">
+                                                        Collabaration<br />
+                                                        (SMS / Whatsapp / Google)
+                                                    </h4>
+                                                </div>
+                                                <div class="col-md-2 col-sm-2 col-xs-3">
+                                                    @*<label class="col-md-11" style="text-align:center;">
+                                                            Required Improvement
+                                                        </label>*@
+                                                    <input class="form-control col-md-1" name="feedback4" type="radio" required value="Requires Improvement" id="feedback31">
+                                                </div>
+                                                <div class="col-md-2 col-sm-2 col-xs-3">
+                                                    @*<label class="col-md-11" style="text-align:center;">
+                                                            Meets Expections
+                                                        </label>*@
+                                                    <input class="form-control col-md-1" name="feedback4" type="radio" required value="Meets Expections" id="feedback32">
+                                                </div>
+                                                <div class="col-md-2 col-sm-2 col-xs-3">
+                                                    @*<label class="col-md-11" style="text-align:center;">
+                                                            Exceed Expections
+                                                        </label>*@
+                                                    <input class="form-control col-md-1" name="feedback4" type="radio" required value="Exceed Expections" id="feedback33">
+                                                </div>
+                                                <div class="col-md-2 col-sm-2 col-xs-3" style="display:none;" id="feedback34">
+                                                    <textarea class="form-control" name="txtfeedback4" placeholder="What Improvement...." style="height:50px;"></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <br />
+                                    <div class="">
+                                        <div class="container">
+                                            <div class="form-group">
+                                                <div class="col-md-4 col-sm-2 col-xs-3">
+                                                    <h4 for="name" style="text-align:left;">
+                                                        Notification<br />
+                                                        (Escalation at right point / Time)
+                                                    </h4>
+                                                </div>
+                                                <div class="col-md-2 col-sm-2 col-xs-3">
+                                                    @*<label class="col-md-11" style="text-align:center;">
+                                                            Required Improvement
+                                                        </label>*@
+                                                    <input class="form-control col-md-1" name="feedback5" type="radio" required value="Requires Improvement" id="feedback41">
+                                                </div>
+                                                <div class="col-md-2 col-sm-2 col-xs-3">
+                                                    @*<label class="col-md-11" style="text-align:center;">
+                                                            Meets Expections
+                                                        </label>*@
+                                                    <input class="form-control col-md-1" name="feedback5" type="radio" required value="Meets Expections" id="feedback42">
+                                                </div>
+                                                <div class="col-md-2 col-sm-2 col-xs-3">
+                                                    @*<label class="col-md-11" style="text-align:center;">
+                                                            Exceed Expections
+                                                        </label>*@
+                                                    <input class="form-control col-md-1" name="feedback5" type="radio" required value="Exceed Expections" id="feedback43">
+                                                </div>
+                                                <div class="col-md-2 col-sm-2 col-xs-3" style="display:none;" id="feedback44">
+                                                    <textarea class="form-control" name="txtfeedback5" placeholder="What Improvement...." style="height:50px;"></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <br />
+                                    <hr>
+
+                                    <div class="row">
+                                        <div class="container">
+                                            <div class="form-group">
+                                                <div class="col-md-6">
+                                                    <div class="col-md-5">
+                                                        <h4 for="name" style="text-align:left;">
+                                                            Overall experience
+                                                        </h4>
+                                                    </div>
+                                                    @*<div class="col-md-1">
+                                                            <div class="item">
+                                                                <label for="0">
+                                                                    <input class="radio" type="radio" name="feedback" id="0" value="0">
+                                                                    <span>🤬</span>
+                                                                </label>
+                                                            </div>
+                                                        </div>*@
+                                                    <div class="col-md-2 col-sm-4 col-xs-4">
+                                                        <div class="item">
+                                                            <label for="1">
+                                                                <input class="radio" type="radio" required name="overall" id="1" value="1">
+                                                                <span>&#128577;</span>
+                                                                @*<span>🙁</span>*@
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-2 col-sm-4 col-xs-4">
+
+                                                        <div class="item">
+                                                            <label for="2">
+                                                                <input class="radio" type="radio" required name="overall" id="2" value="2">
+                                                                <span>&#128578;</span>
+                                                                @*<span>😶</span>*@
+                                                            </label>
+                                                        </div>
+                                                    </div>
+
+                                                    @*<div class="col-md-1">
+
+                                                            <div class="item">
+                                                                <label for="3">
+                                                                    <input class="radio" type="radio" name="feedback" id="3" value="3">
+                                                                    <span>😁</span>
+                                                                </label>
+                                                            </div>
+                                                        </div>*@
+                                                    <div class="col-md-2 col-sm-4 col-xs-4">
+                                                        <div class="item">
+                                                            <label for="3">
+                                                                <input class="radio" type="radio" required name="overall" id="3" value="3">
+                                                                <span>😍</span>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                                <div class="col-md-6">
+
+
+                                                    <div class="col-md-5">
+                                                        <h4 for="name" style="text-align:left;">
+                                                            Any Special Feedback
+                                                        </h4>
+                                                    </div>
+                                                    <div class="col-md-7">
+                                                        <textarea class="form-control" name="txtspecial" placeholder="Any Special Feedback"></textarea>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <hr>
+                                    <div class="row">
+                                        <div class="col-md-offset-6 col-sm-offset-6 col-xs-offset-6">
+                                            <input value="Submit" class="btn btn-primary" type="submit">
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <link href="~/bootstrap-sweetalert-master/dist/sweetalert.css" rel="stylesheet" />
+    <script src="~/bootstrap-sweetalert-master/dist/sweetalert.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $('input[name=feedback1]').click(function () {
+                if ($("#feedback1").prop("checked") == true) {
+                    $("#feedback04").show();
+                    $('#txtfeedback1').prop('required', true)
+                }
+                else if ($("#feedback1").prop("checked") == false) {
+                    $("#feedback04").hide();
+                    $('#txtfeedback1').prop('required', false)
+                }
+            })
+            $('input[name=feedback2]').click(function () {
+                if ($("#feedback11").prop("checked") == true) {
+                    $("#feedback14").show();
+                    $('#txtfeedback2').prop('required', true)
+                }
+                else if ($("#feedback11").prop("checked") == false) {
+                    $("#feedback14").hide();
+                    $('#txtfeedback2').prop('required', false)
+                }
+            })
+            $('input[name=feedback3]').click(function () {
+                if ($("#feedback21").prop("checked") == true) {
+                    $("#feedback24").show();
+                    $('#txtfeedback3').prop('required', true)
+                }
+                else if ($("#feedback21").prop("checked") == false) {
+                    $("#feedback24").hide();
+                    $('#txtfeedback3').prop('required', false)
+                }
+            })
+            $('input[name=feedback4]').click(function () {
+                if ($("#feedback31").prop("checked") == true) {
+                    $("#feedback34").show();
+                    $('#txtfeedback4').prop('required', true)
+                }
+                else if ($("#feedback31").prop("checked") == false) {
+                    $("#feedback34").hide();
+                    $('#txtfeedback4').prop('required', false)
+                }
+            })
+            $('input[name=feedback5]').click(function () {
+                if ($("#feedback41").prop("checked") == true) {
+                    $("#feedback44").show();
+                    $('#txtfeedback5').prop('required', true)
+                }
+                else if ($("#feedback41").prop("checked") == false) {
+                    $("#feedback44").hide();
+                    $('#txtfeedback5').prop('required', false)
+                }
+            })
+        })
+    </script>
+
+    @if (TempData["Feedback"] != null)
+    {
+        <script>
+            $(document).ready(function () {
+                swal({
+                    title: "success",
+                    text: "Successfull",
+                    icon: "success",
+                    type: "success"
+                }, function () {
+                    //window.location.reload();
+                    window.location.href = "https://karam.in/";
+                });
+            })
+        </script>
+    }
+
+</body>
+
+</html>

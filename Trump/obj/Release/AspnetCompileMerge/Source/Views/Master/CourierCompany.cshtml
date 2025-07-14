@@ -1,0 +1,136 @@
+﻿@model IEnumerable<Trump.Models.DataFieldCourierCompany>
+@{
+    ViewBag.Title = "Visitors";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/Layout/Css/custom.css" rel="stylesheet" />
+<link href="~/Content/Gridmvc.css" rel="stylesheet" />
+
+@using GridMvc.Html;
+@using GridMvc.DataAnnotations;
+@using GridMvc.Sorting;
+@helper ADDCOLUMN(Trump.Models.DataFieldCourierCompany tb)
+{
+    <a href="../Master/EditCourierCompany?EditID=@tb.CourierCompanyId">
+        <img src="~/Layout/Images/51-512.png" width="30" height="30" />
+    </a>
+}
+<link href="~/Layout/Css/jtable_jqueryui.css" rel="stylesheet" />
+<link href="~/Layout/Css/jquery.dataTables_themeroller.css" rel="stylesheet" />
+<div class="content" style="font-size:12px;min-height:100%">
+    <div class="content_resize">
+        <div class="mainbar">
+            <div class="article">
+                <style type="text/css">
+                    #accordion div {
+                        display: none;
+                    }
+                </style>
+                <h3>Courier Company</h3>
+                <div style="width:98%;">
+                    <div role="tablist" class="ui-accordion ui-widget ui-helper-reset" id="accordion" style="padding-left:10px;width:101%" >
+                        <h3 tabindex="0" aria-selected="false" aria-controls="ui-accordion-accordion-panel-0" id="ui-accordion-accordion-header-0" role="tab" class="clsAccordion ui-accordion-header ui-helper-reset ui-state-default ui-corner-all ui-accordion-icons" >
+
+
+                            <a id="VisitTypeQuickAdd" style="font-size: 15px; font-weight: 400; color: #555;" href="#" class="VisitTypeQuickAdd">
+
+                                <img src="~/Layout/Images/NewRecord.png">&nbsp;New
+                            </a> &nbsp; &nbsp; &nbsp;
+                            @*<a id="DeleteCourierComany" href="#" style="font-size: 15px; font-weight: 400; color: rgb(85, 85, 85);" data-toggle="modal" data-target="#myModal2">
+                                <img src="~/Layout/Images/Erase.png">&nbsp;Delete
+                            </a>*@
+                        </h3>
+
+
+
+                    </div>
+                </div>
+                <div class="jtable-busy-message"> @TempData["error"]</div>
+                <div id="VisitorCompanyTableContainer"  style="width: 100%">
+                    <div class="jtable-main-container" style="width:100%">
+                        <div class="container" style="width:100%" >
+                            <div class="table table-bordered table-responsive" id="table1" >
+                                @Html.Grid(Model).Columns(columns =>
+                           {
+                               //columns.Add().Encoded(false).Sanitized(false)
+                               //.RenderValueAs(o => Html.CheckBox("checked", false, new { key = o.CourierCompanyId, id = "checked" }));
+                               columns.Add().Encoded(false).Sanitized(false).SetWidth(30).RenderValueAs(z => ADDCOLUMN(z));
+                               columns.Add(c => c.CourierCompanyId).Titled("COMPANY Id").Filterable(true).Sortable(true).Css("hidden1");
+                               columns.Add(c => c.CourierCompany).Titled("Courier Company").Filterable(true).Sortable(true);
+                               columns.Add(c => c.Status).Titled("Status").Filterable(true).Sortable(true);
+
+                               //columns.Add(c => c.VStatus).Titled("STATUS").Filterable(true).Sortable(true);
+                           }).Sortable(true).WithPaging(10)
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div aria-labelledby="ui-id-7" aria-describedby="dialog-formVisitType" role="dialog" tabindex="-1" style="display: none; position: absolute;" class="ui-dialog ui-widget ui-widget-content ui-corner-all ui-front ui-dialog-buttons ui-draggable ui-resizable" ng-controller="AppointmentController">
+    <div title="New Courier Company" class="ui-front ui-dialog-content ui-widget-content dialog-formVisitType" style="overflow: auto; z-index: 2147483647; width: auto; height: auto;">
+
+        @Html.Partial("_NewCourierCompany")
+    </div>
+</div>
+
+<div class="modal fade out" id="myModal2" aria-hidden="true" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" id="btnclose" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Alert</h4>
+            </div>
+
+            <form id="contact" action="~/Master/DeleteCourierComany" method="post">
+                <input type="hidden" id="hidden" name="hidden" />
+                <div class="modal-body">
+                    <label>Are you sure want to delete</label>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" id="btnYes" class="btn Button">Yes</button>
+                    <button type="button" class="btn Button" id="btnclose" data-dismiss="modal">No</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script src="~/Layout/Scripts/jtable.2.3.0/jquery.jtable.js"></script>
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script src="~/bootstrap-sweetalert-master/dist/sweetalert.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#DeleteCourierComany').click(function () {
+            $("#myModal2").show(function () {
+                var KEY1 = "";
+                $("#table1 input[type=checkbox]:checked").each(function () {
+                    debugger
+                    var KEY = ($(this).closest("tr").find("td").eq(2).text() + ";");
+                    KEY1 = KEY1 + KEY;
+                    $("#hidden").val(KEY1)
+                });
+            });
+        })
+    })
+</script>
+
+@if (TempData["CourierComanyDelete"] != null)
+{
+    <script>
+        $(document).ready(function () {
+            swal({
+                title: "Success",
+                text: "Courier Company Deleted",
+                icon: "success",
+                type: "success"
+            }, function () {
+                // window.location.href = "../Master/CourierComany";
+            });
+        })
+    </script>
+}
+
+

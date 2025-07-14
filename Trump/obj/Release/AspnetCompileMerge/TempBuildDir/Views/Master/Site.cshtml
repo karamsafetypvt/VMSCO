@@ -1,0 +1,62 @@
+﻿@model IEnumerable<Trump.Models.tblSiteDistance>
+@{
+    ViewBag.Title = "VisitorCompany";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link href="~/Content/Gridmvc.css" rel="stylesheet" />
+
+@using GridMvc.Html;
+@using GridMvc.DataAnnotations;
+@using GridMvc.Sorting;
+@helper ADDCOLUMN(Trump.Models.tblSiteDistance tb)
+{
+    <a href="../Master/EditSite?EditID=@tb.SD_ID">
+        <img src="~/Layout/Images/51-512.png" width="30" height="30" />
+    </a>
+}
+<link href="~/Layout/Css/jtable_jqueryui.css" rel="stylesheet" />
+<link href="~/Layout/Css/jquery.dataTables_themeroller.css" rel="stylesheet" />
+
+<div class="content" style="font-size:12px;min-height:100%">
+    <div class="content_resize">
+        <div class="mainbar">
+            <div class="article">
+                <style type="text/css">
+                    #accordion div {
+                        display: none;
+                    }
+                </style>
+                <div role="tablist" class="ui-accordion ui-widget ui-helper-reset" id="accordion">
+                    <h3 tabindex="0" aria-selected="false" aria-controls="ui-accordion-accordion-panel-0" id="ui-accordion-accordion-header-0" role="tab" class="clsAccordion ui-accordion-header ui-helper-reset ui-state-default ui-corner-all ui-accordion-icons">
+                        <a id="NewVisitorCompany" style="font-size: 15px; font-weight: 400; color: #555;" href="/Master/NewSite" class="VisitorCompanyQuickAdd">
+                            <img src="~/Layout/Images/NewRecord.png">&nbsp;New
+                        </a> &nbsp; &nbsp; &nbsp;
+                        @*<a id="DeleteVisitorCompany" href="#" style="font-size: 15px; font-weight: 400; color: rgb(85, 85, 85);" data-toggle="modal" data-target="#myModal">
+                            <img src="~/Layout/Images/Erase.png">&nbsp;Delete
+                        </a>*@
+                    </h3>
+
+                </div>
+                <div class="jtable-busy-message"> @TempData["error"]</div>
+                <div id="VisitorCompanyTableContainer">
+                    <div class="jtable-main-container">
+                        <div class="jtable" id="jtable">
+                            <div class="table table-bordered table-responsive" id="table2">
+                                @Html.Grid(Model).Columns(columns =>
+                           {
+                               
+                               columns.Add().Encoded(false).Sanitized(false).SetWidth(30).RenderValueAs(z => ADDCOLUMN(z));
+                               columns.Add(c => c.SD_ID).Titled("ID").Filterable(true).Sortable(true).Css("hidden");
+                               columns.Add(c => c.FromSite).Titled("FROM SITE").Filterable(true).Sortable(true);
+                               columns.Add(c => c.ToSite).Titled("TO SITE").Filterable(true).Sortable(true);
+                                columns.Add(c => c.Distance).Titled("DISTANCE").Filterable(true).Sortable(true);
+                           }).Sortable(true).WithPaging(10)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

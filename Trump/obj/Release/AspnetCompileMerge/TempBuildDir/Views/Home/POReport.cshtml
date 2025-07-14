@@ -1,0 +1,324 @@
+﻿<html>
+<head>
+    <style type="text/css">
+        .txtbox {
+            height: 32px;
+            padding: 6px 2px;
+            font-size: 14px;
+            color: #555;
+            vertical-align: middle;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
+            box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
+            -webkit-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+            transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        /*.txtbox::-webkit-input-placeholder {
+            font-family: Verdana;
+            font-size:medium;
+            vertical-align:top;
+        }*/
+        .IconsSize {
+            display: inline-block;
+            font: normal normal normal 14px/1 FontAwesome;
+            text-rendering: auto;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            display: inline-block;
+            font-size: 30px;
+            vertical-align: middle;
+        }
+
+        .modal.right .modal-dialog {
+            position: fixed;
+            margin: auto;
+            width: 320px;
+            height: 100%;
+            -webkit-transform: translate3d(0%, 0, 0);
+            -ms-transform: translate3d(0%, 0, 0);
+            -o-transform: translate3d(0%, 0, 0);
+            transform: translate3d(0%, 0, 0);
+        }
+
+
+        .modal.right .modal-content {
+            height: 100%;
+            overflow-y: auto;
+        }
+
+
+        .modal.right .modal-body {
+            padding: 15px 15px 80px;
+        }
+
+
+
+        /*Right*/
+        .modal.right.fade .modal-dialog {
+            right: -320px;
+            -webkit-transition: opacity 0.3s linear, right 0.3s ease-out;
+            -moz-transition: opacity 0.3s linear, right 0.3s ease-out;
+            -o-transition: opacity 0.3s linear, right 0.3s ease-out;
+            transition: opacity 0.3s linear, right 0.3s ease-out;
+        }
+
+        .modal.right.fade.in .modal-dialog {
+            right: 0;
+        }
+
+        /* ----- MODAL STYLE ----- */
+        .modal-content {
+            border-radius: 0;
+            border: none;
+        }
+
+        .modal-header {
+            border-bottom-color: #EEEEEE;
+            background-color: #FAFAFA;
+            border-top-right-radius: 0;
+            border-top-left-radius: 0;
+        }
+
+        .mdlpopup .modal-backdrop.in {
+            opacity: 0.8 !important;
+            width: 50%;
+        }
+
+        .modal.right.fade .modal-dialog {
+            right: -350px !important;
+        }
+
+        .modalPOP {
+            position: fixed;
+            z-index: 999;
+            height: 100%;
+            width: 100%;
+            top: 0;
+            left: 0;
+            background-color: black;
+            filter: alpha(opacity=60);
+            opacity: 0.6;
+            -moz-opacity: 0.8;
+        }
+
+        .graph {
+            width: 300px;
+            height: 190px;
+        }
+
+        div > textarea {
+            resize: vertical;
+        }
+
+        .clsAccordion > a {
+        }
+
+        div > .icon-asterisk {
+            cursor: default;
+        }
+
+        .dropdown-item {
+            display: block;
+            width: 100%;
+            padding: .25rem 1.5rem;
+            clear: both;
+            font-weight: 400;
+            color: #212529;
+            text-align: inherit;
+            white-space: nowrap;
+            background-color: transparent;
+            border: 0;
+            font-size: 14px;
+        }
+
+        .dropdown-divider {
+            height: 0;
+            margin: .5rem 0;
+            overflow: hidden;
+            border-top: 1px solid #e9ecef;
+        }
+
+        .dropdown-item:focus, .dropdown-item:hover {
+            /*color: #16181b;*/
+            color: White;
+            text-decoration: none; /*color: #CCCCCC;*/ /*background-color: LightGray;*/
+            background-color: #428bca;
+            border-top-right-radius: 4px;
+            border-top-left-radius: 4px;
+            border-bottom-right-radius: 4px;
+            border-bottom-left-radius: 4px;
+        }
+
+        a:hover {
+            color: #0056b3;
+            text-decoration: underline;
+            color: White;
+        }
+
+        .dropdown-menu > a {
+            padding: 5px 9px; /*margin: 0 6px;*/
+            font-size: 14px;
+            border-top-right-radius: 4px;
+            border-top-left-radius: 4px;
+            border-bottom-right-radius: 4px;
+            border-bottom-left-radius: 4px;
+        }
+
+        #mnu .dropdown-toggle::after {
+            display: inline-block;
+            width: 0;
+            height: 0;
+            margin-left: .255em;
+            vertical-align: .255em;
+            content: "";
+            border-top: 0;
+            border-right: .3em solid transparent;
+            border-bottom: .3em solid;
+            border-left: .3em solid transparent;
+        }
+
+        .dropdown-menu.show {
+            display: block;
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            z-index: 1000;
+            display: none;
+            float: left;
+            min-width: 10rem;
+            padding: .5rem 0;
+            margin: .125rem 0 0;
+            font-size: 1rem;
+            color: #212529;
+            text-align: left;
+            list-style: none;
+            background-color: #fff;
+            background-clip: padding-box;
+            border: 1px solid rgba(0,0,0,.15);
+            border-radius: .25rem;
+        }
+
+        a {
+            color: #007bff;
+            text-decoration: none;
+            background-color: transparent;
+            -webkit-text-decoration-skip: objects;
+        }
+    </style>
+</head>
+
+
+<body>
+    <div class="content" style="font-size:12px;min-height:100%">
+        <div class="content_resize">
+            <div class="mainbar">
+                <div class="article">
+                    <div role="tablist" class="ui-accordion ui-widget ui-helper-reset" id="accordion">
+                        <h3 class="clsAccordion ui-accordion-header ui-helper-reset ui-state-default ui-accordion-header-active ui-state-active ui-corner-top ui-accordion-icons">
+                            <a href="#" style="font-size: 15px; font-weight: 400; color: #555;">PO Report</a>
+                            <span class="listheader">
+                                <i class="plus fa-file-excel"></i>
+                            </span>
+                        </h3>
+
+                        <div class="form-horizontal col-md-12">
+                            <div class="main">
+                                <div class="container">
+                                    <form action="/Home/ExportPO">
+                                        <div class="row">
+                                            <div class="col-md-10">
+                                                <div class="widget-content">
+                                                    <div class="row">                                                        
+                                                        <div class="col-md-4">
+                                                            <div class="form-group">
+                                                                <label for="name" class="col-md-2">
+                                                                    From
+                                                                </label>
+                                                                <div class="col-md-7" style="padding: 5px; margin: 0px; text-align: center;">
+                                                                    <input class="form-control date start validate" id="FromDateRpt" name="FromDatePO" type="text">
+                                                                </div>
+                                                            </div>                                                            
+                                                        </div>
+                                                        <div class="col-md-4">                                                            
+                                                            <div class="form-group">                                                                
+                                                                <label for="name" class="col-md-2">
+                                                                    To
+                                                                </label>
+                                                                <div class="col-md-7" style="padding: 5px; margin: 0px; text-align: center; vertical-align: middle;">
+                                                                    <input id="yrR" class="form-control validate" value="" type="text" name="ToDatePO">
+                                                                </div>
+                                                            </div>
+                                                        </div>    
+                                                        <div class="col-md-4">
+                                                            <div class="col-md-4">
+                                                                <input type="button" name="name" value="GO" id="LoadRecordsPO" class="btn btn-primary" />
+                                                            </div>
+                                                            <div class="col-md-4">
+                                                                <button id="btnSubmit" type="submit" style="background:none;border:none;"><i class="IconsSize fa-file-excel-o" style="color:#1D6F42;"></i></button>
+                                                            </div>
+                                                            <div class="col-md-4">
+                                                                <a id="ExportPDF">
+                                                                    <i class="IconsSize fa-file-pdf-o" style="color:red;"></i>
+                                                                </a>
+                                                            </div>                                                            
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>                                            
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="weeklayout"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <script src="~/Scripts/jquery-ui.js"></script>
+
+    <script>
+    $(document).ready(function () {       
+        $("#LoadRecordsPO").click(function () {
+            debugger            
+            var FDate = $("#FromDateRpt").val();
+            var TDate = $("#yrR").val();
+            $.ajax({
+                url: '@Url.Action("P_POReport", "Home")',
+                type: 'GET',
+                contenType: 'application/json charset utf-8',
+                data: { FDate: FDate, TDate: TDate },
+                dataType: 'html',
+                success: function (response) {
+                    $('#weeklayout').html(response);
+                }
+            })
+        })
+
+         $("#ExportPDF").click(function () {
+            debugger
+            $(this).attr("href", "");            
+            var FDate = $("#FromDateRpt").val();
+            var TDate= $("#yrR").val();
+            var url = "../Home/PrintPO?from="+ FDate + "&to=" + TDate;
+                $("#ExportPDF").attr("href", url);
+        })
+
+        $(".validate").datepicker({
+            'autoclose': true,
+            'endDate': '-0m',
+            'format':'dd/mm/yyyy'
+        });
+    });
+    </script>        
+
+</body>
+</html>

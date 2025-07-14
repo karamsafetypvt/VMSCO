@@ -1,0 +1,882 @@
+﻿
+@{
+    ViewBag.Title = "Inward";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style type="text/css">
+    #accordion div {
+        display: none;
+    }
+
+    .tooltip {
+        position: absolute;
+        z-index: 1030;
+        display: block;
+        opacity: 1;
+        filter: alpha(opacity=75);
+        font-size: 11px;
+        line-height: 1.4;
+        zoom: 1;
+        visibility: visible;
+        width: auto;
+    }
+
+    .tooltip-inner {
+        max-width: 800px;
+        padding: 3px 8px;
+        color: #ffffff;
+        width: 400;
+        display: block;
+        text-align: left;
+        font-size: 11px;
+        text-decoration: none;
+        background-color: #000000;
+        border-radius: 4px;
+    }
+
+
+    .modalPOP {
+        position: fixed;
+        z-index: 999;
+        height: 100%;
+        width: 100%;
+        top: 0;
+        left: 0;
+        background-color: White;
+        filter: alpha(opacity=60);
+        opacity: 0.6;
+        -moz-opacity: 0.8;
+    }
+
+    .modal-dialog1 {
+        position: absolute;
+        left: 25%;
+        top: 25%;
+        -moz-transform: translate(-50%, -50%);
+        -webkit-transform: translate(-50%, -50%);
+        -o-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+    }
+</style>
+<style>
+    .modal-dialog1 {
+        position: absolute;
+        left: 25%;
+        top: 25%;
+        -moz-transform: translate(-50%, -50%);
+        -webkit-transform: translate(-50%, -50%);
+        -o-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+    }
+
+    .ui-widget-content {
+        border: 1px solid;
+    }
+
+    .ui-autocomplete li.ui-menu-item a {
+        background-image: none;
+    }
+
+    .focus {
+        border: 2px solid #AA88FF;
+        background-color: #FFEEAA;
+    }
+
+    .ui-datepicker select.ui-datepicker-month, .ui-datepicker select.ui-datepicker-year {
+        color: Black;
+        font-weight: normal;
+    }
+
+    .ui-autocomplete {
+        max-height: 100px;
+        overflow-y: auto; /* prevent horizontal scrollbar */
+        overflow-x: hidden; /* add padding to account for vertical scrollbar */
+        padding-right: 20px;
+    }
+
+    *html .ui-autocomplete {
+        height: 100px;
+    }
+
+    .select2-container--default .select2-selection--single {
+        border-radius: 4px;
+    }
+
+    .select2-container {
+        width: 100% !important;
+    }
+</style>
+<div class="content" style="font-size:12px;min-height:100%">
+    <div class="content_resize">
+        <div class="mainbar">
+            <div class="article">
+                <div id="divNewInward" style="">
+                    <form action="/Material/OutWord" enctype="multipart/form-data" id="frmOutwardCreate" method="post">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="widget stacked">
+                                        <div class="widget-header">
+                                            <i class="fa fa-check-circle"></i>
+                                            <h3>
+                                                Outward
+                                            </h3>
+                                        </div>
+                                        <div class="widget-content">
+                                            <div class="row">
+                                                <div class="col-md-4">
+                                                    <fieldset>
+                                                        <legend>Pass Detail</legend>
+                                                        <div class="form-group">
+                                                            <label for="name" class="col-md-8">Material Type<i class="fa fa-asterisk required"></i></label>
+                                                            <div class="col-md-10">
+                                                                <select class="form-control" name="M_Type" required="">
+                                                                    <option selected disabled>--Please Select--</option>
+                                                                    <option value="RGP">Returnable</option>
+                                                                    <option value="NRGP">Non Returnable</option>
+                                                                </select>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                @*<i class="fa fa-asterisk required" style="margin-left: -25px;"></i>*@
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group" id="divDate">
+                                                            <label for="name" class="col-md-8">Date</label>
+                                                            <div class="col-md-10">
+                                                                <input class="form-control" id="InwardDateString" name="RaiseDate" value="@DateTime.Now.ToString("dd/MMM/yyyy")" readonly type="text">
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                            </div>
+                                                        </div>
+                                                        <div id="HidePODetail">
+                                                            <div class="form-group">
+                                                                <label for="name" class="col-md-8">Request by</label>
+                                                                <div class="col-md-10">
+                                                                    <input class="form-control" name="Requestor" value="@Session["NAME"]" readonly="readonly" type="text">
+                                                                </div>
+                                                                <div class="col-md-2">
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label for="name" class="col-md-8">Department</label>
+                                                                <div class="col-md-10">
+                                                                    <input class="form-control" value="@Session["DEPT"]" readonly type="text">
+                                                                    <input type="hidden" name="Dept" value="@Session["DEPTID"]" />
+                                                                </div>
+                                                                <div class="col-md-2">
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label for="name" class="col-md-8">Mobile/Extension</label>
+                                                                <div class="col-md-10">
+                                                                    <input class="form-control" id="CreatedByName" value="@Session["MBL"]" readonly type="text">
+
+                                                                </div>
+                                                                <div class="col-md-2">
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label for="name" class="col-md-8">Out From</label>
+                                                                <div class="col-md-10">
+                                                                    <select class="form-control" name="OutFrom" id="ddlOutFrom" required="">
+                                                                        <option selected disabled>--Please Select--</option>
+                                                                    </select>
+
+                                                                </div>
+                                                                <div class="col-md-2">
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label for="name" class="col-md-8">Description</label>
+                                                                <div class="col-md-10">
+                                                                    <select class="form-control" name="Descriptn" id="Descriptn" required="">
+                                                                        <option selected disabled>--Please Select--</option>
+                                                                        <option>Maintenance</option>
+                                                                        <option>Repairing</option>
+                                                                        <option>Production Related</option>
+                                                                        <option>Return/Change</option>
+                                                                        <option>Scrap/Disposal</option>
+                                                                        <option>Testing</option>
+                                                                        <option>Transfered</option>
+                                                                        <option>Sample</option>
+                                                                    </select>
+
+                                                                </div>
+                                                                <div class="col-md-2">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </fieldset>
+                                                </div>
+                                                <div class="col-md-4" id="SupplierDetail">
+                                                    <fieldset>
+                                                        <legend>Supplier Detail</legend>
+
+                                                        <div class="form-group">
+                                                            <label for="name" class="col-md-8">Movement Type <i class="fa fa-asterisk required"></i></label>
+                                                            <div class="col-md-10">
+                                                                <select class="form-control" data-val="true" id="ddlSupplierType" required name="S_Type">
+                                                                    <option selected disabled>--Please Select--</option>
+                                                                    <option value="Inter">Inter Unit</option>
+                                                                    <option value="Third">Third Party</option>
+                                                                </select>
+                                                            </div>
+                                                            <div class="col-md-2">
+
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group" style="display:none;" id="ddlUnitLocation">
+                                                            <label for="name" class="col-md-8">Location <i class="fa fa-asterisk required"></i></label>
+                                                            <div class="col-md-10">
+                                                                <select class="form-control" id="designationddl" data-val="true" name="M_Location">
+                                                                    <option selected disabled>--Please Select--</option>
+                                                                </select>
+                                                            </div>
+                                                            <div class="col-md-2">
+
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group" id="divVisitors">
+                                                            <label for="name" class="col-md-8">Name <i class="fa fa-asterisk required"></i></label>
+                                                            <div class="col-md-10">
+                                                                <input class="form-control clsVisitorIDAutotext" id="VisitorName" name="VisitorName" value="" type="text">
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <a style="display:none;" class="VisitorQuickAdd"><i class="fa fa-plus-circle"></i></a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group" id="divVisitors">
+                                                            <label for="name" class="col-md-8">Address <i class="fa fa-asterisk required"></i></label>
+                                                            <div class="col-md-10">
+                                                                <input class="form-control clsVisitorIDAutotext" id="Addu" name="VisitorName" value="" type="text">
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <a style="display: none;" id="VisitorQuickAdd"><i class="fa fa-plus-circle"></i></a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group" id="divUsers">
+                                                            <label for="name" class="col-md-8">GST No. <i class="fa fa-asterisk required"></i></label>
+                                                            <div class="col-md-10">
+                                                                <input autocomplete="off" class="form-control clsUserIDAutotext ui-autocomplete-input" id="UserNameGST" name="UserName" value="" type="text">
+                                                            </div>                                                            
+                                                            <div class="col-md-2">
+
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group" id="divContractor">
+                                                            <label for="name" class="col-md-8">Contact Person <i class="fa fa-asterisk required"></i></label>
+                                                            <div class="col-md-10">
+
+                                                                <input class="form-control" id="ContractorName" name="ContractorName" value="" type="text" onkeypress="return isAlphabt(event)">
+                                                                <input type="hidden" name="ContactPerson" id="ContactPerson"  />
+                                                            </div>
+                                                            <div class="col-md-2">
+
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group" id="divWorker">
+                                                            <label for="name" class="col-md-8">Contact No. <i class="fa fa-asterisk required"></i></label>
+                                                            <div class="col-md-10">
+                                                                <input class="form-control clsWorkerIDAutotext" id="Contact_No" name="Contact_No" type="text">
+                                                            </div>
+                                                            <div class="col-md-2">
+
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group" id="divMRS">
+                                                            <label for="name" class="col-md-8">MRS/PRS. <i class="fa fa-asterisk required"></i></label>
+                                                            <div class="col-md-10">
+                                                                <input class="form-control" id="MRS" name="MRS" type="text">
+                                                            </div>
+                                                            <div class="col-md-2">
+
+                                                            </div>
+                                                        </div>
+                                                    </fieldset>
+                                                </div>
+                                                <div class="col-md-4" id="divmatforInter">
+                                                    <fieldset>
+                                                        <legend>Transport Detail</legend>
+                                                        <div class="form-group">
+                                                            <label for="name" class="col-md-8">Mode Of Transport <i class="fa fa-asterisk required"></i> </label>
+                                                            <div class="col-md-10">
+                                                                <select class="form-control" data-val="true" name="ModeOfTrans" id="CreateCarriedByTypeID">
+                                                                    <option selected disabled>--Please Select--</option>
+                                                                    <option value="SELF">User(Self)</option>
+                                                                    <option value="WORKER">Worker</option>
+                                                                    <option value="TRANSPORT">Transport</option>
+                                                                    <option value="VISITOR">Visitor</option>
+                                                                </select>
+                                                            </div>
+                                                            <div class="col-md-2">
+
+                                                            </div>
+                                                        </div>
+
+
+                                                        <div id="OptionVisitor" style="display:none;">
+
+                                                            <div class="form-group">
+                                                                <label for="name" class="col-md-8">
+                                                                    Mobile Number
+                                                                </label>
+                                                                <div class="col-md-10">
+                                                                    <input class="form-control" data-val="true" id="IDNumber_M" type="text" onkeypress="return CheckPhone(event)" maxlength="10">
+                                                                </div>
+                                                                <div class="col-md-2">
+                                                                </div>
+                                                            </div>                           <div class="form-group">
+                                                                <label for="name" class="col-md-8">Visitor Company <i class="fa fa-asterisk required"></i></label>
+                                                                <div class="col-md-10">
+                                                                    <select tabindex="-1" class="form-control select2_group" id="VC_M">
+                                                                        <option selected disabled>--Please Select--</option>
+                                                                    </select>
+                                                                </div>
+                                                                <div class="col-md-2">
+
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label for="name" class="col-md-8">Visitor Name <i class="fa fa-asterisk required"></i></label>
+                                                                <div class="col-md-10">
+                                                                    <select tabindex="-1" class="form-control select2_group" name="VN_M" id="VN_M">
+                                                                        <option disabled selected>-Please Select---</option>
+                                                                    </select>
+                                                                </div>
+                                                                <div class="col-md-2">
+
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div id="OptionWorker" style="display:none;">
+                                                            <div class="form-group" id="divVisitors">
+                                                                <label for="name" class="col-md-8">Name <i class="fa fa-asterisk required"></i></label>
+                                                                <div class="col-md-10">
+                                                                    <input class="form-control clsVisitorIDAutotext" name="PersoneName" type="text" onkeypress="return isAlphabt(event)">
+                                                                </div>
+                                                                <div class="col-md-2">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div id="OptionTransport" style="display:none;">
+                                                            <div class="form-group" id="divVehicleType">
+                                                                <label for="name" class="col-md-8">Vehicle Type</label>
+                                                                <div class="col-md-10">
+                                                                    <select class="form-control" data-val="true" name="V_Type">
+                                                                        <option selected disabled>--Please Select--</option>
+                                                                        <option>External</option>
+                                                                        <option>Internal</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="form-group" id="divVisitors">
+                                                                <label for="name" class="col-md-8">Vehicle No <i class="fa fa-asterisk required"></i></label>
+                                                                <div class="col-md-10">
+
+                                                                    <input class="form-control clsVisitorIDAutotext" name="Veh_No" type="text">
+                                                                </div>
+                                                                <div class="col-md-2">
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group" id="divVisitors">
+                                                                <label for="name" class="col-md-8">Driver Name <i class="fa fa-asterisk required"></i></label>
+                                                                <div class="col-md-10">
+                                                                    <input class="form-control clsVisitorIDAutotext" id="VisitorName" name="DriverName" onkeypress="return isAlphabt(event)" value="" type="text">
+
+                                                                </div>
+                                                                <div class="col-md-2">
+
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </fieldset>
+                                                </div>
+                                            </div>
+                                            <hr>
+                                            <div>
+                                                <div style="padding: 5px">
+                                                    <div id="divTable">
+                                                        <table id="tbl_posts " class="bordered table table-responsive tbl_tbl" style="width: 100%;overflow-x:auto;">
+                                                            <thead>
+                                                                <tr id="rec-1">
+                                                                    <th style="width: 5%;">
+                                                                        Item Code
+                                                                    </th>
+                                                                    <th style="width: 15%;">
+                                                                        Description
+                                                                    </th>
+                                                                    <th style="width: 5%;">
+                                                                        UOM
+                                                                    </th>
+
+                                                                    <th style="width: 5%;">
+                                                                        Qty
+                                                                    </th>
+                                                                    <th style="width: 10%;">
+                                                                        Approx Value
+                                                                    </th>
+
+                                                                    <th style="width: 1%;">
+                                                                        Delete
+                                                                    </th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody id="tbl_posts_body">
+                                                                <tr id="rec-1">
+                                                                    <td>
+                                                                        <input required id="txtItemCode" class="form-control" name="Item" style="width:100%" type="text">
+
+                                                                    </td>
+                                                                    <td>
+                                                                        <input id="txtDescription" class="form-control" required name="DescriptnI" style="width:100%" type="text">
+
+                                                                    </td>
+                                                                    <td>
+                                                                        <select id="txtUOM" name="UOM" class="form-control txtUOM" required style="width:90%">
+                                                                            <option disabled selected>Select One</option>
+                                                                            <Option value="Bag">Bag</Option>
+                                                                            <Option value="Cubic Feet">Cubic Feet</Option>
+                                                                            <Option value="Cubic Meter">Cubic Meter</Option>
+                                                                            <Option value="Cylinder">Cylinder</Option>
+                                                                            <Option value="Feet">Feet</Option>
+                                                                            <Option value="Gram">Gram</Option>
+                                                                            <Option value="Inch">Inch</Option>
+                                                                            <Option value="Kilogram">Kilogram</Option>
+                                                                            <Option value="Litre">Litre</Option>
+                                                                            <Option value="Cylinder">Meter</Option>
+                                                                            <Option value="Mililitre">Mililitre</Option>
+                                                                            <Option value="Number">Number</Option>
+                                                                            <Option value="Packet">Packet</Option>
+                                                                            <Option value="Pair">Pair</Option>
+                                                                            <Option value="Pieces">Pieces</Option>
+                                                                            <Option value="Roll">Roll</Option>
+                                                                            <Option value="Set">Set</Option>
+                                                                            <Option value="Square Feet">Square Feet</Option>
+                                                                            <Option value="Square Inch">Square Inch</Option>
+                                                                            <Option value="Square Meter">Square Meter</Option>
+                                                                            <Option value="Spool">Spool</Option>
+                                                                        </select>
+                                                                    </td>
+                                                                    <td>
+                                                                        <input id="txtQty" name="Qty" class="form-control" required style="width:90%" maxlength="8" onkeypress="return CheckPhone(event)" type="text">
+                                                                    </td>
+                                                                    <td>
+                                                                        <input id="txtApproxValue" name="ApproxValue" class="form-control" required type="text" onkeypress="return CheckPhone(event)">
+                                                                    </td>
+                                                                    <td><a class="btn btn-xs delete-record" data-id="1"><i class="glyphicon glyphicon-trash"></i></a></td>
+                                                                </tr>
+                                                            </tbody>
+                                                            <tfoot style="height: 20px; font-size: small;">
+                                                                <tr>
+                                                                    <td class="odd" style="font-weight: bold">
+                                                                        <a class="btn btn-primary pull-right" data-added="0" id="addrow"><i class="glyphicon glyphicon-plus"></i> Add Row</a>
+                                                                    </td>
+                                                                </tr>
+                                                            </tfoot>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div style="padding-left: 20px" class="col-md-offset-10">
+                                                    <div id="divSavePanel" style="float: left;padding-left: 4px;">
+                                                        <input id="btnSave" name="btnSave" class="btn btn-primary" value="Submit" onclick="return validateEmpty()" type="submit">
+                                                    </div>
+                                                    <div style="float: left;padding-left: 4px; ">
+                                                        <input id="btnCancel" name="btnCancel" class="btn btn-primary" value="Clear" type="button">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="clr">
+        </div>
+        <div class="clr">
+        </div>
+    </div>
+</div>
+
+<div style="display:none;">
+    <table id="sample_table" class="bordered" style="width: 100%;">
+        <tr id="">
+            <td>
+                <input autocomplete="off" data-type="ItemCode" id="txtItemCode" class="form-control" name="Item" style="width:100%" type="text">
+
+            </td>
+            <td>
+                <input autocomplete="off" data-type="Description" id="txtDescription" class="form-control" name="DescriptnI" style="width:100%" type="text">
+            </td>
+            <td>
+                <select class="form-control" id="txtUOM" name="UOM">
+                    <Option value="Bag">Bag</Option>
+                    <Option value="Cubic Feet">Cubic Feet</Option>
+                    <Option value="Cubic Meter">Cubic Meter</Option>
+                    <Option value="Cylinder">Cylinder</Option>
+                    <Option value="Daily">Daily</Option>
+                    <Option value="Feet">Feet</Option>
+                    <Option value="Gram">Gram</Option>
+                    <Option value="Half Yearly">Half Yearly</Option>
+                    <Option value="Hour">Hour</Option>
+                    <Option value="Inch">Inch</Option>
+                    <Option value="Litre">Litre</Option>
+                    <Option value="Kilogram">Kilogram</Option>
+                    <Option value="Cylinder">Meter</Option>
+                    <Option value="Mililitre">Mililitre</Option>
+                    <Option value="Monthly">Monthly</Option>
+                    <Option value="Number">Number</Option>
+                    <Option value="Packet">Packet</Option>
+                    <Option value="Pair">Pair</Option>
+                    <Option value="Pieces">Pieces</Option>
+                    <Option value="Quarterly">Quarterly</Option>
+                    <Option value="Roll">Roll</Option>
+                    <Option value="Running Feet">Running Feet</Option>
+                    <Option value="Running Meter">Running Meter</Option>
+                    <Option value="Set">Set</Option>
+                    <Option value="Spool">Spool</Option>
+                    <Option value="Square Feet">Square Feet</Option>
+                    <Option value="Square Inch">Square Inch</Option>
+                    <Option value="Square Meter">Square Meter</Option>
+                    <Option value="Yearly">Yearly</Option>
+                </select>
+            </td>
+            <td>
+                <input id="txtQty" name="Qty" onkeypress="return CheckPhone(event)" data-type="Quantity" class="form-control" style="width:90%" type="text">
+            </td>
+            <td><input id="txtApproxValue" onkeypress="return CheckPhone(event)" name="ApproxValue" class="form-control" style="width:90%" type="text" data-type="UOM"></td>
+            <td><a class="btn btn-xs delete-record" data-id="0"><i class="glyphicon glyphicon-trash"></i></a></td>
+        </tr>
+    </table>
+</div>
+
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+
+<script type="text/javascript">    
+    function ApplyCss() {
+        $(".tooltip").tooltip().on("click", function () {
+            var $this = $(this),
+                tooltip = $this.next(".tooltip");
+        });
+    }
+</script>
+
+<script>
+    $(document).ready(function () {
+        $("#CreateCarriedByTypeID").change(function () {
+            var d = $(this).val();
+            if (d == "SELF") {
+                $("#OptionWorker").hide();
+                $("#OptionVisitor").hide();
+                $("#OptionTransport").hide();
+            }
+            else if (d == "WORKER") {
+                $("#OptionWorker").show();
+                $("#OptionVisitor").hide();
+                $("#OptionTransport").hide();
+            }
+            else if (d == "TRANSPORT") {
+                $("#OptionWorker").hide();
+                $("#OptionVisitor").hide();
+                $("#OptionTransport").show();
+            }
+            else if (d == "VISITOR") {
+                $("#OptionWorker").hide();
+                $("#OptionVisitor").show();
+                $("#OptionTransport").hide();
+
+                $("#IDNumber_M").autocomplete({
+                    source: function (request, response) {
+                    $.ajax({
+                        url: '@Url.Action("GetVendorMbl", "Home")',
+                        type: "POST",
+                        dataType: "json",
+                        data: { Prefix: request.term },
+                        success: function (data) {
+                            response(data);
+                        }
+                    })
+                },
+                    select: function (e, i) {
+                debugger
+                $.ajax({
+                    url: '@Url.Action("GetVendorData", "Home")',
+                    datatype: "JSON",
+                    data: { Prefix: i.item.label },
+                    type: "Get",
+                    success: function (data) {
+                        var s = "<option selected value='" + data.ID + "'>" + data.Name + "</option>";
+                        $("#VN_M").append(s);
+                        var c = "<option selected value='" + data.CID + "'>" + data.CName + "</option>";
+                        $("#VC_M").append(c);
+                    }
+                });
+            }
+                });
+            }
+        })
+        $("#designationddl").change(function () {
+            var d = $(this).val();
+            var from = $("#ddlOutFrom").val();
+            if (d == from) {
+                alert('Out from and location can not be same')
+                var d = $(this).val('');
+            }
+            if (d == "UNIT 1") {
+                $('#VisitorName').val('C12,PN INTERNATIONAL PVT LTD')
+                $('#Addu').val('INDUSTRIAL AREA,NADARGANJ,LUCKNOW-226008')
+                $('#UserNameGST').val('09AALCP1503H1ZI')
+                $('#ContractorName').val('Jawed Iqbal Siddiqui(PNI_103)')
+                $('#Contact_No').val('9005500404')
+            }
+            else if (d == "UNIT 2") {
+                $('#VisitorName').val('C40,PN INTERNATIONAL PVT LTD')
+                $('#Addu').val('INDUSTRIAL AREA,NADARGANJ,LUCKNOW-226008')
+                $('#UserNameGST').val('09AALCP1503H1ZI')
+                $('#ContractorName').val('Vijay Pratap Singh(PNI_128)')
+                $('#Contact_No').val('8400557766')
+            }
+            else if (d == "UNIT 3") {
+                $('#VisitorName').val('B24/B25/B26,PN INTERNATIONAL PVT LTD')
+                $('#Addu').val('INDUSTRIAL AREA,NADARGANJ,LUCKNOW-226008')
+                $('#UserNameGST').val('09AALCP1503H1ZI')
+                $('#ContractorName').val('Gurpreet Singh(PNI_123)')
+                $('#Contact_No').val('9793324413')
+            }
+            else if (d == "C 19") {
+                $('#VisitorName').val('C19,PN SAFETECH PVT LTD')
+                $('#Addu').val('AMAUSI INDUSTRIAL AREA,NADARGANJ,LUCKNOW-226008')
+                $('#UserNameGST').val('09AABCP4411C1ZX')
+                $('#ContractorName').val('Anil Srivastava(PNI_143)')
+                $('#Contact_No').val('9935898159')
+            }
+        })
+        $("#ddlOutFrom").change(function () {
+            var d = $(this).val();
+            var from = $("#designationddl").val();
+            if (d == from) {
+                alert('Out from and location can not be same')
+                var d = $(this).val('');
+            }
+        })
+
+
+        $.ajax({
+                url: '@Url.Action("GetSiteData", "Home")',
+                type: 'Get',
+                contenType: 'application/json charset utf-8',
+                dataType: 'json',
+                success: function (SaleOrder) {
+                    for (var i = 0; i < SaleOrder.length; i++) {
+                        var s = "<option value='" + SaleOrder[i].C_ID+"'>" + SaleOrder[i].CName + "</option>";
+                        $("#VC_M").append(s);
+                    }
+                }
+        })
+        //UOM
+        $.ajax({
+            url: '@Url.Action("PopulateUOM", "Home")',
+            type: 'Get',
+            contenType: 'application/json charset utf-8',
+            dataType: 'json',
+            success: function (data) {
+                for (var i = 0; i < data.length; i++) {
+                    var s = "<option value=" + data[i].UOM + ">" + data[i].UOM + "</option>";
+                }
+            }
+        });
+        $("#VC_M").change(function () {
+            var ID = $("#VC_M").val()
+            debugger
+            $.ajax({
+                url: '@Url.Action("GetVisitorData", "Home")',
+                type: "Get",
+                datatype: "JSON",
+                data: { ID: ID },
+                success: function (data) {
+                    for (var i = 0; i < data.length; i++) {
+                        var s = "<option value='" + data[i].V_ID + "'>" + data[i].V_Name + "</option>";
+                        $("#VN_M").append(s);
+                    }
+                }
+            });
+        })
+        $("#VN_M").change(function () {
+            var ID = $(this).val();
+            $.ajax({
+                url: '@Url.Action("GetVendorMbl", "Home")',
+                type: 'GET',
+                datatype: "JSON",
+                data: { ID: ID },
+                success: function (data) {
+                    $("#IDNumber_M").val(data.V_Phone);
+                }
+            })
+        })
+        $.ajax({
+            url: '@Url.Action("Unit", "Home")',
+            type: 'Get',
+            contenType: 'application/json charset utf-8',
+            dataType: 'json',
+            success: function (data) {
+                for (var i = 0; i < data.length; i++) {
+                     var s = "<option value='" + data[i]+"'>" + data[i] + "</option>";
+                    $("#ddlOutFrom").append(s);
+                    $("#designationddl").append(s);
+                }
+            }
+        })
+
+        $("#ContractorName").autocomplete({
+            source: function (request, response) {
+                $.ajax({
+                    url: '@Url.Action("OutwordContact","Home")',
+                    type: "GET",
+                    dataType: "json",
+                    data: { Prefix: request.term },
+                    success: function (data) {
+                          response(data);
+                    }
+                })
+            },
+            select: function (e, i) {
+                debugger
+                var txtNmbr = i.item.label.split('/')[2]; var txtName = i.item.label.split('/')[0];
+                $("#ContractorName").val(txtName);
+                $("#Contact_No").val(txtNmbr);
+                $("#ContactPerson").val(txtName);
+            }
+        })
+        $("#ContractorName").blur(function () {
+            var txtVal = $(this).val();
+            var Name = txtVal.split('/')[0]; var nmbr = txtVal.split('/')[2];
+            $("#ContractorName").val(Name);
+            $("#Contact_No").val(nmbr);
+            $("#ContactPerson").val(Name);
+        })
+    })
+</script>
+
+<script>
+    $(document).ready('a.add-record', 'click', function (e) {
+        e.preventDefault();
+        var content = jQuery('#sample_table tr'),
+            size = jQuery('#tbl_posts >tbody >tr').length + 1,
+            element = null,
+            element = content.clone();
+        element.attr('id', 'rec-' + size);
+        element.find('.delete-record').attr('data-id', size);
+        element.appendTo('#tbl_posts_body');
+        element.find('.sn').html(size);
+    });
+    jQuery(document).delegate('a.add-record', 'click', function (e) {
+        e.preventDefault();
+        var content = jQuery('#sample_table tr'),
+            size = jQuery('#tbl_posts >tbody >tr').length + 1,
+            element = null,
+            element = content.clone();
+        element.attr('id', 'rec-' + size);
+        element.find('.delete-record').attr('data-id', size);
+        element.appendTo('#tbl_posts_body');
+        element.find('.sn').html(size);
+    });
+</script>
+
+<script>
+    jQuery(document).delegate('a.delete-record', 'click', function (e) {
+        e.preventDefault();
+        var didConfirm = confirm("Are you sure You want to delete");
+        if (didConfirm == true) {
+            var id = jQuery(this).attr('data-id');
+            var targetDiv = jQuery(this).attr('targetDiv');
+            jQuery('#rec-' + id).remove();
+
+            $('#tbl_posts_body tr').each(function (index) {
+                $(this).find('span.sn').html(index + 1);
+            });
+            return true;
+        } else {
+            return false;
+        }
+    });
+</script>
+
+<script>
+    $(document).ready(function () {
+        $("#ddlSupplierType").change(function () {
+            var d = $(this).val();
+            if (d == "Inter") {
+                $("#divmatforInter").show();
+                $("#ddlUnitLocation").show();
+                $("#designationddl").prop('required', true);
+                $("#SupplierDetail input").prop('readonly', true);
+                $("#CreateCarriedByTypeID").prop('required', true);
+                $("#ContractorName").prop('readonly', false);
+            }
+            else {
+                $("#divmatforInter").hide();
+                $("#ddlUnitLocation").hide();
+                $("#designationddl").prop('required', false);
+                $("#SupplierDetail input").prop('readonly', true);
+                $("#MRS").prop('readonly', false);
+                $("#MRS").prop('required', true);
+                $("#CreateCarriedByTypeID").prop('required', false);
+            }
+        })
+    })
+</script>
+
+
+<script>
+    $(document).ready(function () {
+        $("#CreateOutwardTypeID").change(function () {
+            debugger
+            var d = $(this).val();
+            var fullDate = new Date(); console.log(fullDate);
+            var twoDigitMonth = fullDate.getMonth() + 1;
+            var twoDigitDate = fullDate.getDate() + ""; if (twoDigitDate.length == 1) twoDigitDate = "0" + twoDigitDate;
+            var currentDate = twoDigitDate + "/" + twoDigitMonth + "/" + fullDate.getFullYear();
+            if (d == 3) {
+                $("#SupplierDetail input").prop('readonly', true);
+                $("#HidePODetail input").hide();
+                $("#HidePODetail label").hide();
+                $("#PONumber").show();
+                $("#divDate input").prop('readonly', true).val(currentDate);
+            }
+            else {
+                $("#SupplierDetail input").prop('readonly', false);
+                $("#HidePODetail input").show();
+                $("#HidePODetail label").show();
+                $("#PONumber").hide();
+            }
+        })
+    })
+</script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        var counter = 0;
+        $("#addrow").on("click", function () {
+            var newRow = $("<tr id='rec-" + (counter + 2) + "'>");
+            var cols = "";
+            cols += '<td><input autocomplete="off" data-type="ItemCode" id="txtItemCode' + (counter + 2) + '" class="form-control" name="Item" style="width:100%" type="text"></td>';
+            cols += '<td><input autocomplete="off" data-type="ItemCode" id="txtDescription' + (counter + 2) + '" class="form-control" name="DescriptnI" style="width:100%" type="text"></td>';
+            cols += '<td><select id="txtUOM' + (counter + 2) + '" name="UOM" class="form-control txtUOM" required style="width:90%">                    <Option value="Bag">Bag</Option><Option value="Cubic Feet">Cubic Feet</Option><Option value="Cubic Meter">Cubic Meter</Option><Option value="Cylinder">Cylinder</Option><Option value="Feet">Feet</Option><Option value="Gram">Gram</Option><Option value="Inch">Inch</Option><Option value="Litre">Litre</Option><Option value="Kilogram">Kilogram</Option><Option value="Cylinder">Meter</Option><Option value="Mililitre">Mililitre</Option><Option value="Number">Number</Option><Option value="Packet">Packet</Option><Option value="Pair">Pair</Option><Option value="Pieces">Pieces</Option><Option value="Roll">Roll</Option><Option value="Set">Set</Option>                    <Option value="Spool">Spool</Option><Option value="Square Feet">Square Feet</Option>                    <Option value="Square Inch">Square Inch</Option><Option value="Square Meter">Square Meter</Option>                    </select></td>';
+            cols += '<td><input id="txtQty' + (counter + 2) + '" onkeypress="return CheckPhone(event)" name="Qty" data-type="Quantity" class="form-control" style="width:90%" type="text"></td>';
+            cols += '<td><input id="txtApproxValue" onkeypress="return CheckPhone(event)" name="ApproxValue" class="form-control" required type="text"></td>';
+            cols += '<td><a class="btn btn-xs delete-record" data-id="' + (counter + 2) + '"><i class="glyphicon glyphicon-trash"></i></a></td>';
+            newRow.append(cols);
+            $("table.tbl_tbl").append(newRow);
+            counter++;
+        });
+    });
+</script>
+
+

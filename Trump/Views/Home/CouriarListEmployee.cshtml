@@ -1,0 +1,387 @@
+﻿@model IEnumerable<TrumpCL.Couriar>
+@{
+    ViewBag.Title = "CourierList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+
+    // Layout = null;
+}
+<style type="text/css">
+    #accordion div {
+        display: none;
+    }
+
+    .tooltip {
+        position: absolute;
+        z-index: 1030;
+        display: block;
+        opacity: 1;
+        filter: alpha(opacity=75);
+        font-size: 11px;
+        line-height: 1.4;
+        zoom: 1;
+        visibility: visible;
+        width: auto;
+    }
+
+    .tooltip-inner {
+        max-width: 800px;
+        padding: 3px 8px;
+        color: #ffffff;
+        width: 400;
+        display: block;
+        text-align: left;
+        font-size: 11px;
+        text-decoration: none;
+        background-color: #000000;
+        border-radius: 4px;
+    }
+
+
+    .modalPOP {
+        position: fixed;
+        z-index: 999;
+        height: 100%;
+        width: 100%;
+        top: 0;
+        left: 0;
+        background-color: White;
+        filter: alpha(opacity=60);
+        opacity: 0.6;
+        -moz-opacity: 0.8;
+    }
+
+    .modal-dialog1 {
+        position: absolute;
+        left: 25%;
+        top: 25%;
+        -moz-transform: translate(-50%, -50%);
+        -webkit-transform: translate(-50%, -50%);
+        -o-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+    }
+</style>
+
+<style>
+    .modal-dialog1 {
+        position: absolute;
+        left: 25%;
+        top: 25%;
+        -moz-transform: translate(-50%, -50%);
+        -webkit-transform: translate(-50%, -50%);
+        -o-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+    }
+
+    .ui-widget-content {
+        border: 1px solid;
+    }
+
+    .ui-autocomplete li.ui-menu-item a {
+        background-image: none;
+    }
+
+    .focus {
+        border: 2px solid #AA88FF;
+        background-color: #FFEEAA;
+    }
+
+    .ui-datepicker select.ui-datepicker-month, .ui-datepicker select.ui-datepicker-year {
+        color: Black;
+        font-weight: normal;
+    }
+
+    .ui-autocomplete {
+        max-height: 100px;
+        overflow-y: auto; /* prevent horizontal scrollbar */
+        overflow-x: hidden; /* add padding to account for vertical scrollbar */
+        padding-right: 20px;
+    }
+
+    *html .ui-autocomplete {
+        height: 100px;
+    }
+
+    .select2-container--default .select2-selection--single {
+        border-radius: 4px;
+    }
+
+    .select2-container {
+        width: 100% !important;
+    }
+    .hidecol {
+       display:none;
+    }
+
+</style>
+<div class="content" style="font-size:12px;min-height:100%">
+    <div class="content_resize">
+        <div class="mainbar">
+            <div class="article">
+                <div id="divNewInward" style="">
+                    <form action="/Home/SaveCouriarDetail" enctype="multipart/form-data" method="post">
+                        <input id="AuthoriserString" name="AuthoriserString" value="-1" type="hidden">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="widget stacked">
+                                        <div class="widget-header">
+                                            <i class="fa fa-check-circle"></i>
+                                            <h3>
+                                                @*Employee*@ Manage Inward Packet
+                                            </h3>
+                                        </div>
+                                        <div class="widget-content">
+                                            <link href="~/Content/Gridmvc.css" rel="stylesheet" />
+
+                                            @using GridMvc.Html;
+                                            @using GridMvc.DataAnnotations;
+                                            @using GridMvc.Sorting;
+                                            @helper ADDCOLUMN(TrumpCL.Couriar tb)
+                                            {
+
+                                          
+                                                <br />
+                                               
+                                        <a href="#" class="hiswithAllRev" id="modal-trigger1" data-CouriarId="@tb.CouriarId"> History </a>
+
+                                            }
+                                            @helper ADDRESOURCE(TrumpCL.Couriar tb)
+                                            {
+
+
+                                                <a id="ResourceADD_Model" class="CourierModel" href="@tb.CouriarId" style="font-size: 15px; font-weight: 400; color: rgb(85, 85, 85);" data-toggle="modal" data-target="#CourierModel" data-dept="@tb.Region" data-partnmbrRej="@tb.CouriarVendor" data-DID="@tb.CouriarId">
+                                                    @*Close*@Acknowledge
+                                                    @*<img src="~/Layout/Images/Erase.png">*@
+                                                </a>
+                                               
+                                            }
+
+                                            <link href="~/Layout/Css/jtable_jqueryui.css" rel="stylesheet" />
+                                        
+
+                                            <div class="content" style="font-size:12px;min-height:100%">
+                                                <div class="content_resize">
+                                                    <div class="mainbar">
+                                                        <div class="article row">
+                                                            <style type="text/css">
+                                                                #accordion div {
+                                                                    display: none;
+                                                                }
+
+                                                                .hidecol {
+                                                                    display: none;
+                                                                }
+                                                            </style>
+
+                                                            <div class="col-md-12">
+                                                                <div class="col-md-12">
+                                                                    <div role="tablist" class="ui-accordion ui-widget ui-helper-reset" id="accordion" style="width: 100%; margin-left: 0%; margin-right:0%;">
+                                                                        <h1 tabindex="0" aria-selected="false" aria-controls="ui-accordion-accordion-panel-0" id="ui-accordion-accordion-header-0" role="tab" class="clsAccordion ui-accordion-header ui-helper-reset ui-state-default ui-corner-all ui-accordion-icons">
+                                                                            <input type="hidden" id="urlHidden" name="urlHidden" value="notcall" />
+                                                                            <b>Manage Inward Packet </b> &nbsp; &nbsp;
+                                                                            
+                                                                        </h1>
+                                                                    </div>
+                                                                    @*<div id="VisitorCompanyTableContainer">*@
+                                                                        <div class="jtable-main-container">
+                                                                            <div class="jtable" id="jtable">
+                                                                                <div class="table table-bordered table-responsive" id="table2">
+                                                                                    @Html.Grid(Model).Columns(columns =>
+                                                                               {
+                                                                                   //columns.Add().Encoded(false).Sanitized(false)
+                                                                                   //.RenderValueAs(o => Html.CheckBox("checked", false, new { key = o.ID, id = "checked" }));
+
+                                                                                   columns.Add().Titled("Histry").Encoded(false).Sanitized(false).SetWidth(30).RenderValueAs(z => ADDCOLUMN(z)).Css("hidecol");
+
+
+                                                                                   columns.Add().Titled("Action").Encoded(false).Sanitized(false).SetWidth(30).RenderValueAs(z => ADDRESOURCE(z));//Add
+                                                                                                                                                                                                  //columns.Add().Encoded(false).Sanitized(false).SetWidth(70).RenderValueAs(z => ADDCOLUMN(z));
+                                                                                   columns.Add(c => c.CouriarId).Titled("Packet ID").Filterable(true).Sortable(true).Css("ContentTitle");
+                                                                                   columns.Add(c => c.C_Date).Titled("Date").Format("{0:dd/MMM/yyyy}").Filterable(true).Sortable(true).Css("Date");
+                                                                                   columns.Add(c => c.Region).Titled("Region").Filterable(true).Sortable(true).Css("Region");
+                                                                                   columns.Add(c => c.Department).Titled("Department").Filterable(true).Sortable(true).Css("Department");
+                                                                                   //columns.Add(c => c.NameOfCompany).Titled("Recipient Name").Filterable(true).Sortable(true).Css("NameOfCompany");
+                                                                                   columns.Add(c => c.EmployeeName).Titled("Recipient Name").Filterable(true).Sortable(true).Css("EmployeeName");
+                                                                                   columns.Add(c => c.City).Titled("City").Filterable(true).Sortable(true).Css("City");
+                                                                                   columns.Add(c => c.Documents).Titled("Documents").Filterable(true).Sortable(true).Css("Documents");
+                                                                                   columns.Add(c => c.ReceiveTime).Titled("Receive Time").Filterable(true).Sortable(true).Css("ReceiveTime");
+                                                                                   columns.Add(c => c.DocketNo).Titled("Docket No.").Filterable(true).Sortable(true).Css("DocketNo");
+                                                                                   columns.Add(c => c.CouriarVendor).Titled("Delivery Provider").Filterable(true).Sortable(true).Css("CouriarVendor");
+                                                                                   columns.Add(c => c.SenderName).Titled("Sender Name").Filterable(true).Sortable(true).Css("SenderName");
+
+                                                                                   columns.Add(c => c.CurrentStatus).Titled("Status").Filterable(true).Sortable(true).Css("CurrentStatus");
+
+                                                                                   if (Session["RoleTypeBothYN"] != null)
+                                                                                   {
+                                                                                       if (Session["RoleTypeBothYN"].ToString() == "No")
+                                                                                       {
+                                                                                           columns.Add(c => c.Remark).Titled("Security Remarks").Filterable(true).Sortable(true).Css("Remark");
+                                                                                           columns.Add(c => c.DeskRemarks).Titled("Desk Remarks").Filterable(true).Sortable(true).Css("DeskRemarks");
+
+                                                                                       }
+                                                                                       else {
+
+                                                                                           columns.Add(c => c.Remark).Titled("Desk Remarks").Filterable(true).Sortable(true).Css("Remark");
+                                                                                       }
+                                                                                   }
+
+
+
+
+
+
+                                                                               }).Sortable(true).WithPaging(10)
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+
+
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade out" id="CourierModel" aria-hidden="true" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" id="btncloseR" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Alert</h4>
+            </div>
+
+            <form action="~/Home/ChangeCourierStatusEmployee" method="post">
+                <div class="modal-body">
+                    @*<label>ID11</label>*@
+
+                    <input type="hidden" id="apphidEmployeeId" name="apphidEmployeeId" />
+                    <input type="hidden" id="apphidEmployee" name="apphidEmployee" />
+                    <input type="text" readonly class="form-control" id="Courier_ID" name="Courier_ID" style="display:none;" />
+                    <input type="checkbox" class="edit-userB" name="chkParcelYN" id="chkParcelYN" value="" />&nbsp;Yes,I have received my parcel/courier
+                    <br />
+                    <label>Remark</label>
+
+                    <textarea class="form-control" required name="CouriarRemark" value=" received  courier">received  courier</textarea>
+                </div>
+                <div class="modal-footer">
+                  
+                    <button type="submit" id="btnSave" class="btn btn-danger">@*Close*@Acknowledge</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div id="HistoryModel" class="modal fade" role="dialog">
+    <div class="modal-dialog" style="width:100%;">
+        <!-- Modal content-->
+        <div class="modal-content" style="width:100%;">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title" style="text-align:center">Courier History View</h4>
+            </div>
+            <div class="modal-body">
+                <div class="col-md-12" id="two">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+
+<script>
+
+  
+
+  
+
+</script>
+
+<script>
+
+
+        $(document).ready(function () {
+            $('.CourierModel').click(function () {
+
+                var DID = $(this).attr('href');
+              
+             //alert(DID);
+                var dept = $(this).attr('data-dept');
+                var Itm1 = $(this).attr('data-partnmbrRej');
+              
+               
+                $("#CourierModel").show(function () {
+                    $("#Courier_ID").val(DID)
+                   
+
+                });
+            })
+
+
+
+
+
+    })
+</script>
+
+
+<script>
+    $(".hiswithAllRev").click(function () {
+        debugger;
+
+        var rid = $(this).attr("data-CouriarId")
+
+      
+        $.ajax({
+            type: "post",
+          
+            url: "../Home/DynamicallyRenderWithAllRevision",
+            dataType: "html",
+            //data: { RequestId: rid, MItem: MItem, ChildItem: ChildItem, page: "HistoryAllRevisionView" },
+            data: { RequestId: rid, page: "HistoryAllRevisionView" },
+
+            
+            success: function (result) {
+                $('#two').html(result);
+                $("#HistoryModel").modal('show')
+            },
+            error: function (e) { display(e); }
+        });
+    })
+</script>
+<script>
+
+
+    $("#btnSave").click(function () {
+       
+        if ($("#chkParcelYN").prop("checked") == false) {
+
+            alert("Please Select  Percel Recieved ! ");
+            return false;
+        }
+        
+    });
+</script>
+
+
+
+

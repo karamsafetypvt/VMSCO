@@ -1,0 +1,1111 @@
+﻿
+@{
+    ViewBag.Title = "Master_RequestorEntry";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@*<h2>Master_RequestorEntry</h2>*@
+
+<link href="~/Content/font-awesome.css" rel="stylesheet" />
+<div class="content" style="font-size:12px;min-height:100%">
+    <div class="content_resize">
+        <div class="mainbar">
+            <div class="article">
+                <div id="divNewInward" style="">
+                    <form action="/Master/SaveRequestorDetail" enctype="multipart/form-data" method="post">
+                        <input id="AuthoriserString" name="AuthoriserString" value="-1" type="hidden">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="widget stacked">
+                                        <div class="widget-header">
+                                            <i class="fa fa-check-circle"></i>
+                                            <h3>
+
+                                                Employee Entry
+                                                <br />
+                                                <br />
+                                                <br />
+
+                                            </h3>
+                                        </div>
+                                        <div class="widget-content">
+
+
+
+                                            <div class="row">
+
+                                                <div class="col-md-3">
+                                                    <div class="form-group" id="divVisitors">
+                                                        <label for="name" class="col-md-12">
+                                                            Employee Id
+                                                            <span id="PartdEr">
+                                                            </span>
+                                                            <i class="required">*</i>
+                                                        </label>
+                                                        <div class="col-md-12">
+                                                            <input class="form-control" id="txtEMPLOYEE_ID" onkeypress="return isNumberKey(event)" maxlength="50" required name="txtEMPLOYEE_ID" value="" type="text">
+
+                                                            <span id="PartdEr">
+                                                            </span>
+                                                        </div>
+
+                                                    </div>
+
+                                                </div>
+
+                                                <div class="col-md-3">
+                                                    <div class="form-group" id="divVisitors">
+                                                        <label for="name" class="col-md-8"> Name<i class="required">*</i></label>
+                                                        <div class="col-md-12">
+                                                            <input class="form-control" id="txtNAME" required name="txtNAME" value="" type="text">
+
+
+                                                            <input class="form-control" id="txtRegion" style="display:none;" required name="txtRegion" type="text">
+                                                            <input class="form-control" id="txtRegionId" style="display:none;" required name="txtRegionId" type="text">
+                                                            <input class="form-control" id="txtactualRegionId" style="display:none;" required name="txtactualRegionId" type="text">
+
+                                                        </div>
+
+                                                    </div>
+
+                                                </div>
+
+                                                <div class="col-md-3">
+                                                    <div class="form-group" id="divVisitors">
+                                                        <label for="name" class="col-md-8">Sitting Region <i class="required">*</i>@*<i class="fa fa-asterisk required"></i>*@</label>
+                                                        <div class="col-md-12">
+
+
+                                                            <select class="form-control select2_group" name="ddlRegion" id="ddlRegion">
+                                              
+                                                            </select>
+                                                        </div>
+
+                                                    </div>
+
+                                                </div>
+
+                                                <div class="col-md-3">
+                                                    <div class="form-group" id="divVisitors">
+                                                        <label for="name" class="col-md-8">Actual Region <i class="required">*</i>@*<i class="fa fa-asterisk required"></i>*@</label>
+                                                        <div class="col-md-12">
+
+
+                                                            <select class="form-control select2_group" name="ddlactualRegion" id="ddlactualRegion">
+                                                            </select>
+                                                        </div>
+
+                                                    </div>
+
+                                                </div>
+
+
+
+                                                @*<div class="col-md-3">
+            <div class="form-group" id="divVisitors">
+                <label for="name" class="col-md-8"> Requestor Key <i class="required">*</i> </label>
+                <div class="col-md-12">
+                    <input class="form-control" id="txtrequestor_key" required name="txtrequestor_key" value="" type="text">
+
+
+                </div>
+
+            </div>
+
+        </div>*@
+                                                <div class="row"></div>
+
+                                                <div class="col-md-3">
+                                                    <div class="form-group" id="divVisitors">
+                                                        <label for="name" class="col-md-8"> Designation<i class="required">*</i></label>
+                                                        <div class="col-md-12">
+                                                            <input class="form-control" id="txtDESIGNATION" name="txtDESIGNATION" required value="" type="text">
+
+
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                                @*<div class="col-md-3">
+            <div class="form-group" id="divVisitors">
+                <label for="name" class="col-md-8"> Kss Department <i class="required">*</i></label>
+                <div class="col-md-12">
+                    <input class="form-control" id="txtKSSDepartment" style="display:none;" name="txtKSSDepartment" value="" type="text">
+                    <select tabindex="-1" class="form-control select2_group" required name="ddlkssdept" id="ddlkssdept">
+                        <option selected disabled>--Please Select--</option>
+                    </select>
+
+                </div>
+
+            </div>
+
+        </div>*@
+
+                                                <div class="col-md-3">
+                                                    <div class="form-group" id="divVisitors">
+                                                        <label for="name" class="col-md-8"> Department <i class="required">*</i></label>
+                                                        <div class="col-md-12">
+                                                            <input class="form-control" id="txtDEPARTMENT" name="txtDEPARTMENT" value="" type="text" style="display:none;">
+                                                            @*<input class="form-control clsVisitorIDAutotext" id="txtdept" name="txtdept" value="" type="text" style="display:none;">*@
+                                                            <input class="form-control" id="txtDepartmentID" name="txtDepartmentID" value="" type="text" style="display:none;">
+                                                            <select tabindex="-1" class="form-control select2_group" required name="ddldept" id="ddldept">
+                                                                <option selected disabled>--Please Select--</option>
+                                                            </select>
+
+                                                        </div>
+
+                                                    </div>
+
+                                                </div>
+
+
+                                                <div class="col-md-3">
+                                                    <div class="form-group" id="divVisitors">
+                                                        <label for="name" class="col-md-8"> Immediate Supervisor<i class="required">*</i> </label>
+                                                        <div class="col-md-12">
+                                                            <input class="form-control" id="txtImmediate_Supervisor" required name="txtImmediate_Supervisor" value="" type="text">
+
+
+                                                        </div>
+
+                                                    </div>
+
+                                                </div>
+
+                                                @*<div class="col-md-3">
+            <div class="form-group" id="divVisitors">
+                <label for="name" class="col-md-12"> Immediate Supervisor Employee Id<i class="required">*</i> </label>
+                <div class="col-md-12">
+                    <input class="form-control" id="txtImmediate_Supervisor_EMP_ID" required name="txtImmediate_Supervisor_EMP_ID" value="" type="text">
+
+
+                </div>
+
+            </div>
+
+        </div>*@
+
+                                                <div class="col-md-3" style="display:none11;">
+                                                    <div class="form-group" id="divVisitors">
+                                                        <label for="name" class="col-md-8"> HOD <i class="required">*</i></label>
+                                                        <div class="col-md-12">
+                                                            <input class="form-control" id="txtHOD" required name="txtHOD" type="text">
+
+
+                                                        </div>
+
+                                                    </div>
+
+                                                </div>
+
+                                                <div class="row"></div>
+
+                                                @*<div class="col-md-3"  style="display:none;">
+            <div class="form-group" id="divVisitors">
+                <label for="name" class="col-md-8"> Date Of Birth<i class="required">*</i></label>
+                <div class="col-md-12">
+
+                    <input tabindex="6" class="form-control hasDatepicker"  autocomplete="off" data-val="true" id="DobDateString" name="V_Dob" value="@ViewBag.Cdate" onkeypress="return CheckPhone(event)" type="text">
+
+                </div>
+
+            </div>
+
+        </div>*@
+
+                                                @*<div class="col-md-3">
+            <div class="form-group" id="divVisitors">
+                <label for="name" class="col-md-8"> Hod Employee Id <i class="required">*</i></label>
+                <div class="col-md-12">
+                    <input class="form-control" id="txtHOD_EMP_ID" required name="txtHOD_EMP_ID" value="" type="text">
+
+
+                </div>
+
+            </div>
+
+        </div>*@
+
+                                                <div class="col-md-3">
+                                                    <div class="form-group" id="divVisitors">
+                                                        <label for="name" class="col-md-8"> Mobile Number <i class="required">*</i></label>
+                                                        <div class="col-md-12">
+                                                            <input class="form-control" id="txtMOBILE" required onkeypress="return isNumberKey(event)" maxlength="10" name="txtMOBILE" value="" type="text">
+
+
+                                                        </div>
+
+                                                    </div>
+
+                                                </div>
+
+
+
+                                                @* <div class="col-md-3">
+            <div class="form-group" id="divVisitors">
+                <label for="name" class="col-md-8"> Payroll <i class="required">*</i></label>
+                <div class="col-md-12">
+                    <input class="form-control" id="txtPAYROLL" name="txtPAYROLL" value="" type="text">
+
+
+                </div>
+
+            </div>
+
+        </div>*@
+
+
+
+
+                                                @*<div class="col-md-3">
+            <div class="form-group" id="divVisitors">
+                <label for="name" class="col-md-8"> VPF <i class="required">*</i></label>
+                <div class="col-md-12">
+                    <input class="form-control" id="txtVPF" onkeypress="return isNumberKey(event)" name="txtVPF" value="" type="text">
+
+
+                </div>
+
+            </div>
+
+        </div>
+        <div class="col-md-3">
+            <div class="form-group" id="divVisitors">
+                <label for="name" class="col-md-8"> EPF </label>
+                <div class="col-md-12">
+                    <input class="form-control" id="txtEPF" name="txtEPF" value="" type="text">
+
+
+                </div>
+
+            </div>
+
+        </div>
+        <div class="col-md-3">
+            <div class="form-group" id="divVisitors">
+                <label for="name" class="col-md-8"> Pan No. </label>
+                <div class="col-md-12">
+                    <input class="form-control" id="txtPanNo" maxlength="25" name="txtPanNo" value="" type="text">
+
+
+                </div>
+
+            </div>
+
+        </div>
+        <div class="col-md-3">
+            <div class="form-group" id="divVisitors">
+                <label for="name" class="col-md-8"> Total Deductions </i></label>
+                <div class="col-md-12">
+                    <input class="form-control" id="txtDeduction" onkeypress="return isNumberKey(event)" name="txtDeduction" value="" type="text">
+
+
+                </div>
+
+            </div>
+
+        </div>
+        <div class="col-md-3">
+            <div class="form-group" id="divVisitors">
+                <label for="name" class="col-md-8"> Yearly VPF</label>
+                <div class="col-md-12">
+                    <input class="form-control" id="txtYVPF" onkeypress="return isNumberKey(event)" name="txtYVPF" value="" type="text">
+
+
+                </div>
+
+            </div>
+
+        </div>
+        <div class="col-md-3">
+            <div class="form-group" id="divVisitors">
+                <label for="name" class="col-md-8"> Yearly EPF</i></label>
+                <div class="col-md-12">
+                    <input class="form-control" id="txtYEPF" name="txtYEPF" onkeypress="return isNumberKey(event)" value="" type="text">
+
+
+                </div>
+
+            </div>
+
+        </div>*@
+
+
+                                                <div class="col-md-3" style="display:none;">
+                                                    <div class="form-group" id="divVisitors">
+                                                        <label for="name" class="col-md-8"> Password<i class="required">*</i> </label>
+                                                        <div class="col-md-12">
+                                                            <input class="form-control" id="txtPassword" maxlength="25" required name="txtPassword" value="NA" type="text">
+
+
+                                                        </div>
+
+                                                    </div>
+
+                                                </div>
+
+
+
+
+                                                @**@
+
+                                                @*<div class="col-md-3">
+            <div class="form-group" id="divVisitors">
+                <label for="name" class="col-md-12">Investment Declaration Status </label>
+                <div class="col-md-12">
+
+
+                    <div class="col-md-2">
+                        <input class="form-control col-md-12" name="OperationType" type="radio"
+                               value="Routing" checked="checked" required id="Routing" />
+                    </div>
+                    <div class="col-md-2  pull-left">
+                        <label for="Netflix" style="margin-top:15px;margin-left:-20px">Yes </label>
+                    </div>
+
+                    <div class="col-md-2"><input class="form-control col-md-12" name="OperationType" type="radio" required value="ADHoc" id="ADHoc" /></div>
+                    <div class="col-md-2">   <label for="Netflix" style="margin-top:15px;margin-left:-20px">No</label></div>
+                    <div class="col-md-4">   <label for="Netflix"></label></div>
+
+
+
+
+                </div>
+
+            </div>
+
+        </div>*@
+
+                                                @*<div class="col-md-3" style="display:none;">
+            <div class="form-group" id="divVisitors">
+                <label for="name" class="col-md-8">HRMS Password <i class="required">*</i></label>
+                <div class="col-md-12">
+                    <input class="form-control" id="txtHRMSPassword" maxlength="25" required name="txtHRMSPassword" value="NA" type="text">
+
+
+                </div>
+
+            </div>
+
+        </div>*@
+
+                                                @*<div class="row"></div>*@
+
+                                                <div class="col-md-3">
+                                                    <div class="form-group" id="divVisitors">
+                                                        <label for="name" class="col-md-8"> Email </label>
+                                                        <div class="col-md-12">
+                                                            <input class="form-control" id="txtEmail" required name="txtEmail" value="" type="text">
+
+
+                                                        </div>
+
+                                                    </div>
+
+                                                </div>
+
+                                                <div class="col-md-3">
+                                                    <div class="form-group" id="divVisitors">
+                                                        <label for="name" class="col-md-8">VMS Password<i class="required">*</i></i></label>
+                                                        <div class="col-md-12">
+                                                            <input class="form-control" id="txtTrumpPassword" maxlength="25" required name="txtTrumpPassword" value="karam@123" type="text">
+
+
+                                                        </div>
+
+                                                    </div>
+
+                                                </div>
+
+                                                <div class="col-md-3">
+                                                    <div class="form-group" id="divVisitors">
+                                                        <label for="name" class="col-md-8"> User Type</label>
+                                                        <div class="col-md-12">
+                                                            @*<input class="form-control" id="txtUserType" name="txtUserType" required value="" type="text">*@
+                                                            <select tabindex="-1" class="form-control select2_group ddlIDType22" data-val="true" name="ddlUserType">
+
+                                                                <option>USER</option>
+                                                                @*<option>HOD</option>*@
+
+
+                                                            </select>
+
+                                                        </div>
+
+                                                    </div>
+
+                                                </div>
+                                                <div class="row"></div>
+                                                <div class="col-md-3" style="display:none11;">
+                                                    <div class="form-group">
+                                                        <label for="name" class="col-md-12">Extension No. <i class="required">*</i></label>
+                                                        <div class="col-md-12">
+                                                            <input class="form-control" id="txtInvestment_Declaration_Password" maxlength="25" required name="txtInvestment_Declaration_Password" value="NA" type="text">
+
+
+                                                        </div>
+
+                                                    </div>
+
+                                                </div>
+
+                                                <div class="col-md-3">
+                                                    <div class="form-group">
+                                                        <label for="name" class="col-md-8">Status</label>
+                                                        <div class="col-md-12">
+                                                            <select tabindex="-1" class="form-control select2_group ddlIDType" data-val="true" name="E_VStatus">
+
+                                                                <option>Active</option>
+                                                                <option>InActive</option>
+
+                                                            </select>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+
+
+                                                @*<div class="col-md-3">
+            <div class="form-group" id="divVisitors">
+                <label for="name" class="col-md-8"> Company <i class="required">*</i></label>
+                <div class="col-md-12">
+
+                    <select tabindex="-1" class="form-control select2_group" required name="ddlCompany" id="ddlCompany">
+                        <option selected disabled>--Please Select--</option>
+                    </select>
+
+                </div>
+
+            </div>
+
+        </div>*@
+
+
+
+                                                <div class="row">
+                                                    <div class="col-md-12">
+
+                                                        @*<div class="col-md-3">
+                    <div class="form-group" id="divVisitors">
+                        <label for="name" class="col-md-8">Date Of Joining <i class="required">*</i></label>
+                        <div class="col-md-12">
+
+
+                            <input tabindex="6" class="form-control hasDatepicker" autocomplete="off" required data-val="true" id="DojDateString" name="V_Doj" value="@ViewBag.Cdate" onkeypress="return CheckPhone(event)" type="text">
+                        </div>
+
+                    </div>
+
+                </div>*@
+
+
+
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="col-md-12">
+                                                    <br /> <br /> <br />
+                                                    <input type="submit"
+                                                           name="btnSave" id="btnSave" value="Submit" class="btn btn-primary" />
+
+                                                </div>
+
+
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+@*<script src="~/Scripts/select2.js"></script>
+    <link href="~/bootstrap-sweetalert-master/dist/sweetalert.css" rel="stylesheet" />
+    <script src="~/bootstrap-sweetalert-master/dist/sweetalert.js"></script>*@
+@if (TempData["RequestorEntry"] != null)
+{
+    <script>
+        $(document).ready(function () {
+            swal({
+                title: "Alert",
+                text: "RequestorEntry   Detail Saved ",
+                icon: "success",
+                type: "success"
+            }, function () {
+                window.location.href = "../Home/RequestorEntry";
+
+            })
+    </script>
+}
+
+
+
+<script>
+
+    $(document).ready(function () {
+        funddlCompanyFill();
+        //funddldeptfill();
+
+        $("#AppointmentDateString").datepicker({
+            'autoclose': true,
+            /* 'startDate': '-0m'*/
+            'format': 'mm/dd/yyyy'
+        });
+
+
+
+
+
+    });
+    $(document).ready(function () {
+        $("#DobDateString").datepicker({
+            'autoclose': true,
+            'endDate': '-0m',
+            /* 'startDate': '-0m'*/
+            'format': 'mm/dd/yyyy'
+        });
+
+
+
+
+
+    });
+
+    $(document).ready(function () {
+        $("#DojDateString").datepicker({
+            'autoclose': true,
+            'endDate': '-0m',
+            /* 'startDate': '-0m'*/
+        });
+
+
+
+
+
+    });
+
+
+    $("#btnSave").click(function () {
+
+        var ddlRegion = $('#ddlRegion option:selected').text()
+        var ddldept = $('#ddldept option:selected').text()
+        //var ddlCompany = $('#ddlCompany option:selected').text()
+        var varcvMobile = $("#txtMOBILE").val().trim();
+        var ddlactualRegion = $('#ddlactualRegion option:selected').text()
+        if (ddlRegion == "--Please Select--") {
+            alert("Please Select Region");
+            return false;
+        }
+
+        else if (ddlactualRegion == "--Please Select--") {
+            alert("Please Select Actual Region");
+            return false;
+        }
+
+        else if (ddldept == "--Please Select--") {
+            alert("Please Select Department");
+            return false;
+        }
+
+        else if ($("#txtEMPLOYEE_ID").val().trim() == "") {
+
+            alert("Please Enter  Employee Id");
+          return false;
+        }
+
+
+
+      
+      else  if (varcvMobile.length != 10) {
+            alert("Please Enter 10 digit Mobile No.");
+            return false;
+
+        }
+
+
+       // txtMOBILE
+
+        //else if (ddlCompany == "--Please Select--") {
+        //    alert("Please Select Company");
+        //    return false;
+        //}
+
+    });
+
+
+</script>
+
+<script>
+
+
+            $(document).ready(function () {
+
+
+
+                $("#ddlRegion").change(function () {
+
+                    debugger;
+                    funddldeptfill();
+
+                });
+                $("#ddlactualRegion").change(function () {
+
+
+                    var ddlactualRegionId = $('#ddlactualRegion option:selected').val();
+                    $("#txtactualRegionId").val(ddlactualRegionId);
+                    funddldeptfill();
+
+                });
+
+
+
+                $("#ddldept").change(function () {
+
+                    var deptval = $('#ddldept option:selected').val();
+                    var depttxt = $('#ddldept option:selected').text();
+
+                    $("#txtDepartmentID").val(deptval);
+                    $("#txtDEPARTMENT").val(depttxt);
+
+                });
+
+
+
+
+                var funddldeptfill = (function () {
+                    debugger;
+                    var ddlRegion = $('#ddlRegion option:selected').text();
+                    var ddlRegionval = $('#ddlRegion option:selected').val();
+
+                    
+                    var ddlactualRegion = $('#ddlactualRegion option:selected').text();
+
+                    $("#txtRegionId").val(ddlRegionval);
+                    $("#txtRegion").val(ddlRegion);
+
+
+                    $.ajax({
+
+
+                        //url: '@Url.Action("GetDepartmenByRegiontList", "Master")',
+                          url: '@Url.Action("GetDepartmenByRegiontListNew", "Master")',
+                        type: 'Get',
+                        contenType: 'application/json charset utf-8',
+
+
+                        dataType: 'json',
+                        /*   data: { Region: ddlRegion },*/
+                        data: { Region: ddlRegion, Region2: ddlactualRegion },
+                        success: function (data) {
+
+                            $("#ddldept").empty()
+                            $("#ddlkssdept").empty()
+                            var s;
+
+                            s = "<option value='--Please Select--'>--Please Select--</option>";
+                            $("#ddldept").append(s);
+                            $("#ddlkssdept").append(s);
+                            for (var i = 0; i < data.length; i++) {
+
+                                s = "<option value='" + data[i].DepartmentId + "'>" + data[i].DEPARTMENT + "</option>";
+
+                                $("#ddldept").append(s);
+                                $("#ddlkssdept").append(s);
+
+
+                            }
+                            //---------
+
+
+
+
+
+                        }
+                    });
+
+
+
+                });
+
+
+
+            });
+
+
+
+            $("#txtEmail").change(function () {
+
+                var atSymbol = $("#txtEmail").val().indexOf("@@");
+
+                //Check minimum valid length of an Email.
+                if ($("#txtEmail").val().length <= 2) {
+                    alert('Please enter correct email');
+                    $("#txtEmail").val('');
+                    return false;
+                }
+                //If whether email has  character.
+                if ($("#txtEmail").val().indexOf("@@") == -1) {
+                    alert('Please enter correct email');
+                    $("#txtEmail").val('');
+                    return false;
+                }
+
+
+                var parts = $("#txtEmail").val().split("@@");
+                var dot = parts[1].indexOf(".");
+                var len = parts[1].length;
+                var dotSplits = parts[1].split(".");
+                var dotCount = dotSplits.length - 1;
+
+
+                //Check whether Dot is present, and that too minimum 1 character after
+                if (dot == -1 || dot < 2 || dotCount > 2) {
+                    $("#txtEmail").val('');
+                    alert('Please enter correct email');
+                    return false;
+                }
+
+                //Check whether Dot is not the last character and dots are not repeated.
+                for (var i = 0; i < dotSplits.length; i++) {
+                    if (dotSplits[i].length == 0) {
+                        $("#txtEmail").val('');
+                        alert('Please enter correct email');
+
+                        return false;
+                    }
+                }
+
+
+                return true;
+
+
+
+
+            });
+
+
+
+
+</script>
+
+
+<script>
+
+            $(document).ready(function () {
+
+                 var funddlRegionFill = (function () {
+                    //debugger;
+
+                    var ddlRegion = "aaa";
+
+                    $.ajax({
+
+
+                        url: '@Url.Action("GetRegionList", "Master")',
+                        type: 'Get',
+                        contenType: 'application/json charset utf-8',
+
+
+                        dataType: 'json',
+                        data: { Region: ddlRegion },
+                        success: function (data) {
+
+                            var s;
+                            s = "<option value='--Please Select--'>--Please Select--</option>";
+                            $("#ddlRegion").append(s);
+                            $("#ddlactualRegion").append(s);
+                            for (var i = 0; i < data.length; i++) {
+
+                                s = "<option value='" + data[i].RegionId + "'>" + data[i].Region + "</option>";
+
+                                $("#ddlRegion").append(s);
+                                $("#ddlactualRegion").append(s);
+
+                            }
+                            //---------
+
+                        }
+                    });
+
+
+
+                });
+                funddlRegionFill();
+
+
+
+
+
+
+
+                var funddlCompanyFill = (function () {
+                    //debugger;
+
+                    var ddlRegion = "aaa";
+
+                    $.ajax({
+
+
+                        url: '@Url.Action("GetCompanyList", "Master")',
+                        type: 'Get',
+                        contenType: 'application/json charset utf-8',
+
+
+                        dataType: 'json',
+                        data: { Region: ddlRegion },
+                        success: function (data) {
+
+                            var s;
+
+                            for (var i = 0; i < data.length; i++) {
+
+                                s = "<option value='" + data[i].CompanyId + "'>" + data[i].Company + "</option>";
+
+                                $("#ddlCompany").append(s);
+
+
+                            }
+                            //---------
+
+                        }
+                    });
+
+
+
+                });
+                funddlCompanyFill();
+
+
+                $("#ddlkssdept").change(function () {
+
+
+                    var depttxt = $('#ddlkssdept option:selected').text();
+
+                    $("#txtKSSDepartment").val(depttxt);
+
+                });
+
+            });
+
+</script>
+
+<script type="text/javascript">
+    function isNumberKey(evt) {
+        var charCode = (evt.which) ? evt.which : evt.keyCode;
+        if (charCode > 31 && (charCode < 48 || charCode > 57))
+            return false;
+        return true;
+    }
+</script>
+
+<script>
+            $("#txtEMPLOYEE_ID").change(function () {
+
+
+                var EMPLOYEE_ID = $(this).val();
+                
+                
+
+                $.ajax({
+
+                    url: '../Master/EmployeeIdExists?Employeeid=' + EMPLOYEE_ID,
+                   // url: '../Home/PartNoExists?PartNo=' + ChildItemCode + '&MID=' + MasterItemVal,
+                    datatype: "JSON",
+                    type: "Get",
+                    success: function (data) {
+                        if (data != null) {
+
+                            if (data == 1) {
+                                $("#PartdEr").text($("#txtEMPLOYEE_ID").val()+"  Exists.").css("color", "red");
+                                $('input[type="submit"]').attr('disabled', 'disabled');
+                                $("#txtEMPLOYEE_ID").val('');
+                            }
+                            else {
+                                $("#PartdEr").text("").css("color", "red");
+                                $('input[type="submit"]').removeAttr('disabled');
+
+                            }
+
+
+                        }
+                        else {
+                            Location.href = "../Home/Login";
+                        }
+                    }
+                });
+
+
+
+
+
+            });
+
+
+
+            $("#txtEmail").change(function () {
+
+
+                var Email_ID = $(this).val();
+               
+                var EMPLOYEE_ID = 0;
+             
+
+                $.ajax({
+
+                    url: '../Master/EmployeeEmailExists?Email=' + Email_ID + '&EmployeeId=' + EMPLOYEE_ID,
+                    // url: '../Home/PartNoExists?PartNo=' + ChildItemCode + '&MID=' + MasterItemVal,
+                    datatype: "JSON",
+                    type: "Get",
+                    success: function (data) {
+                        if (data != null) {
+
+                            if (data == 1) {
+
+                                $("#txtEmail").val('');
+                                swal({
+                                    title: "warning",
+                                    text: Email_ID + " Email Already Exists",
+                                    icon: "warning",
+                                    type: "warning"
+                                }, function () {
+
+                                });
+
+                            }
+                            else {
+
+
+                            }
+
+
+                        }
+                        else {
+                            Location.href = "../Home/Login";
+                        }
+                    }
+                });
+
+
+
+
+
+            });
+
+            $("#txtMOBILE").change(function () {
+
+
+
+
+
+
+
+
+
+                var Mobile_NO = $(this).val();
+             
+                var EMPLOYEE_ID = 0;
+               
+
+                $.ajax({
+
+                    url: '../Master/EmployeeMobileExists?Mobile=' + Mobile_NO + '&EmployeeId=' + EMPLOYEE_ID,
+                    // url: '../Home/PartNoExists?PartNo=' + ChildItemCode + '&MID=' + MasterItemVal,
+                    datatype: "JSON",
+                    type: "Get",
+                    success: function (data) {
+                        if (data != null) {
+
+                            if (data == 1) {
+
+                                $("#txtMOBILE").val('');
+                                swal({
+                                    title: "warning",
+                                    text: Mobile_NO + " Mobile Already Exists",
+                                    icon: "warning",
+                                    type: "warning"
+                                }, function () {
+
+                                });
+
+                            }
+                            else {
+
+
+                            }
+
+
+                        }
+                        else {
+                            Location.href = "../Home/Login";
+                        }
+                    }
+                });
+
+
+
+
+
+            });
+
+</script>
+<script>
+    $("#txtEmail").change(function () {
+
+        var atSymbol = $("#txtEmail").val().indexOf("@@");
+
+        //Check minimum valid length of an Email.
+        if ($("#txtEmail").val().length <= 2) {
+            alert('please enter correct email');
+            $("#txtEmail").val('');
+            return false;
+        }
+        //If whether email has  character.
+        if ($("#txtEmail").val().indexOf("@@") == -1) {
+            alert('please enter correct email');
+            $("#txtEmail").val('');
+            return false;
+        }
+
+
+        var parts = $("#txtEmail").val().split("@@");
+        var dot = parts[1].indexOf(".");
+        var len = parts[1].length;
+        var dotSplits = parts[1].split(".");
+        var dotCount = dotSplits.length - 1;
+
+
+        //Check whether Dot is present, and that too minimum 1 character after
+        if (dot == -1 || dot < 2 || dotCount > 2) {
+            $("#txtEmail").val('');
+            alert('please enter correct email');
+            return false;
+        }
+
+        //Check whether Dot is not the last character and dots are not repeated.
+        for (var i = 0; i < dotSplits.length; i++) {
+            if (dotSplits[i].length == 0) {
+                $("#txtEmail").val('');
+                alert('please enter correct email');
+
+                return false;
+            }
+        }
+
+
+        return true;
+
+
+    });
+
+
+
+</script>
+

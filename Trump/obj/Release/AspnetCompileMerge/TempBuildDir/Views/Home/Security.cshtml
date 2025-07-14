@@ -1,0 +1,595 @@
+﻿@*@model IEnumerable<TrumpCL.DataField>*@
+@model TrumpCL.CommonViewModel
+
+@{
+    ViewBag.Title = "Home Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var Approver = ViewBag.Req as IEnumerable<Trump.Models.Master_Requestor>
+    ;
+}
+<style type="text/css">
+    .txtbox {
+        height: 32px;
+        padding: 6px 2px;
+        font-size: 14px;
+        color: #555;
+        vertical-align: middle;
+        background-color: #fff;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
+        box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
+        -webkit-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+        transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    #mySidenav div {
+        position: fixed; /* Position them relative to the browser window */
+        right: -292px; /* Position them outside of the screen */
+        transition: 0.3s; /* Add transition on hover */
+        padding: 15px; /* 15px padding */
+        width: 330px; /* Set a specific width */
+        text-decoration: none; /* Remove underline */
+        font-size: 20px; /* Increase font size */
+        color: white; /* White text color */
+        border-radius: 5px; /* Rounded corners on the top right and bottom right side */
+        z-index: 1000;
+        background-color: #C73B38;
+    }
+
+    #about {
+        top: 50%;
+    }
+</style>
+<link href="~/Layout/Dashboard_files/AdminDashboard.min.css" rel="stylesheet" />
+<div class="main">
+    <div class="container pad-LR0">
+        <div class="row" id="dashboardStatisticsPermission">
+            <div class="col-md-1"></div>
+            <div class="col-md-11">
+                <div class="mainWrapper_info">
+                    @*<div class="InfoBox_Top InfoBox_col4">
+                        <a href="/Home/AppToday">
+                            <div class="info-box bg-Purple">
+                                <span class="info-box-icon">
+                                    <img src="~/Layout/Images/employee_icon.png" />
+                                </span>
+                                <div class="info-box-content">
+                                    <span class="info-box-text">Appointments Today</span>
+                                    <span class="info-box-number" id="StatisticsEmployee" style="float: left;">@ViewBag.Today</span>
+                                    <span class="info-box-text" id="StatisticsEmployeeUnique" style="float: left; text-transform: none;">
+                                    </span>
+                                </div>
+                            </div>
+                        </a>
+
+                    </div>*@
+                    <div id="dashboardStatisticsVisitorPermission" class="InfoBox_Top1 InfoBox_col41 col-md-2">
+                        <a href="/Home/AppointmentAll">
+                            @*/Home/AppUpcoming*@
+                            <div class="info-box bg-Pink">
+
+                                <span class="info-box-text" style="text-align:center;padding-top:4px;"> &nbsp;@*Appointments*@Total </span>
+
+                                <span class="info-box-text" style="text-align:center">&nbsp; Appointments</span>
+                                <span class="info-box-number" id="StatisticsVisitors" style="text-align:center">@ViewBag.TotalApp</span><span class="info-box-text" id="StatisticsVisitorsUnique" style="float: left; text-transform: none;"></span>
+
+
+
+
+
+                                <!-- /.info-box-content -->
+                            </div>
+                        </a>
+
+                        <!-- /.info-box -->
+                    </div>
+
+
+
+
+
+                    @if (Session["RoleType"] != null)
+                    {
+
+
+                        if (Session["RoleType"].ToString() == "S")
+                        {
+                            <div id="dashboardStatisticsVisitorPermission" class="InfoBox_Top1 InfoBox_col41 col-md-2">
+                                <a href="/Home/AppToday">
+                                    <div class="info-box bg-Pink">
+
+                                        <span class="info-box-text" style="text-align:center;padding-top:4px;"> &nbsp;@*Appointments*@Today’s </span>
+
+                                        <span class="info-box-text" style="text-align:center">&nbsp; @*Today*@Appointments</span>
+                                        <span class="info-box-number" id="StatisticsVisitors" style="text-align:center">@ViewBag.Today</span><span class="info-box-text" id="StatisticsVisitorsUnique" style="float: left; text-transform: none;"></span>
+
+
+                                        <!-- /.info-box-content -->
+                                    </div>
+                                </a>
+
+                                <!-- /.info-box -->
+                            </div>
+
+                        }
+
+                    }
+
+
+
+
+
+
+
+
+                    <!-- /.col -->
+                    <div id="dashboardStatisticsVisitorPermission" class="InfoBox_Top1 InfoBox_col41 col-md-2">
+                        <a href="/Home/AppUpcoming">
+                            <div class="info-box bg-Pink">
+
+                                <span class="info-box-text" style="text-align:center;padding-top:4px;"> &nbsp;@*Appointments*@Total </span>
+
+                                <span class="info-box-text" style="text-align:center">&nbsp; @*upcoming*@Upcoming Appointments</span>
+                                <span class="info-box-number" id="StatisticsVisitors" style="text-align:center">@ViewBag.Upcoming</span><span class="info-box-text" id="StatisticsVisitorsUnique" style="float: left; text-transform: none;"></span>
+
+
+
+
+
+                                <!-- /.info-box-content -->
+                            </div>
+                        </a>
+
+                        <!-- /.info-box -->
+                    </div>
+
+                    <div id="dashboardStatisticsVisitorPermission" class="InfoBox_Top1 InfoBox_col31 col-md-2">
+                        @*<a href="/Home/couriarList   CouriarListInwardAll ">*@
+                        <a href="/Home/CouriarListInwardAll">
+                            <div class="info-box bg-Pink">
+
+
+                                <span class="info-box-text" style="text-align:center;padding-top:4px;"> &nbsp;Total @*open*@ </span>
+
+                                <span class="info-box-text" style="text-align:center">&nbsp;Inward Packets </span>
+                                <span class="info-box-number" id="StatisticsVisitors" style="text-align:center">@*@ViewBag.OpenCourierCount*@@ViewBag.InwardCourierCount</span><span class="info-box-text" id="StatisticsVisitorsUnique" style="float: left; text-transform: none;"></span>
+
+
+
+
+
+                                <!-- /.info-box-content -->
+                            </div>
+                        </a>
+
+                        <!-- /.info-box -->
+                    </div>
+
+
+
+                    <div id="dashboardStatisticsVisitorPermission" class="InfoBox_Top1 InfoBox_col31 col-md-2">
+                        @*<a href="/Home/CouriarListAllEmployee  ">*@
+                        <a href="/Home/DispatchListAllSecurity">
+                            <div class="info-box bg-Pink">
+
+                                <span class="info-box-text" style="text-align:center;padding-top:4px;"> &nbsp;@*Intransit*@ Total </span>
+
+                                <span class="info-box-text" style="text-align:center">&nbsp; Outward Packets</span>
+                                <span class="info-box-number" id="StatisticsVisitors" style="text-align:center">@*@ViewBag.IntrasitCourierCount*@@ViewBag.OutwardCourierCount</span><span class="info-box-text" id="StatisticsVisitorsUnique" style="float: left; text-transform: none;"></span>
+
+
+                                <!-- /.info-box-content -->
+                            </div>
+                        </a>
+
+                        <!-- /.info-box -->
+                    </div>
+
+
+
+                    <!--<div id="dashboardStatisticsVisitorPermission" class="InfoBox_Top1 InfoBox_col31 col-md-2">
+                <a href="/Home/couriarList">
+                    <div class="info-box bg-Pink">
+
+                        <span class="info-box-text" style="text-align:center;padding-top:4px;"> &nbsp;Open </span>
+
+                        <span class="info-box-text" style="text-align:center">&nbsp; Courier</span>
+                        <span class="info-box-number" id="StatisticsVisitors" style="text-align:center">@ViewBag.OpenCourierCount</span><span class="info-box-text" id="StatisticsVisitorsUnique" style="float: left; text-transform: none;"></span>-->
+                    <!-- /.info-box-content -->
+                    <!--</div>
+                </a>-->
+                    <!-- /.info-box -->
+                    <!--</div>
+
+
+
+                <div id="dashboardStatisticsVisitorPermission" class="InfoBox_Top1 InfoBox_col31 col-md-2">
+                    <a href="/Home/CouriarListAllEmployee">
+                        <div class="info-box bg-Pink">
+
+                            <span class="info-box-text" style="text-align:center;padding-top:4px;"> &nbsp;Intransit </span>
+
+                            <span class="info-box-text" style="text-align:center">&nbsp; Courier</span>
+                            <span class="info-box-number" id="StatisticsVisitors" style="text-align:center">@ViewBag.IntrasitCourierCount</span><span class="info-box-text" id="StatisticsVisitorsUnique" style="float: left; text-transform: none;"></span>-->
+                    <!-- /.info-box-content -->
+                    <!--</div>
+                </a>-->
+                    <!-- /.info-box -->
+                    <!--</div>-->
+
+
+
+
+
+                </div>
+            </div>
+            <div class="col-md-0" style="display:none;">
+                <!--<div class="mainWrapper_info">
+            <div id="dashboardStatisticsVisitorPermission" class="InfoBox_Top InfoBox_col4">
+                <a href="/Home/CouriarListAllEmployee">
+                    <div class="info-box bg-Pink">
+
+                        <span class="info-box-text" style="text-align:center;padding-top:4px;"> &nbsp;Intransit </span>
+
+                        <span class="info-box-text" style="text-align:center">&nbsp; Courier</span>
+                        <span class="info-box-number" id="StatisticsVisitors" style="text-align:center">@ViewBag.IntrasitCourierCount</span><span class="info-box-text" id="StatisticsVisitorsUnique" style="float: left; text-transform: none;"></span>-->
+                <!-- /.info-box-content -->
+                <!--</div>
+            </a>-->
+                <!-- /.info-box -->
+                <!--</div>
+
+            </div>-->
+
+
+
+                <div class="mainWrapper_info">
+
+
+                    <div id="dashboardStatisticsVisitorPermission" class="InfoBox_Top InfoBox_col4">
+                        <a href="../Material/GatePassOUT">
+                            <div class="info-box bg-Pink">
+
+                                <span class="info-box-text" style="text-align:center;padding-top:4px;"> &nbsp;gate pass  </span>
+
+                                <span class="info-box-text" style="text-align:center">&nbsp; for OUT</span>
+                                <span class="info-box-number" id="StatisticsVisitors" style="text-align:center">@ViewBag.GPout</span><span class="info-box-text" id="StatisticsVisitorsUnique" style="float: left; text-transform: none;"></span>
+
+                                <!-- /.info-box-content -->
+                            </div>
+                        </a>
+
+                        <!-- /.info-box -->
+                    </div>
+
+
+                    <div id="dashboardStatisticsVisitorPermission" class="InfoBox_Top InfoBox_col4">
+                        <a href="../Material/GatePassIN">
+                            <div class="info-box bg-Pink">
+
+                                <span class="info-box-text" style="text-align:center;padding-top:4px;"> &nbsp;gate pass  </span>
+
+                                <span class="info-box-text" style="text-align:center">&nbsp; for IN</span>
+                                <span class="info-box-number" id="StatisticsVisitors" style="text-align:center">@ViewBag.GPIN</span><span class="info-box-text" id="StatisticsVisitorsUnique" style="float: left; text-transform: none;"></span>
+
+
+
+
+
+                                <!-- /.info-box-content -->
+                            </div>
+                        </a>
+
+                        <!-- /.info-box -->
+                    </div>
+
+
+
+                </div>
+
+
+                <!--<div class="mainWrapper_info">
+            <a href="../Material/GatePassOUT">
+                <div id="dashboardStatisticsCanteenPermission" class="InfoBox_Top InfoBox_col6">
+                    <div class="info-box bg-Purple">
+                        <span class="info-box-icon">
+                            <i class="fa fa-truck" aria-hidden="true"></i>
+                        </span>
+                        <div class="info-box-content">
+                            <span class="info-box-text">gate pass for OUT</span>
+                            <span class="info-box-number">
+                                @ViewBag.GPout
+                            </span>
+                        </div>-->
+                <!-- /.info-box-content -->
+                <!--</div>-->
+                <!-- /.info-box -->
+                <!--</div>
+            </a>
+            <a href="../Material/GatePassIN">
+                <div class="InfoBox_Top InfoBox_col6">
+                    <div class="info-box bg-Purple">
+                        <span class="info-box-icon">
+                            <i class="fa fa-truck fa-flip-horizontal" aria-hidden="true"></i>
+                        </span>
+                        <div class="info-box-content">
+                            <span class="info-box-text">gate pass for IN</span>
+                            <span class="info-box-number" id="StatisticsLeft">@ViewBag.GPIN</span>
+                        </div>-->
+                <!-- /.info-box-content -->
+                <!--</div>-->
+                <!-- /.info-box -->
+                <!--</div>
+                </a>
+            </div>-->
+            </div>
+        </div>
+        <div class="row" id="dashboardMyDashboardPermission">
+            <div class="col-md-12">
+                <div class="box WrapperBox">
+                    <div class="box-header">
+                        <h3 class="box-title">
+                            My Dashboard
+                        </h3>
+                    </div>
+                    <!-- /.box-header -->
+                    <div class="box-body pad-0">
+                        <div id="myCarousel" class="carousel slide Dashboard_Slides" data-type="multi" data-ride="carousel" data-interval="false">
+                            <div class="carousel-inner">
+                                <div class="item active myDashboardFirstSlide">
+                                    <div class="col-md-12">
+                                        <div id="dashboardMyVisitorPermission" class="clsdashboardMyVisitorPermission col-md-4 col-sm-6 col-xs-12 itemBox">
+                                            <div class="box">
+                                                <div class="box-header with-border">
+                                                    <h3 class="box-title">
+                                                        Recent Visitor
+                                                    </h3>
+                                                    <div class="box-tools pull-right">
+
+                                                    </div>
+                                                </div>
+                                                <!-- /.box-header -->
+                                                <div class="box-body">
+
+
+
+                                                    <ul class="products-list product-list-in-box divWidgetMyVisitors_cls" id="divWidgetMyVisitors">
+                                                        <table width="100%">
+                                                            <tbody>
+                                                                <tr style="font-weight:300">
+                                                                    <td style="width:15%">
+                                                                        <div class="product-img Box1ProdImg">
+                                                                            <a class="pull-left datemonth Box1Visitor">
+                                                                                <b>
+                                                                                    <p class="month">Month</p>
+                                                                                    <p class="day">Day</p>
+                                                                                </b>
+                                                                            </a>
+                                                                        </div>
+                                                                    </td>
+                                                                    <td style="width:15%">
+                                                                        <div class="product-info Box1Prod_Info">
+                                                                            <label class="product-title">
+                                                                                <i class="fa fa-fw fa-user"></i>
+                                                                                <span><b>Visitor Name</b></span>
+                                                                            </label>
+                                                                            @*<span class="product-description">
+                                                                                <i class="fa fa-fw fa-phone"></i> <span class="greenTxt" style="font-weight:bold">Phone</span>
+                                                                            </span>*@
+                                                                        </div>
+                                                                    </td>
+                                                                    <td style="width:15%">
+                                                                        <div class="product-info Box1Prod_Info">
+
+                                                                            <span class="product-description">
+                                                                                <b> <i class="fa fa-fw fa-phone"></i> <span class="greenTxt1" style="font-weight:bold">Phone</span></b>
+                                                                            </span>
+                                                                        </div>
+                                                                    </td>
+
+
+
+                                                                    <td style="width:15%">
+                                                                        <div class="product-info Box1Prod_Info">
+                                                                            <label class="product-title">
+                                                                                <i class="fa fa-fw fa-home"></i>
+                                                                                <b> <span>Company </span></b>
+                                                                            </label>
+                                                                        </div>
+                                                                    </td>
+                                                                    <td style="width:15%">
+                                                                        <div class="product-info Box1Prod_Info">
+
+
+                                                                            <span class="pull-right">
+                                                                                <span data-original-title="ESSEL WORLD " class="truncatetext" data-toggle="tooltip" title="">
+                                                                                    <b>  <i class="fa fa-fw fa-building"></i>Type</b>
+                                                                                </span>
+                                                                            </span>
+                                                                        </div>
+                                                                    </td>
+                                                                    <td style="width:15%">
+                                                                        <div class="product-info Box1Prod_Info">
+
+                                                                            @*<span style="margin-right:1%">*@
+                                                                            <b> <i class="fa fa-fw fa-building"></i>Approver</b>
+                                                                            @*</span>*@
+
+                                                                            @*<span class="pull-right label label-primary" style="font-size:smaller">Status</span>*@
+
+
+                                                                        </div>
+                                                                    </td>
+                                                                    <td style="width:10%">
+                                                                        <div class="product-info Box1Prod_Info">
+
+                                                                            @*<span style="margin-right:1%">*@
+                                                                            <b>  <i class="fa fa-fw fa-building"></i>Status</b>
+                                                                            @*</span>*@
+
+
+
+
+                                                                        </div>
+                                                                    </td>
+
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+
+
+
+                                                        @foreach (var item in Model.Appointment)
+                                                        {
+                                                            <table width="100%" border="0">
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td style="width:15%">
+                                                                            <div class="product-img Box1ProdImg">
+                                                                                <a class="pull-left datemonth Box1Visitor">
+                                                                                    <p class="month">@item.VisDate.ToString("MMM")</p>
+                                                                                    <p class="day">@item.VisDate.Date.Day</p>
+                                                                                </a>
+                                                                            </div>
+                                                                        </td>
+                                                                        <td style="width:15%">
+                                                                            <div class="product-info Box1Prod_Info">
+                                                                                <label class="product-title">
+                                                                                    <i class="fa fa-fw fa-user"></i>
+                                                                                    <span>@item.visName</span>
+                                                                                </label>
+                                                                                @*<span class="product-description">
+                                                                                    <i class="fa fa-fw fa-phone"></i> <span class="greenTxt" style="font-weight:bold">@item.Phone</span>
+                                                                                </span>*@
+                                                                            </div>
+                                                                        </td>
+                                                                        <td style="width:15%; text-align:left;">
+                                                                            <div class="product-info Box1Prod_Info">
+
+                                                                                <span class="product-description">
+                                                                                    <i class="fa fa-fw fa-phone"></i> <span class="greenTxt" style="font-weight:bold">@item.Phone</span>
+                                                                                </span>
+                                                                            </div>
+                                                                        </td>
+
+
+                                                                        <td style="width: 15%;text-align:left;">
+                                                                            <div class="product-info Box1Prod_Info">
+                                                                                <label class="product-title">
+                                                                                    <i class="fa fa-fw fa-home"></i>
+                                                                                    <span>@item.comName</span>
+                                                                                </label>
+                                                                            </div>
+                                                                        </td>
+                                                                        <td style="width:15%">
+                                                                            <div class="product-info Box1Prod_Info">
+
+
+                                                                                <span class="pull-right">
+                                                                                    <span data-original-title="ESSEL WORLD " class="truncatetext" data-toggle="tooltip" title="">
+                                                                                        <i class="fa fa-fw fa-building"></i>@item.Type
+                                                                                    </span>
+                                                                                </span>
+                                                                            </div>
+                                                                        </td>
+                                                                        <td style="width:15%">
+                                                                            <div class="product-info Box1Prod_Info">
+
+
+                                                                                <i class="fa fa-fw fa-building"></i>
+                                                                                @item.ReqName  @*Requestorname*@
+                                                                                
+                                                                                @*@if (@Approver.Where(m => m.EMPLOYEE_ID == item.Req).ToList().Count == 1)
+                                                                                {
+                                                                                    @Approver.Where(m => m.EMPLOYEE_ID == item.Req).FirstOrDefault().NAME
+                                                                                }*@
+
+                                                                                @*@Approver.Where(m => m.EMPLOYEE_ID == item.Req).FirstOrDefault().NAME*@
+                                                                                @*</span>*@
+                                                                                @*@if (@item.Status == "Pre")
+        {
+            <span class="pull-right label label-primary" style="font-size:smaller">Appointment</span>
+        }
+        else if (@item.Status == "Arrived" || @item.Status == "Request")
+        {
+            <span class="pull-right label label-danger" style="font-size:smaller">IN</span>
+        }
+        else
+        {
+            <span class="pull-right label label-success" style="font-size:smaller">OUT</span>
+        }*@
+                                                                            </div>
+                                                                        </td>
+
+                                                                        <td style="width:10%">
+                                                                            <div class="product-info Box1Prod_Info">
+
+
+                                                                                @if (@item.Status == "Pre")
+                                                                                {
+                                                                                    <span class="pull-right label label-primary" style="font-size:smaller">Appointment</span>
+                                                                                }
+                                                                                else if (@item.Status == "Arrived" || @item.Status == "Request")
+                                                                                {
+                                                                                    @*<span class="pull-right label label-danger" style="font-size:smaller">IN</span>*@
+                                                                                    <span class="pull-right label label-danger" style="font-size:smaller">Check-in</span>
+                                                                                }
+                                                                                else
+                                                                                {
+                                                                                    @*<span class="pull-right label label-success" style="font-size:smaller">OUT</span>*@
+                                                                                    <span class="pull-right label label-success" style="font-size:smaller">Check-out</span>
+                                                                                }
+                                                                            </div>
+                                                                        </td>
+
+
+
+
+
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        }
+                                                    </ul>
+                                                </div>
+                                                <!-- /.box-body -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6" style="display:none;">
+                                      
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.box -->
+                </div>
+            </div>
+        </div>
+        @if (Session["RoleType"] != null)
+        {
+
+
+            if (Session["RoleType"].ToString() == "S")
+            {
+                <div id="mySidenav" class="sidenav" style="display: block;">
+                    <div id="about" style="border-top-right-radius: 0px; border-bottom-right-radius: 0px; right: -292px;">
+                        <a href="#" id="aboutbtn">
+                            <i class="fa fa-cog fa-qrcode" style="font-size: large;
+            color: White; border-top-right-radius: 0; border-top-left-radius: 0;">&nbsp;</i>
+                        </a>
+                        <input id="txtEntryCode" autofocus value="" class="txtbox" style=" width: 225px;
+        color: Black;
+        background-color: White;
+        display: inline-block;
+        font-family: Verdana;" focus="" placeholder="Scan here" title="Scan here" type="text">
+                        <input type="submit" class="btn btn-success btn-sm" id="btnScanGO" style="display: inline-block;font-family: Verdana;" focus="" value="GO" />
+                    </div>
+                </div>
+            }
+        }
+            </div>
+</div>

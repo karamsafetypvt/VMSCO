@@ -1,0 +1,913 @@
+D:\Working Project\Trump\bin\Trump.dll.config
+D:\Working Project\Trump\bin\Trump.dll
+D:\Working Project\Trump\bin\Trump.pdb
+D:\Working Project\Trump\bin\roslyn\csc.exe
+D:\Working Project\Trump\bin\roslyn\csc.exe.config
+D:\Working Project\Trump\bin\roslyn\csc.rsp
+D:\Working Project\Trump\bin\roslyn\csi.exe
+D:\Working Project\Trump\bin\roslyn\csi.rsp
+D:\Working Project\Trump\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\Working Project\Trump\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\Working Project\Trump\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+D:\Working Project\Trump\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\Working Project\Trump\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+D:\Working Project\Trump\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\Working Project\Trump\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\Working Project\Trump\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+D:\Working Project\Trump\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+D:\Working Project\Trump\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\Working Project\Trump\bin\roslyn\System.AppContext.dll
+D:\Working Project\Trump\bin\roslyn\System.Collections.Immutable.dll
+D:\Working Project\Trump\bin\roslyn\System.Diagnostics.StackTrace.dll
+D:\Working Project\Trump\bin\roslyn\System.IO.FileSystem.dll
+D:\Working Project\Trump\bin\roslyn\System.IO.FileSystem.Primitives.dll
+D:\Working Project\Trump\bin\roslyn\System.Reflection.Metadata.dll
+D:\Working Project\Trump\bin\roslyn\vbc.exe
+D:\Working Project\Trump\bin\roslyn\vbc.exe.config
+D:\Working Project\Trump\bin\roslyn\vbc.rsp
+D:\Working Project\Trump\bin\roslyn\VBCSCompiler.exe
+D:\Working Project\Trump\bin\roslyn\VBCSCompiler.exe.config
+D:\Working Project\Trump\bin\Antlr3.Runtime.dll
+D:\Working Project\Trump\bin\EntityFramework.dll
+D:\Working Project\Trump\bin\EntityFramework.SqlServer.dll
+D:\Working Project\Trump\bin\GridMvc.dll
+D:\Working Project\Trump\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\Working Project\Trump\bin\Microsoft.Web.Infrastructure.dll
+D:\Working Project\Trump\bin\Newtonsoft.Json.dll
+D:\Working Project\Trump\bin\Rotativa.dll
+D:\Working Project\Trump\bin\System.Net.Http.Formatting.dll
+D:\Working Project\Trump\bin\System.Web.Helpers.dll
+D:\Working Project\Trump\bin\System.Web.Http.dll
+D:\Working Project\Trump\bin\System.Web.Http.WebHost.dll
+D:\Working Project\Trump\bin\System.Web.Mvc.dll
+D:\Working Project\Trump\bin\System.Web.Optimization.dll
+D:\Working Project\Trump\bin\System.Web.Razor.dll
+D:\Working Project\Trump\bin\System.Web.WebPages.Deployment.dll
+D:\Working Project\Trump\bin\System.Web.WebPages.dll
+D:\Working Project\Trump\bin\System.Web.WebPages.Razor.dll
+D:\Working Project\Trump\bin\TrumpCL.dll
+D:\Working Project\Trump\bin\WebGrease.dll
+D:\Working Project\Trump\bin\zxing.dll
+D:\Working Project\Trump\bin\zxing.presentation.dll
+D:\Working Project\Trump\bin\TrumpCL.pdb
+D:\Working Project\Trump\bin\EntityFramework.xml
+D:\Working Project\Trump\bin\EntityFramework.SqlServer.xml
+D:\Working Project\Trump\bin\Newtonsoft.Json.xml
+D:\Working Project\Trump\bin\System.Net.Http.Formatting.xml
+D:\Working Project\Trump\bin\System.Web.Helpers.xml
+D:\Working Project\Trump\bin\System.Web.Http.xml
+D:\Working Project\Trump\bin\System.Web.Http.WebHost.xml
+D:\Working Project\Trump\bin\System.Web.Mvc.xml
+D:\Working Project\Trump\bin\System.Web.Optimization.xml
+D:\Working Project\Trump\bin\System.Web.Razor.xml
+D:\Working Project\Trump\bin\System.Web.WebPages.xml
+D:\Working Project\Trump\bin\System.Web.WebPages.Deployment.xml
+D:\Working Project\Trump\bin\System.Web.WebPages.Razor.xml
+D:\Working Project\Trump\bin\Antlr3.Runtime.pdb
+D:\Working Project\Trump\bin\zxing.pdb
+D:\Working Project\Trump\bin\zxing.xml
+D:\Working Project\Trump\bin\zxing.presentation.pdb
+D:\Working Project\Trump\bin\zxing.presentation.xml
+D:\Working Project\Trump\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\Working Project\Trump\obj\Release\Trump.csprojAssemblyReference.cache
+D:\Working Project\Trump\obj\Release\Trump.csproj.CoreCompileInputs.cache
+D:\Working Project\Trump\obj\Release\Trump.csproj.CopyComplete
+D:\Working Project\Trump\obj\Release\Trump.dll
+D:\Working Project\Trump\obj\Release\Trump.pdb
+D:\Working Project\Trump\bin\ClosedXML.dll
+D:\Working Project\Trump\bin\DocumentFormat.OpenXml.dll
+D:\Working Project\Trump\bin\EPPlus.dll
+D:\Working Project\Trump\bin\ExcelNumberFormat.dll
+D:\Working Project\Trump\bin\System.IO.Packaging.dll
+D:\Working Project\Trump\bin\ClosedXML.pdb
+D:\Working Project\Trump\bin\ClosedXML.xml
+D:\Working Project\Trump\bin\DocumentFormat.OpenXml.xml
+D:\Working Project\Trump\bin\EPPlus.xml
+D:\Working Project\Trump\bin\ExcelNumberFormat.xml
+D:\Working Project\Trump\bin\BouncyCastle.Crypto.dll
+D:\Working Project\Trump\bin\RestSharp.dll
+D:\Working Project\Trump\bin\RestSharp.xml
+D:\Working Project\Trump\bin\itextsharp.dll
+D:\Working Project\Trump\bin\itextsharp.xml
+D:\Working\Trump\bin\Trump.dll.config
+D:\Working\Trump\bin\Trump.dll
+D:\Working\Trump\bin\Trump.pdb
+D:\Working\Trump\bin\roslyn\csc.exe
+D:\Working\Trump\bin\roslyn\csc.exe.config
+D:\Working\Trump\bin\roslyn\csc.rsp
+D:\Working\Trump\bin\roslyn\csi.exe
+D:\Working\Trump\bin\roslyn\csi.rsp
+D:\Working\Trump\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\Working\Trump\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\Working\Trump\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+D:\Working\Trump\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\Working\Trump\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+D:\Working\Trump\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\Working\Trump\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\Working\Trump\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+D:\Working\Trump\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+D:\Working\Trump\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\Working\Trump\bin\roslyn\System.AppContext.dll
+D:\Working\Trump\bin\roslyn\System.Collections.Immutable.dll
+D:\Working\Trump\bin\roslyn\System.Diagnostics.StackTrace.dll
+D:\Working\Trump\bin\roslyn\System.IO.FileSystem.dll
+D:\Working\Trump\bin\roslyn\System.IO.FileSystem.Primitives.dll
+D:\Working\Trump\bin\roslyn\System.Reflection.Metadata.dll
+D:\Working\Trump\bin\roslyn\vbc.exe
+D:\Working\Trump\bin\roslyn\vbc.exe.config
+D:\Working\Trump\bin\roslyn\vbc.rsp
+D:\Working\Trump\bin\roslyn\VBCSCompiler.exe
+D:\Working\Trump\bin\roslyn\VBCSCompiler.exe.config
+D:\Working\Trump\bin\Antlr3.Runtime.dll
+D:\Working\Trump\bin\BouncyCastle.Crypto.dll
+D:\Working\Trump\bin\ClosedXML.dll
+D:\Working\Trump\bin\DocumentFormat.OpenXml.dll
+D:\Working\Trump\bin\EntityFramework.dll
+D:\Working\Trump\bin\EntityFramework.SqlServer.dll
+D:\Working\Trump\bin\EPPlus.dll
+D:\Working\Trump\bin\ExcelNumberFormat.dll
+D:\Working\Trump\bin\GridMvc.dll
+D:\Working\Trump\bin\itextsharp.dll
+D:\Working\Trump\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\Working\Trump\bin\Microsoft.Web.Infrastructure.dll
+D:\Working\Trump\bin\Newtonsoft.Json.dll
+D:\Working\Trump\bin\RestSharp.dll
+D:\Working\Trump\bin\Rotativa.dll
+D:\Working\Trump\bin\System.IO.Packaging.dll
+D:\Working\Trump\bin\System.Net.Http.Formatting.dll
+D:\Working\Trump\bin\System.Web.Helpers.dll
+D:\Working\Trump\bin\System.Web.Http.dll
+D:\Working\Trump\bin\System.Web.Http.WebHost.dll
+D:\Working\Trump\bin\System.Web.Mvc.dll
+D:\Working\Trump\bin\System.Web.Optimization.dll
+D:\Working\Trump\bin\System.Web.Razor.dll
+D:\Working\Trump\bin\System.Web.WebPages.Deployment.dll
+D:\Working\Trump\bin\System.Web.WebPages.dll
+D:\Working\Trump\bin\System.Web.WebPages.Razor.dll
+D:\Working\Trump\bin\TrumpCL.dll
+D:\Working\Trump\bin\WebGrease.dll
+D:\Working\Trump\bin\zxing.dll
+D:\Working\Trump\bin\zxing.presentation.dll
+D:\Working\Trump\bin\TrumpCL.pdb
+D:\Working\Trump\bin\ClosedXML.pdb
+D:\Working\Trump\bin\ClosedXML.xml
+D:\Working\Trump\bin\DocumentFormat.OpenXml.xml
+D:\Working\Trump\bin\EntityFramework.xml
+D:\Working\Trump\bin\EntityFramework.SqlServer.xml
+D:\Working\Trump\bin\EPPlus.xml
+D:\Working\Trump\bin\ExcelNumberFormat.xml
+D:\Working\Trump\bin\itextsharp.xml
+D:\Working\Trump\bin\RestSharp.xml
+D:\Working\Trump\bin\Newtonsoft.Json.xml
+D:\Working\Trump\bin\System.Net.Http.Formatting.xml
+D:\Working\Trump\bin\System.Web.Helpers.xml
+D:\Working\Trump\bin\System.Web.Http.xml
+D:\Working\Trump\bin\System.Web.Http.WebHost.xml
+D:\Working\Trump\bin\System.Web.Mvc.xml
+D:\Working\Trump\bin\System.Web.Optimization.xml
+D:\Working\Trump\bin\System.Web.Razor.xml
+D:\Working\Trump\bin\System.Web.WebPages.xml
+D:\Working\Trump\bin\System.Web.WebPages.Deployment.xml
+D:\Working\Trump\bin\System.Web.WebPages.Razor.xml
+D:\Working\Trump\bin\Antlr3.Runtime.pdb
+D:\Working\Trump\bin\zxing.pdb
+D:\Working\Trump\bin\zxing.xml
+D:\Working\Trump\bin\zxing.presentation.pdb
+D:\Working\Trump\bin\zxing.presentation.xml
+D:\Working\Trump\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\Working\Trump\obj\Release\Trump.csproj.CoreCompileInputs.cache
+D:\Working\Trump\obj\Release\Trump.csproj.CopyComplete
+D:\Working\Trump\obj\Release\Trump.dll
+D:\Working\Trump\obj\Release\Trump.pdb
+D:\Working\Trump\obj\Release\Trump.csproj.AssemblyReference.cache
+D:\Project\JITETrump\Trump\bin\Trump.dll.config
+D:\Project\JITETrump\Trump\bin\Trump.dll
+D:\Project\JITETrump\Trump\bin\Trump.pdb
+D:\Project\JITETrump\Trump\bin\roslyn\csc.exe
+D:\Project\JITETrump\Trump\bin\roslyn\csc.exe.config
+D:\Project\JITETrump\Trump\bin\roslyn\csc.rsp
+D:\Project\JITETrump\Trump\bin\roslyn\csi.exe
+D:\Project\JITETrump\Trump\bin\roslyn\csi.rsp
+D:\Project\JITETrump\Trump\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\Project\JITETrump\Trump\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\Project\JITETrump\Trump\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+D:\Project\JITETrump\Trump\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\Project\JITETrump\Trump\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+D:\Project\JITETrump\Trump\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\Project\JITETrump\Trump\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\Project\JITETrump\Trump\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+D:\Project\JITETrump\Trump\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+D:\Project\JITETrump\Trump\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\Project\JITETrump\Trump\bin\roslyn\System.AppContext.dll
+D:\Project\JITETrump\Trump\bin\roslyn\System.Collections.Immutable.dll
+D:\Project\JITETrump\Trump\bin\roslyn\System.Diagnostics.StackTrace.dll
+D:\Project\JITETrump\Trump\bin\roslyn\System.IO.FileSystem.dll
+D:\Project\JITETrump\Trump\bin\roslyn\System.IO.FileSystem.Primitives.dll
+D:\Project\JITETrump\Trump\bin\roslyn\System.Reflection.Metadata.dll
+D:\Project\JITETrump\Trump\bin\roslyn\vbc.exe
+D:\Project\JITETrump\Trump\bin\roslyn\vbc.exe.config
+D:\Project\JITETrump\Trump\bin\roslyn\vbc.rsp
+D:\Project\JITETrump\Trump\bin\roslyn\VBCSCompiler.exe
+D:\Project\JITETrump\Trump\bin\roslyn\VBCSCompiler.exe.config
+D:\Project\JITETrump\Trump\bin\Antlr3.Runtime.dll
+D:\Project\JITETrump\Trump\bin\BouncyCastle.Crypto.dll
+D:\Project\JITETrump\Trump\bin\ClosedXML.dll
+D:\Project\JITETrump\Trump\bin\DocumentFormat.OpenXml.dll
+D:\Project\JITETrump\Trump\bin\EntityFramework.dll
+D:\Project\JITETrump\Trump\bin\EntityFramework.SqlServer.dll
+D:\Project\JITETrump\Trump\bin\EPPlus.dll
+D:\Project\JITETrump\Trump\bin\ExcelNumberFormat.dll
+D:\Project\JITETrump\Trump\bin\GridMvc.dll
+D:\Project\JITETrump\Trump\bin\itextsharp.dll
+D:\Project\JITETrump\Trump\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\Project\JITETrump\Trump\bin\Microsoft.Web.Infrastructure.dll
+D:\Project\JITETrump\Trump\bin\Newtonsoft.Json.dll
+D:\Project\JITETrump\Trump\bin\RestSharp.dll
+D:\Project\JITETrump\Trump\bin\Rotativa.dll
+D:\Project\JITETrump\Trump\bin\System.IO.Packaging.dll
+D:\Project\JITETrump\Trump\bin\System.Net.Http.Formatting.dll
+D:\Project\JITETrump\Trump\bin\System.Web.Helpers.dll
+D:\Project\JITETrump\Trump\bin\System.Web.Http.dll
+D:\Project\JITETrump\Trump\bin\System.Web.Http.WebHost.dll
+D:\Project\JITETrump\Trump\bin\System.Web.Mvc.dll
+D:\Project\JITETrump\Trump\bin\System.Web.Optimization.dll
+D:\Project\JITETrump\Trump\bin\System.Web.Razor.dll
+D:\Project\JITETrump\Trump\bin\System.Web.WebPages.Deployment.dll
+D:\Project\JITETrump\Trump\bin\System.Web.WebPages.dll
+D:\Project\JITETrump\Trump\bin\System.Web.WebPages.Razor.dll
+D:\Project\JITETrump\Trump\bin\TrumpCL.dll
+D:\Project\JITETrump\Trump\bin\WebGrease.dll
+D:\Project\JITETrump\Trump\bin\zxing.dll
+D:\Project\JITETrump\Trump\bin\zxing.presentation.dll
+D:\Project\JITETrump\Trump\bin\TrumpCL.pdb
+D:\Project\JITETrump\Trump\bin\ClosedXML.pdb
+D:\Project\JITETrump\Trump\bin\ClosedXML.xml
+D:\Project\JITETrump\Trump\bin\DocumentFormat.OpenXml.xml
+D:\Project\JITETrump\Trump\bin\EntityFramework.xml
+D:\Project\JITETrump\Trump\bin\EntityFramework.SqlServer.xml
+D:\Project\JITETrump\Trump\bin\EPPlus.xml
+D:\Project\JITETrump\Trump\bin\ExcelNumberFormat.xml
+D:\Project\JITETrump\Trump\bin\itextsharp.xml
+D:\Project\JITETrump\Trump\bin\RestSharp.xml
+D:\Project\JITETrump\Trump\bin\Newtonsoft.Json.xml
+D:\Project\JITETrump\Trump\bin\System.Net.Http.Formatting.xml
+D:\Project\JITETrump\Trump\bin\System.Web.Helpers.xml
+D:\Project\JITETrump\Trump\bin\System.Web.Http.xml
+D:\Project\JITETrump\Trump\bin\System.Web.Http.WebHost.xml
+D:\Project\JITETrump\Trump\bin\System.Web.Mvc.xml
+D:\Project\JITETrump\Trump\bin\System.Web.Optimization.xml
+D:\Project\JITETrump\Trump\bin\System.Web.Razor.xml
+D:\Project\JITETrump\Trump\bin\System.Web.WebPages.xml
+D:\Project\JITETrump\Trump\bin\System.Web.WebPages.Deployment.xml
+D:\Project\JITETrump\Trump\bin\System.Web.WebPages.Razor.xml
+D:\Project\JITETrump\Trump\bin\Antlr3.Runtime.pdb
+D:\Project\JITETrump\Trump\bin\zxing.pdb
+D:\Project\JITETrump\Trump\bin\zxing.xml
+D:\Project\JITETrump\Trump\bin\zxing.presentation.pdb
+D:\Project\JITETrump\Trump\bin\zxing.presentation.xml
+D:\Project\JITETrump\Trump\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\Project\JITETrump\Trump\obj\Release\Trump.csproj.AssemblyReference.cache
+D:\Project\JITETrump\Trump\obj\Release\Trump.csproj.CoreCompileInputs.cache
+D:\Project\JITETrump\Trump\obj\Release\Trump.csproj.CopyComplete
+D:\Project\JITETrump\Trump\obj\Release\Trump.dll
+D:\Project\JITETrump\Trump\obj\Release\Trump.pdb
+D:\Office\ENX CO\Trump\bin\Trump.dll.config
+D:\Office\ENX CO\Trump\bin\Trump.dll
+D:\Office\ENX CO\Trump\bin\Trump.pdb
+D:\Office\ENX CO\Trump\bin\roslyn\csc.exe
+D:\Office\ENX CO\Trump\bin\roslyn\csc.exe.config
+D:\Office\ENX CO\Trump\bin\roslyn\csc.rsp
+D:\Office\ENX CO\Trump\bin\roslyn\csi.exe
+D:\Office\ENX CO\Trump\bin\roslyn\csi.rsp
+D:\Office\ENX CO\Trump\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\Office\ENX CO\Trump\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\Office\ENX CO\Trump\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+D:\Office\ENX CO\Trump\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\Office\ENX CO\Trump\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+D:\Office\ENX CO\Trump\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\Office\ENX CO\Trump\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\Office\ENX CO\Trump\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+D:\Office\ENX CO\Trump\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+D:\Office\ENX CO\Trump\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\Office\ENX CO\Trump\bin\roslyn\System.AppContext.dll
+D:\Office\ENX CO\Trump\bin\roslyn\System.Collections.Immutable.dll
+D:\Office\ENX CO\Trump\bin\roslyn\System.Diagnostics.StackTrace.dll
+D:\Office\ENX CO\Trump\bin\roslyn\System.IO.FileSystem.dll
+D:\Office\ENX CO\Trump\bin\roslyn\System.IO.FileSystem.Primitives.dll
+D:\Office\ENX CO\Trump\bin\roslyn\System.Reflection.Metadata.dll
+D:\Office\ENX CO\Trump\bin\roslyn\vbc.exe
+D:\Office\ENX CO\Trump\bin\roslyn\vbc.exe.config
+D:\Office\ENX CO\Trump\bin\roslyn\vbc.rsp
+D:\Office\ENX CO\Trump\bin\roslyn\VBCSCompiler.exe
+D:\Office\ENX CO\Trump\bin\roslyn\VBCSCompiler.exe.config
+D:\Office\ENX CO\Trump\bin\Antlr3.Runtime.dll
+D:\Office\ENX CO\Trump\bin\BouncyCastle.Crypto.dll
+D:\Office\ENX CO\Trump\bin\ClosedXML.dll
+D:\Office\ENX CO\Trump\bin\DocumentFormat.OpenXml.dll
+D:\Office\ENX CO\Trump\bin\EntityFramework.dll
+D:\Office\ENX CO\Trump\bin\EntityFramework.SqlServer.dll
+D:\Office\ENX CO\Trump\bin\EPPlus.dll
+D:\Office\ENX CO\Trump\bin\ExcelNumberFormat.dll
+D:\Office\ENX CO\Trump\bin\GridMvc.dll
+D:\Office\ENX CO\Trump\bin\itextsharp.dll
+D:\Office\ENX CO\Trump\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\Office\ENX CO\Trump\bin\Microsoft.Web.Infrastructure.dll
+D:\Office\ENX CO\Trump\bin\Newtonsoft.Json.dll
+D:\Office\ENX CO\Trump\bin\RestSharp.dll
+D:\Office\ENX CO\Trump\bin\Rotativa.dll
+D:\Office\ENX CO\Trump\bin\System.IO.Packaging.dll
+D:\Office\ENX CO\Trump\bin\System.Net.Http.Formatting.dll
+D:\Office\ENX CO\Trump\bin\System.Web.Helpers.dll
+D:\Office\ENX CO\Trump\bin\System.Web.Http.dll
+D:\Office\ENX CO\Trump\bin\System.Web.Http.WebHost.dll
+D:\Office\ENX CO\Trump\bin\System.Web.Mvc.dll
+D:\Office\ENX CO\Trump\bin\System.Web.Optimization.dll
+D:\Office\ENX CO\Trump\bin\System.Web.Razor.dll
+D:\Office\ENX CO\Trump\bin\System.Web.WebPages.Deployment.dll
+D:\Office\ENX CO\Trump\bin\System.Web.WebPages.dll
+D:\Office\ENX CO\Trump\bin\System.Web.WebPages.Razor.dll
+D:\Office\ENX CO\Trump\bin\TrumpCL.dll
+D:\Office\ENX CO\Trump\bin\WebGrease.dll
+D:\Office\ENX CO\Trump\bin\zxing.dll
+D:\Office\ENX CO\Trump\bin\zxing.presentation.dll
+D:\Office\ENX CO\Trump\bin\TrumpCL.pdb
+D:\Office\ENX CO\Trump\bin\ClosedXML.pdb
+D:\Office\ENX CO\Trump\bin\ClosedXML.xml
+D:\Office\ENX CO\Trump\bin\DocumentFormat.OpenXml.xml
+D:\Office\ENX CO\Trump\bin\EntityFramework.xml
+D:\Office\ENX CO\Trump\bin\EntityFramework.SqlServer.xml
+D:\Office\ENX CO\Trump\bin\EPPlus.xml
+D:\Office\ENX CO\Trump\bin\ExcelNumberFormat.xml
+D:\Office\ENX CO\Trump\bin\itextsharp.xml
+D:\Office\ENX CO\Trump\bin\RestSharp.xml
+D:\Office\ENX CO\Trump\bin\Newtonsoft.Json.xml
+D:\Office\ENX CO\Trump\bin\System.Net.Http.Formatting.xml
+D:\Office\ENX CO\Trump\bin\System.Web.Helpers.xml
+D:\Office\ENX CO\Trump\bin\System.Web.Http.xml
+D:\Office\ENX CO\Trump\bin\System.Web.Http.WebHost.xml
+D:\Office\ENX CO\Trump\bin\System.Web.Mvc.xml
+D:\Office\ENX CO\Trump\bin\System.Web.Optimization.xml
+D:\Office\ENX CO\Trump\bin\System.Web.Razor.xml
+D:\Office\ENX CO\Trump\bin\System.Web.WebPages.xml
+D:\Office\ENX CO\Trump\bin\System.Web.WebPages.Deployment.xml
+D:\Office\ENX CO\Trump\bin\System.Web.WebPages.Razor.xml
+D:\Office\ENX CO\Trump\bin\Antlr3.Runtime.pdb
+D:\Office\ENX CO\Trump\bin\zxing.pdb
+D:\Office\ENX CO\Trump\bin\zxing.xml
+D:\Office\ENX CO\Trump\bin\zxing.presentation.pdb
+D:\Office\ENX CO\Trump\bin\zxing.presentation.xml
+D:\Office\ENX CO\Trump\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\Office\ENX CO\Trump\obj\Release\Trump.csproj.AssemblyReference.cache
+D:\Office\ENX CO\Trump\obj\Release\Trump.csproj.CoreCompileInputs.cache
+D:\Office\ENX CO\Trump\obj\Release\Trump.csproj.CopyComplete
+D:\Office\ENX CO\Trump\obj\Release\Trump.dll
+D:\Office\ENX CO\Trump\obj\Release\Trump.pdb
+D:\Office\NOV4ENXCORealData\Trump\bin\Trump.dll.config
+D:\Office\NOV4ENXCORealData\Trump\bin\Trump.dll
+D:\Office\NOV4ENXCORealData\Trump\bin\Trump.pdb
+D:\Office\NOV4ENXCORealData\Trump\bin\roslyn\csc.exe
+D:\Office\NOV4ENXCORealData\Trump\bin\roslyn\csc.exe.config
+D:\Office\NOV4ENXCORealData\Trump\bin\roslyn\csc.rsp
+D:\Office\NOV4ENXCORealData\Trump\bin\roslyn\csi.exe
+D:\Office\NOV4ENXCORealData\Trump\bin\roslyn\csi.rsp
+D:\Office\NOV4ENXCORealData\Trump\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\Office\NOV4ENXCORealData\Trump\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\Office\NOV4ENXCORealData\Trump\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+D:\Office\NOV4ENXCORealData\Trump\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\Office\NOV4ENXCORealData\Trump\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+D:\Office\NOV4ENXCORealData\Trump\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\Office\NOV4ENXCORealData\Trump\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\Office\NOV4ENXCORealData\Trump\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+D:\Office\NOV4ENXCORealData\Trump\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+D:\Office\NOV4ENXCORealData\Trump\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\Office\NOV4ENXCORealData\Trump\bin\roslyn\System.AppContext.dll
+D:\Office\NOV4ENXCORealData\Trump\bin\roslyn\System.Collections.Immutable.dll
+D:\Office\NOV4ENXCORealData\Trump\bin\roslyn\System.Diagnostics.StackTrace.dll
+D:\Office\NOV4ENXCORealData\Trump\bin\roslyn\System.IO.FileSystem.dll
+D:\Office\NOV4ENXCORealData\Trump\bin\roslyn\System.IO.FileSystem.Primitives.dll
+D:\Office\NOV4ENXCORealData\Trump\bin\roslyn\System.Reflection.Metadata.dll
+D:\Office\NOV4ENXCORealData\Trump\bin\roslyn\vbc.exe
+D:\Office\NOV4ENXCORealData\Trump\bin\roslyn\vbc.exe.config
+D:\Office\NOV4ENXCORealData\Trump\bin\roslyn\vbc.rsp
+D:\Office\NOV4ENXCORealData\Trump\bin\roslyn\VBCSCompiler.exe
+D:\Office\NOV4ENXCORealData\Trump\bin\roslyn\VBCSCompiler.exe.config
+D:\Office\NOV4ENXCORealData\Trump\bin\Antlr3.Runtime.dll
+D:\Office\NOV4ENXCORealData\Trump\bin\BouncyCastle.Crypto.dll
+D:\Office\NOV4ENXCORealData\Trump\bin\ClosedXML.dll
+D:\Office\NOV4ENXCORealData\Trump\bin\DocumentFormat.OpenXml.dll
+D:\Office\NOV4ENXCORealData\Trump\bin\EntityFramework.dll
+D:\Office\NOV4ENXCORealData\Trump\bin\EntityFramework.SqlServer.dll
+D:\Office\NOV4ENXCORealData\Trump\bin\EPPlus.dll
+D:\Office\NOV4ENXCORealData\Trump\bin\ExcelNumberFormat.dll
+D:\Office\NOV4ENXCORealData\Trump\bin\GridMvc.dll
+D:\Office\NOV4ENXCORealData\Trump\bin\itextsharp.dll
+D:\Office\NOV4ENXCORealData\Trump\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\Office\NOV4ENXCORealData\Trump\bin\Microsoft.Web.Infrastructure.dll
+D:\Office\NOV4ENXCORealData\Trump\bin\Newtonsoft.Json.dll
+D:\Office\NOV4ENXCORealData\Trump\bin\RestSharp.dll
+D:\Office\NOV4ENXCORealData\Trump\bin\Rotativa.dll
+D:\Office\NOV4ENXCORealData\Trump\bin\System.IO.Packaging.dll
+D:\Office\NOV4ENXCORealData\Trump\bin\System.Net.Http.Formatting.dll
+D:\Office\NOV4ENXCORealData\Trump\bin\System.Web.Helpers.dll
+D:\Office\NOV4ENXCORealData\Trump\bin\System.Web.Http.dll
+D:\Office\NOV4ENXCORealData\Trump\bin\System.Web.Http.WebHost.dll
+D:\Office\NOV4ENXCORealData\Trump\bin\System.Web.Mvc.dll
+D:\Office\NOV4ENXCORealData\Trump\bin\System.Web.Optimization.dll
+D:\Office\NOV4ENXCORealData\Trump\bin\System.Web.Razor.dll
+D:\Office\NOV4ENXCORealData\Trump\bin\System.Web.WebPages.Deployment.dll
+D:\Office\NOV4ENXCORealData\Trump\bin\System.Web.WebPages.dll
+D:\Office\NOV4ENXCORealData\Trump\bin\System.Web.WebPages.Razor.dll
+D:\Office\NOV4ENXCORealData\Trump\bin\TrumpCL.dll
+D:\Office\NOV4ENXCORealData\Trump\bin\WebGrease.dll
+D:\Office\NOV4ENXCORealData\Trump\bin\zxing.dll
+D:\Office\NOV4ENXCORealData\Trump\bin\zxing.presentation.dll
+D:\Office\NOV4ENXCORealData\Trump\bin\TrumpCL.pdb
+D:\Office\NOV4ENXCORealData\Trump\bin\ClosedXML.pdb
+D:\Office\NOV4ENXCORealData\Trump\bin\ClosedXML.xml
+D:\Office\NOV4ENXCORealData\Trump\bin\DocumentFormat.OpenXml.xml
+D:\Office\NOV4ENXCORealData\Trump\bin\EntityFramework.xml
+D:\Office\NOV4ENXCORealData\Trump\bin\EntityFramework.SqlServer.xml
+D:\Office\NOV4ENXCORealData\Trump\bin\EPPlus.xml
+D:\Office\NOV4ENXCORealData\Trump\bin\ExcelNumberFormat.xml
+D:\Office\NOV4ENXCORealData\Trump\bin\itextsharp.xml
+D:\Office\NOV4ENXCORealData\Trump\bin\RestSharp.xml
+D:\Office\NOV4ENXCORealData\Trump\bin\Newtonsoft.Json.xml
+D:\Office\NOV4ENXCORealData\Trump\bin\System.Net.Http.Formatting.xml
+D:\Office\NOV4ENXCORealData\Trump\bin\System.Web.Helpers.xml
+D:\Office\NOV4ENXCORealData\Trump\bin\System.Web.Http.xml
+D:\Office\NOV4ENXCORealData\Trump\bin\System.Web.Http.WebHost.xml
+D:\Office\NOV4ENXCORealData\Trump\bin\System.Web.Mvc.xml
+D:\Office\NOV4ENXCORealData\Trump\bin\System.Web.Optimization.xml
+D:\Office\NOV4ENXCORealData\Trump\bin\System.Web.Razor.xml
+D:\Office\NOV4ENXCORealData\Trump\bin\System.Web.WebPages.xml
+D:\Office\NOV4ENXCORealData\Trump\bin\System.Web.WebPages.Deployment.xml
+D:\Office\NOV4ENXCORealData\Trump\bin\System.Web.WebPages.Razor.xml
+D:\Office\NOV4ENXCORealData\Trump\bin\Antlr3.Runtime.pdb
+D:\Office\NOV4ENXCORealData\Trump\bin\zxing.pdb
+D:\Office\NOV4ENXCORealData\Trump\bin\zxing.xml
+D:\Office\NOV4ENXCORealData\Trump\bin\zxing.presentation.pdb
+D:\Office\NOV4ENXCORealData\Trump\bin\zxing.presentation.xml
+D:\Office\NOV4ENXCORealData\Trump\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\Office\NOV4ENXCORealData\Trump\obj\Release\Trump.csproj.AssemblyReference.cache
+D:\Office\NOV4ENXCORealData\Trump\obj\Release\Trump.csproj.CoreCompileInputs.cache
+D:\Office\NOV4ENXCORealData\Trump\obj\Release\Trump.csproj.CopyComplete
+D:\Office\NOV4ENXCORealData\Trump\obj\Release\Trump.dll
+D:\Office\NOV4ENXCORealData\Trump\obj\Release\Trump.pdb
+D:\Office\ENX VMS CO\Trump\bin\Trump.dll.config
+D:\Office\ENX VMS CO\Trump\bin\Trump.dll
+D:\Office\ENX VMS CO\Trump\bin\Trump.pdb
+D:\Office\ENX VMS CO\Trump\bin\roslyn\csc.exe
+D:\Office\ENX VMS CO\Trump\bin\roslyn\csc.exe.config
+D:\Office\ENX VMS CO\Trump\bin\roslyn\csc.rsp
+D:\Office\ENX VMS CO\Trump\bin\roslyn\csi.exe
+D:\Office\ENX VMS CO\Trump\bin\roslyn\csi.rsp
+D:\Office\ENX VMS CO\Trump\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\Office\ENX VMS CO\Trump\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\Office\ENX VMS CO\Trump\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+D:\Office\ENX VMS CO\Trump\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\Office\ENX VMS CO\Trump\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+D:\Office\ENX VMS CO\Trump\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\Office\ENX VMS CO\Trump\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\Office\ENX VMS CO\Trump\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+D:\Office\ENX VMS CO\Trump\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+D:\Office\ENX VMS CO\Trump\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\Office\ENX VMS CO\Trump\bin\roslyn\System.AppContext.dll
+D:\Office\ENX VMS CO\Trump\bin\roslyn\System.Collections.Immutable.dll
+D:\Office\ENX VMS CO\Trump\bin\roslyn\System.Diagnostics.StackTrace.dll
+D:\Office\ENX VMS CO\Trump\bin\roslyn\System.IO.FileSystem.dll
+D:\Office\ENX VMS CO\Trump\bin\roslyn\System.IO.FileSystem.Primitives.dll
+D:\Office\ENX VMS CO\Trump\bin\roslyn\System.Reflection.Metadata.dll
+D:\Office\ENX VMS CO\Trump\bin\roslyn\vbc.exe
+D:\Office\ENX VMS CO\Trump\bin\roslyn\vbc.exe.config
+D:\Office\ENX VMS CO\Trump\bin\roslyn\vbc.rsp
+D:\Office\ENX VMS CO\Trump\bin\roslyn\VBCSCompiler.exe
+D:\Office\ENX VMS CO\Trump\bin\roslyn\VBCSCompiler.exe.config
+D:\Office\ENX VMS CO\Trump\bin\Antlr3.Runtime.dll
+D:\Office\ENX VMS CO\Trump\bin\BouncyCastle.Crypto.dll
+D:\Office\ENX VMS CO\Trump\bin\ClosedXML.dll
+D:\Office\ENX VMS CO\Trump\bin\DocumentFormat.OpenXml.dll
+D:\Office\ENX VMS CO\Trump\bin\EntityFramework.dll
+D:\Office\ENX VMS CO\Trump\bin\EntityFramework.SqlServer.dll
+D:\Office\ENX VMS CO\Trump\bin\EPPlus.dll
+D:\Office\ENX VMS CO\Trump\bin\ExcelNumberFormat.dll
+D:\Office\ENX VMS CO\Trump\bin\GridMvc.dll
+D:\Office\ENX VMS CO\Trump\bin\itextsharp.dll
+D:\Office\ENX VMS CO\Trump\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\Office\ENX VMS CO\Trump\bin\Microsoft.Web.Infrastructure.dll
+D:\Office\ENX VMS CO\Trump\bin\Newtonsoft.Json.dll
+D:\Office\ENX VMS CO\Trump\bin\RestSharp.dll
+D:\Office\ENX VMS CO\Trump\bin\Rotativa.dll
+D:\Office\ENX VMS CO\Trump\bin\System.IO.Packaging.dll
+D:\Office\ENX VMS CO\Trump\bin\System.Net.Http.Formatting.dll
+D:\Office\ENX VMS CO\Trump\bin\System.Web.Helpers.dll
+D:\Office\ENX VMS CO\Trump\bin\System.Web.Http.dll
+D:\Office\ENX VMS CO\Trump\bin\System.Web.Http.WebHost.dll
+D:\Office\ENX VMS CO\Trump\bin\System.Web.Mvc.dll
+D:\Office\ENX VMS CO\Trump\bin\System.Web.Optimization.dll
+D:\Office\ENX VMS CO\Trump\bin\System.Web.Razor.dll
+D:\Office\ENX VMS CO\Trump\bin\System.Web.WebPages.Deployment.dll
+D:\Office\ENX VMS CO\Trump\bin\System.Web.WebPages.dll
+D:\Office\ENX VMS CO\Trump\bin\System.Web.WebPages.Razor.dll
+D:\Office\ENX VMS CO\Trump\bin\TrumpCL.dll
+D:\Office\ENX VMS CO\Trump\bin\WebGrease.dll
+D:\Office\ENX VMS CO\Trump\bin\zxing.dll
+D:\Office\ENX VMS CO\Trump\bin\zxing.presentation.dll
+D:\Office\ENX VMS CO\Trump\bin\TrumpCL.pdb
+D:\Office\ENX VMS CO\Trump\bin\ClosedXML.pdb
+D:\Office\ENX VMS CO\Trump\bin\ClosedXML.xml
+D:\Office\ENX VMS CO\Trump\bin\DocumentFormat.OpenXml.xml
+D:\Office\ENX VMS CO\Trump\bin\EntityFramework.xml
+D:\Office\ENX VMS CO\Trump\bin\EntityFramework.SqlServer.xml
+D:\Office\ENX VMS CO\Trump\bin\EPPlus.xml
+D:\Office\ENX VMS CO\Trump\bin\ExcelNumberFormat.xml
+D:\Office\ENX VMS CO\Trump\bin\itextsharp.xml
+D:\Office\ENX VMS CO\Trump\bin\RestSharp.xml
+D:\Office\ENX VMS CO\Trump\bin\Newtonsoft.Json.xml
+D:\Office\ENX VMS CO\Trump\bin\System.Net.Http.Formatting.xml
+D:\Office\ENX VMS CO\Trump\bin\System.Web.Helpers.xml
+D:\Office\ENX VMS CO\Trump\bin\System.Web.Http.xml
+D:\Office\ENX VMS CO\Trump\bin\System.Web.Http.WebHost.xml
+D:\Office\ENX VMS CO\Trump\bin\System.Web.Mvc.xml
+D:\Office\ENX VMS CO\Trump\bin\System.Web.Optimization.xml
+D:\Office\ENX VMS CO\Trump\bin\System.Web.Razor.xml
+D:\Office\ENX VMS CO\Trump\bin\System.Web.WebPages.xml
+D:\Office\ENX VMS CO\Trump\bin\System.Web.WebPages.Deployment.xml
+D:\Office\ENX VMS CO\Trump\bin\System.Web.WebPages.Razor.xml
+D:\Office\ENX VMS CO\Trump\bin\Antlr3.Runtime.pdb
+D:\Office\ENX VMS CO\Trump\bin\zxing.pdb
+D:\Office\ENX VMS CO\Trump\bin\zxing.xml
+D:\Office\ENX VMS CO\Trump\bin\zxing.presentation.pdb
+D:\Office\ENX VMS CO\Trump\bin\zxing.presentation.xml
+D:\Office\ENX VMS CO\Trump\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\Office\ENX VMS CO\Trump\obj\Release\Trump.csproj.AssemblyReference.cache
+D:\Office\ENX VMS CO\Trump\obj\Release\Trump.csproj.CoreCompileInputs.cache
+D:\Office\ENX VMS CO\Trump\obj\Release\Trump.csproj.CopyComplete
+D:\Office\ENX VMS CO\Trump\obj\Release\Trump.dll
+D:\Office\ENX VMS CO\Trump\obj\Release\Trump.pdb
+E:\Working Project\VMS CO Upgrade2\Trump\bin\Trump.dll.config
+E:\Working Project\VMS CO Upgrade2\Trump\bin\Trump.dll
+E:\Working Project\VMS CO Upgrade2\Trump\bin\Trump.pdb
+E:\Working Project\VMS CO Upgrade2\Trump\bin\roslyn\csc.exe
+E:\Working Project\VMS CO Upgrade2\Trump\bin\roslyn\csc.exe.config
+E:\Working Project\VMS CO Upgrade2\Trump\bin\roslyn\csc.rsp
+E:\Working Project\VMS CO Upgrade2\Trump\bin\roslyn\csi.exe
+E:\Working Project\VMS CO Upgrade2\Trump\bin\roslyn\csi.rsp
+E:\Working Project\VMS CO Upgrade2\Trump\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+E:\Working Project\VMS CO Upgrade2\Trump\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+E:\Working Project\VMS CO Upgrade2\Trump\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+E:\Working Project\VMS CO Upgrade2\Trump\bin\roslyn\Microsoft.CodeAnalysis.dll
+E:\Working Project\VMS CO Upgrade2\Trump\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+E:\Working Project\VMS CO Upgrade2\Trump\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+E:\Working Project\VMS CO Upgrade2\Trump\bin\roslyn\Microsoft.CSharp.Core.targets
+E:\Working Project\VMS CO Upgrade2\Trump\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+E:\Working Project\VMS CO Upgrade2\Trump\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+E:\Working Project\VMS CO Upgrade2\Trump\bin\roslyn\Microsoft.VisualBasic.Core.targets
+E:\Working Project\VMS CO Upgrade2\Trump\bin\roslyn\System.AppContext.dll
+E:\Working Project\VMS CO Upgrade2\Trump\bin\roslyn\System.Collections.Immutable.dll
+E:\Working Project\VMS CO Upgrade2\Trump\bin\roslyn\System.Diagnostics.StackTrace.dll
+E:\Working Project\VMS CO Upgrade2\Trump\bin\roslyn\System.IO.FileSystem.dll
+E:\Working Project\VMS CO Upgrade2\Trump\bin\roslyn\System.IO.FileSystem.Primitives.dll
+E:\Working Project\VMS CO Upgrade2\Trump\bin\roslyn\System.Reflection.Metadata.dll
+E:\Working Project\VMS CO Upgrade2\Trump\bin\roslyn\vbc.exe
+E:\Working Project\VMS CO Upgrade2\Trump\bin\roslyn\vbc.exe.config
+E:\Working Project\VMS CO Upgrade2\Trump\bin\roslyn\vbc.rsp
+E:\Working Project\VMS CO Upgrade2\Trump\bin\roslyn\VBCSCompiler.exe
+E:\Working Project\VMS CO Upgrade2\Trump\bin\roslyn\VBCSCompiler.exe.config
+E:\Working Project\VMS CO Upgrade2\Trump\bin\Antlr3.Runtime.dll
+E:\Working Project\VMS CO Upgrade2\Trump\bin\BouncyCastle.Crypto.dll
+E:\Working Project\VMS CO Upgrade2\Trump\bin\ClosedXML.dll
+E:\Working Project\VMS CO Upgrade2\Trump\bin\DocumentFormat.OpenXml.dll
+E:\Working Project\VMS CO Upgrade2\Trump\bin\EntityFramework.dll
+E:\Working Project\VMS CO Upgrade2\Trump\bin\EntityFramework.SqlServer.dll
+E:\Working Project\VMS CO Upgrade2\Trump\bin\EPPlus.dll
+E:\Working Project\VMS CO Upgrade2\Trump\bin\ExcelNumberFormat.dll
+E:\Working Project\VMS CO Upgrade2\Trump\bin\GridMvc.dll
+E:\Working Project\VMS CO Upgrade2\Trump\bin\itextsharp.dll
+E:\Working Project\VMS CO Upgrade2\Trump\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+E:\Working Project\VMS CO Upgrade2\Trump\bin\Microsoft.Web.Infrastructure.dll
+E:\Working Project\VMS CO Upgrade2\Trump\bin\Newtonsoft.Json.dll
+E:\Working Project\VMS CO Upgrade2\Trump\bin\RestSharp.dll
+E:\Working Project\VMS CO Upgrade2\Trump\bin\Rotativa.dll
+E:\Working Project\VMS CO Upgrade2\Trump\bin\System.IO.Packaging.dll
+E:\Working Project\VMS CO Upgrade2\Trump\bin\System.Net.Http.Formatting.dll
+E:\Working Project\VMS CO Upgrade2\Trump\bin\System.Web.Helpers.dll
+E:\Working Project\VMS CO Upgrade2\Trump\bin\System.Web.Http.dll
+E:\Working Project\VMS CO Upgrade2\Trump\bin\System.Web.Http.WebHost.dll
+E:\Working Project\VMS CO Upgrade2\Trump\bin\System.Web.Mvc.dll
+E:\Working Project\VMS CO Upgrade2\Trump\bin\System.Web.Optimization.dll
+E:\Working Project\VMS CO Upgrade2\Trump\bin\System.Web.Razor.dll
+E:\Working Project\VMS CO Upgrade2\Trump\bin\System.Web.WebPages.Deployment.dll
+E:\Working Project\VMS CO Upgrade2\Trump\bin\System.Web.WebPages.dll
+E:\Working Project\VMS CO Upgrade2\Trump\bin\System.Web.WebPages.Razor.dll
+E:\Working Project\VMS CO Upgrade2\Trump\bin\TrumpCL.dll
+E:\Working Project\VMS CO Upgrade2\Trump\bin\WebGrease.dll
+E:\Working Project\VMS CO Upgrade2\Trump\bin\zxing.dll
+E:\Working Project\VMS CO Upgrade2\Trump\bin\zxing.presentation.dll
+E:\Working Project\VMS CO Upgrade2\Trump\bin\TrumpCL.pdb
+E:\Working Project\VMS CO Upgrade2\Trump\bin\ClosedXML.pdb
+E:\Working Project\VMS CO Upgrade2\Trump\bin\ClosedXML.xml
+E:\Working Project\VMS CO Upgrade2\Trump\bin\DocumentFormat.OpenXml.xml
+E:\Working Project\VMS CO Upgrade2\Trump\bin\EntityFramework.xml
+E:\Working Project\VMS CO Upgrade2\Trump\bin\EntityFramework.SqlServer.xml
+E:\Working Project\VMS CO Upgrade2\Trump\bin\EPPlus.xml
+E:\Working Project\VMS CO Upgrade2\Trump\bin\ExcelNumberFormat.xml
+E:\Working Project\VMS CO Upgrade2\Trump\bin\itextsharp.xml
+E:\Working Project\VMS CO Upgrade2\Trump\bin\RestSharp.xml
+E:\Working Project\VMS CO Upgrade2\Trump\bin\Newtonsoft.Json.xml
+E:\Working Project\VMS CO Upgrade2\Trump\bin\System.Net.Http.Formatting.xml
+E:\Working Project\VMS CO Upgrade2\Trump\bin\System.Web.Helpers.xml
+E:\Working Project\VMS CO Upgrade2\Trump\bin\System.Web.Http.xml
+E:\Working Project\VMS CO Upgrade2\Trump\bin\System.Web.Http.WebHost.xml
+E:\Working Project\VMS CO Upgrade2\Trump\bin\System.Web.Mvc.xml
+E:\Working Project\VMS CO Upgrade2\Trump\bin\System.Web.Optimization.xml
+E:\Working Project\VMS CO Upgrade2\Trump\bin\System.Web.Razor.xml
+E:\Working Project\VMS CO Upgrade2\Trump\bin\System.Web.WebPages.xml
+E:\Working Project\VMS CO Upgrade2\Trump\bin\System.Web.WebPages.Deployment.xml
+E:\Working Project\VMS CO Upgrade2\Trump\bin\System.Web.WebPages.Razor.xml
+E:\Working Project\VMS CO Upgrade2\Trump\bin\Antlr3.Runtime.pdb
+E:\Working Project\VMS CO Upgrade2\Trump\bin\zxing.pdb
+E:\Working Project\VMS CO Upgrade2\Trump\bin\zxing.xml
+E:\Working Project\VMS CO Upgrade2\Trump\bin\zxing.presentation.pdb
+E:\Working Project\VMS CO Upgrade2\Trump\bin\zxing.presentation.xml
+E:\Working Project\VMS CO Upgrade2\Trump\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+E:\Working Project\VMS CO Upgrade2\Trump\obj\Release\Trump.csproj.AssemblyReference.cache
+E:\Working Project\VMS CO Upgrade2\Trump\obj\Release\Trump.csproj.CoreCompileInputs.cache
+E:\Working Project\VMS CO Upgrade2\Trump\obj\Release\Trump.csproj.CopyComplete
+E:\Working Project\VMS CO Upgrade2\Trump\obj\Release\Trump.dll
+E:\Working Project\VMS CO Upgrade2\Trump\obj\Release\Trump.pdb
+D:\Office\Projects\VMS CO Upgrade2 desk and security\Trump\bin\Trump.dll.config
+D:\Office\Projects\VMS CO Upgrade2 desk and security\Trump\bin\Trump.dll
+D:\Office\Projects\VMS CO Upgrade2 desk and security\Trump\bin\Trump.pdb
+D:\Office\Projects\VMS CO Upgrade2 desk and security\Trump\bin\roslyn\csc.exe
+D:\Office\Projects\VMS CO Upgrade2 desk and security\Trump\bin\roslyn\csc.exe.config
+D:\Office\Projects\VMS CO Upgrade2 desk and security\Trump\bin\roslyn\csc.rsp
+D:\Office\Projects\VMS CO Upgrade2 desk and security\Trump\bin\roslyn\csi.exe
+D:\Office\Projects\VMS CO Upgrade2 desk and security\Trump\bin\roslyn\csi.rsp
+D:\Office\Projects\VMS CO Upgrade2 desk and security\Trump\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\Office\Projects\VMS CO Upgrade2 desk and security\Trump\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\Office\Projects\VMS CO Upgrade2 desk and security\Trump\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+D:\Office\Projects\VMS CO Upgrade2 desk and security\Trump\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\Office\Projects\VMS CO Upgrade2 desk and security\Trump\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+D:\Office\Projects\VMS CO Upgrade2 desk and security\Trump\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\Office\Projects\VMS CO Upgrade2 desk and security\Trump\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\Office\Projects\VMS CO Upgrade2 desk and security\Trump\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+D:\Office\Projects\VMS CO Upgrade2 desk and security\Trump\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+D:\Office\Projects\VMS CO Upgrade2 desk and security\Trump\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\Office\Projects\VMS CO Upgrade2 desk and security\Trump\bin\roslyn\System.AppContext.dll
+D:\Office\Projects\VMS CO Upgrade2 desk and security\Trump\bin\roslyn\System.Collections.Immutable.dll
+D:\Office\Projects\VMS CO Upgrade2 desk and security\Trump\bin\roslyn\System.Diagnostics.StackTrace.dll
+D:\Office\Projects\VMS CO Upgrade2 desk and security\Trump\bin\roslyn\System.IO.FileSystem.dll
+D:\Office\Projects\VMS CO Upgrade2 desk and security\Trump\bin\roslyn\System.IO.FileSystem.Primitives.dll
+D:\Office\Projects\VMS CO Upgrade2 desk and security\Trump\bin\roslyn\System.Reflection.Metadata.dll
+D:\Office\Projects\VMS CO Upgrade2 desk and security\Trump\bin\roslyn\vbc.exe
+D:\Office\Projects\VMS CO Upgrade2 desk and security\Trump\bin\roslyn\vbc.exe.config
+D:\Office\Projects\VMS CO Upgrade2 desk and security\Trump\bin\roslyn\vbc.rsp
+D:\Office\Projects\VMS CO Upgrade2 desk and security\Trump\bin\roslyn\VBCSCompiler.exe
+D:\Office\Projects\VMS CO Upgrade2 desk and security\Trump\bin\roslyn\VBCSCompiler.exe.config
+D:\Office\Projects\VMS CO Upgrade2 desk and security\Trump\bin\Antlr3.Runtime.dll
+D:\Office\Projects\VMS CO Upgrade2 desk and security\Trump\bin\BouncyCastle.Crypto.dll
+D:\Office\Projects\VMS CO Upgrade2 desk and security\Trump\bin\ClosedXML.dll
+D:\Office\Projects\VMS CO Upgrade2 desk and security\Trump\bin\DocumentFormat.OpenXml.dll
+D:\Office\Projects\VMS CO Upgrade2 desk and security\Trump\bin\EntityFramework.dll
+D:\Office\Projects\VMS CO Upgrade2 desk and security\Trump\bin\EntityFramework.SqlServer.dll
+D:\Office\Projects\VMS CO Upgrade2 desk and security\Trump\bin\EPPlus.dll
+D:\Office\Projects\VMS CO Upgrade2 desk and security\Trump\bin\ExcelNumberFormat.dll
+D:\Office\Projects\VMS CO Upgrade2 desk and security\Trump\bin\GridMvc.dll
+D:\Office\Projects\VMS CO Upgrade2 desk and security\Trump\bin\itextsharp.dll
+D:\Office\Projects\VMS CO Upgrade2 desk and security\Trump\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\Office\Projects\VMS CO Upgrade2 desk and security\Trump\bin\Microsoft.Web.Infrastructure.dll
+D:\Office\Projects\VMS CO Upgrade2 desk and security\Trump\bin\Newtonsoft.Json.dll
+D:\Office\Projects\VMS CO Upgrade2 desk and security\Trump\bin\RestSharp.dll
+D:\Office\Projects\VMS CO Upgrade2 desk and security\Trump\bin\Rotativa.dll
+D:\Office\Projects\VMS CO Upgrade2 desk and security\Trump\bin\System.IO.Packaging.dll
+D:\Office\Projects\VMS CO Upgrade2 desk and security\Trump\bin\System.Net.Http.Formatting.dll
+D:\Office\Projects\VMS CO Upgrade2 desk and security\Trump\bin\System.Web.Helpers.dll
+D:\Office\Projects\VMS CO Upgrade2 desk and security\Trump\bin\System.Web.Http.dll
+D:\Office\Projects\VMS CO Upgrade2 desk and security\Trump\bin\System.Web.Http.WebHost.dll
+D:\Office\Projects\VMS CO Upgrade2 desk and security\Trump\bin\System.Web.Mvc.dll
+D:\Office\Projects\VMS CO Upgrade2 desk and security\Trump\bin\System.Web.Optimization.dll
+D:\Office\Projects\VMS CO Upgrade2 desk and security\Trump\bin\System.Web.Razor.dll
+D:\Office\Projects\VMS CO Upgrade2 desk and security\Trump\bin\System.Web.WebPages.Deployment.dll
+D:\Office\Projects\VMS CO Upgrade2 desk and security\Trump\bin\System.Web.WebPages.dll
+D:\Office\Projects\VMS CO Upgrade2 desk and security\Trump\bin\System.Web.WebPages.Razor.dll
+D:\Office\Projects\VMS CO Upgrade2 desk and security\Trump\bin\TrumpCL.dll
+D:\Office\Projects\VMS CO Upgrade2 desk and security\Trump\bin\WebGrease.dll
+D:\Office\Projects\VMS CO Upgrade2 desk and security\Trump\bin\zxing.dll
+D:\Office\Projects\VMS CO Upgrade2 desk and security\Trump\bin\zxing.presentation.dll
+D:\Office\Projects\VMS CO Upgrade2 desk and security\Trump\bin\QRCoder.dll
+D:\Office\Projects\VMS CO Upgrade2 desk and security\Trump\bin\TrumpCL.pdb
+D:\Office\Projects\VMS CO Upgrade2 desk and security\Trump\bin\ClosedXML.pdb
+D:\Office\Projects\VMS CO Upgrade2 desk and security\Trump\bin\ClosedXML.xml
+D:\Office\Projects\VMS CO Upgrade2 desk and security\Trump\bin\DocumentFormat.OpenXml.xml
+D:\Office\Projects\VMS CO Upgrade2 desk and security\Trump\bin\EntityFramework.xml
+D:\Office\Projects\VMS CO Upgrade2 desk and security\Trump\bin\EntityFramework.SqlServer.xml
+D:\Office\Projects\VMS CO Upgrade2 desk and security\Trump\bin\EPPlus.xml
+D:\Office\Projects\VMS CO Upgrade2 desk and security\Trump\bin\ExcelNumberFormat.xml
+D:\Office\Projects\VMS CO Upgrade2 desk and security\Trump\bin\itextsharp.xml
+D:\Office\Projects\VMS CO Upgrade2 desk and security\Trump\bin\RestSharp.xml
+D:\Office\Projects\VMS CO Upgrade2 desk and security\Trump\bin\Newtonsoft.Json.xml
+D:\Office\Projects\VMS CO Upgrade2 desk and security\Trump\bin\System.Net.Http.Formatting.xml
+D:\Office\Projects\VMS CO Upgrade2 desk and security\Trump\bin\System.Web.Helpers.xml
+D:\Office\Projects\VMS CO Upgrade2 desk and security\Trump\bin\System.Web.Http.xml
+D:\Office\Projects\VMS CO Upgrade2 desk and security\Trump\bin\System.Web.Http.WebHost.xml
+D:\Office\Projects\VMS CO Upgrade2 desk and security\Trump\bin\System.Web.Mvc.xml
+D:\Office\Projects\VMS CO Upgrade2 desk and security\Trump\bin\System.Web.Optimization.xml
+D:\Office\Projects\VMS CO Upgrade2 desk and security\Trump\bin\System.Web.Razor.xml
+D:\Office\Projects\VMS CO Upgrade2 desk and security\Trump\bin\System.Web.WebPages.xml
+D:\Office\Projects\VMS CO Upgrade2 desk and security\Trump\bin\System.Web.WebPages.Deployment.xml
+D:\Office\Projects\VMS CO Upgrade2 desk and security\Trump\bin\System.Web.WebPages.Razor.xml
+D:\Office\Projects\VMS CO Upgrade2 desk and security\Trump\bin\Antlr3.Runtime.pdb
+D:\Office\Projects\VMS CO Upgrade2 desk and security\Trump\bin\zxing.pdb
+D:\Office\Projects\VMS CO Upgrade2 desk and security\Trump\bin\zxing.xml
+D:\Office\Projects\VMS CO Upgrade2 desk and security\Trump\bin\zxing.presentation.pdb
+D:\Office\Projects\VMS CO Upgrade2 desk and security\Trump\bin\zxing.presentation.xml
+D:\Office\Projects\VMS CO Upgrade2 desk and security\Trump\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\Office\Projects\VMS CO Upgrade2 desk and security\Trump\obj\Release\Trump.csproj.AssemblyReference.cache
+D:\Office\Projects\VMS CO Upgrade2 desk and security\Trump\obj\Release\Trump.csproj.CoreCompileInputs.cache
+D:\Office\Projects\VMS CO Upgrade2 desk and security\Trump\obj\Release\Trump.csproj.CopyComplete
+D:\Office\Projects\VMS CO Upgrade2 desk and security\Trump\obj\Release\Trump.dll
+D:\Office\Projects\VMS CO Upgrade2 desk and security\Trump\obj\Release\Trump.pdb
+D:\Office\AzureCloud\VMS CO Upgrade2 desk and security\Trump\bin\Trump.dll.config
+D:\Office\AzureCloud\VMS CO Upgrade2 desk and security\Trump\bin\Trump.dll
+D:\Office\AzureCloud\VMS CO Upgrade2 desk and security\Trump\bin\Trump.pdb
+D:\Office\AzureCloud\VMS CO Upgrade2 desk and security\Trump\bin\roslyn\csc.exe
+D:\Office\AzureCloud\VMS CO Upgrade2 desk and security\Trump\bin\roslyn\csc.exe.config
+D:\Office\AzureCloud\VMS CO Upgrade2 desk and security\Trump\bin\roslyn\csc.rsp
+D:\Office\AzureCloud\VMS CO Upgrade2 desk and security\Trump\bin\roslyn\csi.exe
+D:\Office\AzureCloud\VMS CO Upgrade2 desk and security\Trump\bin\roslyn\csi.rsp
+D:\Office\AzureCloud\VMS CO Upgrade2 desk and security\Trump\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\Office\AzureCloud\VMS CO Upgrade2 desk and security\Trump\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\Office\AzureCloud\VMS CO Upgrade2 desk and security\Trump\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+D:\Office\AzureCloud\VMS CO Upgrade2 desk and security\Trump\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\Office\AzureCloud\VMS CO Upgrade2 desk and security\Trump\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+D:\Office\AzureCloud\VMS CO Upgrade2 desk and security\Trump\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\Office\AzureCloud\VMS CO Upgrade2 desk and security\Trump\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\Office\AzureCloud\VMS CO Upgrade2 desk and security\Trump\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+D:\Office\AzureCloud\VMS CO Upgrade2 desk and security\Trump\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+D:\Office\AzureCloud\VMS CO Upgrade2 desk and security\Trump\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\Office\AzureCloud\VMS CO Upgrade2 desk and security\Trump\bin\roslyn\System.AppContext.dll
+D:\Office\AzureCloud\VMS CO Upgrade2 desk and security\Trump\bin\roslyn\System.Collections.Immutable.dll
+D:\Office\AzureCloud\VMS CO Upgrade2 desk and security\Trump\bin\roslyn\System.Diagnostics.StackTrace.dll
+D:\Office\AzureCloud\VMS CO Upgrade2 desk and security\Trump\bin\roslyn\System.IO.FileSystem.dll
+D:\Office\AzureCloud\VMS CO Upgrade2 desk and security\Trump\bin\roslyn\System.IO.FileSystem.Primitives.dll
+D:\Office\AzureCloud\VMS CO Upgrade2 desk and security\Trump\bin\roslyn\System.Reflection.Metadata.dll
+D:\Office\AzureCloud\VMS CO Upgrade2 desk and security\Trump\bin\roslyn\vbc.exe
+D:\Office\AzureCloud\VMS CO Upgrade2 desk and security\Trump\bin\roslyn\vbc.exe.config
+D:\Office\AzureCloud\VMS CO Upgrade2 desk and security\Trump\bin\roslyn\vbc.rsp
+D:\Office\AzureCloud\VMS CO Upgrade2 desk and security\Trump\bin\roslyn\VBCSCompiler.exe
+D:\Office\AzureCloud\VMS CO Upgrade2 desk and security\Trump\bin\roslyn\VBCSCompiler.exe.config
+D:\Office\AzureCloud\VMS CO Upgrade2 desk and security\Trump\bin\Antlr3.Runtime.dll
+D:\Office\AzureCloud\VMS CO Upgrade2 desk and security\Trump\bin\BouncyCastle.Crypto.dll
+D:\Office\AzureCloud\VMS CO Upgrade2 desk and security\Trump\bin\ClosedXML.dll
+D:\Office\AzureCloud\VMS CO Upgrade2 desk and security\Trump\bin\DocumentFormat.OpenXml.dll
+D:\Office\AzureCloud\VMS CO Upgrade2 desk and security\Trump\bin\EntityFramework.dll
+D:\Office\AzureCloud\VMS CO Upgrade2 desk and security\Trump\bin\EntityFramework.SqlServer.dll
+D:\Office\AzureCloud\VMS CO Upgrade2 desk and security\Trump\bin\EPPlus.dll
+D:\Office\AzureCloud\VMS CO Upgrade2 desk and security\Trump\bin\ExcelNumberFormat.dll
+D:\Office\AzureCloud\VMS CO Upgrade2 desk and security\Trump\bin\GridMvc.dll
+D:\Office\AzureCloud\VMS CO Upgrade2 desk and security\Trump\bin\itextsharp.dll
+D:\Office\AzureCloud\VMS CO Upgrade2 desk and security\Trump\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\Office\AzureCloud\VMS CO Upgrade2 desk and security\Trump\bin\Microsoft.Web.Infrastructure.dll
+D:\Office\AzureCloud\VMS CO Upgrade2 desk and security\Trump\bin\Newtonsoft.Json.dll
+D:\Office\AzureCloud\VMS CO Upgrade2 desk and security\Trump\bin\RestSharp.dll
+D:\Office\AzureCloud\VMS CO Upgrade2 desk and security\Trump\bin\Rotativa.dll
+D:\Office\AzureCloud\VMS CO Upgrade2 desk and security\Trump\bin\System.IO.Packaging.dll
+D:\Office\AzureCloud\VMS CO Upgrade2 desk and security\Trump\bin\System.Net.Http.Formatting.dll
+D:\Office\AzureCloud\VMS CO Upgrade2 desk and security\Trump\bin\System.Web.Helpers.dll
+D:\Office\AzureCloud\VMS CO Upgrade2 desk and security\Trump\bin\System.Web.Http.dll
+D:\Office\AzureCloud\VMS CO Upgrade2 desk and security\Trump\bin\System.Web.Http.WebHost.dll
+D:\Office\AzureCloud\VMS CO Upgrade2 desk and security\Trump\bin\System.Web.Mvc.dll
+D:\Office\AzureCloud\VMS CO Upgrade2 desk and security\Trump\bin\System.Web.Optimization.dll
+D:\Office\AzureCloud\VMS CO Upgrade2 desk and security\Trump\bin\System.Web.Razor.dll
+D:\Office\AzureCloud\VMS CO Upgrade2 desk and security\Trump\bin\System.Web.WebPages.Deployment.dll
+D:\Office\AzureCloud\VMS CO Upgrade2 desk and security\Trump\bin\System.Web.WebPages.dll
+D:\Office\AzureCloud\VMS CO Upgrade2 desk and security\Trump\bin\System.Web.WebPages.Razor.dll
+D:\Office\AzureCloud\VMS CO Upgrade2 desk and security\Trump\bin\TrumpCL.dll
+D:\Office\AzureCloud\VMS CO Upgrade2 desk and security\Trump\bin\WebGrease.dll
+D:\Office\AzureCloud\VMS CO Upgrade2 desk and security\Trump\bin\zxing.dll
+D:\Office\AzureCloud\VMS CO Upgrade2 desk and security\Trump\bin\zxing.presentation.dll
+D:\Office\AzureCloud\VMS CO Upgrade2 desk and security\Trump\bin\QRCoder.dll
+D:\Office\AzureCloud\VMS CO Upgrade2 desk and security\Trump\bin\TrumpCL.pdb
+D:\Office\AzureCloud\VMS CO Upgrade2 desk and security\Trump\bin\ClosedXML.pdb
+D:\Office\AzureCloud\VMS CO Upgrade2 desk and security\Trump\bin\ClosedXML.xml
+D:\Office\AzureCloud\VMS CO Upgrade2 desk and security\Trump\bin\DocumentFormat.OpenXml.xml
+D:\Office\AzureCloud\VMS CO Upgrade2 desk and security\Trump\bin\EntityFramework.xml
+D:\Office\AzureCloud\VMS CO Upgrade2 desk and security\Trump\bin\EntityFramework.SqlServer.xml
+D:\Office\AzureCloud\VMS CO Upgrade2 desk and security\Trump\bin\EPPlus.xml
+D:\Office\AzureCloud\VMS CO Upgrade2 desk and security\Trump\bin\ExcelNumberFormat.xml
+D:\Office\AzureCloud\VMS CO Upgrade2 desk and security\Trump\bin\itextsharp.xml
+D:\Office\AzureCloud\VMS CO Upgrade2 desk and security\Trump\bin\RestSharp.xml
+D:\Office\AzureCloud\VMS CO Upgrade2 desk and security\Trump\bin\Newtonsoft.Json.xml
+D:\Office\AzureCloud\VMS CO Upgrade2 desk and security\Trump\bin\System.Net.Http.Formatting.xml
+D:\Office\AzureCloud\VMS CO Upgrade2 desk and security\Trump\bin\System.Web.Helpers.xml
+D:\Office\AzureCloud\VMS CO Upgrade2 desk and security\Trump\bin\System.Web.Http.xml
+D:\Office\AzureCloud\VMS CO Upgrade2 desk and security\Trump\bin\System.Web.Http.WebHost.xml
+D:\Office\AzureCloud\VMS CO Upgrade2 desk and security\Trump\bin\System.Web.Mvc.xml
+D:\Office\AzureCloud\VMS CO Upgrade2 desk and security\Trump\bin\System.Web.Optimization.xml
+D:\Office\AzureCloud\VMS CO Upgrade2 desk and security\Trump\bin\System.Web.Razor.xml
+D:\Office\AzureCloud\VMS CO Upgrade2 desk and security\Trump\bin\System.Web.WebPages.xml
+D:\Office\AzureCloud\VMS CO Upgrade2 desk and security\Trump\bin\System.Web.WebPages.Deployment.xml
+D:\Office\AzureCloud\VMS CO Upgrade2 desk and security\Trump\bin\System.Web.WebPages.Razor.xml
+D:\Office\AzureCloud\VMS CO Upgrade2 desk and security\Trump\bin\Antlr3.Runtime.pdb
+D:\Office\AzureCloud\VMS CO Upgrade2 desk and security\Trump\bin\zxing.pdb
+D:\Office\AzureCloud\VMS CO Upgrade2 desk and security\Trump\bin\zxing.xml
+D:\Office\AzureCloud\VMS CO Upgrade2 desk and security\Trump\bin\zxing.presentation.pdb
+D:\Office\AzureCloud\VMS CO Upgrade2 desk and security\Trump\bin\zxing.presentation.xml
+D:\Office\AzureCloud\VMS CO Upgrade2 desk and security\Trump\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\Office\AzureCloud\VMS CO Upgrade2 desk and security\Trump\obj\Release\Trump.csproj.AssemblyReference.cache
+D:\Office\AzureCloud\VMS CO Upgrade2 desk and security\Trump\obj\Release\Trump.csproj.CoreCompileInputs.cache
+D:\Office\AzureCloud\VMS CO Upgrade2 desk and security\Trump\obj\Release\Trump.csproj.CopyComplete
+D:\Office\AzureCloud\VMS CO Upgrade2 desk and security\Trump\obj\Release\Trump.dll
+D:\Office\AzureCloud\VMS CO Upgrade2 desk and security\Trump\obj\Release\Trump.pdb
+D:\Office\Projects\VMSUpdated30-01-25\Trump\bin\Trump.dll.config
+D:\Office\Projects\VMSUpdated30-01-25\Trump\bin\Trump.dll
+D:\Office\Projects\VMSUpdated30-01-25\Trump\bin\Trump.pdb
+D:\Office\Projects\VMSUpdated30-01-25\Trump\bin\roslyn\csc.exe
+D:\Office\Projects\VMSUpdated30-01-25\Trump\bin\roslyn\csc.exe.config
+D:\Office\Projects\VMSUpdated30-01-25\Trump\bin\roslyn\csc.rsp
+D:\Office\Projects\VMSUpdated30-01-25\Trump\bin\roslyn\csi.exe
+D:\Office\Projects\VMSUpdated30-01-25\Trump\bin\roslyn\csi.rsp
+D:\Office\Projects\VMSUpdated30-01-25\Trump\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\Office\Projects\VMSUpdated30-01-25\Trump\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\Office\Projects\VMSUpdated30-01-25\Trump\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+D:\Office\Projects\VMSUpdated30-01-25\Trump\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\Office\Projects\VMSUpdated30-01-25\Trump\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+D:\Office\Projects\VMSUpdated30-01-25\Trump\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\Office\Projects\VMSUpdated30-01-25\Trump\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\Office\Projects\VMSUpdated30-01-25\Trump\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+D:\Office\Projects\VMSUpdated30-01-25\Trump\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+D:\Office\Projects\VMSUpdated30-01-25\Trump\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\Office\Projects\VMSUpdated30-01-25\Trump\bin\roslyn\System.AppContext.dll
+D:\Office\Projects\VMSUpdated30-01-25\Trump\bin\roslyn\System.Collections.Immutable.dll
+D:\Office\Projects\VMSUpdated30-01-25\Trump\bin\roslyn\System.Diagnostics.StackTrace.dll
+D:\Office\Projects\VMSUpdated30-01-25\Trump\bin\roslyn\System.IO.FileSystem.dll
+D:\Office\Projects\VMSUpdated30-01-25\Trump\bin\roslyn\System.IO.FileSystem.Primitives.dll
+D:\Office\Projects\VMSUpdated30-01-25\Trump\bin\roslyn\System.Reflection.Metadata.dll
+D:\Office\Projects\VMSUpdated30-01-25\Trump\bin\roslyn\vbc.exe
+D:\Office\Projects\VMSUpdated30-01-25\Trump\bin\roslyn\vbc.exe.config
+D:\Office\Projects\VMSUpdated30-01-25\Trump\bin\roslyn\vbc.rsp
+D:\Office\Projects\VMSUpdated30-01-25\Trump\bin\roslyn\VBCSCompiler.exe
+D:\Office\Projects\VMSUpdated30-01-25\Trump\bin\roslyn\VBCSCompiler.exe.config
+D:\Office\Projects\VMSUpdated30-01-25\Trump\bin\Antlr3.Runtime.dll
+D:\Office\Projects\VMSUpdated30-01-25\Trump\bin\BouncyCastle.Crypto.dll
+D:\Office\Projects\VMSUpdated30-01-25\Trump\bin\ClosedXML.dll
+D:\Office\Projects\VMSUpdated30-01-25\Trump\bin\DocumentFormat.OpenXml.dll
+D:\Office\Projects\VMSUpdated30-01-25\Trump\bin\EntityFramework.dll
+D:\Office\Projects\VMSUpdated30-01-25\Trump\bin\EntityFramework.SqlServer.dll
+D:\Office\Projects\VMSUpdated30-01-25\Trump\bin\EPPlus.dll
+D:\Office\Projects\VMSUpdated30-01-25\Trump\bin\ExcelNumberFormat.dll
+D:\Office\Projects\VMSUpdated30-01-25\Trump\bin\GridMvc.dll
+D:\Office\Projects\VMSUpdated30-01-25\Trump\bin\itextsharp.dll
+D:\Office\Projects\VMSUpdated30-01-25\Trump\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\Office\Projects\VMSUpdated30-01-25\Trump\bin\Microsoft.Web.Infrastructure.dll
+D:\Office\Projects\VMSUpdated30-01-25\Trump\bin\Newtonsoft.Json.dll
+D:\Office\Projects\VMSUpdated30-01-25\Trump\bin\RestSharp.dll
+D:\Office\Projects\VMSUpdated30-01-25\Trump\bin\Rotativa.dll
+D:\Office\Projects\VMSUpdated30-01-25\Trump\bin\System.IO.Packaging.dll
+D:\Office\Projects\VMSUpdated30-01-25\Trump\bin\System.Net.Http.Formatting.dll
+D:\Office\Projects\VMSUpdated30-01-25\Trump\bin\System.Web.Helpers.dll
+D:\Office\Projects\VMSUpdated30-01-25\Trump\bin\System.Web.Http.dll
+D:\Office\Projects\VMSUpdated30-01-25\Trump\bin\System.Web.Http.WebHost.dll
+D:\Office\Projects\VMSUpdated30-01-25\Trump\bin\System.Web.Mvc.dll
+D:\Office\Projects\VMSUpdated30-01-25\Trump\bin\System.Web.Optimization.dll
+D:\Office\Projects\VMSUpdated30-01-25\Trump\bin\System.Web.Razor.dll
+D:\Office\Projects\VMSUpdated30-01-25\Trump\bin\System.Web.WebPages.Deployment.dll
+D:\Office\Projects\VMSUpdated30-01-25\Trump\bin\System.Web.WebPages.dll
+D:\Office\Projects\VMSUpdated30-01-25\Trump\bin\System.Web.WebPages.Razor.dll
+D:\Office\Projects\VMSUpdated30-01-25\Trump\bin\TrumpCL.dll
+D:\Office\Projects\VMSUpdated30-01-25\Trump\bin\WebGrease.dll
+D:\Office\Projects\VMSUpdated30-01-25\Trump\bin\zxing.dll
+D:\Office\Projects\VMSUpdated30-01-25\Trump\bin\zxing.presentation.dll
+D:\Office\Projects\VMSUpdated30-01-25\Trump\bin\QRCoder.dll
+D:\Office\Projects\VMSUpdated30-01-25\Trump\bin\TrumpCL.pdb
+D:\Office\Projects\VMSUpdated30-01-25\Trump\bin\ClosedXML.pdb
+D:\Office\Projects\VMSUpdated30-01-25\Trump\bin\ClosedXML.xml
+D:\Office\Projects\VMSUpdated30-01-25\Trump\bin\DocumentFormat.OpenXml.xml
+D:\Office\Projects\VMSUpdated30-01-25\Trump\bin\EntityFramework.xml
+D:\Office\Projects\VMSUpdated30-01-25\Trump\bin\EntityFramework.SqlServer.xml
+D:\Office\Projects\VMSUpdated30-01-25\Trump\bin\EPPlus.xml
+D:\Office\Projects\VMSUpdated30-01-25\Trump\bin\ExcelNumberFormat.xml
+D:\Office\Projects\VMSUpdated30-01-25\Trump\bin\itextsharp.xml
+D:\Office\Projects\VMSUpdated30-01-25\Trump\bin\RestSharp.xml
+D:\Office\Projects\VMSUpdated30-01-25\Trump\bin\Newtonsoft.Json.xml
+D:\Office\Projects\VMSUpdated30-01-25\Trump\bin\System.Net.Http.Formatting.xml
+D:\Office\Projects\VMSUpdated30-01-25\Trump\bin\System.Web.Helpers.xml
+D:\Office\Projects\VMSUpdated30-01-25\Trump\bin\System.Web.Http.xml
+D:\Office\Projects\VMSUpdated30-01-25\Trump\bin\System.Web.Http.WebHost.xml
+D:\Office\Projects\VMSUpdated30-01-25\Trump\bin\System.Web.Mvc.xml
+D:\Office\Projects\VMSUpdated30-01-25\Trump\bin\System.Web.Optimization.xml
+D:\Office\Projects\VMSUpdated30-01-25\Trump\bin\System.Web.Razor.xml
+D:\Office\Projects\VMSUpdated30-01-25\Trump\bin\System.Web.WebPages.xml
+D:\Office\Projects\VMSUpdated30-01-25\Trump\bin\System.Web.WebPages.Deployment.xml
+D:\Office\Projects\VMSUpdated30-01-25\Trump\bin\System.Web.WebPages.Razor.xml
+D:\Office\Projects\VMSUpdated30-01-25\Trump\bin\Antlr3.Runtime.pdb
+D:\Office\Projects\VMSUpdated30-01-25\Trump\bin\zxing.pdb
+D:\Office\Projects\VMSUpdated30-01-25\Trump\bin\zxing.xml
+D:\Office\Projects\VMSUpdated30-01-25\Trump\bin\zxing.presentation.pdb
+D:\Office\Projects\VMSUpdated30-01-25\Trump\bin\zxing.presentation.xml
+D:\Office\Projects\VMSUpdated30-01-25\Trump\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\Office\Projects\VMSUpdated30-01-25\Trump\obj\Release\Trump.csproj.AssemblyReference.cache
+D:\Office\Projects\VMSUpdated30-01-25\Trump\obj\Release\Trump.csproj.CoreCompileInputs.cache
+D:\Office\Projects\VMSUpdated30-01-25\Trump\obj\Release\Trump.csproj.Up2Date
+D:\Office\Projects\VMSUpdated30-01-25\Trump\obj\Release\Trump.dll
+D:\Office\Projects\VMSUpdated30-01-25\Trump\obj\Release\Trump.pdb

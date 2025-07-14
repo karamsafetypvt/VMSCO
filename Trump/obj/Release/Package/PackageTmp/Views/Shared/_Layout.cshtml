@@ -1,0 +1,1669 @@
+﻿<!DOCTYPE html>
+<html ng-app="angualarModule">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VMS</title>
+    @Scripts.Render("~/bundles/modernizr")
+    <link rel="icon" href="~/Layout/Images/favicon.png" type="image/x-icon">
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Layout/Css/bootstrap-responsive.min.css" rel="stylesheet" />
+    <link href="~/Content/font-awesome.css" rel="stylesheet" />
+    <link href="~/Content/jquery-ui.css" rel="stylesheet" />
+    <link href="~/Content/sweetalert.css" rel="stylesheet" />
+    <link href="~/datepair/bootstrap-datepicker.css" rel="stylesheet" />
+    <link href="~/datepair/jquery.timepicker.css" rel="stylesheet" />
+    <link href="~/Layout/Css/base-admin-3.css" rel="stylesheet" />
+    <link href="~/Layout/Css/base-admin.css" rel="stylesheet" />
+    <link href="~/Layout/Css/base-admin-3-responsive.css" rel="stylesheet" />
+    <link href="~/Content/css/select2.min.css" rel="stylesheet" />
+    <link href="~/Content/select2.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Layout/Css/custom-dashboard.css" rel="stylesheet" />
+    <link href="~/Layout/Content/fullcalendar.css" rel="stylesheet" />
+    <link href="~/Layout/Css/pages/dashboard.css" rel="stylesheet" />
+    <link href="~/Layout/Css/custom.css" rel="stylesheet" />
+    <script src="~/Layout/WebFormScripts/Common.js"></script>
+    <link href="~/Layout/JS/plugins/msgbox/jquery.msgbox.css" rel="stylesheet" />
+    <link href="~/Layout/Content/menu.css" rel="stylesheet" />
+    <script src="~/Scripts/angular.min.js"></script>
+    <script src="~/Scripts/angular-route.js"></script>
+    <script src="~/Scripts/AngularController.js"></script>
+    <link href="~/Layout/Css/OutwardInwardTable.css" rel="stylesheet" />
+    <style>
+        #container {
+            text-align: center;
+            margin: 0;
+        }
+
+        #qr-canvas {
+            margin: auto;
+            width: calc(100% - 20px);
+            max-width: 400px;
+        }
+
+        #btn-scan-qr {
+            cursor: pointer;
+        }
+
+            #btn-scan-qr img {
+                height: 10em;
+                padding: 15px;
+                margin: 15px;
+                background: white;
+            }
+
+        #qr-result {
+            font-size: 1.2em;
+            margin: 20px auto;
+            padding: 20px;
+            max-width: 700px;
+            background-color: white;
+        }
+
+        #preview {
+            margin-left: -18px !important;
+            margin-top: -26px !important;
+            /*margin-bottom: -40px !important;*/
+            width: 343px !important;
+            height: 231px !important;
+        }
+
+        video {
+            margin-left: -18px !important;
+            margin-top: -26px !important;
+            /*margin-bottom: -40px !important;*/
+            width: 343px !important;
+            height: 231px !important;
+        }
+
+        .imgQR {
+            width: 311px !important;
+            height: 200px !important;
+        }
+
+        .GeneratedCodeQR .img {
+            padding: 20px !important;
+        }
+    </style>
+</head>
+<body>
+    <div class="main" dir="ltr" style="font-size:12px;">
+        <div class="header">
+            <div class="header_resize">
+                <nav class="navbar navbar-inverse" role="navigation">
+                    <div class="container">
+                        <!-- Brand and toggle get grouped for better mobile display -->
+                    </div>
+                    <div id="logindisplay">
+                        <input id="AuthorizationRequestTimeOut" name="AuthorizationRequestTimeOut" value="30" type="hidden">
+
+                        <div class="col-md-12" style="margin: 0px; padding: 0px">
+                            @if (Session["SECURITY"].ToString() == "NO")
+                            {
+                                <div class="col-md-8" style="margin-left: 0%; padding: 0px;">
+                                    <div class="nav navbar-nav navbar-left">
+                                        <img id="imgCompanyLogo" src="~/Layout/Images/karam-LOGO-1.png" alt="" style="margin: 4px" height="60" />
+                                        <div style="float: right; color: black; font-size: 24px; margin-top: 18px; margin-left: 5px;font-weight:bold;">Visitors Management System</div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3" style="margin-left: 0%; padding-right: 0%;">
+                                    <div class="nav navbar-nav navbar-right" style="margin-top: 10px;">
+                                        <div id="UsernameDisplay" style="float: right; color: #FFFFFF; clear: both; margin-right: 15px;">
+                                            <a href="#"></a>
+                                            <a href="#" style="text-decoration:none;">
+                                                Welcome, @Session["NAME"].ToString()
+
+
+
+                                            </a>
+                                            <a href="#">||</a>
+                                            <a href="javascript:;" style="color: #FFFFFF;"></a><a href="/Home/Logout">Logout</a>
+                                        </div>
+
+                                        <div style="clear: both; float: right; color: #FFFFFF; margin-right: 15px; font-size: 15px;">
+                                            @*<a href="javascript:;" style="color: #FFFFFF;"></a><a href="/Home/Logout">Logout</a><br />*@
+                                            <a href="/Home/ChangePassword">Change Password</a>
+                                        </div>
+                                        <div style="clear: both; float: right; color: #FFFFFF; margin-right: 15px; font-size: 15px;">
+                                            @*<a href="javascript:;" style="color: #FFFFFF;"></a><a href="/Home/Logout">Logout</a><br />*@
+                                            <a href="/Home/UpdateEmployeeDetail">Update Employee Detail</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-1 pull-right" style="margin-top: 0.4%;">
+                                    <div style="color: white; width: 50%; font-weight: bold; font-size: 22px; background-color: rgb(192, 44, 41); border-radius: 50%; padding: 5px 37px 5px 10px;">
+                                        @Session["PROFILE"].ToString()
+                                    </div>
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="col-md-12" style="margin: 0px; padding: 0px">
+                                    <div class="col-md-4" style="margin-left: 0%; padding: 0px;">
+                                        <div class="nav navbar-nav navbar-left">
+                                            <img id="imgCompanyLogo" src="~/Layout/Images/karam-LOGO-1.png" alt="" style="margin: 4px" height="60" />
+                                            <div style="float: right; color: black; font-size: 19px; margin-top: 18px;font-weight:bold;">Visitors Management System</div>
+                                        </div>
+                                    </div>
+                                    @if (Session["RoleType"].ToString() == "A")
+                                    {
+                                        <div class="col-md-5 " style="padding:7px;display:inline"></div>
+
+
+                                    }
+                                    else
+                                    {
+                                        <div class="col-md-5 " style="padding:7px;display:inline"></div>
+
+                                    }
+
+                                    <div class="col-md-3 pull-left">
+                                        <div class="nav navbar-nav " style="margin-top: 10px;">
+                                            <div id="UsernameDisplay" style="float: left; color: #FFFFFF; clear: both; margin-right: 15px;">
+                                                <a href="#"></a>
+                                                <a href="#">
+                                                    Welcome,
+                                                    @if (Session["RoleType"] != null)
+                                                    {
+                                                        if (Session["RoleType"].ToString() == "D")
+                                                        {
+                                                            <span>Desk</span>
+                                                        }
+                                                        else if (Session["RoleType"].ToString() == "S")
+                                                        {
+                                                            @*<span>Security</span>*@
+                                                        }
+
+                                                        else if (Session["RoleType"].ToString() == "A")
+                                                        {
+                                                            <span>  @Session["NAME"].ToString()</span>
+                                                        }
+
+
+
+                                                    }
+                                                    else
+                                                    {
+                                                        @Session["NAME"].ToString()
+                                                    }
+
+
+
+                                                    @Session["SITE"].ToString()
+
+                                                </a>
+                                            </div>
+
+                                            <div style="clear: both; float: right; color: #FFFFFF; margin-right: 15px; font-size: 15px;">
+                                                <a href="javascript:;" style="color: #FFFFFF;"></a><a href="/Home/Logout">Logout</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-1 pull-right" style="margin-top: -3%;">
+                                        <div style="color: white; width: 50%; font-weight: bold; font-size: 22px; background-color: rgb(192, 44, 41); border-radius: 50%; padding: 5px 37px 5px 10px;">
+                                            @Session["PROFILE"].ToString()
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </nav>
+            </div>
+            <div>
+                <div class="subnavbar">
+                    <div class="subnavbar-inner">
+                        <div class="">
+                            <a href="javascript:;" class="subnav-toggle" data-toggle="collapse" data-target=".subnav-collapse">
+                                <span class="sr-only">Toggle navigation</span> <i class="plus fa-reorder"></i>
+                            </a>
+                            @if (Session["SECURITY"].ToString() == "NO")
+                            {
+                                <div class="collapse subnav-collapse">
+                                    <ul class="mainnav">
+                                        <li>
+                                            <a href="/Home/Index">
+                                                <span>Dashboard</span>
+                                            </a>
+                                        </li>
+                                        <li class="dropdown">
+                                            <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
+                                                <span>Visitors</span>
+                                                <b class="caret"></b>
+                                            </a>
+                                            <ul class="dropdown-menu">
+                                                <li><a href="../Home/Create">@*Appointment*@Add New Appointment</a></li>
+                                                <li><a href="../Home/Appointment">@*Appointment*@Manage Visitors List</a></li>
+
+                                            </ul>
+                                        </li>
+
+
+
+
+
+
+
+                                        <li class="dropdown">
+                                            <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
+                                                <span>Courier/Logistics</span>
+                                                <b class="caret"></b>
+                                            </a>
+                                            <ul class="dropdown-menu">
+
+
+                                                <li><a href="/Home/DispatchEntry">Outward Packet Entry</a></li>
+
+                                                @*<li><a href="/Home/DispatchListForEmployee">  Manage Outward Packet </a></li>*@
+                                                <li><a href="/Home/couriarListEmployee"> @*My Open Inward Packet*@ Manage Inward Packet</a></li>
+                                                @*<li><a href="/Home/UpdateCouriar">  Update Inward Packet</a></li>*@
+
+
+                                                @if (Session["RoleTypeBothYN"] != null)
+                                                {
+                                                    if (Session["RoleTypeBothYN"].ToString() == "Yes")
+                                                    {
+
+                                                        <li><a href="/Home/DispatchListForSecurityCancel"> Outward Packet Cancel </a></li>
+
+
+                                                    }
+                                                    else
+                                                    {
+
+                                                        <li><a href="/Home/DispatchListForEmployee">  Manage Outward Packet </a></li>
+
+                                                    }
+                                                }
+
+
+
+
+
+                                                @*<li><a href="/Home/DispatchListSecurity"> Dispatch List</a></li>*@
+                                            </ul>
+                                        </li>
+
+
+
+
+
+
+
+                                        <li class="dropdown">
+                                            <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
+                                                <span>Reports</span>
+                                                <b class="caret"></b>
+                                            </a>
+                                            <ul class="dropdown-menu">
+                                                <li><a href="/Home/VisitorReport">Visitors</a></li>
+
+
+                                                <li><a href="/Home/CourierNewReport">Inward Packet  Report</a></li>
+                                                <li><a href="/Home/DispatchNewReport">Outward Packet  Report</a></li>
+                                                @*<li><a href="/Home/SendCourierMail">Send Courier Mail</a></li>*@
+
+
+
+                                            </ul>
+                                        </li>
+                                        @if (Session["RoleType"] != null)
+                                        {
+                                            if (Session["RoleType"].ToString() == "D")
+                                            {
+                                                <li class="dropdown">
+                                                    <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
+                                                        <span>Courier</span>
+                                                        <b class="caret"></b>
+                                                    </a>
+                                                    <ul class="dropdown-menu">
+
+
+
+                                                        <li><a href="/Home/CouriarListAllEmployee"> Intransit Inward Packet </a></li>
+
+                                                    </ul>
+                                                </li>
+
+                                            }
+                                        }
+
+
+
+
+
+
+                                    </ul>
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="collapse subnav-collapse">
+                                    <ul class="mainnav">
+                                        @if (Session["RoleType"].ToString() == "A")
+                                        {
+                                            <li>
+                                                <a href="../Home/ADMIN">
+                                                    <span>Dashboard</span>
+                                                </a>
+                                            </li>
+                                            <li class="dropdown">
+                                                <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
+                                                    <span>Master</span>
+                                                    <b class="caret"></b>
+                                                </a>
+                                                <ul class="dropdown-menu">
+                                                    <li><a href="/Master/VisitorCompany">Company List</a></li>
+                                                    <li><a href="/Master/Visitors">Visitor List</a></li>
+                                                    @*<li><a href="/Master/Approver">Approver</a></li>*@
+                                                    <li><a href="/Master/VisitType">Visit Type</a></li>
+                                                    @*<li><a href="/Master/Site">Site Distance</a></li>*@
+                                                    @*<li><a href="/Master/Template">Massege Template</a></li>*@
+                                                    <li><a href="/Master/DeliveryTimeline">Delivery Timeline</a></li>
+                                                    <li><a href="/Master/CourierCompany">Courier Company</a></li>
+                                                    <li><a href="/Master/MasterEmployeeList">Master Employee List</a></li>
+
+                                                    <li><a href="/Master/Region">Region List</a></li>
+                                                    <li><a href="/Master/RegionDepartment">Region Deparment List</a></li>
+                                                    <li><a href="/Master/WorkingLogin">Working Login</a></li>
+
+                                                </ul>
+                                            </li>
+                                        }
+                                        else
+                                        {
+                                            <li>
+                                                <a href="../Home/Security">
+                                                    <span>Dashboard</span>
+                                                </a>
+                                            </li>
+                                        }
+
+
+
+                                        @if (Session["RoleType"] != null)
+                                        {
+                                            if (Session["RoleType"].ToString() == "D")
+                                            {
+
+
+                                            }
+                                            else
+                                            {
+
+                                                if (Session["RoleType"].ToString() == "S")
+                                                {
+                                                    <li class="dropdown">
+                                                        <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
+                                                            <span>Visitors</span>
+                                                            <b class="caret"></b>
+                                                        </a>
+                                                        <ul class="dropdown-menu">
+                                                            @*<li><a href="../Home/SingleDayPass">Add New Appointment</a></li>*@
+
+                                                            <li><a href="../Home/SingleDayPass">Add New Appointment</a></li>
+                                                            <li><a href="../Home/AppToday">Manage Visitors List</a></li>
+
+
+
+                                                        </ul>
+                                                    </li>
+
+
+
+                                                    <li class="dropdown">
+                                                        <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
+                                                            <span>Employee</span>
+                                                            <b class="caret"></b>
+                                                        </a>
+                                                        <ul class="dropdown-menu">
+
+
+                                                            <li><a href="../Home/employeelist">Employee List</a></li>
+
+
+
+
+                                                        </ul>
+                                                    </li>
+
+
+
+
+
+
+
+
+                                                }
+
+                                            }
+                                        }
+
+
+
+
+
+
+
+
+                                        @if (Session["RoleType"] != null)
+                                        {
+                                            if (Session["RoleType"].ToString() == "S")
+                                            {
+                                                <li class="dropdown">
+                                                    <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
+                                                        <span>@*Courier*@Courier/Logistics</span>
+                                                        <b class="caret"></b>
+                                                    </a>
+                                                    <ul class="dropdown-menu">
+                                                        <li><a href="/Home/couriarEntry"> Inward Packet Entry  </a></li>
+                                                        @*<li><a href="/Home/couriarList">Open Inward Packet List</a></li>jan19
+
+        <li><a href="/Home/CouriarListAllEmployee"> Intransit Inward Packet List</a></li>jan19
+
+        <li><a href="/Home/couriarListReceiver"> Close Inward Packet List</a></li>jan19*@
+                                                        <li><a href="/Home/DispatchListSecurity"> @*Outward Packet*@Manage Outward Packet   </a></li>
+                                                        @if (Session["RoleTypeBothYN"] != null)
+                                                        {
+                                                            if (Session["RoleTypeBothYN"].ToString() == "Yes")
+                                                            {
+                                                                <li><a href="/Home/CouriarListCancel"> Inward Packet Cancel  </a></li>
+                                                                @*<li><a href="/Home/DispatchListForSecurityCancel"> Outward Packet Cancel </a></li>*@
+                                                                <li><a href="/Home/DispatchListforDeskPod">Manage POD </a></li>
+
+                                                            }
+                                                        }
+
+                                                    </ul>
+                                                </li>
+                                            }
+                                        }
+
+
+
+
+
+
+                                        @if (Session["RoleType"] != null)
+                                        {
+                                            if (Session["RoleType"].ToString() == "D")
+                                            {
+                                                <li class="dropdown">
+                                                    <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
+                                                        <span>Courier/Logistics</span>
+                                                        <b class="caret"></b>
+                                                    </a>
+                                                    <ul class="dropdown-menu">
+
+                                                        <li><a href="/Home/couriarList">@*Open*@Manage Inward Packet </a></li>
+
+                                                        @*<li><a href="/Home/CouriarListAllEmployee"> Intransit Inward Packet List</a></li>19jan
+
+        <li><a href="/Home/couriarListReceiver"> Close Inward Packet List</a></li>19jan*@
+
+                                                        @*<li><a href="/Home/DispatchListSecurity"> Outward Packet List</a></li> jan19*@
+
+                                                        <li><a href="/Home/DispatchListforDesk">Manage Outward Packet </a></li>
+                                                        <li><a href="/Home/DispatchListforDeskPod">Manage POD </a></li>
+
+
+                                                    </ul>
+                                                </li>
+
+                                            }
+                                        }
+
+                                        <li class="dropdown">
+                                            <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
+                                                <span>Reports</span>
+                                                <b class="caret"></b>
+                                            </a>
+                                            <ul class="dropdown-menu">
+                                                <li><a href="/Home/VisitorReport">Visitors</a></li>
+
+                                                <li><a href="/Home/CourierNewReport">Inward Packet  Report</a></li>
+                                                <li><a href="/Home/DispatchNewReport">Outward Packet  Report</a></li>
+                                                @*<li><a href="/Home/SendCourierMail">Send Courier Mail</a></li>*@
+
+                                            </ul>
+                                        </li>
+
+                                    </ul>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br />
+        </div>
+    </div>
+    <div>
+        @RenderBody()
+        <hr />
+    </div>
+
+    <div style="text-align:center;">
+
+        Copyrights @@  Karam Safety Pvt. Ltd. All rights reserved.
+    </div>
+    <div class="container">
+        <div class="card">
+            <div class="card-body">
+                <div class="row" id="divBeforeScaned">
+                    <div class="" id="divQRCodeScan" style="display:none;float: left;top: 50px;left: 30%;position: fixed;padding: 50px;background: #00000073;">
+                        <div id="container">
+                            <video id="preview" src="~/wwwroot/QR_Thumbnail2.gif"></video>
+                        </div>
+                        <button class="btn btn-primary" id="btnScanCancel" style="display:none;padding-top:5px">
+                            Cancel
+                        </button>
+                        <div class="col-md-12" id="divQRCodeImg">
+                            <img class="imgQR" src="~/wwwroot/QR_Thumbnail4.gif" />
+                        </div>
+                    </div>
+                </div>
+                <div class="row" id="divGeneratedQrcode" style="display:none">
+                    <div class="col-md-12 text-center"><h5>Exit Pass</h5></div>
+                    <hr />
+                    <div class="col-md-12 GeneratedCodeQR" style="margin-left:25px" id="qrcode"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+
+    <script src="~/Scripts/jquery-ui.js"></script>
+    <script src="~/datepair/bootstrap-datepicker.js"></script>
+    <script src="~/datepair/jquery.timepicker.js"></script>
+    <script src="~/Scripts/select2.js"></script>
+    <script src="~/Scripts/sweetalert.js"></script>
+    <script src="~/Scripts/gridmvc.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $(".dialog-formVisitorAdd").dialog({
+                autoOpen: false,
+                //height: 300,
+                //width: 500,
+
+                height: 360,
+                width: 600,
+                modal: true,
+            });
+            $(".VisitorQuickAdd").click(function () {
+                debugger
+                //alert('7878');
+                var com = $('#divCam option:selected').text();
+                var comV = $('#divCam option:selected').val();
+                $('#fvVisitorCompanyID').val(com);
+                $('#HVisitorCompanyID').val(comV);
+
+                $(".dialog-formVisitorAdd").dialog("open");
+            })
+
+            $("#divCam").change(function () {
+                debugger
+                $('#divVis').empty();
+                var d = $("#divCam").val()
+                $.ajax({
+                    type: "GET",
+                    url: '@Url.Action("GetVisitorData", "Home")',
+                    data: { ID: d },
+                    dataType: "JSON",
+                    success: function (data) {
+                        $(data).each(function () {
+                        $('#divVis').append(
+                            $('<option/>', {
+                                value: this.V_ID
+                            }).html(this.V_Name)
+                        );
+                });
+                    }
+                })
+            })
+
+            //Security company change
+            $("#DivVC").change(function () {
+            debugger
+            var da = $("#DivVC").val()
+            $.ajax({
+                url: '@Url.Action("GetVisitorData", "Home")',
+                datatype: "JSON",
+                data: { ID: da },
+                type: "Get",
+                success: function (data) {
+                    for (var i = 0; i < data.length; i++) {
+                        var s = "<option value='" + data[i].V_ID + "'>" + data[i].V_Name + "</option>";
+                        $("#divVisS").append(s);
+                    }
+                }
+            });
+            })
+
+            $(".dialog-form").dialog({
+                autoOpen: false,
+               // height: 360,
+                height: 375,
+                width: 700,
+                modal: true,
+            });
+            $(".VisitorCompanyQuickAdd").click(function () {
+                $(".dialog-form").dialog("open");
+            })
+
+            $(".divQuestionnaire").dialog({
+                autoOpen: false,
+                title: " Questionnaire",
+                modal: true,
+                width: 600,
+            });
+
+           /* April12-covis  For enable*/
+            //$(".btnShowQuestionnaire").click(function () {
+
+            //    //alert('check');
+            //    //********Photo Validation
+            //    var Imgcheck11 = $("#imgHidden").val();
+
+            //   // var images = $('#imgVisitor').prop('src')
+            //    var images = $('#imgVisitor').attr('src');
+
+
+
+            //    //alert(Imgcheck11);
+            //    //alert(images);
+            //    if (images == undefined && Imgcheck11 == "")
+            //    {
+            //        alert('Please Take Photo');
+            //        return false;
+
+            //    }
+            //    if (images == "../Content/ProfilPic/") {
+            //        if (Imgcheck11 == "")
+            //        {
+            //            alert('Please Take Photo');
+            //            return false;
+
+
+            //        }
+
+
+            //    }
+            //    //*********************
+            //    var pass1 = $("#txtPass").val();
+
+            //    if (pass1 != "") {
+            //        $(".divQuestionnaire").dialog("open");
+            //    }
+            //    else {
+            //        alert('Please Enter pass');
+            //        return false;
+
+            //    }
+            //})
+
+
+
+
+            //April12
+
+
+
+            /* April28-covis  For enable*/
+            $(".btnShowQuestionnaire").click(function () {
+
+                $(".divQuestionnaire").dialog("open");
+            })
+
+
+
+
+            //April28
+
+
+
+
+
+
+
+
+
+
+            $(".dialog-formMeetingLocation").dialog({
+                autoOpen: false,
+                height: 200,
+                width: 300,
+                modal: true,
+            });
+            $(".MeetingLocationQuickAdd").click(function () {
+                $(".dialog-formMeetingLocation").dialog("open");
+            })
+
+            $(".dialog-formVisitType").dialog({
+                autoOpen: false,
+                height: 200,
+                width: 300,
+                modal: true,
+            });
+            $(".VisitTypeQuickAdd").click(function () {
+                $(".dialog-formVisitType").dialog("open");
+            })
+        })
+    </script>
+
+    <script src="~/Scripts/webcam.min.js"></script>
+    <script src="~/wwwroot/js/instascan.min.js"></script>
+    <script src="~/wwwroot/js/barcode.js"></script>
+    <script src="~/wwwroot/js/qrCodeScanner.js"></script>
+
+    <!--scan-->
+    <script type="text/javascript">
+        function txtEntryCodeChange() {
+            debugger
+            var GPval = $('#txtEntryCode').val();
+            if (GPval != undefined) {
+                if (GPval.split('-')[0].toString().toLowerCase() == ("Apt").toLowerCase()) {
+                    $('.modal-dialog').css('width', '70%');
+                }
+                else {
+                    $('.modal-dialog').css('width', '30%');
+                }
+            }
+            var d = $("#txtEntryCode").val();
+            window.location = "../Home/ScanView?scanText=" + d;
+        }
+
+        $('#aboutbtn').click(function () {
+            var position = $('#about').css('right');
+            if (position == "-292px") {
+                $('#about').css('right', "0px");
+                $('#txtEntryCode').css("display", "inline-block");
+                $('#txtEntryCode').focus();
+                $('#txtEntryCode').val("");
+            }
+            else {
+                $('#about').css('right', "-292px");
+                $('#txtEntryCode').focus();
+                $('#txtEntryCode').val("");
+                $('#txtEntryCode').css("display", "none");
+            }
+        });
+
+        var scanner = new Instascan.Scanner({ video: document.getElementById('preview'), scanPeriod: 5, mirror: false });
+        var qrcode = new QRCode("qrcode");
+        $('#txtEntryCode').dblclick(function () {
+            debugger
+            $('#btnScanQR').hide();
+            $('#divQRCodeScan').show();
+            $('#divQRCodeImg').hide();
+            $('#lblQRCodeTxt').text("");
+            $('#btnScanQR').attr('disabled', true)
+            $('#btnScanCancel').show();
+            scanner.addListener('scan', function (content) {
+                Instascan.Camera.getCameras().then(function (cameras) {
+                    if (cameras.length > 0) {
+                        scanner.stop(cameras[0]);
+
+                        GetScanedQRCodeDetail(content);
+
+                    }
+                })
+            });
+            Instascan.Camera.getCameras().then(function (cameras) {
+                if (cameras.length > 0) {
+                    scanner.start(cameras[0]);
+                    $('[name="options"]').on('change', function () {
+                        if ($(this).val() == 1) {
+                            if (cameras[0] != "") {
+                                scanner.start(cameras[0]);
+                            } else {
+                                GetDefault();
+                                alert('No Front camera found!');
+                            }
+                        } else if ($(this).val() == 2) {
+                            if (cameras[1] != "") {
+                                scanner.start(cameras[1]);
+                            } else {
+                                GetDefault();
+                                alert('No Back camera found!');
+                            }
+                        }
+                    });
+                } else {
+                    GetDefault();
+                    console.error('No cameras found.');
+                    alert('No cameras found.');
+                }
+            }).catch(function (e) {
+                GetDefault();
+                console.error(e);
+                alert(e);
+            });
+        })
+        function GetScanedQRCodeDetail(code) {
+            window.location = "../Home/ScanView?scanText=" + code;
+        }
+
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function ($) {
+            if ('True' == 'True') {
+                $("#mySidenav").css("display", "block");
+            }
+            else {
+                $("#mySidenav").css("display", "none");
+            }
+            if ('true' == 'true') {
+                $('#txtEntryCode').css('-ms-user-select', 'element');
+                $('#txtEntryCode').css('-webkit-user-select', 'text');
+                $('#txtEntryCode').css('font-family', 'Verdana');
+            }
+            else {
+                $('#txtEntryCode').bind('cut', function (e) {
+                    e.preventDefault();
+                });
+
+                $('#txtEntryCode').bind('copy', function (e) {
+                    e.preventDefault();
+                });
+
+                $('#txtEntryCode').bind('paste', function (e) {
+                    e.preventDefault();
+                });
+
+                $('#txtEntryCode').css('-ms-user-select', 'none');
+                $('#txtEntryCode').css('-webkit-user-select', 'none');
+                $('#txtEntryCode').css('font-family', 'IDAutomationHC39M');
+            }
+            $('#txtEntryCode').keypress(function (e) {
+                if (e.keyCode == 13) {
+                    txtEntryCodeChange();; // $(this).trigger("enterKey");
+                }
+            });
+            $('txtEntryCode').bind("enterKey", function (e) {
+                txtEntryCodeChange();
+            });
+            $('#mega-menu-tut').dcMegaMenu({
+                rowItems: '3',
+                speed: 'fast'
+            });
+        });
+    </script>
+    <script>
+        $(document).ready(function () {
+            $("#btnScanGO").click(function () {
+                var d = $("#txtEntryCode").val();
+                window.location = "../Home/ScanView?scanText=" + d;
+            })
+            $("#ques_GATEID").click(function () {
+                var ID = $("#ques_GATEID").attr('data-qus')
+                $("#GP_ID_Question").val(ID);
+            })
+            $("#btnQuestion").click(function () {
+                debugger
+                var ID = $("#GP_ID_Question").val();
+                var Q1 = parseFloat($("#txtLabelQuestionQ").val());
+                var Q2 = $("input[id='clscheckbox-2Q2']:checked").val();
+                var Q3 = $("input[id='clscheckbox-3Q3']:checked").val();
+                var Q4 = $("input[id='clscheckbox-4Q4']:checked").val();
+                if (isNaN(Q1)) {
+                    alert('Please fill temperature');
+                }
+                else {
+                    $.ajax({
+                    url: '@Url.Action("Question", "Home")',
+                    type: 'POST',
+                    contenType: 'application/json charset utf-8',
+                    dataType: 'json',
+                    data: { ID: ID, Q1: Q1, Q2: Q2, Q3: Q3, Q4: Q4 },
+                        success: function (data) {
+                        ///---------April28 comment
+                        //if (data == "Exception") {
+                        //    $("#btnSave").show();
+                        //    $("#btnSave").val('Exceptionally IN');
+                        //    $("#btnSave").css('background-color','red');
+                        //    $("#divSavePanel").show();
+                        //    $("#divQuestionnaire").dialog("close");
+                        //}
+                        //else {
+                        //    //$("#btnSave").val('IN');//jan23
+                        //    $("#btnSave").val('Check-in');
+                        //    $("#btnSave").css('background-color','green');
+                        //    $("#btnSave").show();
+                        //    $("#divSavePanel").show();
+                        //    $("#divQuestionnaire").dialog("close");
+                        //}
+
+                            if (data == "Exception") {
+
+                                $("#divQuestionnaire").dialog("close");
+                            }
+                            else {
+
+                                $("#divQuestionnaire").dialog("close");
+                            }
+
+
+
+                            //-------------------
+                    }
+                })
+            }
+        })
+
+            $("#Req_sec").autocomplete({
+
+                source: function (request, response) {
+                    $('#secmbl').val('');
+                    $('#secDept').val('');
+                    $('#EmpSec').val('');
+                    $('#SecEmailId').val('');
+                    $('#secDesc').val('');
+                    $('#txtRegionNew').val('');
+                    $.ajax({
+                        url: '@Url.Action("GetExecutiveData", "Home")',
+                        type: "GET",
+                        dataType: "json",
+                        data: { Prefix: request.term },
+                        success: function (data) {
+                            if (data == "") {
+                                $("#Req_sec").val('');
+                                swal({
+                                    title: "warning",
+                                    text: "Host/Invitee not exist.",
+                                    icon: "warning",
+                                    type: "warning"
+                                });
+                            }
+                            response(data);
+
+                        }
+                    })
+                },
+                select: function (event, ui) {
+                    debugger
+
+                    var txtVal = ui.item.value;
+                    var Code = txtVal.split('/')[0];
+                    var ReqCode = txtVal.split('/')[2];
+                    var Desc = txtVal.split('/')[1];
+                    var Mbl = txtVal.split('/')[5];
+                    var email = txtVal.split('/')[3];
+                    var Descg = txtVal.split('/')[4];
+                    var region = txtVal.split('/')[6];
+                    //alert(Code);
+                    $('#Req_sec').val(Code);
+                    $('#secmbl').val(Mbl);
+                    $('#secDept').val(Desc);
+                    $('#EmpSec').val(ReqCode);
+                    $('#SecEmailId').val(email);
+                    $('#secDesc').val(Descg);
+                    $('#txtRegionNew').val(region);//add feb22
+                },
+                open: function () {
+                    $(this).removeClass("ui-corner-all").addClass("ui-corner-top");
+                },
+                close: function (event, ui) {
+                   // var txtVal = ui.item.value;
+
+                 /*   alert(txtVal);*/
+                    var a = $('#Req_sec').val();
+                    var Code = a.split('/')[0];
+                    $('#Req_sec').val(Code);
+                    $(this).removeClass("ui-corner-top").addClass("ui-corner-all");
+                }
+            })
+            //$("#Req_sec").blur(function () {
+            //    debugger
+            //    var txtVal = $(this).val();
+
+
+            //    var Code = txtVal.split('/')[0]; var ReqCode = txtVal.split('/')[2];
+            //    var Desc = txtVal.split('/')[1]; var Mbl = txtVal.split('/')[5];
+            //    var email = txtVal.split('/')[3]; var Descg = txtVal.split('/')[4];
+            //    var region = txtVal.split('/')[6];//add feb22
+            //   // alert(ReqCode);
+            //    if ($(this).val() == "")
+            //    {
+            //        //('Please enter host name');
+            //        //swal({
+            //        //    title: "warning",
+            //        //    text: " Please enter host name",
+            //        //    icon: "warning",
+            //        //    type: "warning"
+            //        //}, function () {
+
+            //        //});
+
+
+            //        return false;
+            //    }
+            //  else  if (ReqCode == undefined)
+            //    {
+
+            //       // alert($(this).val() + "Host not exists");
+            //        //$('#Req_sec').val('');
+            //        //swal({
+            //        //    title: "warning",
+            //        //    text: " Host not exists",
+            //        //    icon: "warning",
+            //        //    type: "warning"
+            //        //}, function () {
+
+            //        //});
+
+
+
+
+            //    }
+            //    else
+            //    {
+            //        $('#Req_sec').val(Code);
+            //    }
+            //    //$('#Req_sec').val(Code);
+            //    $('#secmbl').val(Mbl);
+            //    $('#secDept').val(Desc); $('#EmpSec').val(ReqCode);
+            //    $('#SecEmailId').val(email); $('#secDesc').val(Descg);
+            //    $('#txtRegionNew').val(region);//add feb22
+
+
+
+
+            //})
+            $("select").select2();
+
+            $.ajax({
+            url: '@Url.Action("GetVisitType", "Home")',
+            type: 'Get',
+            contenType: 'application/json charset utf-8',
+            dataType: 'json',
+                success: function (data) {
+                    for (var i = 0; i < data.length; i++) {
+                    var s = "<option value='" + data[i].VstTpe + "'>" + data[i].VstTpe + "</option>";
+                        $("#VisitTypeID").append(s);
+                        $("#VisitTypeIDS").append(s);
+                        $("#Visitor_Type").append(s);
+                        $("#VisitTypeR").append(s);
+                }
+            }
+        });
+        })
+    </script>
+
+    <link href="~/bootstrap-sweetalert-master/dist/sweetalert.css" rel="stylesheet" />
+    <script src="~/bootstrap-sweetalert-master/dist/sweetalert.js"></script>
+
+
+    @*@if (TempData["createSingleDayPass"] != "")
+        {
+            <script>
+                $(document).ready(function () {
+                    swal({
+                        title: "Alert",
+                        text: "Appointment Created",
+                        icon: "success",
+                        type: "success"
+                    }, function () {
+                        window.location.href = "../Home/Security";
+                    });
+                })
+            </script>
+        }*@
+
+
+    @if (TempData["createSingleDayPass"] != null)
+    {
+
+        if (TempData["createSingleDayPass"].ToString() == "createSingleDayPass")
+        {
+            <script>
+                $(document).ready(function () {
+                    swal({
+                        title: "Alert",
+                        text: "Appointment Created",
+                        icon: "success",
+                        type: "success"
+                    }, function () {
+                        window.location.href = "../Home/Security";
+                    });
+                })
+            </script>
+        }
+        if (TempData["createSingleDayPass"].ToString() == "createSingleDayPassAdmin")
+        {
+            <script>
+                $(document).ready(function () {
+                    swal({
+                        title: "Alert",
+                        text: "Appointment Created",
+                        icon: "success",
+                        type: "success"
+                    }, function () {
+                        window.location.href = "../Home/Admin";
+                    });
+                })
+            </script>
+        }
+
+    }
+
+
+    @if (TempData["create"] != null)
+    {
+        <script>
+            $(document).ready(function () {
+                swal({
+                    title: "Alert",
+                    text: "Appointment created",
+                    icon: "success",
+                    type: "success"
+                }, function () {
+                    window.location.href = "../Home/Appointment";
+                });
+            })
+        </script>
+    }
+    @if (TempData["V_C_notselect"] != null)
+    {
+        <script>
+            $(document).ready(function () {
+                swal({
+                    title: "warning",
+                    text: "Visitor/Company not Selected,please select NA if company is not available",
+                    icon: "warning",
+                    type: "warning"
+                }, function () {
+                    window.location.href = "../Home/Create";
+                });
+            })
+        </script>
+    }
+
+    @if (TempData["V_notselect_security"] != null)
+    {
+        <script>
+            $(document).ready(function () {
+                swal({
+                    title: "warning",
+                    text: "Visitor not Selected",
+                    icon: "warning",
+                    type: "warning"
+                }, function () {
+                    window.location.href = "../Home/SingleDayPass";
+                });
+            })
+        </script>
+    }
+
+    @if (TempData["material"] != null)
+    {
+        <script>
+            $(document).ready(function () {
+                swal({
+                    title: "Alert",
+                    text: "Material outward",
+                    icon: "success",
+                    type: "success"
+                }, function () {
+                    window.location.href = "../Material/ListM";
+                });
+            })
+        </script>
+    }
+    @if (TempData["inward"] != null)
+    {
+        <script>
+            $(document).ready(function () {
+                swal({
+                    title: "Alert",
+                    text: "Material inward",
+                    icon: "success",
+                    type: "success"
+                }, function () {
+                    window.location.href = "../Home/Security";
+                });
+            })
+        </script>
+    }
+    @if (TempData["single"] != null)
+    {
+        <script>
+            $(document).ready(function () {
+                swal({
+                    title: "Success",
+                    text: "Success",
+                    icon: "success",
+                    type: "success"
+                }, function () {
+                    window.location.href = "../Home/Security";
+                });
+            })
+        </script>
+    }
+    @if (TempData["VTnew"] != null)
+    {
+        <script>
+            $(document).ready(function () {
+                swal({
+                    title: "Success",
+                    text: "Success",
+                    icon: "success",
+                    type: "success"
+                }, function () {
+                    window.location.href = "../Master/VisitType";
+                });
+            })
+        </script>
+    }
+    @if (TempData["VTEdit"] != null)
+    {
+        <script>
+            $(document).ready(function () {
+                swal({
+                    title: "Success",
+                    text: "Success",
+                    icon: "success",
+                    type: "success"
+                }, function () {
+                    window.location.href = "../Master/VisitType";
+                });
+            })
+        </script>
+    }
+    @if (TempData["VTdel"] != null)
+    {
+        <script>
+            $(document).ready(function () {
+                swal({
+                    title: "Success",
+                    text: "Success",
+                    icon: "success",
+                    type: "success"
+                }, function () {
+                    window.location.href = "../Master/VisitType";
+                });
+            })
+        </script>
+    }
+    @if (TempData["paranot"] != null)
+    {
+        <script>
+            $(document).ready(function () {
+                swal({
+                    title: "warning",
+                    text: "Parameter not match",
+                    icon: "warning",
+                    type: "warning"
+                }, function () {
+                    window.location.href = "../Master/Template";
+                });
+            })
+        </script>
+    }
+    @if (TempData["materialpending"] != null)
+    {
+        <script>
+            $(document).ready(function () {
+                swal({
+                    title: "warning",
+                    text: "Pending outward not approved",
+                    icon: "warning",
+                    type: "warning"
+                }, function () {
+                    window.location.href = "../Material/ListM";
+                });
+            })
+        </script>
+    }
+    @if (TempData["GPNotFount"] != null)
+    {
+        <script>
+            $(document).ready(function () {
+                swal({
+                    title: "warning",
+                    text: "Appointment ID not found",
+                    icon: "warning",
+                    type: "warning"
+                });
+            })
+        </script>
+    }
+    @if (TempData["ChallenNotFount"] != null)
+    {
+        <script>
+            $(document).ready(function () {
+                swal({
+                    title: "warning",
+                    text: "Challan number not found",
+                    icon: "warning",
+                    type: "warning"
+                });
+            })
+        </script>
+    }
+
+    @if (TempData["CouriarEntry"] != null)
+    {
+        <script>
+            $(document).ready(function () {
+                swal({
+                    title: "Alert",
+                    text: "Courier   Detail Saved ",
+                    icon: "success",
+                    type: "success"
+                }, function () {
+                    window.location.href = "../Home/CouriarEntry";
+                });
+            })
+        </script>
+    }
+    @if (TempData["DispatchEntry"] != null)
+    {
+        <script>
+            $(document).ready(function () {
+                swal({
+                    title: "Alert",
+                    text: "Dispatch Detail Saved ",
+                    icon: "success",
+                    type: "success"
+                }, function () {
+                    window.location.href = "../Home/DispatchEntry";
+                });
+            })
+        </script>
+    }
+
+    @if (TempData["LoginFail"] != null)
+    {
+        <script>
+            $(document).ready(function () {
+                swal({
+                    title: "warning",
+                    text: "Login Failed",
+                    icon: "warning",
+                    type: "warning"
+                });
+            })
+        </script>
+    }
+
+
+
+
+
+    @if (TempData["UpdateEmployeeDetail"] != null)
+    {
+        <script>
+            $(document).ready(function () {
+                swal({
+                    title: "Alert",
+                    text: "Employee Detail  Updated ",
+                    icon: "success",
+                    type: "success"
+                }, function () {
+                    // window.location.href = "../Home/DispatchEntry";
+                });
+            })
+        </script>
+    }
+
+    @if (TempData["EmpUpdate"] != null)
+    {
+        <script>
+            $(document).ready(function () {
+                swal({
+                    title: "Alert",
+                    text: "Employee Detail  Updated ",
+                    icon: "success",
+                    type: "success"
+                }, function () {
+                    window.location.href = "../Master/MasterEmployeeList";
+                });
+            })
+        </script>
+    }
+    @if (TempData["Empcreate"] != null)
+    {
+        <script>
+            $(document).ready(function () {
+                swal({
+                    title: "Alert",
+                    text: "Employee Detail  Saved ",
+                    icon: "success",
+                    type: "success"
+                }, function () {
+                    window.location.href = "../Master/MasterEmployeeList";
+                });
+            })
+        </script>
+    }
+    @if (TempData["RegionInsert"] != null)
+    {
+        <script>
+            $(document).ready(function () {
+                swal({
+                    title: "Alert",
+                    text: "Region Saved Successfully ",
+                    icon: "success",
+                    type: "success"
+                }, function () {
+                    /// window.location.href = "../Master/MasterEmployeeList";
+                });
+            })
+        </script>
+    }
+
+    @if (TempData["RegionUpdate"] != null)
+    {
+        <script>
+            $(document).ready(function () {
+                swal({
+                    title: "Alert",
+                    text: "Region updated Successfully ",
+                    icon: "success",
+                    type: "success"
+                }, function () {
+                    /// window.location.href = "../Master/MasterEmployeeList";
+                });
+            })
+        </script>
+    }
+
+    @if (TempData["WorkingLoginInsert"] != null)
+    {
+        <script>
+            $(document).ready(function () {
+                swal({
+                    title: "Alert",
+                    text: "Login saved successfully ",
+                    icon: "success",
+                    type: "success"
+                }, function () {
+                    /// window.location.href = "../Master/MasterEmployeeList";
+                });
+            })
+        </script>
+    }
+    @if (TempData["WorkingLoginUpdate"] != null)
+    {
+        <script>
+            $(document).ready(function () {
+                swal({
+                    title: "Alert",
+                    text: "Login updated successfully ",
+                    icon: "success",
+                    type: "success"
+                }, function () {
+                    /// window.location.href = "../Master/MasterEmployeeList";
+                });
+            })
+        </script>
+    }
+
+    @if (TempData["EmployeeEmailExists"] != null)
+    {
+        <script>
+            $(document).ready(function () {
+                swal({
+                    title: "warning",
+                    text: "Email already Exists",
+                    icon: "warning",
+                    type: "warning"
+                }, function () {
+                    /// window.location.href = "../Master/MasterEmployeeList";
+                });
+            })
+        </script>
+    }
+    @if (TempData["WorkingLoginNotInsert"] != null)
+    {
+        <script>
+            $(document).ready(function () {
+                swal({
+                    title: "warning",
+                    text: "Login not saved",
+                    icon: "warning",
+                    type: "warning"
+                }, function () {
+                    /// window.location.href = "../Master/MasterEmployeeList";
+                });
+            })
+        </script>
+    }
+
+    @if (TempData["WorkingLoginNotUpdate"] != null)
+    {
+        <script>
+            $(document).ready(function () {
+                swal({
+                    title: "warning",
+                    text: "Login not Updated",
+                    icon: "warning",
+                    type: "warning"
+                }, function () {
+                    /// window.location.href = "../Master/MasterEmployeeList";
+                });
+            })
+        </script>
+    }
+
+    @if (TempData["RegionDepartmentInsert"] != null)
+    {
+        <script>
+            $(document).ready(function () {
+                swal({
+                    title: "Alert",
+                    text: "Department  saved successfully ",
+                    icon: "success",
+                    type: "success"
+                }, function () {
+                    /// window.location.href = "../Master/MasterEmployeeList";
+                });
+            })
+        </script>
+    }
+    @if (TempData["RegionDepartmentUpdate"] != null)
+    {
+        <script>
+            $(document).ready(function () {
+                swal({
+                    title: "Alert",
+                    text: "Department updated  successfully ",
+                    icon: "success",
+                    type: "success"
+                }, function () {
+                    /// window.location.href = "../Master/MasterEmployeeList";
+                });
+            })
+        </script>
+    }
+
+    @if (TempData["NotRegionDepartmentInsert"] != null)
+    {
+        <script>
+            $(document).ready(function () {
+                swal({
+                    title: "warning",
+                    text: "Department not saved",
+                    icon: "warning",
+                    type: "warning"
+                }, function () {
+                    /// window.location.href = "../Master/MasterEmployeeList";
+                });
+            })
+        </script>
+    }
+
+    @if (TempData["NotRegionDepartmentUpdate"] != null)
+    {
+        <script>
+            $(document).ready(function () {
+                swal({
+                    title: "warning",
+                    text: "Department not updated",
+                    icon: "warning",
+                    type: "warning"
+                }, function () {
+                    /// window.location.href = "../Master/MasterEmployeeList";
+                });
+            })
+        </script>
+    }
+
+
+    @if (TempData["CouriarUpdate"] != null)
+    {
+        <script>
+            $(document).ready(function () {
+                swal({
+                    title: "Alert",
+                    text: "Courier   Detail Updated ",
+                    icon: "success",
+                    type: "success"
+                }, function () {
+                    window.location.href = "../Home/couriarList";
+                });
+            })
+        </script>
+    }
+
+    @if (TempData["DispatchUpdate"] != null)
+    {
+        <script>
+            $(document).ready(function () {
+                swal({
+                    title: "Alert",
+                    text: "Dispatch   Detail Updated ",
+                    icon: "success",
+                    type: "success"
+                }, function () {
+                    //window.location.href = "../Home/DispatchListforDesk";
+                });
+            })
+        </script>
+    }
+    @if (TempData["UploadPod"] != null)
+    {
+        <script>
+            $(document).ready(function () {
+                swal({
+                    title: "Alert",
+                    text: "Pod Uploaded",
+                    icon: "success",
+                    type: "success"
+                }, function () {
+                    window.location.href = "../Home/DispatchListforDeskPod";
+                });
+            })
+        </script>
+    }
+
+    
+</body>
+</html>

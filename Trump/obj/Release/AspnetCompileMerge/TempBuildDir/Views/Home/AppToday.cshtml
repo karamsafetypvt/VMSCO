@@ -1,0 +1,119 @@
+﻿@model IEnumerable<Trump.Models.sp_SecurityToday_Result>
+@{
+    ViewBag.Title = "AppToday";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link href="~/Content/Gridmvc.css" rel="stylesheet" />
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script src="~/Scripts/gridmvc.min.js"></script>
+@using GridMvc.Html;
+@using GridMvc.DataAnnotations;
+@using GridMvc.Sorting;
+
+@helper CustomRenderingOfColumn(Trump.Models.sp_SecurityToday_Result item)
+{
+  
+
+
+    if (item.V_Status == "Pre")
+    {
+        @Html.ActionLink("View", "ScanView", new { scanText = item.GPID })
+    }
+    else if (item.V_Status == "Arrived" || item.V_Status == "Request")
+    {
+        @Html.ActionLink("View", "ScanView", new { scanText = item.GPID })
+    }
+    else if (item.V_Status == "Close" || item.V_Status == "OUT")
+    {
+        @Html.ActionLink("View", "ScanView", new { scanText = item.GPID })
+    }
+}
+@helper CustomPostionOfItam(Trump.Models.sp_SecurityToday_Result item)
+{
+    <!--if (item.V_Status == "Pre")
+    {-->
+    @*<span>Pre-Appointment</span>*@
+    <!--<span>Appointment</span>
+    }
+    else if (item.V_Status == "Reject")
+    {
+        <span>Rejected</span>
+    }
+    else if (item.V_Status == "Cancel")
+    {
+        <span>Canceled</span>
+    }
+    else if (item.V_Status == "Arrived" || item.V_Status == "Request")
+    {
+        <span>Visitor IN</span>
+    }
+    else if (item.V_Status == "Close" || item.V_Status == "OUT")
+    {
+        <span>Closed</span>
+    }-->
+
+    if (item.V_Status == "Arrived")
+    {
+        @*<span>Pre-Appointment</span>*@
+        <span>Check-in</span>
+    }
+    else if (item.V_Status == "OUT")
+    {
+        <span>Check-out</span>
+    }
+    else if (item.V_Status == "Reject")
+    {
+        <span>Reject</span>
+    }
+    else if (item.V_Status == "Cancel")
+    {
+        <span>Cancel</span>
+    }
+    else if (item.V_Status == "Pre")
+    {
+        <span>Appointment</span>
+    }
+
+
+}
+
+
+<div class="content" style="font-size:12px;min-height:100%">
+    <div class="content_resize">
+        <div class="mainbar">
+            <div class="article">
+                <div id="accordion">
+                    <h4 class="clsAccordion">
+                        TODAY’S APPOINTMENTS
+                    </h4>
+                </div>
+                <br />
+                <div class="jtable-main-container">
+                    <div class="jtable" id="jtable">
+                        <div class="table table-bordered table-responsive" id="table2">
+                            @Html.Grid(Model).Columns(columns =>
+                       {
+                           columns.Add(c => c.GPID).Titled("Appointment ID").Css("ContentTitle").Filterable(true).Sortable(true);//GP ID
+                           columns.Add(c => c.V_DateFrom).Titled("Date").Format("{0:dd/MMM/yyyy}").Css("ContentTitle").Sortable(true).Filterable(true);
+                           columns.Add(c => c.A_Time).Titled("Time").Css("ContentTitle").Filterable(true).Sortable(true);
+                           columns.Add(c => c.Duration).Titled("Duration").Css("ContentTitle").Sortable(true).Filterable(true);
+                           columns.Add(c => c.CName).Titled("Company").Css("ContentTitle").Sortable(true).Filterable(true);
+                           columns.Add(c => c.V_Name).Titled("Visitor").Css("ContentTitle").Sortable(true).Filterable(true);
+                           columns.Add(c => c.NAME).Titled("Requestor").Css("ContentTitle").Sortable(true).Filterable(true);
+                           columns.Add(c => c.Visitor_Type).Titled("Visit Type").Css("ContentTitle").Sortable(true).Filterable(true);
+                           columns.Add(c => c.V_Status).Titled("Status").Css("ContentTitle").Sortable(true).Encoded(false).Sanitized(false).RenderValueAs(o => CustomPostionOfItam(o)).Filterable(true);
+                           columns.Add().Titled("Action").Css("ContentTitle")
+                                        .Encoded(false)
+                                        .Sanitized(false)
+                                   .RenderValueAs(o => CustomRenderingOfColumn(o));
+                       }).Sortable(true).WithPaging(20)
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

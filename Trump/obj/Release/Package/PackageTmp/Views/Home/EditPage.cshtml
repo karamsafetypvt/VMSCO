@@ -1,0 +1,435 @@
+﻿@model Trump.Models.SecurityModel
+
+@{
+    ViewBag.Title = "EditPage";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="main">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="widget stacked">
+                    <div class="widget-header">
+                        <i class="fa fa-check"></i>
+                        <h3>
+                            Visitor Entry
+                        </h3>
+                    </div>
+                    <form method="post" action="../Home/EditPage" enctype="multipart/form-data">
+                        <input type="hidden" name="hiddenGPID" value="@Model.A.A_ID" />
+                        <div class="widget-content">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <fieldset>
+                                        <legend style="text-align:center;">Invitee Details</legend>
+                                        <div class="form-group">
+                                            <label for="name" class="col-md-8">
+                                                Location/Site
+                                            </label>
+                                            <div class="col-md-10">
+                                                <input class="form-control" readonly value="@Model.A.V_Location" type="text">
+                                            </div>
+                                            <div class="col-md-2">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="name" class="col-md-8">
+                                                Emp Code  <i class="fa fa-asterisk required"></i>
+                                            </label>
+                                            <div class="col-md-10">
+                                                <input class="form-control" readonly value="@Session["PNICODE"]" type="text">
+                                            </div>
+                                            <div class="col-md-2">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="name" class="col-md-8">  Department</label>
+                                            <div class="col-md-10">
+                                                <input class="form-control" value="@Session["DEPT"].ToString()" readonly type="text">
+
+                                            </div>
+                                            <div class="col-md-2">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="name" class="col-md-8">
+                                                Host/Invitee <i class="fa fa-asterisk required"></i>
+                                            </label>
+                                            <div class="col-md-10">
+                                                <input class="form-control" value="@Session["NAME"]" readonly type="text">
+                                            </div>
+                                            <div class="col-md-2">
+                                            </div>
+                                        </div>
+
+
+                                        <div class="form-group">
+                                            <label for="name" class="col-md-8">
+                                                Designation <i class="fa fa-asterisk required"></i>
+                                            </label>
+                                            <div class="col-md-10">
+                                                <input class="form-control" value="@Session["DES"]" readonly type="text">
+                                            </div>
+                                            <div class="col-md-2">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="name" class="col-md-8">
+                                                Mobile/Extension
+                                            </label>
+                                            <div class="col-md-10">
+                                                <input class="form-control" value="@Session["MBL"]" readonly type="text">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="name" class="col-md-8">
+                                                Email-ID
+                                            </label>
+                                            <div class="col-md-10">
+                                                <input class="form-control" value="@Session["EMAIL"]" readonly type="text">
+                                            </div>
+                                            <div class="col-md-2">
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                </div>
+                                <div class="col-md-3">
+                                    <fieldset>
+                                        <legend style="text-align:center;">Visitor Details</legend>
+
+                                        <div class="form-group">
+                                            <label for="name" class="col-md-8">
+                                                Visitor Name <i class="fa fa-asterisk required"></i>
+                                            </label>
+                                            <div class="col-md-10">
+                                                <input class="form-control" value="@ViewBag.VName" readonly type="text">
+                                            </div>
+                                            <div class="col-md-2">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="name" class="col-md-8">
+                                                Mobile Number<i class="fa fa-asterisk required"></i>
+                                            </label>
+                                            <div class="col-md-10">
+                                                <input class="form-control" readonly value="@ViewBag.MBL" type="text">
+                                            </div>
+                                            <div class="col-md-2">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="name" class="col-md-8">Visitor Company <i class="fa fa-asterisk required"></i></label>
+                                            <div class="col-md-10">
+                                                <input class="form-control" readonly value="@ViewBag.Company" type="text">
+                                            </div>
+                                            <div class="col-md-2">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="name" class="col-md-12">ID Type</label>
+                                            <div class="col-md-10">
+                                                <select tabindex="-1" class="form-control select2_group" data-val="true" data-val-number="The field IDProofType must be a number." id="IDProofType" name="IDProofType">
+                                                    <option selected>@ViewBag.VIDType</option>
+                                                    <option>Aadhar</option>
+                                                    <option>Passport</option>
+                                                    <option>Voter ID</option>
+                                                    <option>PAN Card</option>
+                                                    <option>DL</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-md-2">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="name" class="col-md-12">ID Number <i class="fa fa-asterisk required"></i></label>
+                                            <div class="col-md-10">
+                                                <input class="form-control" value="@ViewBag.VID_nmbr" type="text" maxlength="20" name="Vidnumber">
+                                                <span id="ValidationForIDNumber" class="field-validation-error" style="display: none">
+                                                </span><span id="Validationmsg" style="color: red;"></span>
+                                            </div>
+                                            <div class="col-md-2">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="name" class="col-md-8">
+                                                Remarks
+                                            </label>
+                                            <div class="col-md-10">
+                                                <textarea class="form-control textarea" cols="20" maxlength="250" name="Remarks" rows="1">@Model.A.Remark</textarea>
+                                                <span id="ValidationForRemarks" class="field-validation-error" style="display: none">
+                                                </span>
+                                            </div>
+                                            <div class="col-md-2">
+                                            </div>
+                                        </div>
+
+                                        <input name="authorization" style="visibility: hidden" value="popup" checked="checked" type="radio">
+                                    </fieldset>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <fieldset>
+                                        <legend>Visit Specific Detail</legend>
+                                        <div class="form-group">
+                                            <label for="name" class="col-md-8">
+                                                Visit Type
+                                            </label>
+                                            <div class="col-md-10">
+                                                <select tabindex="-1" class="form-control select2_group" name="Visitor_Type" id="Visitor_Type">
+                                                    <option>@Model.A.Visitor_Type</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="name" class="col-md-8">Date <i class="fa fa-asterisk required"></i></label>
+                                            <div class="col-md-10">
+                                                @*<input tabindex="6" class="form-control validate" name="V_DateFrom" id="AppointmentDateString" value="@Model.A.V_DateFrom" type="text">*@
+                                                <input tabindex="6" class="form-control validate" name="V_DateFrom" id="AppointmentDateString" value="@Convert.ToDateTime(Model.A.V_DateFrom).ToString("dd/MMM/yyyy")" type="text">
+                                                
+
+
+                                            </div>
+                                            <div class="col-md-2">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="name" class="col-md-8">Time <i class="fa fa-asterisk required"></i></label>
+                                            <div class="col-md-10">
+                                                <input tabindex="7" autocomplete="OFF" class="form-control" data-val="true" data-val-required="The AppointmentTimeString field is required." id="AppointmentTimeString" name="A_Time" value="@Model.A.A_Time" type="text">
+                                            </div>
+                                            <div class="col-md-2">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="name" class="col-md-12">
+                                                Expected Duration
+                                            </label>
+                                            <div class="col-md-10">
+                                                <select tabindex="-1" class="form-control select2_group" name="Duration">
+                                                    <option>@Model.A.Duration</option>
+                                                    <option>0-2 (hrs)</option>
+                                                    <option>2-4 (hrs)</option>
+                                                    <option> > 4(hrs)</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-md-2">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group" style="display:none;">
+                                            <label for="name" class="col-md-8">
+                                                Card Type <i class="fa fa-asterisk required"></i>
+                                            </label>
+                                            <div class="col-md-10">
+                                                <select tabindex="-1" class="form-control select2_group" name="Location">
+                                                    <option selected>@Model.A.Location</option>
+                                                    <option value="Green">Green(Admin Area)</option>
+                                                    <option value="Red">Red(Production Area)</option>
+                                                    <option value="Yellow">Yellow(All Area)</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-md-1">
+                                            </div>
+                                            <div class="col-md-1">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="name" class="col-md-6">
+                                                Entry Type
+                                            </label>
+                                            <div class="col-md-10">
+                                                @if (Model.A.EntryType == "1")
+                                                {
+                                                    <input type="text" class="form-control" readonly value="Single" />
+                                                }
+                                                else
+                                                {
+                                                    <input type="text" class="form-control" readonly value="Multiple" />
+                                                }
+                                            </div>
+                                        </div>
+                                        @if (Model.A.EntryType == "2")
+                                        {
+                                            <div class="form-group">
+                                                <label for="name" class="col-md-12">
+                                                    To
+                                                </label>
+                                                <div class="col-md-10">
+                                                    <input type="text" name="V_DateTo" id="AppointmentToString" class="form-control" value="@Model.A.V_DateTo" />
+                                                </div>
+                                                <div class="col-md-2">
+                                                </div>
+                                            </div>
+                                        }
+                                    </fieldset>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <fieldset>
+                                                <div class="form-group">
+                                                    <div id="divVisitorPhotoE" style="margin-left: 15px;">
+                                                        <br>
+                                                        @if (ViewBag.Pic == null)
+                                                        {
+                                                            <img src="~/Layout/Images/person.jpg" width="150" height="150" />
+                                                        }
+                                                        else
+                                                        {
+                                                            <img src="../Content/ProfilPic/@ViewBag.Pic" id="imgVisitorPhotoE" width="200" height="200">
+                                                        }
+                                                        <br>
+                                                    </div>
+                                                </div>
+                                            </fieldset>
+                                        </div>
+
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <fieldset>
+                                                <legend>User Defined Feilds</legend>
+                                                <div class="form-group">
+                                                    <div class="col-md-12">
+                                                        <div style="border: 1px solid; height: 132px; padding: 5px; width: 100%; overflow: auto;
+                                                        border-color: #d3d3d3;">
+                                                            @if (Model.M.Count > 0)
+                                                            {
+                                                                <table class="table table-bordered" width="100%">
+                                                                    <tr>
+                                                                        <td>
+                                                                            Name
+                                                                        </td>
+                                                                        <td>
+                                                                            Serial No
+                                                                        </td>
+                                                                    </tr>
+                                                                    @foreach (var item in Model.M)
+                                                                    {
+                                                                        <tr>
+                                                                            <td>@item.M_Name</td>
+                                                                            <td>@item.Serial_No</td>
+                                                                        </tr>
+                                                                    }
+                                                                </table>
+                                                            }
+                                                            else
+                                                            {
+                                                                <table class="table table-bordered" width="100%">
+                                                                    <tbody>
+                                                                        <tr>
+                                                                            <td>
+                                                                                Name
+                                                                            </td>
+                                                                            <td>
+                                                                                Serial No
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>
+                                                                                <input name="chkselectedmaterial" type="checkbox"> Laptop
+                                                                            </td>
+                                                                            <td>
+                                                                                <input name="txtmaterial" id="txtmaterial" maxlength="20" class="form-control" type="text">
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>
+                                                                                <input name="chkselectedmaterial" type="checkbox">Tool Box
+                                                                            </td>
+                                                                            <td>
+                                                                                <input name="txtmaterial" id="txtmaterial" maxlength="20" class="form-control" type="text">
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>
+                                                                                <input name="chkselectedmaterial" type="checkbox"> Media Device
+                                                                            </td>
+                                                                            <td>
+                                                                                <input name="txtmaterial" class="form-control" maxlength="20" type="text">
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>
+                                                                                <input name="chkselectedmaterial" type="checkbox"> Storage Device
+                                                                            </td>
+                                                                            <td>
+                                                                                <input name="txtmaterial" class="form-control" maxlength="20" type="text">
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>
+                                                                                <input name="chkselectedmaterial" type="checkbox"> Any Other Device
+                                                                            </td>
+                                                                            <td>
+                                                                                <input name="txtmaterial" class="form-control"  maxlength="20" type="text">
+                                                                            </td>
+                                                                        </tr>
+
+                                                                    </tbody>
+                                                                </table>
+                                                            }
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </fieldset>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr />
+                            <div class="row">
+                                <div style="padding-left: 20px" class="col-md-offset-10">
+                                    <div style="float: left;padding-left: 4px; ">
+                                        <a href="/Home/Appointment" class="btn btn-default">Back</a>
+                                    </div>
+                                    <div id="divSavePanel" style="float: left;padding-left: 4px;">
+                                        @if (Model.A.V_Status == "Pre")
+                                        {
+                                            <input class="btn btn-info" value="Submit" type="submit">
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script>
+    $(document).ready(function () {
+       
+        //$("#AppointmentToString").datepicker({
+        //    'autoclose': true,
+        //    'startDate': '-0m'
+        //});
+        $(".validate").datepicker({
+            'autoclose': true,
+          /*  'endDate': '-0m',*/
+            'format': 'dd/M/yyyy'
+        });
+    })
+    
+</script>
+
+<script>
+    $(document).ready(function () {
+        $("#AppointmentTimeString").timepicker({
+            'showDuration': true,
+            'timeFormat': 'g:ia',
+            'minTime': '09',
+            'maxTime': '6:00pm',
+        });
+    })
+</script>
+
+

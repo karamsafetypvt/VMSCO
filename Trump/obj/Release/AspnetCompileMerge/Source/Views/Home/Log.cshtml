@@ -1,0 +1,109 @@
+﻿@model IEnumerable<Trump.Models.ExceptionLogger>
+@{
+    ViewBag.Title = "Log Detail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style type="text/css">
+
+
+    .IconsSize {
+        display: inline-block;
+        font: normal normal normal 14px/1 FontAwesome;
+        text-rendering: auto;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        display: inline-block;
+        font-size: 30px;
+        vertical-align: middle;
+    }
+</style>
+<link href="~/Content/Gridmvc.css" rel="stylesheet" />
+
+@using GridMvc.Html;
+@using GridMvc.DataAnnotations;
+@using GridMvc.Sorting;
+
+
+<div class="content" style="font-size:12px;min-height:100%">
+    <div class="content_resize">
+        <div class="mainbar">
+            <div class="article">
+                <style type="text/css">
+                    #accordion div {
+                        display: none;
+                    }
+                    .hidecol {
+                        display: none;
+                    }
+                </style>
+              
+                <div class="col-md-12 text-center">
+                    <form action="/Home/ExportExcelReport" method="post">
+                        <div class="col-md-12 text-left">
+
+                            <div role="tablist" class="ui-accordion ui-widget ui-helper-reset" id="accordion">
+                                <input type="text"  style="display:none;" class="form-control" name="ReportType" value="Log" id="ReportType" />
+                                <h1 tabindex="0" aria-selected="false" aria-controls="ui-accordion-accordion-panel-0" id="ui-accordion-accordion-header-0" role="tab" class="clsAccordion ui-accordion-header ui-helper-reset ui-state-default ui-corner-all ui-accordion-icons">
+                                  
+                                    <input type="hidden" id="urlHidden" name="urlHidden" value="notcall" />
+                                    <b>Log Detail </b>
+
+
+
+                                    <button type="submit" style="background: none; border: none; text-align: right; margin-left: 80%; display: none;">
+                                        <i class="IconsSize fa-file-excel-o " style="color:#1D6F42;"></i>
+                                    </button>
+                                </h1>
+                            </div>
+                            <div id="VisitorCompanyTableContainer">
+                                <div class="jtable-main-container">
+                                    <div class="jtable" id="jtable">
+                                        <div class="table table-bordered table-responsive" id="table2">
+                                            @Html.Grid(Model).Columns(columns =>
+                                       {
+
+
+                                           columns.Add(c => c.EXID).Titled("ID").Filterable(true).Sortable(true).Css("ContentTitle");
+                                           columns.Add(c => c.ExceptionMessage).Titled("ExceptionMessage").Css("ExceptionMessage").Filterable(true).Sortable(true);
+                                           columns.Add(c => c.ExceptionStackTrace).Titled("ExceptionStackTrace").Filterable(true).Sortable(true).Css("ExceptionStackTrace");
+                                           columns.Add(c => c.ControllerName).Titled("ControllerName").Filterable(true).Sortable(true).Css("ControllerName");
+
+                                           columns.Add(c => c.LogTime).Titled("LogTime").Css("LogTime").Sortable(true).Filterable(true);
+                                           columns.Add(c => c.IPAddress).Titled("IPAddress").Css("IPAddress").Sortable(true).Filterable(true);
+
+                                         
+                                       }).Sortable(true).WithPaging(10)
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </form>
+
+                        <div class="col-md-3 text-center">
+
+                          
+                        </div>
+
+                </div>
+              
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+
+
+
+
+
+
+
+
+
+

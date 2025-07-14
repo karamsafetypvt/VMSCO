@@ -1,0 +1,239 @@
+﻿@model IEnumerable<TrumpCL.DataFieldCourier>
+
+<style>
+    table tr td {
+        border: 1px solid black
+    }
+
+    table tr th {
+        /*color: white;*/
+        border: 1px solid black
+    }
+</style>
+<div>
+    <div>
+      
+            <table class="table table-bordered table-responsive bordered" id="tableToExport" style="width:100%;" border="0">
+                <tr style="font-size:14px;background-color:#ab4242;color:white">
+
+                    <th>
+                        Packet ID
+                    </th>
+                    <th>
+                        Docket No.
+                    </th>
+                    <th> Delivery Provider</th>
+                    <th>
+                        Documents
+                    </th>
+                    @if (Session["RoleTypeBothYN"] != null)
+                    {
+                        if (Session["RoleTypeBothYN"].ToString() == "No")
+                        {
+                            <th>Security Check-in (Date & Time)</th>
+
+                            <th>
+                                Security   Remarks
+                            </th>
+                        }
+                        else
+                        {
+                <th>Support Desk Check-in(Date & Time) </th>
+
+                <th>
+                    Desk   Remarks
+                </th>
+
+
+
+                        }
+                    }
+
+                    <th>
+                        Packet TYPE
+                    </th>
+
+
+                    @*<th>
+            Region
+        </th>*@
+                    <th>Department</th>
+                    <th>
+                        Recipient  Name
+                    </th>
+
+
+                    @if (Session["RoleTypeBothYN"] != null)
+                    {
+                        if (Session["RoleTypeBothYN"].ToString() == "No")
+                        {
+                            <th>Support Desk Check-in(Date & Time) </th>
+                            <th>
+                                Desk   Remarks
+                            </th>
+                        }
+                    }
+
+                    <th>Recipient Check-in (Date & Time)</th>
+
+                    <th>
+                        Recipient   Remarks
+                    </th>
+
+                    <th>
+                        Status
+                    </th>
+                    @*<th>
+            Date
+        </th>
+        <th>
+            City
+        </th>
+
+        <th>
+            Receive Time
+        </th>*@
+
+
+                    <th>
+                        Sender Name
+                    </th>
+                    <th>Region</th>
+
+                </tr>
+                @if (Model.Count() != 0)
+                {
+                    foreach (var item in Model)
+                    {
+                        <tr style="font-size:12.5px">
+                            <td>
+                                @Html.DisplayFor(modelItem => item.CouriarId)
+                            </td>
+                            <td>
+                                @item.DocketNo
+                            </td>
+                            <td>
+                                @item.CouriarVendor
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Documents)
+                            </td>
+
+
+
+
+                            <td>
+                                @*@item.TransactionDate.ToString().Replace("1/1/1900 12:00:00 AM", "NA")*@
+                                @Convert.ToDateTime(item.TransactionDate).ToString("dd/MMM/yyyy hh:mm tt")
+
+                            </td>
+                            <td>
+                                @item.Remark 
+                            </td>
+                            <td>
+
+                                @item.PacketType
+
+                            </td>
+                            @*<td>@item.Region</td>*@
+                            <td>@item.Department</td>
+                            <td>
+                                @*@Html.DisplayFor(modelItem => item.NameOfCompany)*@
+                                @Html.DisplayFor(modelItem => item.EmployeeName)
+                            </td>
+                            @*<td>
+        </td>*@
+
+                            @if (Session["RoleTypeBothYN"] != null)
+                            {
+                                if (Session["RoleTypeBothYN"].ToString() == "No")
+                                {
+
+                                    <td>
+
+
+                                        @if (@item.DeskTransDate.ToString() != "1/1/1900 12:00:00 AM")
+                                        {
+
+                                            @Convert.ToDateTime(item.DeskTransDate).ToString("dd/MMM/yyyy hh:mm tt")
+                                        }
+                                        else
+                                        {
+                                            <span>NA</span>
+                                        }
+
+                                    </td>
+
+
+                                    <td>
+                                        @item.DeskRemarks
+                                    </td>
+                                }
+                            }
+
+                                    <td>
+                                        @*@item.EmployeeTransDate.ToString().Replace("1/1/1900 12:00:00 AM", "NA")*@
+                                        @if (@item.EmployeeTransDate.ToString() != "1/1/1900 12:00:00 AM")
+                                        {
+
+                                            @Convert.ToDateTime(item.EmployeeTransDate).ToString("dd/MMM/yyyy hh:mm tt")
+                                        }
+                                        else
+                                        {
+                                            <span>NA</span>
+                                        }
+
+
+
+
+                                    </td>
+                                    <td>
+                                        @item.EmployeeRemark
+                                    </td>
+
+                                    <td>@item.CurrentStatus</td>
+
+
+                                    @*<td>
+                    @Convert.ToDateTime(item.C_Date).ToString("dd/MMM/yyyy")
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.City)
+                </td>
+
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.ReceiveTime)
+                </td>*@
+
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.SenderName)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.AdminRegion)
+                                    </td>
+
+                                </tr>
+                    }
+                }
+                else
+                {
+                    <tr>
+                        <td colspan="11">
+                            <span>No Data found</span>
+                        </td>
+                    </tr>
+                }
+            </table>
+       
+    </div>
+    </div>
+
+<script src="~/Scripts/jquery-3.4.1.js"></script>
+<script type="text/javascript">
+    $(function () {
+        $("#btnExport").click(function () {
+            $("input[name='GridHtml']").val($("#Grid").html());
+        });
+    });
+</script>

@@ -1,0 +1,181 @@
+﻿@*@model IEnumerable<EmployeeCL.DataField>*@
+@*@model Trump.Models.Master_Requestor*@
+
+@model IEnumerable<TrumpCL.DataFieldEmployee>
+@{
+    ViewBag.Title = "Appointment";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link href="~/Content/Gridmvc.css" rel="stylesheet" />
+
+@using GridMvc.Html;
+@using GridMvc.DataAnnotations;
+@using GridMvc.Sorting;
+
+
+
+@helper ADDCOLUMdob(TrumpCL.DataFieldEmployee item)
+{
+    if (item.DATE_OF_BIRTH.ToString() == "01/Jan/1900")
+    {
+        @Convert.ToDateTime(item.DATE_OF_BIRTH).ToString("dd/MMM/yyyy")
+
+    }
+
+    else
+    {
+        @Convert.ToDateTime(item.DATE_OF_BIRTH).ToString("dd/MMM/yyyy")
+    }
+
+}
+
+
+
+
+@helper ADDCOLUMN(TrumpCL.DataFieldEmployee tb)
+{
+    if (tb.Status == "Pre")
+    {
+        <a href="../Home/EditPage?EditID=@tb.Sr_No">
+            <img src="~/Layout/Images/51-512.png" width="30" height="30" />
+        </a>
+    }
+    else
+    {
+        @*@Html.ActionLink("View", "Master_RequestorEdit", new { EditID = tb.Sr_No })*@
+
+        <a href="../Master/Master_EmployeeEdit?EditID=@tb.Sr_No">
+            <img src="~/Layout/Images/51-512.png" width="30" height="30" />
+        </a>
+
+    }
+}
+@helper CustomPostionOfItam(TrumpCL.DataFieldEmployee item)
+{
+    if (item.Status == "Active")
+    {
+        <span>Active</span>
+    }
+    else if (item.Status == "InActive")
+    {
+        <span>InActive</span>
+    }
+    else if (item.Status == "Cancel")
+    {
+        <span>Cancel</span>
+    }
+
+}
+<link href="~/Layout/Css/jtable_jqueryui.css" rel="stylesheet" />
+<link href="~/Layout/Css/jquery.dataTables_themeroller.css" rel="stylesheet" />
+
+<div class="content" style="font-size:12px;min-height:100%">
+    <div class="content_resize">
+        <div class="mainbar">
+            <div class="article">
+                <style type="text/css">
+                    #accordion div {
+                        display: none;
+                    }
+                    .hide{
+                        display: none;
+                    }
+                </style>
+                <div role="tablist" class="ui-accordion ui-widget ui-helper-reset" id="accordion">
+                    <h3 tabindex="0" aria-selected="false" aria-controls="ui-accordion-accordion-panel-0" id="ui-accordion-accordion-header-0" role="tab" class="clsAccordion ui-accordion-header ui-helper-reset ui-state-default ui-corner-all ui-accordion-icons">
+                        <a id="NewVisitorCompany" style="font-size: 15px; font-weight: 400; color: #555;" href="../Master/Master_EmployeeEntry" class="VisitorCompanyQuickAdd">
+                            <img src="~/Layout/Images/NewRecord.png">&nbsp;New
+                        </a> &nbsp; &nbsp; &nbsp;
+                        <!--<a id="DeleteVisitorCompany" href="#" style="font-size: 15px; font-weight: 400; color: rgb(85, 85, 85);" data-toggle="modal" data-target="#myModal">
+                            <img src="~/Layout/Images/Erase.png">&nbsp;-->@*Cancel*@<!--Exit
+                        </a>-->
+                    </h3>
+                </div>
+                <div class="jtable-busy-message"> @*@TempData["error"]*@</div>
+                <div id="VisitorCompanyTableContainer">
+                    <div class="jtable-main-container">
+                        <div class="jtable" id="jtable">
+                            <div class="table table-bordered table-responsive" id="table2">
+                                @Html.Grid(Model).Columns(columns =>
+                           {
+                               columns.Add().Encoded(false).Sanitized(false).Css("hide")
+                               .RenderValueAs(o => Html.CheckBox("checked", false, new { key = o.Sr_No, id = "checked" }));
+
+                               columns.Add().Encoded(false).Sanitized(false).SetWidth(30).RenderValueAs(z => ADDCOLUMN(z));
+                               columns.Add(c => c.Sr_No).Titled("Sr_No").Filterable(true).Sortable(true).Css("ContentTitle");
+                               columns.Add(c => c.EMPLOYEE_ID).Titled("EMPLOYEE ID").Filterable(true).Sortable(true).Css("ContentTitle");
+                               columns.Add(c => c.NAME).Titled("NAME").Filterable(true).Sortable(true).Css("ContentTitle");
+
+                               //columns.Add(c => c.KSS_Department).Titled("KSS_Department").Css("ContentTitle").Filterable(true).Sortable(true);
+                               columns.Add(c => c.DESIGNATION).Titled("DESIGNATION").Css("ContentTitle").Sortable(true).Filterable(true);
+                               columns.Add(c => c.DEPARTMENT).Titled("DEPARTMENT").Css("ContentTitle").Sortable(true).Filterable(true);
+                               columns.Add(c => c.Email_ID).Titled("Email").Css("ContentTitle").Sortable(true).Filterable(true);
+                               columns.Add(c => c.MOBILE_NUMBER).Titled("MOBILE").Css("ContentTitle").Sortable(true).Filterable(true);
+                               //columns.Add(c => c.DATE_OF_BIRTH).Titled("DATE OF BIRTH").Format("{0:dd/MMM/yyyy}").Css("ContentTitle").Sortable(true).Filterable(true);
+
+
+                               //columns.Add(c => c.DATE_OF_JOINING).Titled("DATE OF JOINING").Format("{0:dd/MMM/yyyy}").Css("ContentTitle").Sortable(true).Filterable(true);
+
+                               columns.Add(c => c.Immediate_Supervisor).Titled("Immediate Supervisor").Css("ContentTitle").Sortable(true).Filterable(true);
+                               columns.Add(c => c.HOD).Titled("HOD").Css("ContentTitle").Sortable(true).Filterable(true);
+
+                               columns.Add(c => c.Investment_Declaration_Password).Titled("Extension No").Css("ContentTitle").Sortable(true).Filterable(true);
+                               columns.Add(c => c.Region).Titled("Sitting Region").Css("ContentTitle").Sortable(true).Filterable(true);
+
+                               columns.Add(c => c.ActualRegion).Titled("ActualRegion").Css("ContentTitle").Sortable(true).Filterable(true);
+                               columns.Add(c => c.Status).Titled("Status").Css("ContentTitle").Sortable(true).Encoded(false).Sanitized(false).RenderValueAs(o => CustomPostionOfItam(o)).Filterable(true);
+
+                               
+
+
+
+                           }).Sortable(true).WithPaging(20)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade out" id="myModal" aria-hidden="true" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" id="btnclose" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Alert</h4>
+            </div>
+
+            <form id="contact" action="~/Master/EmployeeCancelEntry" method="post">
+                <input type="hidden" id="delHidden" name="delHidden" />
+                <div class="modal-body">
+                    <label>Are  you want to exit</label>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" id="btnsavedate" class="btn Button">SUBMIT</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script src="~/Layout/Scripts/jtable.2.3.0/jquery.jtable.js"></script>
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#DeleteVisitorCompany').click(function () {
+            $("#myModal").show(function () {
+                var KEY1 = "";
+                $("#table2 input[type=checkbox]:checked").each(function () {
+                    debugger
+                    var KEY = ($(this).closest("tr").find("td").eq(2).text() + ";");
+                    KEY1 = KEY1 + KEY;
+                    // alert(KEY1);
+                    $("#delHidden").val(KEY1)
+                });
+            });
+        })
+    })
+</script>

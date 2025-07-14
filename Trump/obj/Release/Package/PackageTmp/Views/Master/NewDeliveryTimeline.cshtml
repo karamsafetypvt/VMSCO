@@ -1,0 +1,149 @@
+﻿@model IEnumerable<Trump.Models.tblDeliveryTimeline>
+@{
+    ViewBag.Title = "EditCompany";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="content" style="font-size:12px;min-height:100%">
+    <div class="content_resize">
+        <div class="mainbar">
+            <div class="article">
+                <div class="main">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="widget stacked">
+                                    <div class="widget-header">
+                                        <i class="icon-ok"></i>
+                                        <h3>
+                                            Delivery Timeline
+                                        </h3>
+                                    </div>
+                                    <form action="../Master/NewDeliveryTimeline" method="post" enctype="multipart/form-data">
+                                        <input type="hidden" name="hidd" />
+                                        <div class="widget-content">
+                                            <div class="row">
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label for="name" class="col-md-8">
+                                                            Source
+                                                        </label>
+                                                        <div class="col-md-10">
+                                                            <input type="text" name="E_Cname" class="form-control" id="E_Cname"  maxlength="50" onkeypress="return isAlphabt(event)" />
+                                                        </div>
+                                                        <div class="col-md-2">
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label for="name" class="col-md-8">
+                                                            Destination
+                                                        </label>
+                                                        <div class="col-md-10">
+                                                          
+                                                            <input class="form-control" data-val="true" onkeypress="return isAlphabt(event)"  maxlength="50" id="E_Caddress" name="E_Caddress" type="text">
+                                                        </div>
+                                                        <div class="col-md-2">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="name" class="col-md-8">PackageType</label>
+                                                        <div class="col-md-10">
+                                                            @*<input type="text" name="E_Cnum" onkeypress="return CheckPhone(event)" value="@Model.Select(z=>z.PackageType).FirstOrDefault()" class="form-control" />*@
+
+                                                            <select tabindex="-1" class="form-control select2_group ddlIDType" data-val="true" name="E_PackageType">
+
+                                                                <option>Courier</option>
+                                                                <option>Logistics</option>
+                                                            </select>
+
+
+                                                        </div>
+                                                        <div class="col-md-2">
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label for="name" class="col-md-8">Days</label>
+                                                        <div class="col-md-10">
+                                                            <input type="text" name="E_Days" onkeypress="return CheckPhone(event)" maxlength="3" id="E_Days" class="form-control" />
+
+
+
+                                                        </div>
+                                                        <div class="col-md-2">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="name" class="col-md-12">Status</label>
+                                                        <div class="col-md-10">
+                                                            <select tabindex="-1" class="form-control select2_group ddlIDType" data-val="true" name="E_CStatus">
+                                                                @*<option selected>@Model.Select(z => z.Status).FirstOrDefault()</option>*@
+                                                                <option>Active</option>
+                                                                <option>Inactive</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="col-md-2">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <hr>
+
+                                            <div class="row">
+                                                <div class="container">
+                                                    <input class="btn btn-primary btnSave" id="btnSave" value="Save" type="submit">                                                          <input class="btn btn-primary" value="Back" type="button" onclick="goBack()">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="clr">
+        </div>
+    </div>
+</div>
+<script>
+    function goBack() {
+        window.history.back();
+    }
+</script>
+
+
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script>
+    $(document).ready(function () {
+
+       
+     
+        $("#btnSave").click(function () {
+      
+          
+
+
+        
+          
+            if ($("#E_Cname").val() == "") {
+                alert("Please Enter Source");
+                return false;
+            }
+
+            else if ($("#E_Caddress").val() == "") {
+                alert("Please Enter Destination");
+                return false;
+            }
+            else if ($("#E_Days").val() == "") {
+                alert("Please Enter Days");
+                return false;
+            }
+           
+
+        });
+
+
+    })
+</script>

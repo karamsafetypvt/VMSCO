@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SAVIORModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="SAVIOREntities" annotation:LazyLoadingEnabled="true">
+    <FunctionImport Name="sp_HCW" ReturnType="Collection(SAVIORModel.sp_HCW_Result)" />
+  </EntityContainer>
+  <ComplexType Name="sp_HCW_Result">
+    <Property Type="String" Name="paycode" Nullable="false" MaxLength="10" />
+    <Property Type="String" Name="empname" Nullable="true" MaxLength="25" />
+    <Property Type="String" Name="departmentcode" Nullable="true" MaxLength="5" />
+    <Property Type="String" Name="DEPARTMENT" Nullable="false" MaxLength="24" />
+    <Property Type="String" Name="UNIT" Nullable="false" MaxLength="6" />
+    <Property Type="String" Name="Type" Nullable="false" MaxLength="15" />
+    <Property Type="DateTime" Name="dateoffice" Nullable="false" Precision="23" />
+    <Property Type="DateTime" Name="in1" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="out1" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="in2" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="out2" Nullable="true" Precision="23" />
+    <Property Type="String" Name="status" Nullable="true" MaxLength="6" />
+    <Property Type="String" Name="Current_Status" Nullable="false" MaxLength="3" />
+  </ComplexType>
+</Schema>

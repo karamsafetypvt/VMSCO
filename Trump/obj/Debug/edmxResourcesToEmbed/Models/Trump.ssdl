@@ -1,0 +1,152 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TrumpModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="ExceptionLogger">
+    <Key>
+      <PropertyRef Name="EXID" />
+    </Key>
+    <Property Name="EXID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ExceptionMessage" Type="nvarchar(max)" />
+    <Property Name="ExceptionStackTrace" Type="nvarchar(max)" />
+    <Property Name="ControllerName" Type="nvarchar(max)" />
+    <Property Name="LogTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tblAppoinment">
+    <Key>
+      <PropertyRef Name="A_ID" />
+    </Key>
+    <Property Name="A_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="GPID" Type="nvarchar" MaxLength="50" />
+    <Property Name="Requestor" Type="nvarchar" MaxLength="50" />
+    <Property Name="Deptment" Type="nvarchar" MaxLength="50" />
+    <Property Name="ComanyID" Type="int" />
+    <Property Name="VisitorID" Type="int" />
+    <Property Name="Visitor_Type" Type="nvarchar" MaxLength="50" />
+    <Property Name="V_DateFrom" Type="datetime" />
+    <Property Name="A_Time" Type="nvarchar" MaxLength="50" />
+    <Property Name="V_DateTo" Type="datetime" />
+    <Property Name="Duration" Type="nvarchar" MaxLength="50" />
+    <Property Name="V_Location" Type="nvarchar" MaxLength="50" />
+    <Property Name="Remark" Type="nvarchar(max)" />
+    <Property Name="V_Material" Type="bit" />
+    <Property Name="V_Allowed" Type="nvarchar" MaxLength="10" />
+    <Property Name="A_Type" Type="nvarchar" MaxLength="10" />
+    <Property Name="P_Accompanyng" Type="int" />
+    <Property Name="RaiseDate" Type="datetime" />
+    <Property Name="V_InDate" Type="datetime" />
+    <Property Name="V_OutDate" Type="datetime" />
+    <Property Name="Location" Type="nvarchar" MaxLength="25" />
+    <Property Name="V_Status" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tblCompany">
+    <Key>
+      <PropertyRef Name="C_ID" />
+    </Key>
+    <Property Name="C_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CName" Type="nvarchar" MaxLength="100" />
+    <Property Name="Addres" Type="nvarchar" MaxLength="250" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="20" />
+    <Property Name="GST" Type="nvarchar" MaxLength="50" />
+    <Property Name="City" Type="nvarchar" MaxLength="50" />
+    <Property Name="CState" Type="nvarchar" MaxLength="50" />
+    <Property Name="C_Status" Type="nvarchar" MaxLength="10" />
+    <Property Name="PinCode" Type="nvarchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="tblMaterial">
+    <Key>
+      <PropertyRef Name="M_ID" />
+    </Key>
+    <Property Name="M_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="M_Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Serial_No" Type="nvarchar" MaxLength="50" />
+    <Property Name="App_ID" Type="int" />
+  </EntityType>
+  <EntityType Name="tblSite">
+    <Key>
+      <PropertyRef Name="S_ID" />
+    </Key>
+    <Property Name="S_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="L_name" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tblVisitor">
+    <Key>
+      <PropertyRef Name="V_ID" />
+    </Key>
+    <Property Name="V_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="V_Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="V_Phone" Type="nvarchar" MaxLength="25" />
+    <Property Name="V_Email" Type="nvarchar" MaxLength="50" />
+    <Property Name="Visitor_ID" Type="nvarchar" MaxLength="50" />
+    <Property Name="V_IDNumber" Type="nvarchar" MaxLength="50" />
+    <Property Name="V_Pic" Type="nvarchar(max)" />
+    <Property Name="V_Status" Type="nvarchar" MaxLength="50" />
+    <Property Name="C_ID" Type="int" />
+  </EntityType>
+  <EntityType Name="VisitorAcceptance">
+    <Key>
+      <PropertyRef Name="VA_ID" />
+    </Key>
+    <Property Name="VA_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="VisitorID" Type="int" />
+    <Property Name="GatePassID" Type="nvarchar" MaxLength="50" />
+    <Property Name="AccptGate" Type="datetime" />
+    <Property Name="Feedback" Type="int" />
+  </EntityType>
+  <EntityType Name="WorkingLogin">
+    <Key>
+      <PropertyRef Name="W_ID" />
+    </Key>
+    <Property Name="W_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserID" Type="nvarchar" MaxLength="15" />
+    <Property Name="UPassword" Type="nvarchar" MaxLength="15" />
+    <Property Name="WStatus" Type="nvarchar" MaxLength="15" />
+  </EntityType>
+  <Function Name="sp_Company" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Name" Type="nvarchar" Mode="In" />
+    <Parameter Name="Addres" Type="nvarchar" Mode="In" />
+    <Parameter Name="phone" Type="nvarchar" Mode="In" />
+    <Parameter Name="gst" Type="nvarchar" Mode="In" />
+    <Parameter Name="city" Type="nvarchar" Mode="In" />
+    <Parameter Name="pin" Type="nvarchar" Mode="In" />
+    <Parameter Name="state" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_InsertAppointment" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Requestor" Type="nvarchar" Mode="In" />
+    <Parameter Name="Deptment" Type="nvarchar" Mode="In" />
+    <Parameter Name="ComanyID" Type="int" Mode="In" />
+    <Parameter Name="VisitorID" Type="int" Mode="In" />
+    <Parameter Name="Visitor_Type" Type="nvarchar" Mode="In" />
+    <Parameter Name="V_DateFrom" Type="datetime" Mode="In" />
+    <Parameter Name="A_Time" Type="nvarchar" Mode="In" />
+    <Parameter Name="V_DateTo" Type="datetime" Mode="In" />
+    <Parameter Name="Duration" Type="nvarchar" Mode="In" />
+    <Parameter Name="V_Location" Type="nvarchar" Mode="In" />
+    <Parameter Name="Remark" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="V_Material" Type="bit" Mode="In" />
+    <Parameter Name="V_Allowed" Type="nvarchar" Mode="In" />
+    <Parameter Name="A_Type" Type="nvarchar" Mode="In" />
+    <Parameter Name="P_Accompanyng" Type="int" Mode="In" />
+    <Parameter Name="V_InDate" Type="datetime" Mode="In" />
+    <Parameter Name="V_OutDate" Type="datetime" Mode="In" />
+    <Parameter Name="Location" Type="nvarchar" Mode="In" />
+    <Parameter Name="Status" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_visitor" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="V_Name" Type="nvarchar" Mode="In" />
+    <Parameter Name="V_Phone" Type="nvarchar" Mode="In" />
+    <Parameter Name="V_Email" Type="nvarchar" Mode="In" />
+    <Parameter Name="Visitor_ID" Type="nvarchar" Mode="In" />
+    <Parameter Name="V_IDNumber" Type="nvarchar" Mode="In" />
+    <Parameter Name="V_Pic" Type="nvarchar" Mode="In" />
+    <Parameter Name="C_ID" Type="int" Mode="In" />
+  </Function>
+  <EntityContainer Name="TrumpModelStoreContainer">
+    <EntitySet Name="ExceptionLogger" EntityType="Self.ExceptionLogger" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblAppoinment" EntityType="Self.tblAppoinment" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblCompany" EntityType="Self.tblCompany" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblMaterial" EntityType="Self.tblMaterial" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblSite" EntityType="Self.tblSite" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblVisitor" EntityType="Self.tblVisitor" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="VisitorAcceptance" EntityType="Self.VisitorAcceptance" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="WorkingLogin" EntityType="Self.WorkingLogin" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

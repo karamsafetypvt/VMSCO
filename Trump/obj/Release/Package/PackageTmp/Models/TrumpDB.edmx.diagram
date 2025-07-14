@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="5f107e5dd567423da52a9fc19174af5c" Name="Diagram1">
+        <EntityTypeShape EntityType="TrumpModel.ApprovalHOD" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="TrumpModel.DemoFeedback" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="TrumpModel.ExceptionLogger" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="TrumpModel.Item_Material" Width="1.5" PointX="4.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrumpModel.Msgtemplate" Width="1.5" PointX="6.75" PointY="0.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="TrumpModel.tblAppoinment" Width="1.5" PointX="0.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrumpModel.tblApproval" Width="1.5" PointX="6.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrumpModel.tblCompany" Width="1.5" PointX="6.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrumpModel.tblIN_Out" Width="1.5" PointX="8.75" PointY="0.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="TrumpModel.tblMaterial" Width="1.5" PointX="8.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrumpModel.tblMaterialInward" Width="1.5" PointX="2.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrumpModel.tblPO" Width="1.5" PointX="10.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrumpModel.tblPOItem" Width="1.5" PointX="10.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrumpModel.tblQuestion" Width="1.5" PointX="10.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrumpModel.tblSiteDistance" Width="1.5" PointX="4.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrumpModel.tblUOM" Width="1.5" PointX="6.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrumpModel.tblVisitor" Width="1.5" PointX="12.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrumpModel.tblVisitorINOUT" Width="1.5" PointX="12.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrumpModel.VendorData" Width="1.5" PointX="12.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrumpModel.VisitorAcceptance" Width="1.5" PointX="12.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrumpModel.VisitType" Width="1.5" PointX="14.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrumpModel.WorkingLogin" Width="1.5" PointX="0.75" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrumpModel.tblSite" Width="1.5" PointX="2.75" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrumpModel.tblCouriar" Width="1.5" PointX="0.75" PointY="2.75" />
+        <EntityTypeShape EntityType="TrumpModel.tblCouriarHistory" Width="1.5" PointX="5.375" PointY="14.75" />
+        <EntityTypeShape EntityType="TrumpModel.tblPass" Width="1.5" PointX="7.375" PointY="14.75" />
+        <EntityTypeShape EntityType="TrumpModel.tblCCity" Width="1.5" PointX="9.375" PointY="14.75" />
+        <EntityTypeShape EntityType="TrumpModel.tblCDepartment" Width="1.5" PointX="11.375" PointY="14.75" />
+        <EntityTypeShape EntityType="TrumpModel.tblCRegion" Width="1.5" PointX="13.375" PointY="14.75" />
+        <EntityTypeShape EntityType="TrumpModel.tblDeliveryTimeline" Width="1.5" PointX="15.375" PointY="3.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

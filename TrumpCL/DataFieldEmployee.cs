@@ -1,0 +1,46 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Drawing;
+
+namespace TrumpCL
+{
+    public class DataFieldEmployee
+    {
+        public long Sr_No { get; set; }
+        public string EMPLOYEE_ID { get; set; }
+        public string NAME { get; set; }
+        public string KSS_Department { get; set; }
+        public string requestor_key { get; set; }
+        public string DESIGNATION { get; set; }
+        public string DEPARTMENT { get; set; }
+        public Nullable<int> DepartmentID { get; set; }
+        public string Immediate_Supervisor { get; set; }
+        public string Immediate_Supervisor_EMP_ID { get; set; }
+        public string HOD { get; set; }
+        public string HOD_EMP_ID { get; set; }
+        public Nullable<double> MOBILE_NUMBER { get; set; }
+        public Nullable<System.DateTime> DATE_OF_BIRTH { get; set; }
+        public string PAYROLL { get; set; }
+        public Nullable<System.DateTime> DATE_OF_JOINING { get; set; }
+        public string Email_ID { get; set; }
+        public Nullable<double> VPF { get; set; }
+        public Nullable<double> EPF { get; set; }
+        public string PAN_NO_ { get; set; }
+        public Nullable<double> Total_deductions_ { get; set; }
+        public Nullable<double> Yearly_VPF { get; set; }
+        public Nullable<double> Yearly_EPF { get; set; }
+        public string Password { get; set; }
+        public string Status { get; set; }
+        public string UserType { get; set; }
+        public Nullable<bool> InvestmentDeclarationStatus { get; set; }
+        public string Investment_Declaration_Password { get; set; }
+        public string HRMSPassword { get; set; }
+        public string TrumpPassword { get; set; }
+        public Nullable<int> CompanyID { get; set; }
+        public string Region { get; set; }
+        public string ActualRegion { get; set; }
+    }
+
+
+    //------------
+}

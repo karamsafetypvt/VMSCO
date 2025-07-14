@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MasterDatabaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Department">
+    <Key>
+      <PropertyRef Name="D_ID" />
+    </Key>
+    <Property Name="D_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DepartmentName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Region" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Master_Requestor">
+    <Key>
+      <PropertyRef Name="Sr_No" />
+    </Key>
+    <Property Name="Sr_No" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EMPLOYEE_ID" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="NAME" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="KSS_Department" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="requestor_key" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="DESIGNATION" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="DEPARTMENT" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="DepartmentID" Type="Int32" />
+    <Property Name="Immediate_Supervisor" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Immediate_Supervisor_EMP_ID" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="HOD" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="HOD_EMP_ID" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="MOBILE_NUMBER" Type="Double" />
+    <Property Name="DATE_OF_BIRTH" Type="DateTime" Precision="3" />
+    <Property Name="PAYROLL" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="DATE_OF_JOINING" Type="DateTime" Precision="3" />
+    <Property Name="Email_ID" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="VPF" Type="Double" />
+    <Property Name="EPF" Type="Double" />
+    <Property Name="PAN_NO_" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Total_deductions_" Type="Double" />
+    <Property Name="Yearly_VPF" Type="Double" />
+    <Property Name="Yearly_EPF" Type="Double" />
+    <Property Name="Password" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="String" MaxLength="350" FixedLength="false" Unicode="true" />
+    <Property Name="UserType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="InvestmentDeclarationStatus" Type="Boolean" />
+    <Property Name="Investment_Declaration_Password" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="HRMSPassword" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="TrumpPassword" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CompanyID" Type="Int32" />
+    <Property Name="Region" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="MasterCompany">
+    <Key>
+      <PropertyRef Name="MC_ID" />
+    </Key>
+    <Property Name="MC_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CompanyName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="C_Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityContainer Name="MasterDatabaseEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Departments" EntityType="Self.Department" />
+    <EntitySet Name="Master_Requestor" EntityType="Self.Master_Requestor" />
+    <EntitySet Name="MasterCompanies" EntityType="Self.MasterCompany" />
+  </EntityContainer>
+</Schema>

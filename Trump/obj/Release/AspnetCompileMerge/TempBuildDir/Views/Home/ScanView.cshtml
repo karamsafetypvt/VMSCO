@@ -1,0 +1,971 @@
+﻿@model Trump.Models.SecurityModel
+@{
+    ViewBag.Title = "ScanView";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var Approver = ViewBag.Req as IEnumerable<Trump.Models.Master_Requestor>
+    ;
+}
+
+<div class="main">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <form method="post" enctype="multipart/form-data" action="/Home/SecurityAction">
+                    <div class="widget stacked">
+                        <div class="widget-header">
+                            <i class="fa fa-check"></i>
+                            <h3>
+                                Visitor Entry
+                                <input type="text" id="ScantextGPId" name="ScantextGPId" style="display:none;" value="@Model.A.GPID" class="form-control" />
+                            </h3>
+                        </div>
+                        <div class="widget-content">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <fieldset>
+                                        <legend style="text-align:center;">Invitee Details</legend>
+                                        <div class="form-group">
+                                            <label for="name" class="col-md-8">
+                                                Location/Site
+                                            </label>
+                                            <div class="col-md-10">
+                                                <input type="text" readonly value="@Model.A.V_Location" class="form-control" />
+                                                <input type="hidden" id="GPIDH" name="GPID" value="@Model.A.A_ID" />
+                                            </div>
+                                            <div class="col-md-2">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="name" class="col-md-8">
+                                                Emp Code  <i class="fa fa-asterisk required"></i>
+                                            </label>
+                                            <div class="col-md-10">
+                                                <input type="text" readonly value="@Model.A.Requestor" class="form-control" />
+                                            </div>
+                                            <div class="col-md-2">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="name" class="col-md-8">  Department</label>
+                                            <div class="col-md-10">
+                                                <input type="text" readonly value="@ViewBag.Dept" class="form-control" />
+
+                                            </div>
+                                            <div class="col-md-2">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="name" class="col-md-8">
+                                                Host/Invitee <i class="fa fa-asterisk required"></i>
+                                            </label>
+                                            <div class="col-md-10">
+                                                <input class="form-control" readonly value="@Approver.Where(m=>m.EMPLOYEE_ID==Model.A.Requestor).FirstOrDefault().NAME" type="text">
+                                            </div>
+                                            <div class="col-md-2">
+                                            </div>
+                                        </div>
+
+
+                                        <div class="form-group">
+                                            <label for="name" class="col-md-8">
+                                                Designation <i class="fa fa-asterisk required"></i>
+                                            </label>
+                                            <div class="col-md-10">
+                                                <input class="form-control" value="@Approver.Where(m=>m.EMPLOYEE_ID==Model.A.Requestor).FirstOrDefault().DESIGNATION" readonly name="ExtensionNumber" type="text">
+                                            </div>
+                                            <div class="col-md-2">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="name" class="col-md-8">
+                                                Mobile/Extension
+                                            </label>
+                                            <div class="col-md-10">
+                                                <input class="form-control" value="@Approver.Where(m=>m.EMPLOYEE_ID==Model.A.Requestor).FirstOrDefault().MOBILE_NUMBER" type="text" readonly>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="name" class="col-md-8">
+                                                Email-ID
+                                            </label>
+                                            <div class="col-md-10">
+                                                <input class="form-control" value="@Approver.Where(m=>m.EMPLOYEE_ID==Model.A.Requestor).FirstOrDefault().Email_ID" readonly type="text">
+                                            </div>
+                                            <div class="col-md-2">
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                </div>
+                                <div class="col-md-3">
+                                    <fieldset>
+                                        <legend style="text-align:center;">Visitor Details</legend>
+
+                                        <div class="form-group">
+                                            <label for="name" class="col-md-8">
+                                                Visitor Name <i class="fa fa-asterisk required"></i>
+                                            </label>
+                                            <div class="col-md-10">
+                                                <input type="text" value="@Model.V.V_Name" readonly class="form-control" />
+                                            </div>
+                                            <div class="col-md-2">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="name" class="col-md-8">
+                                                Mobile Number<i class="fa fa-asterisk required"></i>
+                                            </label>
+                                            <div class="col-md-10">
+                                                <input class="form-control" name="IDNumber" onkeypress="return CheckPhone(event)" value="@Model.V.V_Phone" maxlength="10" required type="text">
+                                            </div>
+                                            <div class="col-md-2">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="name" class="col-md-8">Visitor Company <i class="fa fa-asterisk required"></i></label>
+                                            <div class="col-md-10">
+                                                <input class="form-control" name="IDNumber" value="@Model.C.CName" readonly type="text">
+                                            </div>
+                                            <div class="col-md-2">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="name" class="col-md-12">ID Type</label>
+                                            <div class="col-md-10">
+                                                <select tabindex="-1" class="form-control select2_group" name="Visitor_ID" required>
+                                                    <option>@Model.V.Visitor_ID</option>
+                                                    <option>Aadhar</option>
+                                                    <option>Passport</option>
+                                                    <option>Voter ID</option>
+                                                    <option>PAN Card</option>
+                                                    <option>DL</option>
+                                                    <option>Company Id</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-md-2">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="name" class="col-md-12">ID Number <i class="fa fa-asterisk required"></i></label>
+                                            <div class="col-md-10">
+                                                <input value="@Model.V.V_IDNumber" maxlength="20" class="form-control" required type="text" name="V_IDNumber">
+                                                <span id="ValidationForIDNumber" class="field-validation-error" style="display: none">
+                                                </span><span id="Validationmsg" style="color: red;"></span>
+                                            </div>
+                                            <div class="col-md-2">
+                                            </div>
+                                        </div>
+
+
+                                        <div class="form-group">
+                                            <label for="name" class="col-md-8">
+                                                Remarks
+                                            </label>
+                                            <div class="col-md-10">
+                                                <textarea class="form-control textarea" cols="20" maxlength="200" name="Remarks" rows="1">@Model.A.Remark</textarea>
+                                                <span id="ValidationForRemarks" class="field-validation-error" style="display: none">
+                                                </span>
+                                            </div>
+                                            <div class="col-md-2">
+                                            </div>
+                                        </div>
+
+                                        <input name="authorization" style="visibility: hidden" value="popup" checked="checked" type="radio">
+                                    </fieldset>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <fieldset>
+                                        <legend>Visit Specific Detail</legend>
+                                        <div class="form-group">
+                                            <label for="name" class="col-md-8">
+                                                Visit Type
+                                            </label>
+                                            <div class="col-md-10">
+                                                <select tabindex="-1" class="form-control select2_group" id="VisitTypeIDS" name="VisitTypeIDS">
+                                                    <option>@Model.A.Visitor_Type</option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="name" class="col-md-12">
+                                                Expected Duration
+                                            </label>
+                                            <div class="col-md-10">
+                                                <select tabindex="-1" class="form-control select2_group" data-val="true" data-val-number="The field MeetingLocationID must be a number." id="MeetingLocationID" name="MeetingLocationID">
+                                                    <option>@Model.A.Duration</option>
+                                                    <option>0-2(hrs)</option>
+                                                    <option>2-4(hrs)</option>
+                                                    <option>> 4(hrs)</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-md-2">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group" style="display:none;">
+                                            <label for="name" class="col-md-8">
+                                                Card Type <i class="fa fa-asterisk required"></i>
+                                            </label>
+                                            <div class="col-md-10">
+                                                <select tabindex="-1" class="form-control select2_group" name="MeetingLocationIDS">
+                                                    <option>@Model.A.Location</option>
+                                                    <option value="Green">Green(Admin Area)</option>
+                                                    <option value="Red">Red(Production Area)</option>
+                                                    <option value="Yellow">Yellow(All Area)</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-md-1">
+                                            </div>
+                                            <div class="col-md-1">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="name" class="col-md-6">
+                                                Date
+                                            </label>
+                                            <div class="col-md-10">
+                                                <input type="text" name="name" value="@Model.A.V_DateFrom.Value.ToString("dd/MMM/yyyy")" readonly class="form-control" />
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="name" class="col-md-6">
+                                                Time
+                                            </label>
+                                            <div class="col-md-10">
+                                                <input type="text" name="name" value="@Model.A.A_Time" readonly class="form-control" />
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="name" class="col-md-6">
+                                                Valid To
+                                            </label>
+                                            <div class="col-md-10">
+                                                <input type="text" name="name" value="@Model.A.V_DateTo.Value.ToString("dd/MMM/yyyy")" readonly class="form-control" />
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="name11" class="col-md-6">
+                                              Vehicle No.
+                                            </label>
+                                            <div class="col-md-10">
+                                                <input type="text" name="name11" value="@Model.A.VehicleNo" readonly class="form-control" />
+                                            </div>
+                                        </div>
+
+
+
+
+                                    </fieldset>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <fieldset>
+                                                <legend>Take Photo</legend>
+                                                <div class="form-group">
+                                                    <input type="hidden" id="imgHidden" name="imgHidden" />
+                                                    @Html.Partial("_ClickedImage")
+                                                    <div id="displayimg" style="text-align: center;">
+                                                        @if (Model.V.V_Pic == null)
+                                                        {
+                                                            <img src="../Layout/Images/person.jpg" width="150" height="150" />
+                                                            <input type="hidden" id="imgHidden" name="imgHidden" />
+                                                        }
+                                                        else
+                                                        {
+                                                            <img id="imgVisitor" alt="Alternate Text" height="200" width="200" src="../Content/ProfilPic/@Model.V.V_Pic" />
+                                                        }
+                                                    </div>
+
+                                                    <div class="col-md-2">
+                                                    </div>
+                                                </div>
+
+                                                @*<a onClick=" closecamera()">
+                                                        <span class="badge pull-right" style="cursor:pointer">Close Camera</span>
+
+
+
+                                                    </a>*@
+
+                                            </fieldset>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <fieldset>
+                                                <legend>User Defined Feilds</legend>
+                                                <div class="form-group">
+
+                                                    <div class="col-md-12">
+                                                        <div style="border: 1px solid; height: 132px; padding: 5px; width: 100%; overflow: auto;
+                                                        border-color: #d3d3d3;">
+                                                            @if (Model.M.Count > 0)
+                                                            {
+                                                                <table class="table table-bordered" width="100%">
+                                                                    <tr>
+                                                                        <td>
+                                                                            Name
+                                                                        </td>
+                                                                        <td>
+                                                                            Serial No
+                                                                        </td>
+                                                                    </tr>
+                                                                    @foreach (var item in Model.M)
+                                                                    {
+                                                                        <tr>
+                                                                            <td>@item.M_Name<input type="hidden" name="visitorItemName" value="@item.M_Name" /></td>
+                                                                            <td><input type="text" name="visitorItem" value="@item.Serial_No" class="form-control" /> </td>
+                                                                        </tr>
+                                                                    }
+                                                                </table>
+                                                            }
+                                                            else
+                                                            {
+                                                                <table id="tblMaterialData" class="table table-bordered" width="100%">
+                                                                    <tbody>
+                                                                        <tr>
+                                                                            <td>
+                                                                                Name
+                                                                            </td>
+                                                                            <td>
+                                                                                Serial No
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>
+                                                                                <input name="chkLP" type="checkbox"> Laptop
+                                                                            </td>
+                                                                            <td>
+                                                                                <input name="txtLP" id="txtmaterial" maxlength="20" class="form-control" type="text">
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>
+                                                                                <input name="chkTB" type="checkbox">Tool Box
+                                                                            </td>
+                                                                            <td>
+                                                                                <input name="txtTB" id="txtmaterial" maxlength="20" class="form-control" type="text">
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>
+                                                                                <input name="chkMD" type="checkbox"> Media Device
+                                                                            </td>
+                                                                            <td>
+                                                                                <input name="txtMD" id="txtmaterial" maxlength="20" class="form-control" type="text">
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>
+                                                                                <input name="chkSD" type="checkbox"> Storage Device
+                                                                            </td>
+                                                                            <td>
+                                                                                <input name="txtSD" id="txtmaterial" maxlength="20" class="form-control" type="text">
+                                                                            </td>
+                                                                        </tr>
+
+                                                                    </tbody>
+                                                                </table>
+                                                            }
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </fieldset>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr />
+                            <div class="row">
+
+                                <div class="col-md-12">
+                                    @if (Model.A.V_Status == "Pre")
+                                    {
+                                        <div class="col-md-2">Pass</div>
+                                        <div class="col-md-3">
+                                            <input type="text" name="txtPass" id="txtPass" maxlength="30" required class="form-control" />
+                                            @*<input type="text" name="txtPassoutchange" id="txtPassoutChange" class="form-control" />*@
+                                            @*<input type="text" name="txtPassoutchange" id="txtPassoutchange" required class="form-control" />*@
+                                        </div>
+                                    }
+                                    else if (Model.A.V_Status == "Arrived" || Model.A.V_Status == "OUT")
+                                    {
+                                        <div class="col-md-2">Pass</div>
+                                        @*<div class="col-md-3"><input type="text" name="txtPass" id="txtPass" value="@ViewBag.pass " disabled  class="form-control" /> </div>*@
+
+                                        <div class="col-md-3">
+                                            <input type="text" name="txtPass" id="txtPass" maxlength="30" value="@ViewBag.pass " class="form-control" style="display:none;" />
+
+                                            <input type="text" name="txtPassout" id="txtPassout" maxlength="30" value="@ViewBag.pass" class="form-control" />
+                                            @*<input type="checkbox" class="edit-userB" name="chkForcelyOut" id="chkForcelyOut" value="" />&nbsp;ForcelyOut*@
+
+
+
+
+
+                                        </div>
+
+
+                                    }
+                                </div>
+
+
+
+                            </div>
+                            <div class="row">
+                                <div style="padding-left: 20px" class="col-md-offset-7">
+                                    @if (Model.A.Valid_at.Contains(Session["LOCATION"].ToString()))
+                                    {
+                                        if (Model.A.V_DateFrom.Value.Date <= DateTime.Today)
+                                        {
+                                            if (Model.A.V_DateTo.Value.Date < DateTime.Today)
+                                            {
+                                                <span style="font-weight:bold;color:red;text-align:center">Appointment Validity Expire</span>
+                                            }
+                                            else
+                                            {
+                                                if (Model.A.V_Status == "Reject")
+                                                {
+                                                    <span style="font-weight:bold;color:red;text-align:center">Appointment Rejected by approving authority</span>
+                                                }
+                                                else
+                                                {
+                                <div id="divSavePanel" style="float: left;padding-left: 4px;">
+                                    @if (Model.A.V_Status == "Pre" || Model.A.V_Status == "OUT")
+                                    {
+                                        if (Model.A.V_Status != "OUT")
+                                        {
+                                            <div style="float: left;">
+                                                @*<i class="fa fa-asterisk required">
+                                                </i>*@
+                                            </div>
+
+                                            <input class="btn btn-primary btnShowQuestionnaire" data-qus="@Model.A.A_ID" name="btnShowQuestionnaire" value="COVID-19  Questionnaire" type="button" id="ques_GATEID" style="display:none1;">@*april12 style="display:none;"1*@
+                                            @*<input id="btnSave" name="btnSave" class="btn btn-success" value="IN" type="submit" >*@
+                                            <input id="btnSave" name="btnSave" class="btn btn-success" value="Check-in" style="width: 125px" data-toggle="modal">///jan23 value="IN"
+                                            <input id="btnReject" name="btnreject" class="btn btn-danger RejectRemarkModel" value="Reject" type="button" data-toggle="modal" data-target="#RejectRemarkModel">
+                                        }
+                                    }
+                                    else if (Model.A.V_Status == "Cancel")
+                                    {
+                                        <span style="font-weight:bold;color:red;text-align:center">Appointment Cancel by @Approver.Where(m => m.EMPLOYEE_ID == Model.A.Requestor).FirstOrDefault().NAME</span>
+                                    }
+                                    else
+                                    {
+                                        if (ViewBag.VisitorAtOtherLocation == "True")
+                                        {
+                                            <span style="font-weight:bold;color:red;text-align:center">VISITOR NOT OUT FROM OTHER LOCATION</span>
+                                        }
+                                        else
+                                        {
+                                            <input id="btnSaveOut" name="btnSave" class="btn btn-success" value="Check-out" type="button">//jan23  value="OUT"
+                                        }
+                                    }
+                                </div>
+                                                }
+                                            }
+                                        }
+                                        else
+                                        {
+                                            <span style="font-weight:bold;color:red;text-align:center">APPOINTMENT DATE DOES NOT MATCH</span>
+                                        }
+                                    }
+                                    else
+                                    {
+                                        <span style="font-weight:bold;color:red;text-align:center">VALID AT @Model.A.Valid_at ONLY</span>
+                                    }
+                                </div>
+                            </div>
+
+
+
+
+                        </div>
+                    </div>
+
+
+
+
+
+                    <div class="modal fade out" id="ExcetionINRemarkModel" aria-hidden="true" role="dialog">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" id="btncloseR" data-dismiss="modal">&times;</button>
+                                    <h4 class="modal-title">Exceptionally IN</h4>
+                                </div>
+
+
+                                <div class="modal-body">
+
+
+                                    <label> Remark</label>
+
+                                    <textarea class="form-control" required name="ExceptionRemarkRemark" maxlength="150" id="ExceptionRemarkRemark" value="NA">NA@*Exceptionally*@</textarea>
+                                </div>
+                                <div class="modal-footer">
+
+
+                                    <input id="btnExceptionRemark" name="btnExceptionRemark" class="btn btn-danger" value="Exceptionally IN" type="submit">
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+
+
+
+
+
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="ui-front divQuestionnaire" id="divQuestionnaire" style="z-index: 2147483647; width: auto;
+        height: auto; display: none; padding-bottom: 60px;">
+        @Html.Partial("_Questionnaire")
+    </div>
+
+</div>
+
+
+<div class="modal fade out" id="RejectRemarkModel" aria-hidden="true" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" id="btncloseR" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Reject</h4>
+            </div>
+
+
+            <div class="modal-body">
+
+
+                <label> Remark</label>
+
+                <textarea class="form-control" required name="rejectRemark" maxlength="150" id="rejectRemark" value="NA">Reject</textarea>
+            </div>
+            <div class="modal-footer">
+
+
+                <input id="btnRejectRemark" name="btnRejectRemark" class="btn btn-danger" value="Reject" type="button">
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<link href="~/bootstrap-sweetalert-master/dist/sweetalert.css" rel="stylesheet" />
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script src="~/bootstrap-sweetalert-master/dist/sweetalert.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        // $("#ques_GATEID").prop('disabled', true);
+        //$("#ques_GATEID").hide();
+
+
+        $("#tblQuestionnaire input[type='radio']").each(function () {
+            if ($(this).prop("checked") == false) {
+                //$("#btnSave").hide();April12//3
+            }
+        })
+    })
+</script>
+
+@if (TempData["notAns"] != null)
+{
+    <script>
+        $(document).ready(function () {
+            swal({
+                title: "Alert",
+                text: "Please fill COVID-19 Questionnaire",
+                icon: "success",
+                type: "success"
+            }, function () {
+                window.location.reload();
+            });
+        })
+    </script>
+}
+@if (TempData["UploadImageINCheck"] != null)
+{
+    <script>
+        $(document).ready(function () {
+            swal({
+                title: "Alert",
+                text: "Please Take Photo",
+                icon: "success",
+                type: "success"
+            }, function () {
+                // window.location.reload();
+            });
+        })
+    </script>
+}
+
+<script>
+    //*************nO NEED CODE(1)-------------
+        @*$("#btnSaveOut").click(function () {
+        debugger;
+        var d = $("#GPIDH").val();
+        var txtPassout = $("#txtPassout").val();
+
+
+            $.ajax({
+                url: '@Url.Action("OutGPID", "Home")',
+                type: "GET",
+                //data: { GPID: d },
+                data: { GPID: d, pass: txtPassout },
+                dataType: "json",
+                contentType: "application/json; charset=utf-8",
+                success: function (data) {
+                    window.location = '../Home/Security'
+                }
+            })
+
+    })*@
+     //*************end nO NEED CODE(1)-------------
+    $("#btnSaveOut").click(function () {
+        debugger;
+        var d = $("#GPIDH").val();
+        var txtPassout = $("#txtPassout").val();
+        var pass1 = $("#txtPassout").val();
+        //-------
+        //**********fORCELYOUT***
+        //if ($("#chkForcelyOut").prop("checked") == false)
+        //{
+        //}
+        //else {
+
+        //    funSaveOut();
+
+        //}
+        //***************
+         $.ajax({
+            url: '@Url.Action("PassExists", "Home")',
+            type: "GET",
+               data: { GPID: d, Pass:pass1 },
+            dataType: "json",
+            contentType: "application/json; charset=utf-8",
+               success: function (data) {
+            //alert(data);
+
+                   if (data == "0") {
+                       swal({
+                           title: "warning",
+                           text: pass1 + " Pass Not IN",
+                           icon: "warning",
+                           type: "warning"
+                       });
+                       $("#txtPassout").val('');
+
+                   }
+                   else
+                   {
+
+                       funSaveOut();
+
+                   }
+
+            }
+         })
+
+
+
+
+        //----------
+
+
+    })
+
+    var funSaveOut = (function () {
+
+        var d = $("#GPIDH").val();
+        var txtPassout = $("#txtPassout").val();
+            $.ajax({
+                url: '@Url.Action("OutGPID", "Home")',
+                type: "GET",
+                //data: { GPID: d },
+                data: { GPID: d, pass: txtPassout },
+                dataType: "json",
+                contentType: "application/json; charset=utf-8",
+                success: function (data) {
+                    window.location = '../Home/Security'
+                }
+            })
+    });
+
+    /*  Added rejectedRemark 2 dec2022*/
+
+    @*$("#btnReject").click(function () {
+        debugger
+        var d = $("#GPIDH").val();
+        $.ajax({
+            url: '@Url.Action("RejectSecurity", "Home")',
+            type: "GET",
+            data: { GPID: d },
+            dataType: "json",
+            contentType: "application/json; charset=utf-8",
+            success: function (data) {
+                window.location='../Home/Security'
+            }
+        })
+    })*@
+    $("#btnRejectRemark").click(function () {
+        debugger
+        var d = $("#GPIDH").val();
+        var rejectRemark = $("#rejectRemark").val();
+
+        if (rejectRemark == "")
+        {
+            alert('Please Enter Remark')
+            return false;
+        }
+
+
+        $.ajax({
+            url: '@Url.Action("RejectSecurityWithRemark", "Home")',
+            type: "GET",
+            data: { GPID: d, Remark:rejectRemark },
+            dataType: "json",
+            contentType: "application/json; charset=utf-8",
+            success: function (data) {
+                window.location = '../Home/Security'
+            }
+        })
+    })
+
+
+
+     $("#btnReject").click(function () {
+         debugger
+
+         var d = $("#GPIDH").val();
+         $("#RejectRemarkModel").show(function () {
+
+
+
+         });
+
+     })
+
+    $("#btnSave").click(function () {
+        debugger
+
+        var d = $("#btnSave").val();
+       // alert(d);
+        if (d == "Exceptionally IN") {
+
+            $("#btnSave").attr("data-target", "#ExcetionINRemarkModel");
+
+            $("#btnSave").attr("type", "button");
+
+
+            $("#ExcetionINRemarkModel").show(function () {
+
+                $("#ExceptionRemarkRemark").val('Exceptionally');
+
+            });
+        }
+        else {
+            $("#btnSave").attr("type", "submit");
+
+
+
+
+        }
+
+    })
+
+
+    $("#btnExceptionRemark").click(function () {
+
+        var ExceptionRemark = $("#ExceptionRemarkRemark").val();
+
+        if (ExceptionRemark == "") {
+            alert('Please Enter  Remark')
+            return false;
+        }
+
+
+
+    });
+
+
+
+    /*  End rejectedRemark 2 dec 2022*/
+
+
+
+    $("#txtPass").change(function () {
+        var d = $("#GPIDH").val();
+        var pass1 = $("#txtPass").val();
+
+           $.ajax({
+            url: '@Url.Action("PassExists", "Home")',
+            type: "GET",
+               data: { GPID: d, Pass:pass1 },
+            dataType: "json",
+               contentType: "application/json; charset=utf-8",
+               async: false,
+               success: function (data) {
+                  // alert(data);
+
+                   if (data == "1") {
+                       swal({
+                           title: "warning",
+                           text: pass1 + " Pass Exists",
+                           icon: "warning",
+                           type: "warning"
+                       });
+                       $("#txtPass").val('');
+
+                   }
+
+            }
+        })
+
+    })
+
+
+</script>
+<script>
+
+
+    $("#txtPassout").change(function ()
+
+    {
+       funcheckPassIN();//no NEED IN AND ALSO CHECK oUT CLICK
+
+
+    })
+
+    var funcheckPassIN = (function () {
+        debugger;
+         var d = $("#GPIDH").val();
+        var pass1 = $("#txtPassout").val();
+       // alert(pass1);
+           $.ajax({
+            url: '@Url.Action("PassExists", "Home")',
+            type: "GET",
+               data: { GPID: d, Pass:pass1 },
+            dataType: "json",
+            contentType: "application/json; charset=utf-8",
+               success: function (data) {
+            //alert(data);
+
+                   if (data == "0") {
+                       swal({
+                           title: "warning",
+                           text: pass1 + " Pass Not IN",
+                           icon: "warning",
+                           type: "warning"
+                       });
+                       //$("#txtPassout").val('');
+                       return 0;
+                   }
+                   else { return 1;}
+
+            }
+        })
+
+
+    });
+
+
+
+    //-----
+
+
+
+
+
+</script>
+
+
+<script language="JavaScript">
+    function closecamera() {
+
+
+
+        var d = $("#ScantextGPId").val();
+
+        window.location = "../Home/ScanView?scanText=" + d;
+
+
+
+    }
+</script>
+
+
+@*//---------April12---For Not covid---2------*@
+<script language="JavaScript">
+    $("#btnSave").click(function () {
+
+      //  alert($("#btnSave").val());
+
+        if ($("#btnSave").val() == "Check-in") {
+        //********Photo Validation
+        var Imgcheck11 = $("#imgHidden").val();
+
+        // var images = $('#imgVisitor').prop('src')
+        var images = $('#imgVisitor').attr('src');
+
+
+
+        //alert(Imgcheck11);
+            //alert(images);
+        //-------comment-22-01-25-----------
+        //if (images == undefined && Imgcheck11 == "") {
+        //    alert('Please Take Photo');
+        //    return false;
+
+        //}
+        //if (images == "../Content/ProfilPic/") {
+        //    if (Imgcheck11 == "") {
+        //        alert('Please Take Photo');
+        //        return false;
+
+
+        //    }
+
+
+        //    }
+        //------------------
+        //*********************
+        var pass1 = $("#txtPass").val();
+
+        if (pass1 != "") {
+           // $(".divQuestionnaire").dialog("open");April12
+        }
+        else {
+            alert('Please Enter pass');
+            return false;
+
+            }
+        }
+    })
+</script>
+
+@*//---------april12*@

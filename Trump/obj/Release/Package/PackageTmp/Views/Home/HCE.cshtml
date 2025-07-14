@@ -1,0 +1,269 @@
+﻿@model IEnumerable<Trump.Models.sp_HCE_Result>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>eNX</title>
+    @Scripts.Render("~/bundles/modernizr")
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Layout/Css/bootstrap-responsive.min.css" rel="stylesheet" />
+    <link href="~/Content/font-awesome.css" rel="stylesheet" />
+    <link href="~/Content/jquery-ui.css" rel="stylesheet" />
+    <link href="~/datepair/bootstrap-datepicker.css" rel="stylesheet" />
+    <link href="~/datepair/jquery.timepicker.css" rel="stylesheet" />
+    <link href="~/Layout/Css/base-admin-3.css" rel="stylesheet" />
+    <link href="~/Layout/Css/base-admin.css" rel="stylesheet" />
+    <link href="~/Layout/Css/base-admin-3-responsive.css" rel="stylesheet" />
+
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Layout/Css/custom-dashboard.css" rel="stylesheet" />
+    <link href="~/Layout/Content/fullcalendar.css" rel="stylesheet" />
+    <link href="~/Layout/Css/OutwardInwardTable.css" rel="stylesheet" />
+    <link href="~/Layout/Css/pages/dashboard.css" rel="stylesheet" />
+    <link href="~/Layout/Css/custom.css" rel="stylesheet" />
+
+    <link href="~/Layout/JS/plugins/msgbox/jquery.msgbox.css" rel="stylesheet" />
+    <link href="~/Layout/Content/menu.css" rel="stylesheet" />
+    <style>
+        .widget-header1 {
+            position: relative;
+            height: 40px;
+            text-align: center;
+            background: #E9E9E9;
+            background: -moz-linear-gradient(top, #FAFAFA 0%, #E9E9E9 100%); /* FF3.6+ */
+            background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#FAFAFA), color-stop(100%,#E9E9E9)); /* Chrome,Safari4+ */
+            background: -webkit-linear-gradient(top, #FAFAFA 0%,#E9E9E9 100%); /* Chrome10+,Safari5.1+ */
+            background: -o-linear-gradient(top, #FAFAFA 0%,#E9E9E9 100%); /* Opera11.10+ */
+            background: -ms-linear-gradient(top, #FAFAFA 0%,#E9E9E9 100%); /* IE10+ */
+            background: linear-gradient(top, #FAFAFA 0%,#E9E9E9 100%); /* W3C */
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FAFAFA', endColorstr='#E9E9E9');
+            -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#FAFAFA', endColorstr='#E9E9E9')";
+            border: 1px solid #D5D5D5;
+            -webkit-border-top-left-radius: 4px;
+            -webkit-border-top-right-radius: 4px;
+            -moz-border-radius-topleft: 4px;
+            -moz-border-radius-topright: 4px;
+            border-top-left-radius: 4px;
+            border-top-right-radius: 4px;
+            -webkit-background-clip: padding-box;
+        }
+
+        table label {
+            font-weight: bold;
+            font-size: 30px;
+            margin: -10px 0px
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main" dir="ltr" style="font-size:12px;">
+        <div class="header">
+            <div class="header_resize">
+                <nav class="navbar navbar-inverse" role="navigation">
+                    <div id="logindisplay">
+                        <input id="AuthorizationRequestTimeOut" name="AuthorizationRequestTimeOut" value="30" type="hidden">
+
+                        <div class="col-md-12" style="margin: 0px; padding: 0px">
+                            <div class="col-md-8" style="margin-left: 0%; padding: 0px;">
+                                <div class="nav navbar-nav navbar-left">
+                                    <img id="imgCompanyLogo" src="~/Layout/Images/karam-LOGO-1.png" alt="" />
+
+                                    <div style="float: right; color: black; font-size: 24px; margin-top: 18px; margin-left: 5px;font-weight:bold;">PN INTERNATIONAL PVT LTD.</div>
+                                </div>
+                            </div>
+                            <br />
+                        </div>
+                    </div>
+                </nav>
+            </div>
+            <br />
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="content">
+            <div class="widget-header1">
+                <label>CONSOLIDATED HEAD COUNT OF EXECUTIVE</label>
+            </div>
+            @*<a class="btn btn-sm" href="../Home/GenerateExcel">Export</a>*@
+            <br />
+            <div class="row">
+                <div class="col-md-3">
+                    <table id="table1" class="table table-bordered table-striped">
+                        <tr>
+                            <th style="font-size:15px">
+                                UNIT-1
+                            </th>
+                            <th>
+                                <label id="lblunit1" class="pull-right"></label>
+                            </th>
+                        </tr>
+                        <tr style="background-color:#cccccc;">
+                            <th>Department</th>
+                            <th>Total Present</th>
+                        </tr>
+                        @foreach (var i in Model.Where(z => z.DeviceShortName.Contains("Unit-1")).Select(z => z.DEPARTMENT).Distinct())
+                        {
+                            <tr>
+                                <td>@i</td>
+                                <td>@Model.Where(z => z.DEPARTMENT == i && z.DeviceShortName.Contains("Unit-1") && z.status == "In").Select(z => z.PNI_code).Count()</td>
+                            </tr>
+                        }
+                    </table>
+                </div>
+
+                <div class="col-md-3">
+                    <table id="table2" class="table table-bordered table-striped">
+                        <tr>
+                            <th style="font-size:15px">
+                                UNIT-2
+                            </th>
+                            <th>
+                                <label id="lblunit2" class="pull-right"></label>
+                            </th>
+                        </tr>
+                        <tr style="background-color:#cccccc;">
+                            <th>Department</th>
+
+                            <th>Total Present</th>
+                        </tr>
+                        @foreach (var i in Model.Where(z => z.DeviceShortName == "Active").Select(z => z.DEPARTMENT).Distinct())
+                        {
+                            <tr>
+                                <td>@i</td>
+                                <td>@Model.Where(z => z.DEPARTMENT == i && z.DeviceShortName =="Active" && z.status == "In").Select(z => z.PNI_code).Count()</td>
+                            </tr>
+                        }
+                    </table>
+                </div>
+                <div class="col-md-3">
+                    <table id="table3" class="table table-bordered table-striped">
+                        <tr>
+                            <th style="font-size:15px">
+                                Unit-3
+                            </th>
+                            <th>
+                                <label id="lblunit3" class="pull-right"></label>
+                            </th>
+                        </tr>
+                        <tr style="background-color:#cccccc;">
+                            <th>Department</th>
+
+                            <th>Total Present</th>
+                        </tr>
+                        @foreach (var i in Model.Where(z => z.DeviceShortName.Contains("Unit-3")).Select(z => z.DEPARTMENT).Distinct())
+                        {
+                            <tr>
+                                <td>@i</td>
+
+                                <td>@Model.Where(z => z.DEPARTMENT == i && z.DeviceShortName.Contains("Unit-3") && z.status == "In").Select(z => z.PNI_code).Count()</td>
+                            </tr>
+                        }
+
+                    </table>
+                </div>
+                <div class="col-md-3">
+                    <table id="table4" class="table table-bordered table-striped">
+                        <tr>
+                            <th style="font-size:15px">
+                                UNIT-4
+                            </th>
+
+                            <th>
+                                <label id="lblunit4" class="pull-right"></label>
+                            </th>
+                        </tr>
+                        <tr style="background-color:#cccccc;">
+                            <th>Department</th>
+
+                            <th>Total Present</th>
+                        </tr>
+                        @foreach (var i in Model.Where(z => z.DeviceShortName.Contains("Unit-4")).Select(z => z.DEPARTMENT).Distinct())
+                        {
+                            <tr>
+                                <td>@i</td>
+
+                                <td>@Model.Where(z => z.DEPARTMENT == i && z.DeviceShortName.Contains("Unit-4") && z.status == "In").Select(z => z.PNI_code).Count()</td>
+                            </tr>
+                        }
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            debugger
+            var total1 = 0;
+            var total2 = 0;
+            var total3 = 0;
+            var total4 = 0;
+            var sum1 = 0;
+            var sum2 = 0;
+            var sum3 = 0;
+            $('#table1 tr td:nth-child(2)').each(function () {
+                var val = $(this).text();
+                if (!isNaN(val) && val.length !== 0) {
+                    total1 += parseFloat(val);
+                }
+            })
+            $('#table2 tr td:nth-child(2)').each(function () {
+                var val = $(this).text();
+                if (!isNaN(val) && val.length !== 0) {
+                    total2 += parseFloat(val);
+                }
+            })
+            $('#table3 tr td:nth-child(2)').each(function () {
+                var val = $(this).text();
+                if (!isNaN(val) && val.length !== 0) {
+                    total3 += parseFloat(val);
+                }
+            })
+            $('#table4 tr td:nth-child(2)').each(function () {
+                var val = $(this).text();
+                if (!isNaN(val) && val.length !== 0) {
+                    total4 += parseFloat(val);
+                }
+            })
+
+            $('#table1 tr td:nth-child(1)').each(function () {
+                var val = $(this).text();
+                if (!isNaN(val) && val.length !== 0) {
+                    sum1 += parseFloat(val);
+                }
+            })
+            $('#table2 tr td:nth-child(1)').each(function () {
+                var val = $(this).text();
+                if (!isNaN(val) && val.length !== 0) {
+                    sum2 += parseFloat(val);
+                }
+            })
+            $('#table3 tr td:nth-child(1)').each(function () {
+                var val = $(this).text();
+                if (!isNaN(val) && val.length !== 0) {
+                    sum3 += parseFloat(val);
+                }
+            })
+
+
+            $("#lblunit1").text(total1);
+            $("#lblunit2").text(total2);
+            $("#lblunit3").text(total3);
+            $("#lblunit4").text(total4);
+
+            $("#txt1").text(sum1);
+            $("#txt2").text(sum2);
+            $("#txt3").text(sum3);
+        });
+    </script>
+</body>
+</html>
